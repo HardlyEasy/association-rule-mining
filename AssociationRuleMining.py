@@ -52,7 +52,7 @@ def sort_csv_data(csv_data):
     return sorted_csv_data
 
 
-def create_transaction_list(csv_data):
+def create_transactions(csv_data):
     """ Creates and returns a transaction list, which contains transactions
     A transaction is [memberNumber,date,numItems,item1,item2,...] it is all
     the items a member has bought on a specific date. Transactions can contain
@@ -88,6 +88,28 @@ def create_transaction_list(csv_data):
     transaction.insert(2, str(num_items))
     transaction_list.append(transaction)
     return transaction_list
+
+
+def remove_duplicates(transactions):
+    """ Takes a transactions list and removes all duplicate grocery items in
+    all transaction elements
+
+    :param transactions: List containing transaction data, with duplicates
+        eg [ ['1702','12-01-2014','3','pip fruit','yogurt','yogurt'], ... ]
+    :type transactions: list
+    :return: Same as input param, except duplicate grocery items removed
+            eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
+    :rtype: list
+    """
+    transactions_no_duplicates = []
+    for t in transactions:
+        items = list(set(t[3:]))  # remove duplicates
+        items = sorted(items)  # sort again (becomes unordered for some reason)
+        new_transaction = t[:3]
+        new_transaction.extend(items)
+        new_transaction[2] = len(new_transaction) - 3  # set new numItems
+        transactions_no_duplicates.append(new_transaction)
+    return transactions_no_duplicates
 
 
 def write_csv(filename, csv_data):
@@ -279,33 +301,17 @@ def main():
     csv_data = csv_data[1:]  # remove field name row
     sorted_csv_data = sort_csv_data(csv_data)
 
-    # Process sorted CSV data into transaction CSV containing duplicates
-    transaction_list_duplicates = create_transaction_list(sorted_csv_data)
-    # write_csv("duplicates.csv", transaction_list_duplicates)
+    # Create transactions list out of sorted csv data
+    # Duplicate CSV items are in this list
+    transactions = create_transactions(sorted_csv_data)
+    write_csv("results/transactions_duplicates.csv", transactions)
+    #  print(transactions)
+    # Remove duplicate csv items from transactions list
+    transactions_no_duplicates = remove_duplicates(transactions)
+    write_csv("results/transactions_no_duplicates.csv",
+              transactions_no_duplicates)
 
     """
-    # =====================================================
-    # Process CSV into transaction CSV with NO duplicates
-    # =====================================================
-    items_in_transaction_list = []  # No duplicates
-    for t in csv_duplicate_list:
-        only_t = list(set(t[3:]))
-        len_only_t = len(only_t)
-        if (len_only_t > highest_num_items_in_trans):
-            highest_num_items_in_trans = len_only_t
-        items_in_transaction_list.append(sorted(only_t))
-    csv_no_duplicate_list = []
-    for i in range(0, len(csv_duplicate_list)):
-        new_t = csv_duplicate_list[i][:3]
-        new_t.extend(items_in_transaction_list[i])
-        new_t[2] = len(new_t) - 3
-        csv_no_duplicate_list.append(new_t)
-    print("HIGHEST_NUM_ITEMS_IN_TRANS=" + str(highest_num_items_in_trans))
-    new_field_list = ["CustomerID", "Date of purchase", "no_of_items(k)"]
-    for i in range(1, highest_num_items_in_trans + 1):
-        new_field_list.append(str(i))
-    writeCsv("Transactions_No_Duplicates.csv", csv_no_duplicate_list,
-             new_field_list)
     # =====================================================
     # Process transactionToItemset list into item_tid_dict
     # Also process into 2-itemset tid dict, over MIN_SUPP
