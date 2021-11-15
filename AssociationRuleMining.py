@@ -1,10 +1,9 @@
-CSV_FNAME = "Groceries_dataset.csv"
-NUM_TRANSACTIONS = 0
-HIGHEST_NUM_ITEMS_IN_TRANS = 0
-
-MIN_SUPPORT = 0
-MIN_CONFIDENCE = 0
-MIN_LIFT = 0
+CSV_FILENAME = "Groceries_dataset.csv"
+num_transactions = 0
+highest_num_items_in_trans = 0
+min_support = 0
+min_confidence = 0
+min_lift = 0
 
 import csv
 import time
@@ -14,28 +13,75 @@ from itertools import combinations
 from itertools import permutations
 
 
-def readCsv(csv_filename):
+def read_csv(csv_filename):
     """
-    Returns data in csv file in two lists: 1) field_list 2) data_list
+    Reads a csv file and returns csv data list
+    Csv data list elements are lists representing data in each row
 
-    Parameters:
-        csv_filename (string): 'filename.csv'
-    Returns:
-        field_list (list): [field1_name, field2_name, ...]
-        data_list (list): [ [field1_val, field2_val, ...], [...], ... ]
+    :param csv_filename: eg 'filename.csv'
+    :type csv_filename: str
+    :return: A list with each element being another list with row data in it
+        eg [ [row1col1, row1col2, ...], [row2col1, row2col2, ...], ... ]
+    :rtype: list
     """
-    field_list = []
-    data_list = []
+    csv_data = []
     with open(csv_filename, mode='r', encoding='latin1') as csvfile:
         read_csv = csv.reader(csvfile, dialect='excel', delimiter=',',
                               quoting=csv.QUOTE_ALL)
         for row in read_csv:
-            for element in row:
-                field_list.append(element)
-            break
-        for row in read_csv:
-            data_list.append(row)
-    return field_list, data_list
+            csv_data.append(row)
+    return csv_data
+
+
+def sort_csv_data(csv_data):
+    """
+    Sorts csv data in priority of member id, then date, then item name
+
+    :param csv_data: eg [ ['1808,21-07-2015', 'tropical fruit'],
+        ['2552', '05-01-2015', 'whole milk'], ... ]
+    :type csv_data: list
+    :return: A list of the same csv data, but now sorted
+    :rtype: list
+    """
+    # Sort by grocery item
+    temp1 = sorted(csv_data, key=operator.itemgetter(2))
+    # Sort by date
+    temp2 = sorted(temp1, key=lambda d: datetime.strptime(d[1], "%d-%m-%Y"))
+    # Sort by member number
+    sorted_csv_data = sorted(temp2, key=operator.itemgetter(0))
+    return sorted_csv_data
+
+
+def create_transaction_list(data_list):
+    transaction_list = []
+    transaction = data_list[0]  # start off with first row read
+
+    for i in range(1, len(data_list)):
+        member_number = data_list[i][0]
+        date = data_list[i][1]
+        grocery_item = data_list[i][2]
+
+        # If member number or date is different, add the built up transaction
+        # to the list of all transactions, then create a new empty transaction,
+        # then append member_number, date, grocery_item
+
+        if ((transaction[0] != member_number) or (transaction[1] != date)):
+            num_items = len(transaction) - 2
+            transaction.insert(2, str(num_items))
+            transaction_list.append(transaction)
+            transaction = []
+            transaction.append(member_number)
+            transaction.append(date)
+            transaction.append(grocery_item)
+        # else member number and date are same, so just add item to
+        # the current transaction we are building up
+        else:
+            transaction.append(grocery_item)
+    num_items = len(transaction) - 2
+    transaction.insert(2, str(num_items))
+    transaction_list.append(transaction)
+    return transaction_list
+
 
 
 def writeCsv(writeFname, data_list, field_list):
@@ -45,52 +91,6 @@ def writeCsv(writeFname, data_list, field_list):
         for item in data_list:
             csvwriter.writerow(item)
 
-
-# Get data from CSV and sort it
-def sortDataList(data_list):
-    # Sort by grocery item
-    sorted_data_list1 = sorted(data_list, key=operator.itemgetter(2))
-    # Sort by date
-    sorted_data_list2 = sorted(sorted_data_list1,
-                               key=lambda d: datetime.strptime(d[1],
-                                                               "%d-%m-%Y"))
-    # Sort by member number
-    sorted_data_list3 = sorted(sorted_data_list2, key=operator.itemgetter(0))
-    return sorted_data_list3
-
-
-# =========================================================
-# Turn original CSV data into transaction list
-# =========================================================
-def createFullTransactionList(data_list):
-    trans_list = []  # trans_list is a list containing a all t
-    one_trans = data_list[0]  # start off with first row read
-    data_list_len = len(data_list)
-
-    for i in range(1, data_list_len):
-        member_number = data_list[i][0]
-        date = data_list[i][1]
-        grocery_item = data_list[i][2]
-
-        # If member number or date is different, add the built up transaction
-        # to the list of all transactions, then create a new empty transaction,
-        # then append member_number, date, grocery_item
-        if ((one_trans[0] != member_number) or (one_trans[1] != date)):
-            num_items = len(one_trans) - 2
-            one_trans.insert(2, str(num_items))
-            trans_list.append(one_trans)
-            one_trans = []
-            one_trans.append(member_number)
-            one_trans.append(date)
-            one_trans.append(grocery_item)
-        # else member number and date are same, so just add item to 
-        # the current transaction we are building up
-        else:
-            one_trans.append(grocery_item)
-    num_items = len(one_trans) - 2
-    one_trans.insert(2, str(num_items))
-    trans_list.append(one_trans)
-    return trans_list
 
 
 # =====================================
@@ -107,7 +107,7 @@ def fillItemTidDict(items_only_transaction_list):
             else:
                 item_tid_dict[item].add(tid)
     # k-itemset, k>1
-    for k in range(2, HIGHEST_NUM_ITEMS_IN_TRANS + 1):
+    for k in range(2, highest_num_items_in_trans + 1):
         for tid in range(0, len(items_only_transaction_list)):
             # Combinations are emitted in lexicographic sort order of input
             # items_only_transaction_list is in a-z order,
@@ -153,7 +153,7 @@ def generateItemsetAssocDict(kitemset_assoc_dict, itemset_tid_dict):
 def generateAssocStatDict(itemset_tid_dict, kitemset_assoc_dict):
     assoc_stat_dict = dict()
     for key, value in kitemset_assoc_dict.items():
-        support_a_c = len(itemset_tid_dict[key]) / NUM_TRANSACTIONS
+        support_a_c = len(itemset_tid_dict[key]) / num_transactions
         for i in range(0, len(value)):
             assoc_rule = value[i]
             antecedent = assoc_rule[0]
@@ -168,26 +168,26 @@ def generateAssocStatDict(itemset_tid_dict, kitemset_assoc_dict):
                 list_perm = list(perm)
                 for p in list_perm:
                     if (p in itemset_tid_dict):
-                        support_a = len(itemset_tid_dict[p]) / NUM_TRANSACTIONS
+                        support_a = len(itemset_tid_dict[p]) / num_transactions
                         break
             else:
                 support_a = len(
-                    itemset_tid_dict[antecedent]) / NUM_TRANSACTIONS
+                    itemset_tid_dict[antecedent]) / num_transactions
             # rearrange consequent until it gets a match in itemset_tid_dict
             if (consequent not in itemset_tid_dict):
                 perm = permutations(consequent, len(consequent))
                 list_perm = list(perm)
                 for p in list_perm:
                     if (p in itemset_tid_dict):
-                        support_c = len(itemset_tid_dict[p]) / NUM_TRANSACTIONS
+                        support_c = len(itemset_tid_dict[p]) / num_transactions
                         break
             else:
                 support_c = len(
-                    itemset_tid_dict[consequent]) / NUM_TRANSACTIONS
+                    itemset_tid_dict[consequent]) / num_transactions
             confidence_a_c = support_a_c / support_a
             lift_a_c = confidence_a_c / support_c
             # prune out rules below mins
-            if ((confidence_a_c < MIN_CONFIDENCE) | (lift_a_c < MIN_LIFT)):
+            if ((confidence_a_c < min_confidence) | (lift_a_c < min_lift)):
                 continue
             # round off
             support_a_c = round(support_a_c, 4)
@@ -218,7 +218,7 @@ def writeItemsetSupportToCsv(item_tid_dict):
     # Sort by k
     csv_lst = sorted(csv_lst, key=operator.itemgetter(0), reverse=False)
 
-    for k in range(1, HIGHEST_NUM_ITEMS_IN_TRANS + 1):
+    for k in range(1, highest_num_items_in_trans + 1):
         output_fname = str(k) + 'Itemset_Support.csv'
         with open(output_fname, 'w') as csvfile:
             csvwriter = csv.writer(csvfile)
@@ -256,32 +256,40 @@ def writeAssocStatDictToCsv(output_fname, assoc_stat_dict):
             csvwriter.writerow(row)
 
 
+def promptUser():
+    min_support = int(input("Enter minimum support (integer): "))
+    min_confidence = float(input('Enter minimum confidence (double): '))
+    min_lift = float(input('Enter minimum lift (double): '))
+    return min_support, min_confidence, min_lift
+
+
 def main():
-    global NUM_TRANSACTIONS, HIGHEST_NUM_ITEMS_IN_TRANS
-    global MIN_SUPPORT, MIN_CONFIDENCE, MIN_LIFT
-    MIN_SUPPORT = int(input("Enter MIN_SUPPORT(integer): "))
-    MIN_CONFIDENCE = float(input('Enter MIN_CONFIDENCE(double): '))
-    MIN_LIFT = float(input('Enter MIN_LIFT(double): '))
-    total_start_time = time.time()
-    # =====================================================
-    # Process CSV into transaction CSV with duplicates
-    # =====================================================
-    field_list, data_list = readCsv(CSV_FNAME)
-    items_only_data_list = []
-    sorted_data_list = sortDataList(data_list)
-    csv_duplicate_list = createFullTransactionList(sorted_data_list)
-    NUM_TRANSACTIONS = len(csv_duplicate_list)
-    print('NUM_TRANSACTIONS=' + str(NUM_TRANSACTIONS))
+    global num_transactions, highest_num_items_in_trans
+    global min_support, min_confidence, min_lift
+
+    # Set minimum support, confidence, and lift values from user input
+    min_support, min_confidence, min_lift = promptUser();
+    start_time = time.time()
+
+    # Read CSV file and put data in a list then sort the list
+    csv_data = read_csv(CSV_FILENAME)
+    csv_data = csv_data[1:]  # remove field name row
+    sorted_csv_data = sort_csv_data(csv_data)
+
+    # Process sorted CSV data into transaction CSV containing duplicates
+    csv_duplicate_list = create_transaction_list(sorted_csv_data)
+    num_transactions = len(csv_duplicate_list)
+    print('Number of transactions =' + str(num_transactions))
+
     # =====================================================
     # Process CSV into transaction CSV with NO duplicates
     # =====================================================
     items_in_transaction_list = []  # No duplicates
-    HIGHEST_NUM_ITEMS_IN_TRANS = 0
     for t in csv_duplicate_list:
         only_t = list(set(t[3:]))
         len_only_t = len(only_t)
-        if (len_only_t > HIGHEST_NUM_ITEMS_IN_TRANS):
-            HIGHEST_NUM_ITEMS_IN_TRANS = len_only_t
+        if (len_only_t > highest_num_items_in_trans):
+            highest_num_items_in_trans = len_only_t
         items_in_transaction_list.append(sorted(only_t))
     csv_no_duplicate_list = []
     for i in range(0, len(csv_duplicate_list)):
@@ -289,9 +297,9 @@ def main():
         new_t.extend(items_in_transaction_list[i])
         new_t[2] = len(new_t) - 3
         csv_no_duplicate_list.append(new_t)
-    print("HIGHEST_NUM_ITEMS_IN_TRANS=" + str(HIGHEST_NUM_ITEMS_IN_TRANS))
+    print("HIGHEST_NUM_ITEMS_IN_TRANS=" + str(highest_num_items_in_trans))
     new_field_list = ["CustomerID", "Date of purchase", "no_of_items(k)"]
-    for i in range(1, HIGHEST_NUM_ITEMS_IN_TRANS + 1):
+    for i in range(1, highest_num_items_in_trans + 1):
         new_field_list.append(str(i))
     writeCsv("Transactions_No_Duplicates.csv", csv_no_duplicate_list,
              new_field_list)
@@ -305,7 +313,7 @@ def main():
     pruned_itemset_tid_dict = dict()
     prunedDictSize = 0
     for key, value in itemset_tid_dict.items():
-        if ((type(key) is tuple) & (len(value) >= MIN_SUPPORT)):
+        if ((type(key) is tuple) & (len(value) >= min_support)):
             pruned_itemset_tid_dict[key] = value
             prunedDictSize += 1
     print('prunedDictSize=', prunedDictSize)
@@ -327,7 +335,7 @@ def main():
     eclat_elasped = round(eclat_elasped, 2)
 
     total_end_time = time.time()
-    total_elasped = total_end_time - total_start_time
+    total_elasped = total_end_time - start_time
     total_elasped = round(total_elasped, 2)
     print('Time elasped for eclat=' + str(eclat_elasped) + 's')
     print('Time elasped for entire program=' + str(total_elasped) + 's')
