@@ -1,16 +1,16 @@
-CSV_FILENAME = "Groceries_dataset.csv"
-num_transactions = 0
-highest_num_items_in_trans = 0
-min_support = 0
-min_confidence = 0
-min_lift = 0
-
 import csv
 import time
 import operator
 from datetime import datetime
 from itertools import combinations
 from itertools import permutations
+
+CSV_FILENAME = "Groceries_dataset.csv"
+num_transactions = 0
+highest_num_items_in_trans = 0
+min_support = 0
+min_confidence = 0
+min_lift = 0
 
 
 def read_csv(csv_filename):
@@ -52,45 +52,48 @@ def sort_csv_data(csv_data):
     return sorted_csv_data
 
 
-def create_transaction_list(data_list):
+def create_transaction_list(csv_data):
+    """ Creates and returns a transaction list, which contains transactions
+    A transaction is [memberNumber,date,numItems,item1,item2,...] it is all
+    the items a member has bought on a specific date. Transactions can contain
+    duplicate items, for example ['1698','17-01-2014','2','yogurt','yogurt']
+
+    :param csv_data:
+    :type csv_data: list
+    :return: List containing transaction data
+        eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
+        where format is [ [memberNumber,date,numItems,item1,item2,...], ... ]
+    :rtype: list
+    """
     transaction_list = []
-    transaction = data_list[0]  # start off with first row read
-
-    for i in range(1, len(data_list)):
-        member_number = data_list[i][0]
-        date = data_list[i][1]
-        grocery_item = data_list[i][2]
-
-        # If member number or date is different, add the built up transaction
-        # to the list of all transactions, then create a new empty transaction,
-        # then append member_number, date, grocery_item
-
-        if ((transaction[0] != member_number) or (transaction[1] != date)):
+    transaction = csv_data[0]  # first transaction to add csv items to
+    for i in range(1, len(csv_data)):
+        csv_number = csv_data[i][0]  # member number
+        csv_date = csv_data[i][1]
+        csv_item = csv_data[i][2]
+        trans_number = transaction[0]
+        trans_date = transaction[1]
+        # member id or date are different, so we add our built up transaction
+        # to transaction_list and create a new transaction that we can
+        # add csv_items onto
+        if (trans_number != csv_number) or (trans_date != csv_date):
             num_items = len(transaction) - 2
             transaction.insert(2, str(num_items))
             transaction_list.append(transaction)
-            transaction = []
-            transaction.append(member_number)
-            transaction.append(date)
-            transaction.append(grocery_item)
-        # else member number and date are same, so just add item to
-        # the current transaction we are building up
+            transaction = [csv_number, csv_date, csv_item]
+        # member id and date are same, so add csv_item onto transaction
         else:
-            transaction.append(grocery_item)
+            transaction.append(csv_item)
     num_items = len(transaction) - 2
     transaction.insert(2, str(num_items))
     transaction_list.append(transaction)
     return transaction_list
 
 
-
-def writeCsv(writeFname, data_list, field_list):
-    with open(writeFname, 'w') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(field_list)
-        for item in data_list:
-            csvwriter.writerow(item)
-
+def write_csv(filename, csv_data):
+    with open(filename, 'w', newline='') as csv_file:
+        csvwriter = csv.writer(csv_file)
+        csvwriter.writerows(csv_data)
 
 
 # =====================================
@@ -277,10 +280,10 @@ def main():
     sorted_csv_data = sort_csv_data(csv_data)
 
     # Process sorted CSV data into transaction CSV containing duplicates
-    csv_duplicate_list = create_transaction_list(sorted_csv_data)
-    num_transactions = len(csv_duplicate_list)
-    print('Number of transactions =' + str(num_transactions))
+    transaction_list_duplicates = create_transaction_list(sorted_csv_data)
+    # write_csv("duplicates.csv", transaction_list_duplicates)
 
+    """
     # =====================================================
     # Process CSV into transaction CSV with NO duplicates
     # =====================================================
@@ -340,7 +343,7 @@ def main():
     print('Time elasped for eclat=' + str(eclat_elasped) + 's')
     print('Time elasped for entire program=' + str(total_elasped) + 's')
     print("End of program.")
-
+    """
 
 if __name__ == "__main__":
     main()
