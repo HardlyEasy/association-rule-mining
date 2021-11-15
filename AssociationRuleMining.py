@@ -113,9 +113,16 @@ def remove_duplicates(transactions):
 
 
 def write_csv(filename, csv_data):
+    """ Writes csv data contained in a list to a csv file on computer
+
+    :param filename: "outputFilename.csv"
+    :type filename: str
+    :param csv_data: A list with each element representing a row in a csv file
+    :type csv_data: list
+    """
     with open(filename, 'w', newline='') as csv_file:
-        csvwriter = csv.writer(csv_file)
-        csvwriter.writerows(csv_data)
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerows(csv_data)
 
 
 # =====================================
@@ -291,6 +298,7 @@ def promptUser():
 def main():
     global num_transactions, highest_num_items_in_trans
     global min_support, min_confidence, min_lift
+    result_folder = "results"
 
     # Set minimum support, confidence, and lift values from user input
     min_support, min_confidence, min_lift = promptUser();
@@ -305,10 +313,9 @@ def main():
     # Duplicate CSV items are in this list
     transactions = create_transactions(sorted_csv_data)
     write_csv("results/transactions_duplicates.csv", transactions)
-    #  print(transactions)
     # Remove duplicate csv items from transactions list
     transactions_no_duplicates = remove_duplicates(transactions)
-    write_csv("results/transactions_no_duplicates.csv",
+    write_csv(result_folder + "/transactions_no_duplicates.csv",
               transactions_no_duplicates)
 
     """
