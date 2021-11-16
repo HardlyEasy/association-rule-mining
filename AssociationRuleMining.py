@@ -1,16 +1,10 @@
 import csv
-import time
 import operator
 from datetime import datetime
 from itertools import combinations
 from itertools import permutations
 
-CSV_FILENAME = "Groceries_dataset.csv"
-num_transactions = 0
-highest_num_items_in_trans = 0
-min_support = 0
-min_confidence = 0
-min_lift = 0
+CSV_FILENAME = "dataset.csv"
 
 
 def read_csv(csv_filename):
@@ -31,6 +25,19 @@ def read_csv(csv_filename):
         for row in read_csv:
             csv_data.append(row)
     return csv_data
+
+
+def write_csv(filename, csv_data):
+    """ Writes csv data contained in a list to a csv file on computer
+
+    :param filename: "outputFilename.csv"
+    :type filename: str
+    :param csv_data: A list with each element representing a row in a csv file
+    :type csv_data: list
+    """
+    with open(filename, 'w', newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerows(csv_data)
 
 
 def sort_csv_data(csv_data):
@@ -112,46 +119,64 @@ def remove_duplicates(transactions):
     return transactions_no_duplicates
 
 
-def write_csv(filename, csv_data):
-    """ Writes csv data contained in a list to a csv file on computer
+def get_items(transactions):
+    """ Returns list with only grocery items from transactions list
 
-    :param filename: "outputFilename.csv"
-    :type filename: str
-    :param csv_data: A list with each element representing a row in a csv file
-    :type csv_data: list
+    :param transactions: List containing transactions
+        eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
+    :type transactions: list
+    :return: List containing items
+        eg [ ['pip fruit','yogurt,'yogurt'], ... ]
+    :rtype: list
     """
-    with open(filename, 'w', newline='') as csv_file:
-        csv_writer = csv.writer(csv_file)
-        csv_writer.writerows(csv_data)
+    items = []
+    for t in transactions:
+        items.append(t[3:])
+    return items
 
 
-# =====================================
-# Eclat algorithm
-# =====================================
-def fillItemTidDict(items_only_transaction_list):
-    item_tid_dict = dict()
+def create_dictionary(items, max_num_items):
+    """ Creates a dictionary with keys of a grocery product or multiple
+    grocery products, and values containing tids (transaction ids, ). A
+    transaction id is the same as the transactions list index number.
+
+    :param items: List of items with no duplicates
+        eg [ ['pastry','salty snack','whole milk'], ... ]
+    :type items: list
+    :param max_num_items: The max number of items a customer has bought in
+        a single transaction
+    :type max_num_items: int
+    :return: A dictionary mapping keys of items to values of tids
+        eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
+        ('detergent', 'pork'): {196, 14397, 4486}, ... }
+        So you can expect to find rubbing alcohol in transactions list index
+        of 5348, 13062, ... and both detergent and park in transactions list
+        index 196, 14397, ...
+    :rtype: list
+    """
+    items_dictionary = dict()
     # 1-itemset
-    for tid in range(0, len(items_only_transaction_list)):
-        for i in range(0, len(items_only_transaction_list[tid])):
-            item = items_only_transaction_list[tid][i]
-            if (item not in item_tid_dict):
-                item_tid_dict[item] = {tid}
-            else:
-                item_tid_dict[item].add(tid)
+    for tid in range(0, len(items)):
+        items_element = items[tid]  # eg ['pastry','salty snack','whole milk']
+        for i in range(0, len(items_element)):
+            an_item = items_element[i]
+            if an_item not in items_dictionary:
+                items_dictionary[an_item] = {tid}
+            else:  # add onto existing key
+                items_dictionary[an_item].add(tid)
     # k-itemset, k>1
-    for k in range(2, highest_num_items_in_trans + 1):
-        for tid in range(0, len(items_only_transaction_list)):
-            # Combinations are emitted in lexicographic sort order of input
-            # items_only_transaction_list is in a-z order,
-            # thus combinations will be output in same order
-            comb = combinations(items_only_transaction_list[tid], k)
+    for k in range(2, max_num_items + 1):
+        for tid in range(0, len(items)):
+            # combination puts values in lexigraphic order
+            # thus indexes may not be in numeric order
+            comb = combinations(items[tid], k)
             comb_list = list(comb)
             for k_itemset in comb_list:
-                if (k_itemset not in item_tid_dict):
-                    item_tid_dict[k_itemset] = {tid}
-                else:
-                    item_tid_dict[k_itemset].add(tid)
-    return item_tid_dict
+                if k_itemset not in items_dictionary:
+                    items_dictionary[k_itemset] = {tid}
+                else:  # add onto existing key
+                    items_dictionary[k_itemset].add(tid)
+    return items_dictionary
 
 
 # =====================================
@@ -296,13 +321,11 @@ def promptUser():
 
 
 def main():
-    global num_transactions, highest_num_items_in_trans
-    global min_support, min_confidence, min_lift
     result_folder = "results"
 
     # Set minimum support, confidence, and lift values from user input
-    min_support, min_confidence, min_lift = promptUser();
-    start_time = time.time()
+    min_support, min_confidence, min_lift = (15, .10, 1.05)
+    #  min_support, min_confidence, min_lift = promptUser();
 
     # Read CSV file and put data in a list then sort the list
     csv_data = read_csv(CSV_FILENAME)
@@ -318,14 +341,17 @@ def main():
     write_csv(result_folder + "/transactions_no_duplicates.csv",
               transactions_no_duplicates)
 
+
+    # Remove everything but grocery item data
+    items = get_items(transactions)
+    write_csv(result_folder + "/items.csv", items)
+    # Dictionary that has keys being grocery store items
+    items_dictionary = create_dictionary(items, 10)
+
+
+    # Process into 2-itemset tid dict, over MIN_SUPP
     """
-    # =====================================================
-    # Process transactionToItemset list into item_tid_dict
-    # Also process into 2-itemset tid dict, over MIN_SUPP
-    # =====================================================
-    eclat_start_time = time.time()
-    itemset_tid_dict = fillItemTidDict(items_in_transaction_list)
-    writeItemsetSupportToCsv(itemset_tid_dict)
+    #  writeItemsetSupportToCsv(itemset_tid_dict)
     pruned_itemset_tid_dict = dict()
     prunedDictSize = 0
     for key, value in itemset_tid_dict.items():
@@ -336,25 +362,16 @@ def main():
     kitemset_assoc_dict = generateItemsetAssocDict(dict(),
                                                    pruned_itemset_tid_dict)
 
+    print(kitemset_assoc_dict)
+
+    
     # =====================================================
     # Generate association rules and store as CSV
     # =====================================================
     assoc_stat_dict = generateAssocStatDict(itemset_tid_dict,
                                             kitemset_assoc_dict)
-    eclat_end_time = time.time()
     writeAssocStatDictToCsv('Association_Rules.csv', assoc_stat_dict)
 
-    # =====================================================
-    # End of program, wrapup
-    # =====================================================
-    eclat_elasped = eclat_end_time - eclat_start_time
-    eclat_elasped = round(eclat_elasped, 2)
-
-    total_end_time = time.time()
-    total_elasped = total_end_time - start_time
-    total_elasped = round(total_elasped, 2)
-    print('Time elasped for eclat=' + str(eclat_elasped) + 's')
-    print('Time elasped for entire program=' + str(total_elasped) + 's')
     print("End of program.")
     """
 
