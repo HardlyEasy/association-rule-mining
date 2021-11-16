@@ -13,7 +13,7 @@ butter,whole milk
 sugar,tropical fruit
 butter milk,specialty chocolate
 dental care,frozen meals
-rolls/buns,rolls/buns
+rolls/buns
 detergent,root vegetables
 rolls/buns,sausage
 pip fruit,tropical fruit,whole milk
@@ -24,13 +24,13 @@ other vegetables,shopping bags
 pastry,root vegetables,whole milk
 chocolate,packaged fruit/vegetables,rolls/buns,whole milk
 hygiene articles,other vegetables
-rolls/buns,rolls/buns
+rolls/buns
 margarine,whipped/sour cream
 rice,whole milk
 bottled water,rolls/buns,softener
 shopping bags,skin care
-bottled beer,chicken,chocolate,flour,frankfurter,frankfurter,rolls/buns,whole milk
-domestic eggs,photo/film,root vegetables,soda,tropical fruit,white wine,yogurt,yogurt
+bottled beer,chicken,chocolate,flour,frankfurter,rolls/buns,whole milk
+domestic eggs,photo/film,root vegetables,soda,tropical fruit,white wine,yogurt
 dessert,hamburger meat,liquor (appetizer),liver loaf
 canned fish,cocoa drinks
 tropical fruit,yogurt
@@ -100,7 +100,7 @@ dessert,pickled vegetables,rolls/buns,sausage
 long life bakery product,root vegetables
 citrus fruit,yogurt
 butter,candy,dental care,fruit/vegetable juice,salty snack
-canned beer,root vegetables,root vegetables,whipped/sour cream
+canned beer,root vegetables,whipped/sour cream
 salt,softener,whole milk
 bottled water,rolls/buns
 red/blush wine,rolls/buns
@@ -113,7 +113,7 @@ root vegetables,specialty chocolate
 dessert,ham
 ice cream,pot plants
 beverages,cream cheese 
-berries,other vegetables,other vegetables
+berries,other vegetables
 newspapers,whipped/sour cream
 pastry,shopping bags,white bread,whole milk
 berries,butter,cream cheese ,other vegetables,soda,white bread
@@ -129,7 +129,7 @@ bottled water,domestic eggs,frozen meals
 newspapers,tropical fruit
 frozen vegetables,whole milk
 pip fruit,salt,white bread,white wine
-rolls/buns,whole milk,yogurt,yogurt
+rolls/buns,whole milk,yogurt
 frozen vegetables,sausage
 newspapers,whole milk
 fruit/vegetable juice,vinegar
@@ -159,7 +159,7 @@ chocolate marshmallow,napkins,whole milk
 citrus fruit,rolls/buns,whole milk
 other vegetables,tropical fruit
 curd,root vegetables
-butter,root vegetables,yogurt,yogurt
+butter,root vegetables,yogurt
 Instant food products,fruit/vegetable juice,specialty chocolate
 chicken,onions
 pastry,whole milk
@@ -181,7 +181,7 @@ UHT-milk,dishes,other vegetables
 meat,whole milk
 bottled beer,hamburger meat
 coffee,frozen vegetables,pork
-shopping bags,shopping bags
+shopping bags
 dishes,other vegetables,rolls/buns,soda
 female sanitary products,hamburger meat,other vegetables,popcorn,tropical fruit
 cream cheese ,fish,red/blush wine,tropical fruit
@@ -193,9 +193,9 @@ soda,whole milk
 bottled water,chewing gum
 hamburger meat,soda
 frankfurter,whipped/sour cream
-butter milk,margarine,yogurt,yogurt
+butter milk,margarine,yogurt
 detergent,other vegetables,pork,shopping bags,soft cheese,yogurt
-soda,soda
+soda
 rolls/buns,waffles
 sugar,whole milk
 chicken,frozen vegetables
@@ -210,7 +210,7 @@ bottled water,newspapers,soda,yogurt
 ham,whole milk
 other vegetables,pip fruit
 meat spreads,whipped/sour cream
-domestic eggs,sliced cheese,soda,soda
+domestic eggs,sliced cheese,soda
 pickled vegetables,salty snack
 UHT-milk,tropical fruit
 chicken,other vegetables
@@ -259,7 +259,7 @@ ham,other vegetables
 canned beer,frankfurter
 brown bread,salt
 bottled water,domestic eggs,yogurt
-curd,pip fruit,pip fruit,prosecco
+curd,pip fruit,prosecco
 brown bread,dishes,finished products
 candy,detergent
 ketchup,semi-finished bread
@@ -273,7 +273,7 @@ bottled water,citrus fruit,frankfurter,fruit/vegetable juice
 brown bread,sausage
 bottled water,butter,chicken,frankfurter
 bottled water,butter,sausage
-coffee,ham,whole milk,whole milk
+coffee,ham,whole milk
 pasta,pastry
 artif. sweetener,canned beer,rolls/buns,soda
 brown bread,white bread
@@ -306,7 +306,7 @@ ice cream,whipped/sour cream
 beef,butter,curd,other vegetables,soda
 citrus fruit,rolls/buns
 beverages,sausage
-whole milk,whole milk
+whole milk
 specialty chocolate,white bread
 other vegetables,whole milk
 ham,white bread
@@ -462,7 +462,7 @@ roll products ,soda
 citrus fruit,soda
 frankfurter,margarine,rolls/buns,shopping bags
 UHT-milk,butter,other vegetables,pastry
-frozen vegetables,frozen vegetables,soda,specialty bar
+frozen vegetables,soda,specialty bar
 domestic eggs,liquor
 frankfurter,white bread
 coffee,meat
@@ -473,12 +473,12 @@ brown bread,shopping bags,tea,yogurt
 cream cheese ,specialty chocolate
 softener,yogurt
 margarine,soda
-cream cheese ,cream cheese ,tropical fruit
+cream cheese ,tropical fruit
 bottled water,dessert,frankfurter,root vegetables
 bottled beer,whole milk
-other vegetables,other vegetables,rolls/buns,salty snack,semi-finished bread,shopping bags
+other vegetables,rolls/buns,salty snack,semi-finished bread,shopping bags
 soda,whole milk
-coffee,shopping bags,shopping bags
+coffee,shopping bags
 pastry,yogurt
 rice,rolls/buns,sausage
 napkins,pork,whole milk
@@ -488,7 +488,7 @@ brown bread,pastry,yogurt
 oil,other vegetables
 butter,hard cheese
 other vegetables,whole milk
-butter,dessert,sausage,shopping bags,soda,soda
+butter,dessert,sausage,shopping bags,soda
 citrus fruit,flower (seeds)
 instant coffee,shopping bags
 fruit/vegetable juice,rolls/buns
@@ -499,7 +499,7 @@ citrus fruit,herbs
 beef,other vegetables
 tropical fruit,whole milk
 canned beer,nut snack
-other vegetables,other vegetables,sugar,whole milk
+other vegetables,sugar,whole milk
 citrus fruit,napkins
 butter milk,rolls/buns
 root vegetables,whole milk
@@ -521,7 +521,7 @@ UHT-milk,soda
 pork,soda
 oil,pickled vegetables
 misc. beverages,spread cheese
-soda,sugar,whole milk,whole milk
+soda,sugar,whole milk
 coffee,root vegetables
 domestic eggs,pork
 chicken,domestic eggs,white bread
@@ -535,7 +535,7 @@ root vegetables,tropical fruit
 curd,soft cheese
 cereals,frozen vegetables,pip fruit,root vegetables
 berries,candy,other vegetables,sliced cheese
-soda,yogurt,yogurt
+soda,yogurt
 bottled water,shopping bags,waffles
 bottled beer,whole milk
 margarine,pork
@@ -578,7 +578,7 @@ UHT-milk,napkins,tropical fruit,whole milk
 bottled water,whole milk
 citrus fruit,yogurt
 cream cheese ,whole milk
-butter,other vegetables,rolls/buns,rolls/buns,root vegetables
+butter,other vegetables,rolls/buns,root vegetables
 citrus fruit,light bulbs
 domestic eggs,frozen vegetables
 citrus fruit,soda
@@ -614,7 +614,7 @@ frankfurter,frozen vegetables
 bottled water,liquor
 other vegetables,rolls/buns
 other vegetables,waffles,white bread,whole milk
-napkins,napkins
+napkins
 margarine,soda
 finished products,newspapers,whipped/sour cream
 cleaner,napkins
@@ -625,7 +625,7 @@ chocolate,shopping bags
 pip fruit,whipped/sour cream
 sparkling wine,whole milk
 citrus fruit,whipped/sour cream
-bottled water,bottled water,dog food,pork,rolls/buns,soda,turkey,whole milk
+bottled water,dog food,pork,rolls/buns,soda,turkey,whole milk
 chicken,pip fruit
 soda,whipped/sour cream
 other vegetables,soda
@@ -683,7 +683,7 @@ butter,soda
 domestic eggs,white bread
 detergent,soda
 canned fruit,other vegetables,whole milk
-soda,soda
+soda
 citrus fruit,domestic eggs
 onions,other vegetables,shopping bags
 bottled water,butter milk,cleaner
@@ -697,7 +697,7 @@ bottled water,soda
 specialty chocolate,whipped/sour cream
 canned beer,root vegetables
 meat spreads,other vegetables
-root vegetables,root vegetables
+root vegetables
 sparkling wine,waffles
 berries,white bread
 citrus fruit,hamburger meat,other vegetables,specialty chocolate
@@ -719,7 +719,7 @@ brown bread,whole milk
 beef,whipped/sour cream
 chocolate,sausage
 citrus fruit,yogurt
-citrus fruit,misc. beverages,packaged fruit/vegetables,root vegetables,root vegetables,sliced cheese,whipped/sour cream,yogurt
+citrus fruit,misc. beverages,packaged fruit/vegetables,root vegetables,sliced cheese,whipped/sour cream,yogurt
 citrus fruit,napkins
 frozen fish,specialty chocolate
 newspapers,other vegetables,specialty chocolate
@@ -745,10 +745,10 @@ bottled beer,chicken,grapes,root vegetables
 pip fruit,sliced cheese
 oil,whole milk
 bottled water,curd,ready soups,white bread
-chewing gum,whole milk,yogurt,yogurt
+chewing gum,whole milk,yogurt
 candles,hygiene articles,tropical fruit
 cat food,sausage
-other vegetables,pastry,rolls/buns,sausage,soda,soda,softener,sugar,whole milk
+other vegetables,pastry,rolls/buns,sausage,soda,softener,sugar,whole milk
 ham,pickled vegetables,shopping bags
 semi-finished bread,whole milk,yogurt
 frankfurter,whole milk
@@ -772,7 +772,7 @@ salt,tropical fruit
 cat food,tropical fruit
 other vegetables,root vegetables
 domestic eggs,fruit/vegetable juice
-beef,beef,brown bread,chicken,dessert,margarine,newspapers,newspapers,pork
+beef,brown bread,chicken,dessert,margarine,newspapers,pork
 bottled beer,citrus fruit
 syrup,waffles
 chicken,meat,pip fruit,yogurt
@@ -786,18 +786,18 @@ bottled water,napkins,pastry,root vegetables,soda,specialty fat,tropical fruit,w
 sugar,whole milk
 bottled water,citrus fruit,grapes
 dog food,pastry,whole milk
-citrus fruit,citrus fruit
+citrus fruit
 cling film/bags,curd,meat
 frozen meals,pork
 fruit/vegetable juice,other vegetables
-butter,sausage,whole milk,whole milk,yogurt
+butter,sausage,whole milk,yogurt
 frozen fish,rolls/buns,tropical fruit
 candles,meat,tropical fruit,whole milk
 instant coffee,red/blush wine
 brown bread,canned beer
 pasta,sausage
 canned beer,chocolate,margarine
-butter milk,dental care,napkins,onions,rice,rolls/buns,rolls/buns,specialty chocolate
+butter milk,dental care,napkins,onions,rice,rolls/buns,specialty chocolate
 pastry,waffles
 frankfurter,ice cream
 bottled water,sugar
@@ -813,7 +813,7 @@ curd,whole milk
 pastry,rolls/buns
 jam,white bread
 butter milk,seasonal products,soda
-detergent,flour,shopping bags,whole milk,whole milk,whole milk
+detergent,flour,shopping bags,whole milk
 bottled beer,dessert,other vegetables,sliced cheese
 brown bread,photo/film
 hard cheese,pastry
@@ -825,7 +825,7 @@ beef,frozen potato products,white bread
 ham,newspapers,whipped/sour cream
 canned beer,sliced cheese
 canned beer,soda
-butter milk,soda,soda
+butter milk,soda
 other vegetables,whole milk
 domestic eggs,ham
 frankfurter,misc. beverages,pastry
@@ -842,7 +842,7 @@ bottled water,butter,grapes
 UHT-milk,curd
 shopping bags,whipped/sour cream
 other vegetables,rolls/buns
-canned beer,margarine,rolls/buns,rolls/buns,salty snack,soda,soda,waffles,whipped/sour cream
+canned beer,margarine,rolls/buns,salty snack,soda,waffles,whipped/sour cream
 chicken,whole milk
 butter milk,other vegetables
 bottled water,margarine,root vegetables
@@ -855,7 +855,7 @@ abrasive cleaner,curd,other vegetables
 condensed milk,other vegetables
 bottled water,soda
 dog food,processed cheese
-bottled beer,sausage,sausage,spread cheese
+bottled beer,sausage,spread cheese
 shopping bags,waffles
 dishes,newspapers,pip fruit
 cling film/bags,whole milk
@@ -876,7 +876,7 @@ bottled beer,bottled water,finished products,yogurt
 brown bread,tropical fruit
 hard cheese,onions
 shopping bags,soda
-baking powder,frozen fish,frozen vegetables,frozen vegetables,oil,other vegetables,rolls/buns,sausage,whole milk
+baking powder,frozen fish,frozen vegetables,oil,other vegetables,rolls/buns,sausage,whole milk
 margarine,oil
 specialty cheese,whole milk
 long life bakery product,pasta,soda,specialty chocolate
@@ -885,7 +885,7 @@ butter,chocolate
 citrus fruit,other vegetables
 frozen meals,sausage
 bottled beer,bottled water,dog food,sausage
-beverages,beverages,domestic eggs,pasta,sugar
+beverages,domestic eggs,pasta,sugar
 shopping bags,tropical fruit
 cling film/bags,soda
 UHT-milk,soft cheese
@@ -894,7 +894,7 @@ bottled water,rolls/buns,salty snack,shopping bags
 onions,soft cheese
 coffee,white bread
 condensed milk,dessert,rolls/buns,shopping bags
-canned fruit,processed cheese,shopping bags,soda,soda,soda
+canned fruit,processed cheese,shopping bags,soda
 grapes,other vegetables
 rolls/buns,tropical fruit
 shopping bags,turkey
@@ -905,7 +905,7 @@ UHT-milk,other vegetables
 butter,candy
 frozen vegetables,other vegetables
 butter,chicken
-margarine,margarine
+margarine
 citrus fruit,skin care
 frozen vegetables,root vegetables
 dessert,packaged fruit/vegetables
@@ -942,7 +942,7 @@ pork,root vegetables
 curd,sausage
 pip fruit,shopping bags
 canned vegetables,domestic eggs,flower (seeds),whole milk
-flour,hard cheese,rolls/buns,rolls/buns
+flour,hard cheese,rolls/buns
 frozen meals,organic sausage,sugar
 onions,pickled vegetables,whole milk
 citrus fruit,other vegetables
@@ -997,19 +997,19 @@ cream cheese ,semi-finished bread,whole milk
 condensed milk,hard cheese
 brown bread,butter
 frankfurter,shopping bags
-dessert,photo/film,pot plants,white bread,whole milk,whole milk,yogurt
+dessert,photo/film,pot plants,white bread,whole milk,yogurt
 other vegetables,whipped/sour cream
 rolls/buns,sausage
 newspapers,root vegetables
 citrus fruit,hamburger meat,photo/film
 meat,root vegetables
-bottled water,butter,canned beer,canned beer,cookware,frozen vegetables,ice cream,other vegetables
+bottled water,butter,canned beer,cookware,frozen vegetables,ice cream,other vegetables
 butter,oil
 pastry,sliced cheese
 chicken,soda
 ham,root vegetables
 rolls/buns,sausage,tropical fruit,yogurt
-beverages,citrus fruit,sausage,whole milk,whole milk
+beverages,citrus fruit,sausage,whole milk
 finished products,rolls/buns
 butter milk,spices
 ice cream,spices
@@ -1026,7 +1026,7 @@ bottled water,butter
 bottled water,pork
 napkins,whipped/sour cream
 cream cheese ,onions,whole milk
-bottled water,bottled water,newspapers,specialty bar
+bottled water,newspapers,specialty bar
 chicken,root vegetables
 UHT-milk,frozen vegetables
 margarine,rolls/buns
@@ -1079,7 +1079,7 @@ UHT-milk,long life bakery product,pickled vegetables
 flower (seeds),soft cheese
 bottled beer,rice
 hard cheese,jam,meat,tropical fruit
-beverages,pip fruit,root vegetables,root vegetables
+beverages,pip fruit,root vegetables
 other vegetables,yogurt
 red/blush wine,yogurt
 domestic eggs,herbs
@@ -1158,13 +1158,13 @@ mayonnaise,processed cheese
 bottled beer,soft cheese
 coffee,root vegetables
 canned fruit,finished products,pip fruit,root vegetables
-citrus fruit,citrus fruit,soda
+citrus fruit,soda
 bottled beer,soda
 citrus fruit,female sanitary products,waffles
 baking powder,bottled beer,chewing gum,chicken,meat,shopping bags
 curd,waffles
 hygiene articles,pork,rolls/buns,specialty bar
-whole milk,whole milk
+whole milk
 beef,bottled beer,soups,whole milk
 syrup,whole milk
 condensed milk,specialty bar
@@ -1197,7 +1197,7 @@ hamburger meat,whipped/sour cream
 curd,processed cheese,whole milk
 berries,chicken,soda
 newspapers,processed cheese
-roll products ,soda,soda
+roll products ,soda
 fruit/vegetable juice,tropical fruit
 misc. beverages,sausage,whipped/sour cream
 condensed milk,domestic eggs
@@ -1230,10 +1230,10 @@ margarine,other vegetables
 frozen vegetables,grapes,vinegar
 sausage,whole milk
 other vegetables,tropical fruit
-bottled water,frozen vegetables,whole milk,whole milk
+bottled water,frozen vegetables,whole milk
 pot plants,whole milk
 flour,mustard
-whole milk,whole milk
+whole milk
 citrus fruit,pastry,rolls/buns
 rolls/buns,root vegetables,whole milk
 brown bread,whipped/sour cream
@@ -1251,7 +1251,7 @@ dog food,red/blush wine
 fruit/vegetable juice,white bread
 other vegetables,specialty chocolate
 oil,sliced cheese,soda,syrup
-bottled water,bottled water
+bottled water
 rolls/buns,shopping bags,soda
 citrus fruit,whole milk
 frankfurter,grapes,napkins,salt,soda
@@ -1261,15 +1261,15 @@ domestic eggs,pip fruit
 berries,semi-finished bread
 beef,pip fruit
 other vegetables,whole milk
-beef,bottled water,frankfurter,ketchup,pastry,pastry,rolls/buns,soda
+beef,bottled water,frankfurter,ketchup,pastry,rolls/buns,soda
 bottled beer,chewing gum,chocolate,root vegetables
 beef,soda
 cat food,curd
-bottled water,domestic eggs,domestic eggs,whole milk
+bottled water,domestic eggs,whole milk
 canned beer,shopping bags
 butter,frankfurter,hard cheese
 frozen vegetables,herbs,soda
-bottled water,whole milk,whole milk
+bottled water,whole milk
 coffee,detergent,rolls/buns,tropical fruit
 meat,other vegetables
 bottled water,tropical fruit
@@ -1278,7 +1278,7 @@ baking powder,rolls/buns
 bottled water,whipped/sour cream
 chewing gum,cooking chocolate
 butter milk,meat,newspapers,rolls/buns,specialty bar,tropical fruit
-beef,beef,bottled water,flour,instant coffee,pork,salty snack
+beef,bottled water,flour,instant coffee,pork,salty snack
 cream cheese ,red/blush wine
 bottled beer,hard cheese
 domestic eggs,soda
@@ -1286,7 +1286,7 @@ bottled beer,canned beer,ice cream,newspapers,pastry
 frozen vegetables,whole milk
 curd,ice cream,soda
 pastry,sugar
-bottled water,tropical fruit,yogurt,yogurt
+bottled water,tropical fruit,yogurt
 rolls/buns,soda
 frankfurter,processed cheese
 butter milk,cat food,napkins,shopping bags
@@ -1298,7 +1298,7 @@ brown bread,ham
 canned beer,root vegetables
 Instant food products,whipped/sour cream
 newspapers,whipped/sour cream
-whipped/sour cream,whipped/sour cream,whole milk,whole milk,yogurt
+whipped/sour cream,whole milk,yogurt
 chocolate,domestic eggs,vinegar
 frozen fish,newspapers,soda,tropical fruit
 frankfurter,ketchup
@@ -1317,7 +1317,7 @@ mustard,tropical fruit
 bottled water,curd,whole milk
 chocolate,whole milk
 bottled beer,hard cheese
-butter,pastry,whole milk,whole milk
+butter,pastry,whole milk
 dish cleaner,whole milk
 canned vegetables,margarine,whole milk
 citrus fruit,frozen dessert
@@ -1328,7 +1328,7 @@ frozen vegetables,specialty bar
 rolls/buns,whole milk
 frozen fruits,sausage
 butter milk,other vegetables
-other vegetables,other vegetables
+other vegetables
 bottled beer,frozen vegetables
 brown bread,canned beer
 other vegetables,sweet spreads
@@ -1343,7 +1343,7 @@ canned fish,other vegetables,waffles,white bread
 spread cheese,whole milk
 flour,sugar
 fruit/vegetable juice,pastry,yogurt
-canned beer,newspapers,rolls/buns,white bread,white bread,whole milk,whole milk,whole milk
+canned beer,newspapers,rolls/buns,white bread,whole milk
 chocolate,tropical fruit
 misc. beverages,root vegetables
 frozen vegetables,whipped/sour cream
@@ -1356,7 +1356,7 @@ brown bread,butter milk,cake bar,canned beer,curd,frozen vegetables,sausage,yogu
 curd,grapes,soups,whole milk
 bottled water,cream cheese ,sugar
 candy,chewing gum
-pip fruit,salty snack,whole milk,whole milk
+pip fruit,salty snack,whole milk
 chewing gum,rolls/buns
 newspapers,other vegetables
 dessert,pot plants
@@ -1385,7 +1385,7 @@ pip fruit,yogurt
 soda,whole milk
 curd,soda
 coffee,other vegetables,rolls/buns
-pastry,pastry
+pastry
 UHT-milk,other vegetables,salty snack,soda
 beverages,bottled beer,chocolate,domestic eggs
 citrus fruit,rolls/buns
@@ -1430,7 +1430,7 @@ butter,napkins
 curd,other vegetables
 cream cheese ,specialty bar
 chocolate,dessert,flour
-yogurt,yogurt
+yogurt
 pastry,red/blush wine
 bottled water,whole milk
 bottled beer,ham
@@ -1441,20 +1441,20 @@ cream cheese ,other vegetables
 brown bread,soda
 canned beer,other vegetables,root vegetables,tropical fruit
 pork,salty snack
-newspapers,newspapers,sausage
+newspapers,sausage
 brown bread,sausage
 canned beer,chocolate,coffee,pork,shopping bags,tropical fruit
 UHT-milk,whipped/sour cream
 domestic eggs,specialty chocolate,sugar
-cake bar,canned fruit,sausage,sausage,whole milk
-other vegetables,other vegetables
+cake bar,canned fruit,sausage,whole milk
+other vegetables
 condensed milk,other vegetables,softener
 beverages,rice
 canned vegetables,frozen meals
 fruit/vegetable juice,rolls/buns
 canned beer,soda
 sausage,soda
-brown bread,rolls/buns,rolls/buns,sliced cheese
+brown bread,rolls/buns,sliced cheese
 cling film/bags,fruit/vegetable juice
 salty snack,semi-finished bread,sliced cheese
 frankfurter,other vegetables,whipped/sour cream
@@ -1463,7 +1463,7 @@ cleaner,whole milk
 photo/film,rolls/buns
 long life bakery product,sweet spreads
 canned beer,ice cream,semi-finished bread
-bottled beer,bottled water,bottled water,frozen meals,oil,rolls/buns,sausage,tropical fruit,waffles
+bottled beer,bottled water,frozen meals,oil,rolls/buns,sausage,tropical fruit,waffles
 bottled beer,other vegetables,whole milk
 artif. sweetener,ham,whole milk
 chicken,sausage,sparkling wine,whipped/sour cream
@@ -1471,18 +1471,18 @@ bottled beer,curd,fruit/vegetable juice,mayonnaise,misc. beverages,sausage,tropi
 frozen vegetables,pasta
 domestic eggs,white bread
 butter,whole milk
-bottled beer,bottled water,detergent,frankfurter,frankfurter,fruit/vegetable juice,male cosmetics,rolls/buns,root vegetables
+bottled beer,bottled water,detergent,frankfurter,fruit/vegetable juice,male cosmetics,rolls/buns,root vegetables
 beef,citrus fruit,pastry
 bottled water,coffee,ham,white wine,whole milk
 hamburger meat,ice cream
 root vegetables,soda
 root vegetables,soda,whole milk
-whole milk,whole milk
+whole milk
 shopping bags,snack products
 sausage,tropical fruit
 dishes,rum,sausage
 mustard,other vegetables,soups
-bottled water,bottled water
+bottled water
 condensed milk,yogurt
 shopping bags,whipped/sour cream
 pet care,soda,specialty chocolate
@@ -1506,7 +1506,7 @@ canned beer,long life bakery product
 cream cheese ,fruit/vegetable juice
 onions,sliced cheese
 pastry,sausage,yogurt
-other vegetables,other vegetables
+other vegetables
 oil,other vegetables,zwieback
 frozen meals,yogurt
 UHT-milk,other vegetables
@@ -1536,7 +1536,7 @@ canned beer,rolls/buns,whole milk,yogurt
 condensed milk,processed cheese,rolls/buns
 curd,other vegetables
 brown bread,pip fruit,whole milk
-citrus fruit,shopping bags,shopping bags
+citrus fruit,shopping bags
 mustard,pasta,syrup
 grapes,long life bakery product
 berries,other vegetables
@@ -1595,12 +1595,12 @@ cream cheese ,frankfurter,oil,onions
 beef,sausage,whipped/sour cream
 tropical fruit,whole milk
 UHT-milk,frankfurter,sliced cheese
-frankfurter,whole milk,whole milk
+frankfurter,whole milk
 other vegetables,yogurt
 fruit/vegetable juice,tropical fruit
 chocolate,whole milk
-rolls/buns,rolls/buns
-shopping bags,shopping bags
+rolls/buns
+shopping bags
 sausage,tropical fruit
 margarine,pip fruit
 citrus fruit,yogurt
@@ -1615,7 +1615,7 @@ butter,cream cheese ,flour,rolls/buns
 newspapers,shopping bags,whole milk
 pip fruit,yogurt
 butter,pickled vegetables,syrup,whole milk
-brown bread,hamburger meat,hygiene articles,hygiene articles,root vegetables,whole milk
+brown bread,hamburger meat,hygiene articles,root vegetables,whole milk
 other vegetables,rolls/buns
 margarine,meat,other vegetables
 pip fruit,rolls/buns
@@ -1632,7 +1632,7 @@ domestic eggs,finished products,margarine
 soda,whole milk
 ham,tropical fruit
 cling film/bags,pickled vegetables
-canned beer,canned beer
+canned beer
 other vegetables,root vegetables
 misc. beverages,specialty bar
 bottled beer,coffee,hamburger meat,instant coffee,yogurt
@@ -1655,8 +1655,8 @@ ham,specialty bar
 softener,whipped/sour cream
 hygiene articles,liquor
 packaged fruit/vegetables,shopping bags
-domestic eggs,whole milk,whole milk
-frozen vegetables,rolls/buns,root vegetables,seasonal products,specialty chocolate,whole milk,whole milk
+domestic eggs,whole milk
+frozen vegetables,rolls/buns,root vegetables,seasonal products,specialty chocolate,whole milk
 domestic eggs,newspapers
 hard cheese,long life bakery product
 root vegetables,white bread
@@ -1672,11 +1672,11 @@ waffles,yogurt
 ham,napkins,other vegetables
 bottled water,flour,hamburger meat,tropical fruit,whipped/sour cream
 beef,other vegetables
-bottled beer,bottled beer
+bottled beer
 bottled water,candy,margarine,soda
 salty snack,sugar
 bottled water,whipped/sour cream
-other vegetables,other vegetables
+other vegetables
 specialty bar,tropical fruit
 root vegetables,sausage
 pastry,sausage,soda
@@ -1692,7 +1692,7 @@ brown bread,chewing gum,citrus fruit
 rolls/buns,waffles
 popcorn,root vegetables
 beverages,chocolate
-root vegetables,root vegetables
+root vegetables
 candy,hamburger meat
 bottled water,ice cream,white bread,whole milk
 beef,root vegetables
@@ -1759,13 +1759,13 @@ pip fruit,yogurt
 mayonnaise,shopping bags
 brown bread,rolls/buns
 cake bar,pip fruit
-bottled beer,shopping bags,soda,soda,soft cheese,sugar,whole milk,whole milk
+bottled beer,shopping bags,soda,soft cheese,sugar,whole milk
 bottled beer,cream cheese ,frozen vegetables,sausage
 beverages,canned fish
 dessert,pastry
 meat,pip fruit
 detergent,fruit/vegetable juice,snack products,yogurt
-yogurt,yogurt
+yogurt
 sausage,tropical fruit
 brown bread,soda
 canned beer,rolls/buns,root vegetables,specialty cheese
@@ -1780,7 +1780,7 @@ candles,soda
 pip fruit,yogurt
 dish cleaner,pastry
 beef,chicken
-chicken,onions,other vegetables,other vegetables,rolls/buns,spices
+chicken,onions,other vegetables,rolls/buns,spices
 fruit/vegetable juice,popcorn,rolls/buns
 butter,cling film/bags,fruit/vegetable juice,yogurt
 UHT-milk,meat
@@ -1804,7 +1804,7 @@ butter,whipped/sour cream
 frankfurter,yogurt
 cat food,other vegetables
 cream cheese ,hard cheese
-root vegetables,root vegetables
+root vegetables
 oil,organic sausage,processed cheese
 UHT-milk,liquor
 beverages,napkins,whole milk
@@ -1831,7 +1831,7 @@ frozen vegetables,whole milk
 soda,spread cheese
 root vegetables,sliced cheese
 frozen vegetables,rolls/buns
-whole milk,whole milk
+whole milk
 cat food,soda
 bottled beer,fruit/vegetable juice
 chocolate,hygiene articles,soups
@@ -1870,7 +1870,7 @@ bottled water,margarine
 citrus fruit,domestic eggs
 butter milk,yogurt
 chocolate,liquor
-UHT-milk,chicken,frozen potato products,hard cheese,root vegetables,semi-finished bread,yogurt,yogurt
+UHT-milk,chicken,frozen potato products,hard cheese,root vegetables,semi-finished bread,yogurt
 liquor (appetizer),other vegetables
 other vegetables,whole milk
 frozen meals,kitchen towels,specialty bar,whole milk
@@ -1904,7 +1904,7 @@ brown bread,oil
 coffee,root vegetables,salty snack,sausage
 hygiene articles,ice cream
 bottled beer,frankfurter
-rolls/buns,rolls/buns
+rolls/buns
 tropical fruit,yogurt
 other vegetables,pastry
 frankfurter,ketchup,pork
@@ -1926,7 +1926,7 @@ brown bread,domestic eggs,other vegetables
 beef,bottled water,citrus fruit,dishes,ham
 brown bread,whipped/sour cream
 soda,tropical fruit
-UHT-milk,cream cheese ,cream cheese ,waffles
+UHT-milk,cream cheese ,waffles
 dessert,root vegetables
 bottled beer,sausage,sliced cheese
 bottled water,ham
@@ -1943,7 +1943,7 @@ bottled water,domestic eggs,whole milk
 frozen vegetables,tropical fruit
 cream cheese ,whole milk
 curd,sausage
-chicken,chicken
+chicken
 preservation products,soups
 bottled water,margarine,other vegetables
 frankfurter,soda
@@ -2001,7 +2001,7 @@ condensed milk,pastry
 bottled beer,other vegetables
 bottled beer,long life bakery product
 coffee,domestic eggs,pastry
-bottled water,bottled water,liver loaf
+bottled water,liver loaf
 beef,coffee,rolls/buns
 cereals,pork
 brown bread,domestic eggs,specialty chocolate
@@ -2023,7 +2023,7 @@ hygiene articles,vinegar
 beef,curd
 pip fruit,soda
 brown bread,canned fish,meat
-butter,detergent,newspapers,sausage,tropical fruit,tropical fruit
+butter,detergent,newspapers,sausage,tropical fruit
 liquor (appetizer),rolls/buns
 herbs,soft cheese
 chocolate,domestic eggs
@@ -2034,7 +2034,7 @@ beef,brown bread,citrus fruit,napkins,semi-finished bread
 salty snack,white bread
 cream cheese ,onions
 fruit/vegetable juice,yogurt
-white bread,white bread
+white bread
 coffee,sugar
 canned beer,dishes,onions
 chewing gum,dish cleaner,dog food,flour,flower (seeds),whole milk
@@ -2124,7 +2124,7 @@ cat food,sliced cheese
 bottled water,citrus fruit,dessert
 hygiene articles,liquor,sliced cheese
 bottled water,fruit/vegetable juice,pastry
-frankfurter,honey,newspapers,newspapers,pastry,sausage
+frankfurter,honey,newspapers,pastry,sausage
 brown bread,pip fruit,soda,sugar
 UHT-milk,pastry
 curd,dessert,rolls/buns,soda
@@ -2157,7 +2157,7 @@ hard cheese,soap
 other vegetables,rolls/buns
 canned beer,onions
 meat,other vegetables
-rolls/buns,rolls/buns,sausage
+rolls/buns,sausage
 bottled water,sugar
 specialty bar,yogurt
 brown bread,yogurt
@@ -2167,7 +2167,7 @@ bottled beer,rolls/buns,whole milk
 bottled beer,nut snack
 pip fruit,soda
 finished products,whole milk
-hamburger meat,liver loaf,other vegetables,rolls/buns,sausage,whipped/sour cream,white bread,whole milk,whole milk
+hamburger meat,liver loaf,other vegetables,rolls/buns,sausage,whipped/sour cream,white bread,whole milk
 other vegetables,pot plants,whole milk
 other vegetables,pot plants
 UHT-milk,dessert,margarine
@@ -2182,7 +2182,7 @@ root vegetables,sliced cheese,white bread
 rolls/buns,sausage
 candy,cream cheese 
 semi-finished bread,whole milk
-berries,other vegetables,pot plants,shopping bags,tropical fruit,tropical fruit
+berries,other vegetables,pot plants,shopping bags,tropical fruit
 sausage,soda
 butter,frozen vegetables
 beef,soda
@@ -2225,7 +2225,7 @@ napkins,soft cheese
 butter,pickled vegetables
 other vegetables,sugar
 napkins,other vegetables,white wine
-chocolate,rolls/buns,soda,soda
+chocolate,rolls/buns,soda
 bottled beer,cream cheese ,pastry
 oil,root vegetables,yogurt
 sausage,yogurt
@@ -2285,7 +2285,7 @@ misc. beverages,shopping bags
 salty snack,whole milk
 canned beer,margarine,tropical fruit
 meat,rolls/buns,soda
-soda,soda
+soda
 canned fish,rolls/buns
 frozen meals,ham,roll products ,specialty chocolate
 citrus fruit,pastry
@@ -2358,7 +2358,7 @@ rolls/buns,yogurt
 citrus fruit,specialty cheese
 brown bread,napkins,salty snack
 hygiene articles,pastry
-waffles,waffles,whole milk
+waffles,whole milk
 butter,newspapers
 frozen vegetables,white bread
 hygiene articles,shopping bags
@@ -2371,7 +2371,7 @@ flour,specialty chocolate
 specialty cheese,yogurt
 newspapers,red/blush wine
 grapes,whole milk
-rolls/buns,rolls/buns,rolls/buns,sausage
+rolls/buns,sausage
 pastry,pork
 condensed milk,pork
 newspapers,rolls/buns,yogurt
@@ -2418,7 +2418,7 @@ bottled water,dessert,tropical fruit,white bread
 bottled beer,hard cheese,liquor (appetizer),whole milk
 sliced cheese,specialty cheese
 frozen potato products,rolls/buns
-frozen meals,frozen meals
+frozen meals
 other vegetables,whole milk
 citrus fruit,flour
 coffee,margarine,pork
@@ -2444,12 +2444,12 @@ pip fruit,shopping bags,white wine
 fruit/vegetable juice,rolls/buns,sugar
 beef,bottled water
 herbs,rolls/buns,soft cheese,yogurt
-butter,onions,rolls/buns,rolls/buns,whole milk
+butter,onions,rolls/buns,whole milk
 pork,yogurt
-tropical fruit,tropical fruit
+tropical fruit
 misc. beverages,rolls/buns,soda
 pork,sugar
-canned vegetables,curd,frankfurter,whole milk,whole milk
+canned vegetables,curd,frankfurter,whole milk
 canned beer,curd cheese
 UHT-milk,whole milk
 other vegetables,soda
@@ -2499,18 +2499,18 @@ fruit/vegetable juice,liquor
 citrus fruit,dessert
 newspapers,other vegetables
 berries,yogurt
-cake bar,domestic eggs,frozen meals,pip fruit,pip fruit,shopping bags,soda,whipped/sour cream
+cake bar,domestic eggs,frozen meals,pip fruit,shopping bags,soda,whipped/sour cream
 canned beer,seasonal products
 bottled water,root vegetables,turkey
 pip fruit,whole milk
 curd,white wine
 canned beer,white bread
-coffee,oil,whole milk,whole milk
+coffee,oil,whole milk
 bottled water,soda
 waffles,whole milk
 beverages,pickled vegetables
 other vegetables,whole milk
-candles,whole milk,whole milk
+candles,whole milk
 pork,root vegetables
 brown bread,canned beer
 curd,sausage
@@ -2525,7 +2525,7 @@ citrus fruit,yogurt
 frankfurter,soda
 bottled water,curd cheese,newspapers,whipped/sour cream
 brown bread,rolls/buns
-frozen vegetables,pastry,sausage,sausage
+frozen vegetables,pastry,sausage
 curd,sugar
 oil,other vegetables,sugar
 cake bar,chewing gum
@@ -2552,7 +2552,7 @@ other vegetables,tropical fruit
 beverages,condensed milk,frozen vegetables,misc. beverages,rolls/buns
 kitchen towels,root vegetables
 dish cleaner,soda
-yogurt,yogurt
+yogurt
 citrus fruit,other vegetables,pork,shopping bags
 brown bread,other vegetables,yogurt
 hygiene articles,liquor (appetizer)
@@ -2560,16 +2560,16 @@ citrus fruit,pip fruit
 canned vegetables,chicken,rolls/buns
 margarine,onions,sweet spreads
 pip fruit,shopping bags
-other vegetables,other vegetables
+other vegetables
 canned beer,photo/film
-pip fruit,yogurt,yogurt
+pip fruit,yogurt
 other vegetables,waffles
 decalcifier,pastry,whipped/sour cream
 margarine,pork,yogurt
 bottled beer,whole milk
 frozen vegetables,newspapers,whole milk
 bottled water,misc. beverages,mustard
-canned beer,cream cheese ,newspapers,pork,pork,tropical fruit,waffles,whipped/sour cream
+canned beer,cream cheese ,newspapers,pork,tropical fruit,waffles,whipped/sour cream
 rolls/buns,sauces
 cream cheese ,white bread
 frozen fish,whole milk
@@ -2591,10 +2591,10 @@ brown bread,chicken
 chicken,rolls/buns
 newspapers,specialty chocolate
 herbs,oil
-yogurt,yogurt
+yogurt
 chicken,whole milk
 bottled beer,citrus fruit,shopping bags
-soda,soda
+soda
 frankfurter,hamburger meat,white bread,whole milk
 frankfurter,yogurt
 cream cheese ,rice
@@ -2625,12 +2625,12 @@ herbs,shopping bags,vinegar
 butter,onions,root vegetables,whole milk
 bottled water,soda
 margarine,other vegetables,rolls/buns,whole milk
-soda,soda,whole milk
+soda,whole milk
 tropical fruit,whole milk
 butter,dessert
 canned beer,newspapers
 tropical fruit,whole milk
-chewing gum,pastry,pastry
+chewing gum,pastry
 citrus fruit,newspapers,shopping bags
 citrus fruit,sweet spreads
 sliced cheese,whipped/sour cream,yogurt
@@ -2647,7 +2647,7 @@ root vegetables,whole milk
 detergent,pastry
 dessert,other vegetables,pip fruit,red/blush wine
 napkins,other vegetables,pip fruit
-brown bread,brown bread,canned fish,whole milk
+brown bread,canned fish,whole milk
 beef,citrus fruit
 rolls/buns,rum
 processed cheese,root vegetables
@@ -2665,7 +2665,7 @@ sausage,semi-finished bread
 other vegetables,processed cheese
 long life bakery product,other vegetables
 salt,sausage
-whole milk,whole milk
+whole milk
 bottled beer,tropical fruit
 chicken,waffles
 canned beer,citrus fruit,flour
@@ -2736,7 +2736,7 @@ curd,whipped/sour cream
 canned beer,red/blush wine
 root vegetables,soda
 processed cheese,rolls/buns,whipped/sour cream,yogurt
-bottled water,bottled water,kitchen utensil,pasta,rolls/buns
+bottled water,kitchen utensil,pasta,rolls/buns
 bottled beer,butter
 beverages,canned fish,pip fruit,roll products ,sugar,whole milk
 berries,root vegetables
@@ -2761,7 +2761,7 @@ cream cheese ,fruit/vegetable juice
 hygiene articles,pastry
 other vegetables,sliced cheese,whole milk
 rolls/buns,whole milk
-butter milk,other vegetables,other vegetables,sausage
+butter milk,other vegetables,sausage
 pickled vegetables,root vegetables
 cream cheese ,whipped/sour cream
 bottled water,pastry
@@ -2780,7 +2780,7 @@ canned beer,curd,finished products,frankfurter,hamburger meat,packaged fruit/veg
 other vegetables,root vegetables
 margarine,rolls/buns,whipped/sour cream
 pickled vegetables,salt,whole milk
-bottled water,chocolate,chocolate,other vegetables,pasta,pip fruit,shopping bags,yogurt
+bottled water,chocolate,other vegetables,pasta,pip fruit,shopping bags,yogurt
 bottled water,flour
 dog food,newspapers,pet care
 bottled beer,brown bread,ham,oil,other vegetables,pork,whole milk
@@ -2788,7 +2788,7 @@ cream cheese ,dish cleaner,margarine
 fruit/vegetable juice,soda
 newspapers,sausage,sugar
 dish cleaner,frozen fish,newspapers,whole milk
-shopping bags,shopping bags
+shopping bags
 UHT-milk,tropical fruit
 hygiene articles,whole milk
 mustard,pudding powder
@@ -2818,7 +2818,7 @@ other vegetables,pastry
 butter milk,flower soil/fertilizer
 fruit/vegetable juice,margarine
 butter milk,long life bakery product
-butter,chicken,finished products,herbs,rolls/buns,rolls/buns,white bread
+butter,chicken,finished products,herbs,rolls/buns,white bread
 dessert,long life bakery product,other vegetables
 beverages,pickled vegetables
 root vegetables,sausage
@@ -2860,16 +2860,16 @@ fruit/vegetable juice,pastry,whole milk
 brown bread,curd,sausage
 misc. beverages,pip fruit,yogurt
 photo/film,tropical fruit
-bottled water,bottled water
+bottled water
 beef,whole milk
 citrus fruit,newspapers
 long life bakery product,rolls/buns
 beef,curd,rolls/buns,white bread,whole milk
 sugar,whole milk
-beverages,curd,curd,newspapers,other vegetables,pip fruit,rolls/buns,sausage,soft cheese,specialty bar,yogurt
+beverages,curd,newspapers,other vegetables,pip fruit,rolls/buns,sausage,soft cheese,specialty bar,yogurt
 dessert,oil,sausage,whole milk
 sausage,yogurt
-canned fish,canned fish
+canned fish
 shopping bags,tropical fruit
 specialty bar,yogurt
 butter milk,specialty chocolate
@@ -2879,7 +2879,7 @@ coffee,napkins
 soda,yogurt
 tropical fruit,yogurt
 pork,rolls/buns
-misc. beverages,misc. beverages,yogurt
+misc. beverages,yogurt
 bottled water,specialty chocolate
 candy,rolls/buns,white bread
 other vegetables,pip fruit
@@ -2892,7 +2892,7 @@ cling film/bags,organic sausage,other vegetables
 curd,other vegetables
 grapes,soda,turkey
 curd,fruit/vegetable juice,sausage,whole milk
-brown bread,butter,canned beer,canned beer
+brown bread,butter,canned beer
 berries,ham
 bottled water,sausage
 misc. beverages,specialty bar
@@ -2902,7 +2902,7 @@ liquor,long life bakery product,pork
 frozen meals,whipped/sour cream
 chocolate,finished products,frozen meals,napkins,other vegetables,packaged fruit/vegetables,salty snack,whole milk
 long life bakery product,yogurt
-brown bread,brown bread
+brown bread
 canned beer,other vegetables
 canned beer,sausage
 pork,sausage
@@ -2920,11 +2920,11 @@ cream cheese ,pork
 bottled water,pastry
 bottled water,pork
 chocolate marshmallow,frozen vegetables
-beef,detergent,domestic eggs,frozen vegetables,grapes,newspapers,processed cheese,tropical fruit,tropical fruit
+beef,detergent,domestic eggs,frozen vegetables,grapes,newspapers,processed cheese,tropical fruit
 beef,hard cheese
 chocolate,pip fruit
 brown bread,other vegetables
-frozen vegetables,frozen vegetables
+frozen vegetables
 canned beer,ice cream,male cosmetics,white wine
 beef,chicken,chocolate,newspapers,organic products
 long life bakery product,rolls/buns
@@ -2978,7 +2978,7 @@ citrus fruit,newspapers,tropical fruit
 mustard,soda
 canned beer,pork
 shopping bags,whipped/sour cream
-beverages,beverages,butter,butter,cream cheese ,frankfurter,hamburger meat,root vegetables,soda
+beverages,butter,cream cheese ,frankfurter,hamburger meat,root vegetables,soda
 finished products,popcorn
 hamburger meat,margarine
 frankfurter,other vegetables
@@ -3028,7 +3028,7 @@ red/blush wine,rolls/buns,specialty bar
 coffee,fruit/vegetable juice
 grapes,pip fruit,soda
 root vegetables,tropical fruit
-chicken,packaged fruit/vegetables,packaged fruit/vegetables,pasta,pastry,photo/film,sugar,tropical fruit
+chicken,packaged fruit/vegetables,pasta,pastry,photo/film,sugar,tropical fruit
 berries,root vegetables
 butter milk,citrus fruit
 butter milk,root vegetables
@@ -3041,7 +3041,7 @@ long life bakery product,napkins,tropical fruit
 dessert,semi-finished bread
 bottled beer,onions
 candy,citrus fruit,pasta,soda
-pip fruit,pip fruit,rolls/buns,rolls/buns,tropical fruit
+pip fruit,rolls/buns,tropical fruit
 cling film/bags,rolls/buns,whole milk
 frankfurter,hygiene articles,pastry
 berries,bottled water,curd,napkins,whole milk
@@ -3069,7 +3069,7 @@ bottled water,brown bread,grapes,soda
 brown bread,rolls/buns
 pip fruit,yogurt
 beverages,mustard
-male cosmetics,pork,pork
+male cosmetics,pork
 bottled water,citrus fruit
 ham,other vegetables
 hard cheese,sauces,whole milk
@@ -3153,7 +3153,7 @@ flour,ready soups
 berries,other vegetables,whole milk
 beverages,mayonnaise,other vegetables
 chocolate,tropical fruit
-Instant food products,canned beer,whole milk,whole milk
+Instant food products,canned beer,whole milk
 fruit/vegetable juice,soda
 cake bar,shopping bags
 citrus fruit,fruit/vegetable juice
@@ -3231,11 +3231,11 @@ ice cream,onions,sliced cheese,soda
 bottled water,brown bread,hamburger meat,other vegetables,popcorn,pork,soda
 cream cheese ,tropical fruit
 misc. beverages,onions,whole milk,yogurt
-fruit/vegetable juice,tropical fruit,whole milk,whole milk
+fruit/vegetable juice,tropical fruit,whole milk
 berries,other vegetables
 pastry,yogurt
 frankfurter,red/blush wine
-sausage,sausage
+sausage
 frankfurter,other vegetables
 baking powder,mustard,sugar
 citrus fruit,pastry
@@ -3276,7 +3276,7 @@ butter,pork
 butter milk,frankfurter
 meat,whole milk
 UHT-milk,frozen potato products,onions,root vegetables
-chicken,coffee,domestic eggs,frankfurter,frankfurter,long life bakery product,other vegetables,rolls/buns
+chicken,coffee,domestic eggs,frankfurter,long life bakery product,other vegetables,rolls/buns
 bottled water,other vegetables
 butter milk,waffles
 artif. sweetener,bottled water,butter,butter milk,soda
@@ -3300,7 +3300,7 @@ ketchup,rolls/buns
 canned beer,herbs
 beef,sweet spreads
 soups,whole milk
-root vegetables,root vegetables
+root vegetables
 beef,berries,candles,long life bakery product
 UHT-milk,onions
 chicken,ham
@@ -3323,7 +3323,7 @@ hamburger meat,salty snack
 cream cheese ,root vegetables,waffles
 curd,soda
 citrus fruit,frozen potato products,hamburger meat,napkins,semi-finished bread,whole milk
-other vegetables,soda,soda
+other vegetables,soda
 onions,whipped/sour cream
 soups,specialty cheese
 canned beer,other vegetables
@@ -3365,7 +3365,7 @@ seasonal products,soups
 cream cheese ,photo/film
 butter,cat food
 chewing gum,yogurt
-domestic eggs,fruit/vegetable juice,sausage,sausage,seasonal products
+domestic eggs,fruit/vegetable juice,sausage,seasonal products
 other vegetables,sugar
 butter,other vegetables,seasonal products,shopping bags,tropical fruit
 candy,ham,whole milk
@@ -3398,7 +3398,7 @@ cat food,semi-finished bread
 chicken,male cosmetics
 chocolate,pork,soap
 UHT-milk,rolls/buns
-curd,curd,finished products,pip fruit,pork,whipped/sour cream,whole milk
+curd,finished products,pip fruit,pork,whipped/sour cream,whole milk
 cereals,dessert
 other vegetables,tropical fruit
 other vegetables,rolls/buns,root vegetables
@@ -3453,7 +3453,7 @@ turkey,whole milk
 flour,mayonnaise,rolls/buns
 oil,tropical fruit,white wine
 bottled beer,napkins,newspapers
-bottled water,citrus fruit,citrus fruit,pastry
+bottled water,citrus fruit,pastry
 canned beer,photo/film
 newspapers,pasta
 curd,soda
@@ -3461,7 +3461,7 @@ rolls/buns,yogurt
 berries,pastry
 butter,candy
 chicken,soda
-bottled water,butter,citrus fruit,finished products,other vegetables,other vegetables,rolls/buns,rolls/buns,yogurt
+bottled water,butter,citrus fruit,finished products,other vegetables,rolls/buns,yogurt
 bottled water,soda
 UHT-milk,finished products
 ham,specialty bar
@@ -3487,8 +3487,8 @@ tropical fruit,white bread
 pip fruit,root vegetables
 beverages,tropical fruit
 napkins,soda
-bottled beer,rolls/buns,sugar,yogurt,yogurt
-curd,fruit/vegetable juice,grapes,grapes,other vegetables,sausage,tropical fruit,whipped/sour cream
+bottled beer,rolls/buns,sugar,yogurt
+curd,fruit/vegetable juice,grapes,other vegetables,sausage,tropical fruit,whipped/sour cream
 other vegetables,sweet spreads,yogurt
 frozen vegetables,mayonnaise,processed cheese
 margarine,newspapers
@@ -3518,11 +3518,11 @@ rolls/buns,whole milk
 napkins,other vegetables,pot plants
 frozen vegetables,pip fruit
 hamburger meat,onions
-UHT-milk,UHT-milk
+UHT-milk
 canned beer,canned fruit,hamburger meat,other vegetables
 UHT-milk,bottled beer,canned fish,chicken,cocoa drinks,frankfurter,onions,whole milk
 bottled water,liquor
-potato products,tropical fruit,whole milk,whole milk
+potato products,tropical fruit,whole milk
 cake bar,pork
 whipped/sour cream,whole milk
 whipped/sour cream,yogurt
@@ -3539,9 +3539,9 @@ candy,pastry
 berries,specialty chocolate,white bread,whole milk
 canned beer,margarine,other vegetables
 bottled beer,whole milk
-other vegetables,other vegetables
+other vegetables
 UHT-milk,citrus fruit,yogurt
-herbs,whole milk,whole milk
+herbs,whole milk
 bottled water,hamburger meat,pastry
 baking powder,frozen vegetables,pet care,yogurt
 dessert,frankfurter,margarine,pip fruit,soda,whole milk,yogurt
@@ -3638,7 +3638,7 @@ beef,canned beer,whole milk
 cookware,yogurt
 turkey,yogurt
 beef,brown bread
-brown bread,brown bread
+brown bread
 bottled water,white bread
 beef,detergent,whole milk
 root vegetables,whole milk
@@ -3658,7 +3658,7 @@ butter,frozen fruits,tropical fruit
 butter,coffee
 hamburger meat,whole milk
 pip fruit,rolls/buns
-whole milk,whole milk
+whole milk
 bathroom cleaner,margarine
 processed cheese,soda,white wine
 berries,hamburger meat
@@ -3680,24 +3680,24 @@ long life bakery product,newspapers,soda
 sausage,yogurt
 butter,frozen fish,white wine
 bottled beer,soap
-butter,flour,fruit/vegetable juice,fruit/vegetable juice
+butter,flour,fruit/vegetable juice
 pork,soda,specialty bar
 chicken,nuts/prunes
 citrus fruit,other vegetables
-beef,beef
+beef
 other vegetables,rolls/buns,seasonal products,white bread
 pastry,rolls/buns
 chicken,rolls/buns
 curd,root vegetables,waffles
 pet care,pip fruit,root vegetables,tropical fruit
 bottled beer,soda
-chocolate,coffee,pip fruit,waffles,whole milk,whole milk,whole milk,whole milk
+chocolate,coffee,pip fruit,waffles,whole milk
 bottled beer,canned beer,fruit/vegetable juice,yogurt
 other vegetables,yogurt
 frozen dessert,frozen meals
 brown bread,pet care
 fruit/vegetable juice,other vegetables,white bread
-margarine,rolls/buns,root vegetables,root vegetables,root vegetables,shopping bags,soda,soft cheese
+margarine,rolls/buns,root vegetables,shopping bags,soda,soft cheese
 domestic eggs,whipped/sour cream
 rolls/buns,yogurt
 rolls/buns,soda
@@ -3716,7 +3716,7 @@ citrus fruit,sauces
 ice cream,pork
 root vegetables,whipped/sour cream
 chewing gum,citrus fruit,root vegetables,whole milk
-canned beer,canned vegetables,dishes,frankfurter,frankfurter,pip fruit,rolls/buns,whole milk
+canned beer,canned vegetables,dishes,frankfurter,pip fruit,rolls/buns,whole milk
 brown bread,white wine
 cream cheese ,frozen vegetables,soft cheese
 butter,dog food,tropical fruit
@@ -3727,7 +3727,7 @@ chocolate,root vegetables,shopping bags,yogurt
 butter,butter milk
 beef,napkins
 beef,other vegetables,processed cheese,spices
-citrus fruit,citrus fruit,other vegetables,whole milk
+citrus fruit,other vegetables,whole milk
 cereals,rolls/buns
 bottled water,other vegetables
 beverages,frozen vegetables,meat,onions,pork,rolls/buns,root vegetables
@@ -3745,7 +3745,7 @@ bottled beer,dessert,jam,male cosmetics
 frozen potato products,pot plants
 coffee,frankfurter
 dessert,photo/film
-brown bread,cream cheese ,whole milk,whole milk
+brown bread,cream cheese ,whole milk
 root vegetables,soda
 domestic eggs,mayonnaise
 soda,whole milk
@@ -3754,7 +3754,7 @@ prosecco,rolls/buns
 soda,tropical fruit
 other vegetables,yogurt
 shopping bags,soda
-bottled water,soda,soda,specialty bar,whole milk
+bottled water,soda,specialty bar,whole milk
 root vegetables,waffles,yogurt
 fruit/vegetable juice,whipped/sour cream
 mayonnaise,shopping bags
@@ -3820,7 +3820,7 @@ cat food,whole milk
 bottled beer,coffee
 margarine,other vegetables
 misc. beverages,napkins
-domestic eggs,domestic eggs,frozen meals
+domestic eggs,frozen meals
 cling film/bags,rolls/buns
 dessert,flower (seeds)
 ham,salt
@@ -3835,11 +3835,11 @@ beef,dish cleaner,ice cream
 frankfurter,rolls/buns
 berries,soap
 newspapers,shopping bags
-salty snack,soda,soda
+salty snack,soda
 detergent,rolls/buns
 bottled water,ham
 other vegetables,whole milk
-artif. sweetener,dog food,frankfurter,grapes,misc. beverages,napkins,sausage,sausage
+artif. sweetener,dog food,frankfurter,grapes,misc. beverages,napkins,sausage
 soda,whipped/sour cream
 dessert,meat spreads,pork,tropical fruit,whole milk
 canned beer,pot plants,sweet spreads,yogurt
@@ -3872,12 +3872,12 @@ candy,chicken,chocolate,oil
 ham,popcorn,tropical fruit
 beverages,sugar
 condensed milk,rolls/buns
-rolls/buns,soda,soda
+rolls/buns,soda
 long life bakery product,margarine
 root vegetables,yogurt
 dessert,zwieback
 detergent,liquor (appetizer)
-grapes,grapes
+grapes
 cream cheese ,pasta,shopping bags,tropical fruit
 brown bread,hygiene articles
 other vegetables,pip fruit
@@ -3888,7 +3888,7 @@ brown bread,waffles
 curd,other vegetables
 fruit/vegetable juice,shopping bags
 bottled water,rolls/buns
-UHT-milk,bottled water,fruit/vegetable juice,long life bakery product,other vegetables,pastry,tropical fruit,tropical fruit
+UHT-milk,bottled water,fruit/vegetable juice,long life bakery product,other vegetables,pastry,tropical fruit
 butter,whole milk,yogurt
 pastry,pip fruit
 domestic eggs,shopping bags
@@ -3913,7 +3913,7 @@ fruit/vegetable juice,root vegetables
 berries,whole milk
 other vegetables,rolls/buns
 pork,sugar
-other vegetables,other vegetables,whole milk
+other vegetables,whole milk
 dessert,ham
 grapes,pork
 tropical fruit,whole milk
@@ -3924,8 +3924,8 @@ cream cheese ,flour
 newspapers,other vegetables,rolls/buns
 cocoa drinks,domestic eggs,photo/film
 brown bread,other vegetables,pork,whole milk
-beverages,fruit/vegetable juice,ice cream,other vegetables,other vegetables,prosecco,root vegetables,soda
-frankfurter,frankfurter,hygiene articles,long life bakery product,newspapers,pip fruit,whipped/sour cream
+beverages,fruit/vegetable juice,ice cream,other vegetables,prosecco,root vegetables,soda
+frankfurter,hygiene articles,long life bakery product,newspapers,pip fruit,whipped/sour cream
 beef,canned beer,coffee,whole milk
 rolls/buns,soda
 cereals,cream cheese ,other vegetables
@@ -3961,7 +3961,7 @@ pip fruit,specialty fat
 beef,flower (seeds)
 misc. beverages,whole milk
 sausage,sparkling wine
-long life bakery product,soda,tropical fruit,tropical fruit,tropical fruit
+long life bakery product,soda,tropical fruit
 domestic eggs,misc. beverages,onions,whole milk
 bottled beer,pork
 shopping bags,whole milk
@@ -4002,7 +4002,7 @@ candy,pip fruit
 oil,skin care
 cake bar,domestic eggs,napkins,root vegetables
 frozen dessert,pot plants
-citrus fruit,citrus fruit,other vegetables,yogurt
+citrus fruit,other vegetables,yogurt
 bottled water,sausage,spread cheese
 frankfurter,oil,soda
 ice cream,pip fruit
@@ -4013,7 +4013,7 @@ canned beer,whole milk
 beef,whole milk
 newspapers,salty snack
 chewing gum,margarine,root vegetables
-chocolate,chocolate,processed cheese,yogurt
+chocolate,processed cheese,yogurt
 pip fruit,root vegetables
 frankfurter,other vegetables
 sausage,whole milk
@@ -4052,11 +4052,11 @@ frankfurter,other vegetables
 UHT-milk,bottled water,pastry
 brown bread,domestic eggs
 brown bread,coffee
-bottled water,brandy,whole milk,whole milk
+bottled water,brandy,whole milk
 other vegetables,sausage
 grapes,ice cream,sweet spreads,tropical fruit
 beverages,cat food
-root vegetables,root vegetables
+root vegetables
 domestic eggs,soda
 beef,pip fruit
 domestic eggs,pip fruit
@@ -4084,7 +4084,7 @@ photo/film,vinegar
 citrus fruit,onions
 candy,canned beer,ice cream
 brown bread,dish cleaner,pastry,pet care
-canned fish,salty snack,salty snack
+canned fish,salty snack
 bottled water,salty snack
 rum,sausage
 beverages,brown bread,pasta,pip fruit,rolls/buns,sausage,tropical fruit
@@ -4095,7 +4095,7 @@ canned vegetables,napkins
 other vegetables,whole milk
 specialty bar,whipped/sour cream
 bottled beer,candy,frozen potato products,pastry,rolls/buns,whole milk
-whole milk,whole milk
+whole milk
 bottled water,coffee
 other vegetables,shopping bags
 frozen meals,pip fruit,rolls/buns,whole milk
@@ -4137,11 +4137,11 @@ coffee,whole milk
 other vegetables,salty snack
 canned beer,rolls/buns
 newspapers,pip fruit
-bottled beer,brown bread,butter,coffee,frankfurter,frankfurter,margarine,soda,sugar
+bottled beer,brown bread,butter,coffee,frankfurter,margarine,soda,sugar
 bottled water,frankfurter
 beverages,whipped/sour cream
 tropical fruit,yogurt
-mayonnaise,tropical fruit,tropical fruit
+mayonnaise,tropical fruit
 oil,whipped/sour cream
 bottled beer,bottled water
 male cosmetics,salt,sugar,yogurt
@@ -4160,7 +4160,7 @@ UHT-milk,pork
 bottled water,margarine,sausage,whole milk
 bottled water,dessert
 frankfurter,soups
-whole milk,whole milk
+whole milk
 canned beer,whipped/sour cream
 berries,rolls/buns
 cling film/bags,hamburger meat,soda
@@ -4177,7 +4177,7 @@ meat,other vegetables,soda,whipped/sour cream
 napkins,soda
 red/blush wine,root vegetables
 butter,potato products
-yogurt,yogurt
+yogurt
 bottled beer,whole milk
 beef,whole milk
 pip fruit,pork
@@ -4205,7 +4205,7 @@ berries,coffee
 bottled water,oil
 condensed milk,tropical fruit
 bottled beer,candy,sausage,yogurt
-fruit/vegetable juice,pip fruit,pip fruit,whole milk
+fruit/vegetable juice,pip fruit,whole milk
 other vegetables,pork
 citrus fruit,soda
 other vegetables,yogurt
@@ -4248,7 +4248,7 @@ citrus fruit,frankfurter,frozen vegetables,yogurt
 bottled beer,whole milk
 onions,root vegetables
 other vegetables,sausage
-yogurt,yogurt
+yogurt
 potato products,yogurt
 butter,rolls/buns,sugar
 citrus fruit,whole milk
@@ -4256,7 +4256,7 @@ bottled water,seasonal products
 Instant food products,waffles
 frozen vegetables,tropical fruit
 UHT-milk,pork,specialty bar,yogurt
-chocolate,curd,hard cheese,liver loaf,mayonnaise,pip fruit,rolls/buns,root vegetables,root vegetables
+chocolate,curd,hard cheese,liver loaf,mayonnaise,pip fruit,rolls/buns,root vegetables
 frozen vegetables,yogurt
 onions,soda
 canned beer,pet care,tropical fruit
@@ -4288,7 +4288,7 @@ berries,pip fruit
 beef,other vegetables
 margarine,rolls/buns,soda
 napkins,pork
-other vegetables,other vegetables,waffles
+other vegetables,waffles
 flour,whipped/sour cream
 bottled water,soda,whole milk
 butter,fruit/vegetable juice
@@ -4313,7 +4313,7 @@ beef,canned beer
 beverages,candy,meat,newspapers
 fish,meat
 brown bread,newspapers,pot plants
-fruit/vegetable juice,ham,misc. beverages,pickled vegetables,rolls/buns,sliced cheese,whole milk,whole milk
+fruit/vegetable juice,ham,misc. beverages,pickled vegetables,rolls/buns,sliced cheese,whole milk
 pot plants,shopping bags,sugar,tropical fruit
 female sanitary products,rolls/buns
 ham,white bread
@@ -4327,7 +4327,7 @@ shopping bags,soda
 margarine,root vegetables
 cream cheese ,whipped/sour cream
 dog food,whole milk
-cat food,curd,pot plants,soft cheese,soft cheese,tropical fruit
+cat food,curd,pot plants,soft cheese,tropical fruit
 curd cheese,pip fruit
 ice cream,whole milk
 UHT-milk,cream cheese 
@@ -4337,7 +4337,7 @@ bottled beer,whole milk
 fruit/vegetable juice,rolls/buns,semi-finished bread
 bottled water,coffee,misc. beverages,other vegetables
 brown bread,butter milk,curd,pasta,rolls/buns,whole milk
-bottled beer,bottled beer
+bottled beer
 oil,root vegetables
 other vegetables,soda
 chicken,coffee
@@ -4364,7 +4364,7 @@ detergent,salty snack
 fish,root vegetables
 bottled beer,citrus fruit,frozen potato products,fruit/vegetable juice,sauces,sugar
 canned beer,ham
-rolls/buns,rolls/buns
+rolls/buns
 beef,ice cream
 frankfurter,meat,pip fruit,roll products 
 butter,citrus fruit
@@ -4407,7 +4407,7 @@ domestic eggs,frankfurter,frozen dessert
 whipped/sour cream,yogurt
 shopping bags,whole milk
 onions,soda
-frankfurter,other vegetables,rolls/buns,rolls/buns,soda
+frankfurter,other vegetables,rolls/buns,soda
 curd,pork
 ham,misc. beverages
 beef,butter,margarine,popcorn,pork
@@ -4421,7 +4421,7 @@ soda,tropical fruit,whipped/sour cream
 bottled water,whole milk
 sausage,soda
 canned beer,sausage
-brown bread,citrus fruit,domestic eggs,frankfurter,other vegetables,other vegetables,sugar,whole milk,zwieback
+brown bread,citrus fruit,domestic eggs,frankfurter,other vegetables,sugar,whole milk,zwieback
 soda,whipped/sour cream
 beverages,newspapers
 domestic eggs,specialty bar
@@ -4503,11 +4503,11 @@ cat food,onions,tidbits,tropical fruit
 bottled beer,butter,other vegetables
 beef,curd,napkins
 dishes,frankfurter,rice,specialty bar,whole milk
-fruit/vegetable juice,hamburger meat,pork,whole milk,whole milk
+fruit/vegetable juice,hamburger meat,pork,whole milk
 rolls/buns,sausage
 domestic eggs,pork,sweet spreads,whole milk
 butter,pastry
-canned beer,canned beer,dessert,flour,meat spreads,packaged fruit/vegetables
+canned beer,dessert,flour,meat spreads,packaged fruit/vegetables
 canned beer,processed cheese,whole milk
 newspapers,other vegetables
 butter,soda
@@ -4527,14 +4527,14 @@ citrus fruit,cream cheese
 other vegetables,tropical fruit
 curd,whipped/sour cream
 candy,long life bakery product
-domestic eggs,domestic eggs,soda,tropical fruit
+domestic eggs,soda,tropical fruit
 root vegetables,sausage
 brown bread,canned beer
 pip fruit,soda
 candy,pot plants
 brown bread,whole milk
 frozen dessert,herbs,whole milk
-root vegetables,root vegetables
+root vegetables
 margarine,whipped/sour cream
 beverages,other vegetables
 pastry,tropical fruit
@@ -4566,15 +4566,15 @@ shopping bags,sugar
 fruit/vegetable juice,pastry
 pip fruit,rolls/buns
 long life bakery product,pet care
-whipped/sour cream,whipped/sour cream
+whipped/sour cream
 cream cheese ,rolls/buns
 chocolate,root vegetables
-flower soil/fertilizer,meat,other vegetables,processed cheese,root vegetables,shopping bags,soda,soda
+flower soil/fertilizer,meat,other vegetables,processed cheese,root vegetables,shopping bags,soda
 misc. beverages,sausage
 bottled water,meat,soda
 cooking chocolate,roll products ,sausage,soda
 instant coffee,processed cheese
-chocolate,cream cheese ,flour,frankfurter,hard cheese,other vegetables,sausage,sausage,tropical fruit
+chocolate,cream cheese ,flour,frankfurter,hard cheese,other vegetables,sausage,tropical fruit
 berries,tropical fruit
 bottled beer,butter,pastry,seasonal products
 cake bar,citrus fruit
@@ -4594,7 +4594,7 @@ newspapers,pastry
 root vegetables,sausage
 beverages,citrus fruit
 canned beer,margarine,pastry,pickled vegetables,pork,sausage,whipped/sour cream
-pork,sugar,waffles,whole milk,whole milk
+pork,sugar,waffles,whole milk
 frankfurter,liquor (appetizer),red/blush wine
 dish cleaner,grapes,ketchup
 canned beer,frozen vegetables
@@ -4603,7 +4603,7 @@ meat,whole milk
 pip fruit,root vegetables
 ham,soda
 bottled beer,candy,soda
-shopping bags,shopping bags
+shopping bags
 brandy,candy,citrus fruit,rolls/buns
 frozen meals,fruit/vegetable juice,meat,root vegetables,whole milk
 Instant food products,bottled water
@@ -4613,10 +4613,10 @@ chicken,margarine
 curd,pastry,whole milk
 curd,misc. beverages
 cream cheese ,pip fruit,sausage,whole milk
-butter,sausage,yogurt,yogurt
+butter,sausage,yogurt
 domestic eggs,other vegetables,soda
 curd,yogurt
-canned fruit,fruit/vegetable juice,popcorn,sausage,soda,whole milk,whole milk
+canned fruit,fruit/vegetable juice,popcorn,sausage,soda,whole milk
 pastry,shopping bags,sugar
 canned beer,citrus fruit
 frozen vegetables,sausage
@@ -4658,8 +4658,8 @@ citrus fruit,other vegetables
 pork,whole milk
 bottled beer,packaged fruit/vegetables
 hamburger meat,whole milk
-chicken,chicken,citrus fruit,condensed milk,cream cheese ,napkins,pet care,specialty chocolate
-brown bread,oil,oil,seasonal products
+chicken,citrus fruit,condensed milk,cream cheese ,napkins,pet care,specialty chocolate
+brown bread,oil,seasonal products
 canned beer,chewing gum,cream cheese 
 canned vegetables,seasonal products,yogurt
 bottled beer,domestic eggs
@@ -4688,8 +4688,8 @@ pip fruit,pork
 soda,yogurt
 butter,ice cream,seasonal products
 frozen meals,yogurt
-soda,soda
-candy,candy,soda
+soda
+candy,soda
 processed cheese,roll products 
 domestic eggs,frankfurter
 frankfurter,soda
@@ -4714,7 +4714,7 @@ chewing gum,other vegetables
 bathroom cleaner,dish cleaner,domestic eggs,soft cheese,waffles,whole milk
 brown bread,other vegetables,whipped/sour cream
 butter milk,candy,grapes,other vegetables,soft cheese,yogurt
-hygiene articles,instant coffee,instant coffee,other vegetables
+hygiene articles,instant coffee,other vegetables
 long life bakery product,whole milk
 beef,frozen vegetables
 frankfurter,oil,other vegetables
@@ -4738,7 +4738,7 @@ frozen dessert,yogurt
 mayonnaise,rolls/buns
 dog food,white bread
 bottled water,frankfurter,instant coffee,whole milk
-bottled water,other vegetables,other vegetables,other vegetables,rolls/buns,whole milk,whole milk,yogurt
+bottled water,other vegetables,rolls/buns,whole milk,yogurt
 root vegetables,whole milk
 napkins,whole milk
 frankfurter,whole milk
@@ -4760,7 +4760,7 @@ chicken,curd
 citrus fruit,rolls/buns
 pork,shopping bags
 pet care,yogurt
-fruit/vegetable juice,whipped/sour cream,whipped/sour cream
+fruit/vegetable juice,whipped/sour cream
 tropical fruit,yogurt
 pork,soda
 other vegetables,sugar
@@ -4781,7 +4781,7 @@ frozen meals,margarine,root vegetables,shopping bags
 fruit/vegetable juice,tropical fruit
 bottled water,frozen potato products
 frankfurter,ice cream
-frankfurter,frozen fish,napkins,pork,pork,rolls/buns,waffles
+frankfurter,frozen fish,napkins,pork,rolls/buns,waffles
 UHT-milk,pastry
 canned beer,tropical fruit
 canned beer,napkins
@@ -4824,7 +4824,7 @@ bottled beer,sugar
 whipped/sour cream,whole milk
 chewing gum,pip fruit
 specialty fat,whole milk
-pip fruit,rolls/buns,rolls/buns,rolls/buns
+pip fruit,rolls/buns
 ham,tropical fruit
 bottled beer,bottled water,chocolate,citrus fruit,red/blush wine
 ice cream,root vegetables
@@ -4844,7 +4844,7 @@ citrus fruit,napkins
 fruit/vegetable juice,root vegetables
 beef,misc. beverages,newspapers
 chicken,domestic eggs
-cake bar,shopping bags,yogurt,yogurt
+cake bar,shopping bags,yogurt
 newspapers,turkey
 fruit/vegetable juice,pork
 hygiene articles,sausage,white wine
@@ -4863,7 +4863,7 @@ shopping bags,tropical fruit
 canned beer,cream cheese 
 coffee,mustard,whole milk
 shopping bags,tropical fruit
-cream cheese ,shopping bags,shopping bags
+cream cheese ,shopping bags
 bottled water,fruit/vegetable juice
 newspapers,white bread,whole milk
 grapes,rolls/buns,shopping bags
@@ -4871,18 +4871,18 @@ fruit/vegetable juice,soft cheese
 grapes,root vegetables,shopping bags,whole milk
 bottled beer,frankfurter,hygiene articles
 berries,canned beer
-yogurt,yogurt
-bottled beer,bottled beer,cream cheese ,yogurt
+yogurt
+bottled beer,cream cheese ,yogurt
 domestic eggs,newspapers,whole milk,yogurt
 chicken,frozen vegetables
 citrus fruit,yogurt
-frozen meals,shopping bags,whole milk,whole milk
-mustard,shopping bags,shopping bags
+frozen meals,shopping bags,whole milk
+mustard,shopping bags
 whole milk,yogurt
-instant coffee,root vegetables,root vegetables
+instant coffee,root vegetables
 berries,candy,dessert,frozen meals,grapes,long life bakery product,sausage,soda
 canned beer,pastry
-citrus fruit,pot plants,pot plants
+citrus fruit,pot plants
 pastry,soda
 bottled water,light bulbs,other vegetables
 chocolate,domestic eggs,frozen vegetables,fruit/vegetable juice,oil,rolls/buns
@@ -4911,7 +4911,7 @@ canned beer,tropical fruit
 frozen fish,whipped/sour cream
 citrus fruit,other vegetables,root vegetables,whipped/sour cream
 baking powder,beef
-meat,whole milk,yogurt,yogurt,yogurt
+meat,whole milk,yogurt
 cream cheese ,whole milk
 dishes,newspapers
 grapes,yogurt
@@ -4975,7 +4975,7 @@ citrus fruit,waffles
 hamburger meat,hard cheese
 newspapers,white wine
 canned beer,other vegetables
-canned beer,curd,curd,hygiene articles,photo/film,salty snack,whole milk
+canned beer,curd,hygiene articles,photo/film,salty snack,whole milk
 bottled water,chocolate
 fruit/vegetable juice,whole milk
 brown bread,dishes
@@ -5012,7 +5012,7 @@ condensed milk,whole milk
 fruit/vegetable juice,liver loaf
 specialty cheese,tropical fruit
 bottled beer,cat food,meat,newspapers,specialty cheese
-chicken,coffee,whole milk,whole milk
+chicken,coffee,whole milk
 canned beer,sausage
 red/blush wine,soda
 chocolate,shopping bags,specialty bar
@@ -5036,10 +5036,10 @@ pip fruit,rolls/buns
 misc. beverages,tropical fruit
 dessert,shopping bags
 pastry,sausage
-cereals,soda,soda
+cereals,soda
 coffee,other vegetables
 bottled water,canned beer
-soda,soda
+soda
 beverages,rolls/buns,soups,white bread
 Instant food products,soda
 chocolate,yogurt
@@ -5053,7 +5053,7 @@ butter,hamburger meat,pip fruit,yogurt
 beef,canned beer,pastry,whole milk
 butter milk,citrus fruit
 bottled beer,frozen meals
-frozen vegetables,pip fruit,whipped/sour cream,whipped/sour cream
+frozen vegetables,pip fruit,whipped/sour cream
 domestic eggs,tropical fruit
 curd,fruit/vegetable juice
 baking powder,bottled beer,soda
@@ -5073,7 +5073,7 @@ other vegetables,rolls/buns
 light bulbs,whipped/sour cream
 hard cheese,specialty bar
 citrus fruit,frozen vegetables
-other vegetables,other vegetables,soda,soda
+other vegetables,soda
 onions,specialty bar
 misc. beverages,other vegetables,specialty chocolate
 dessert,rolls/buns
@@ -5083,7 +5083,7 @@ red/blush wine,white bread
 beef,frozen meals,pastry,whipped/sour cream,white wine
 beverages,candles
 hamburger meat,whole milk
-bottled water,bottled water,pip fruit
+bottled water,pip fruit
 rolls/buns,white bread
 UHT-milk,coffee,napkins,onions,rolls/buns,root vegetables,whole milk,yogurt
 chicken,coffee
@@ -5094,9 +5094,9 @@ candles,sausage,yogurt
 hard cheese,other vegetables,pip fruit,pork,sausage
 chewing gum,herbs
 dish cleaner,other vegetables
-candy,frankfurter,pip fruit,pip fruit,whole milk
-UHT-milk,UHT-milk,pastry,yogurt
-bottled water,bottled water,coffee,other vegetables,other vegetables,red/blush wine,sugar,whole milk
+candy,frankfurter,pip fruit,whole milk
+UHT-milk,pastry,yogurt
+bottled water,coffee,other vegetables,red/blush wine,sugar,whole milk
 beef,soda
 fish,tropical fruit
 coffee,frankfurter
@@ -5153,7 +5153,7 @@ flower soil/fertilizer,specialty chocolate,yogurt
 long life bakery product,pastry,soda
 fruit/vegetable juice,rolls/buns,semi-finished bread,tropical fruit
 chicken,tropical fruit
-beverages,newspapers,newspapers,pastry
+beverages,newspapers,pastry
 chicken,frozen dessert
 Instant food products,curd,pork,soda
 canned beer,sugar
@@ -5163,13 +5163,13 @@ brown bread,tropical fruit
 chewing gum,salty snack
 other vegetables,shopping bags
 butter milk,hamburger meat
-UHT-milk,bottled water,frozen vegetables,frozen vegetables
+UHT-milk,bottled water,frozen vegetables
 shopping bags,turkey,whole milk
 domestic eggs,fruit/vegetable juice,oil
 processed cheese,yogurt
 packaged fruit/vegetables,rolls/buns
-other vegetables,other vegetables
-jam,other vegetables,other vegetables
+other vegetables
+jam,other vegetables
 citrus fruit,soda,whipped/sour cream,whole milk
 other vegetables,rolls/buns
 citrus fruit,other vegetables,yogurt
@@ -5213,7 +5213,7 @@ margarine,pastry
 canned beer,curd,pastry
 napkins,white bread
 domestic eggs,pip fruit,white bread
-ice cream,margarine,whole milk,whole milk
+ice cream,margarine,whole milk
 bottled beer,tropical fruit,white wine
 other vegetables,specialty chocolate
 other vegetables,yogurt
@@ -5247,7 +5247,7 @@ beverages,shopping bags
 brown bread,cat food,citrus fruit
 curd,sausage,yogurt
 citrus fruit,dessert,onions,shopping bags,white bread
-ham,rolls/buns,rolls/buns,tropical fruit
+ham,rolls/buns,tropical fruit
 liquor,sausage
 chicken,dish cleaner,root vegetables
 butter,citrus fruit,hard cheese,soft cheese
@@ -5255,7 +5255,7 @@ berries,bottled water,other vegetables,rolls/buns
 canned beer,other vegetables
 herbs,soups
 chicken,whole milk
-napkins,other vegetables,soda,soda
+napkins,other vegetables,soda
 bottled beer,hard cheese,sausage
 cat food,whole milk
 salty snack,yogurt
@@ -5264,12 +5264,12 @@ bottled water,domestic eggs,rolls/buns
 other vegetables,tropical fruit
 baking powder,rolls/buns,whole milk
 chicken,cling film/bags
-candy,candy
+candy
 bottled water,pastry
 coffee,soda,softener,tropical fruit
-bottled beer,curd,curd,misc. beverages,newspapers,turkey
+bottled beer,curd,misc. beverages,newspapers,turkey
 butter milk,fruit/vegetable juice,margarine,pastry
-bags,yogurt,yogurt
+bags,yogurt
 ice cream,long life bakery product
 newspapers,spread cheese
 liver loaf,processed cheese
@@ -5277,7 +5277,7 @@ pip fruit,sausage
 frozen meals,fruit/vegetable juice,hamburger meat,pastry,whole milk
 fruit/vegetable juice,soda
 frankfurter,shopping bags
-bottled water,frankfurter,frankfurter,frozen potato products,hard cheese,shopping bags
+bottled water,frankfurter,frozen potato products,hard cheese,shopping bags
 pastry,rolls/buns
 UHT-milk,other vegetables
 bottled beer,shopping bags
@@ -5286,14 +5286,14 @@ candy,frozen vegetables,other vegetables,sausage
 abrasive cleaner,citrus fruit,long life bakery product,whole milk
 sausage,whole milk
 bottled water,hamburger meat,other vegetables,sausage,spread cheese,sugar,tropical fruit,white bread
-citrus fruit,misc. beverages,misc. beverages
+citrus fruit,misc. beverages
 roll products ,seasonal products
 ice cream,whole milk
 curd,softener
 other vegetables,soda
 butter milk,pickled vegetables
 dessert,rolls/buns
-other vegetables,other vegetables
+other vegetables
 bottled water,soda
 napkins,root vegetables
 whipped/sour cream,whole milk
@@ -5311,11 +5311,11 @@ UHT-milk,fruit/vegetable juice,whipped/sour cream
 hard cheese,white wine
 butter,pasta,rolls/buns,yogurt
 pip fruit,pork,shopping bags,whole milk
-margarine,pastry,pastry,pastry
+margarine,pastry
 pastry,sausage
 butter,chocolate,fruit/vegetable juice,root vegetables,sliced cheese,specialty bar
 domestic eggs,processed cheese,soda,whole milk
-whole milk,whole milk
+whole milk
 oil,yogurt
 chicken,shopping bags
 cereals,newspapers,rolls/buns
@@ -5327,7 +5327,7 @@ coffee,frozen fish
 condensed milk,whole milk
 condensed milk,whole milk
 bottled beer,margarine,pip fruit
-beef,beef,brown bread,chocolate,dessert,processed cheese,rolls/buns,shopping bags,soda
+beef,brown bread,chocolate,dessert,processed cheese,rolls/buns,shopping bags,soda
 other vegetables,specialty cheese
 soda,whole milk
 beef,beverages,frankfurter,other vegetables,rolls/buns,softener,vinegar,white bread,whole milk
@@ -5338,16 +5338,16 @@ beef,pastry
 cling film/bags,coffee,soda
 dessert,sausage
 cat food,citrus fruit
-onions,onions
+onions
 bottled beer,other vegetables,whole milk
-beef,beef,whole milk
+beef,whole milk
 bottled water,newspapers
 butter,margarine
 bottled water,frankfurter,liquor,other vegetables,zwieback
 misc. beverages,whole milk
 bottled water,nut snack,soda
 butter milk,fruit/vegetable juice,rubbing alcohol,whole milk
-domestic eggs,soda,soda
+domestic eggs,soda
 meat spreads,root vegetables,white bread
 ice cream,napkins
 rolls/buns,tropical fruit
@@ -5359,7 +5359,7 @@ bottled water,brown bread,salty snack
 brown bread,domestic eggs
 coffee,pip fruit
 house keeping products,jam
-whole milk,whole milk
+whole milk
 domestic eggs,long life bakery product,onions,pastry
 UHT-milk,bottled beer,root vegetables,tropical fruit
 bottled water,sausage,whole milk
@@ -5374,7 +5374,7 @@ meat,rolls/buns
 cream cheese ,other vegetables
 seasonal products,whole milk
 rolls/buns,sausage
-pip fruit,white wine,white wine
+pip fruit,white wine
 pasta,pastry
 frankfurter,long life bakery product,napkins,pastry,root vegetables
 curd,pip fruit,sausage,soda,waffles
@@ -5398,7 +5398,7 @@ chicken,yogurt
 frankfurter,root vegetables
 butter,onions,soups
 hard cheese,soda
-cream cheese ,onions,other vegetables,root vegetables,root vegetables,tropical fruit,yogurt
+cream cheese ,onions,other vegetables,root vegetables,tropical fruit,yogurt
 butter,rolls/buns
 bottled water,rolls/buns
 frankfurter,rolls/buns
@@ -5426,8 +5426,8 @@ other vegetables,red/blush wine
 soda,yogurt
 pastry,pip fruit
 ham,rolls/buns
-meat,meat
-UHT-milk,rolls/buns,sausage,soda,soda
+meat
+UHT-milk,rolls/buns,sausage,soda
 domestic eggs,frankfurter,fruit/vegetable juice,sausage,whole milk
 coffee,rolls/buns
 cream cheese ,sausage
@@ -5445,7 +5445,7 @@ canned beer,grapes
 chicken,newspapers,rolls/buns
 butter,whole milk
 bottled water,pastry
-tropical fruit,whole milk,whole milk
+tropical fruit,whole milk
 candy,pastry,pork
 bottled beer,specialty cheese
 berries,soda
@@ -5470,7 +5470,7 @@ curd,yogurt
 whole milk,yogurt
 bottled beer,domestic eggs,fruit/vegetable juice,rolls/buns,semi-finished bread,whole milk
 pet care,photo/film
-pasta,pork,pork,whole milk
+pasta,pork,whole milk
 onions,other vegetables,rolls/buns,whole milk
 cream cheese ,frozen vegetables,hamburger meat
 red/blush wine,tropical fruit,white bread
@@ -5546,11 +5546,11 @@ butter milk,shopping bags,soft cheese
 frankfurter,frozen vegetables
 beef,other vegetables
 other vegetables,root vegetables
-canned beer,ham,newspapers,nut snack,other vegetables,other vegetables,soda,yogurt
+canned beer,ham,newspapers,nut snack,other vegetables,soda,yogurt
 root vegetables,whole milk
 hard cheese,soda,whole milk
 onions,sliced cheese
-canned beer,canned fish,napkins,newspapers,pip fruit,semi-finished bread,soft cheese,soft cheese
+canned beer,canned fish,napkins,newspapers,pip fruit,semi-finished bread,soft cheese
 chicken,margarine,yogurt
 butter,packaged fruit/vegetables,pot plants,rolls/buns
 UHT-milk,chicken
@@ -5566,7 +5566,7 @@ sausage,whole milk
 napkins,pickled vegetables,whipped/sour cream
 beverages,ice cream,other vegetables,shopping bags
 beef,root vegetables
-butter,butter,frozen vegetables,root vegetables
+butter,frozen vegetables,root vegetables
 frozen meals,root vegetables
 grapes,onions
 canned beer,domestic eggs,waffles,white wine
@@ -5616,7 +5616,7 @@ bottled water,other vegetables
 cat food,specialty chocolate
 bottled water,whole milk
 other vegetables,shopping bags
-butter,canned beer,canned fish,domestic eggs,root vegetables,soda,specialty chocolate,specialty chocolate
+butter,canned beer,canned fish,domestic eggs,root vegetables,soda,specialty chocolate
 cream cheese ,liquor,rolls/buns
 bottled water,canned beer,domestic eggs,ham
 baking powder,coffee,fruit/vegetable juice,newspapers,pastry,processed cheese,whole milk
@@ -5626,13 +5626,13 @@ bottled beer,canned beer,ice cream,rolls/buns
 detergent,margarine,yogurt,zwieback
 soda,whole milk
 citrus fruit,newspapers
-cake bar,curd,other vegetables,rolls/buns,rolls/buns,tropical fruit,whole milk
+cake bar,curd,other vegetables,rolls/buns,tropical fruit,whole milk
 hamburger meat,tropical fruit
 misc. beverages,shopping bags,yogurt
 flower (seeds),other vegetables
 bottled beer,bottled water
 frankfurter,rolls/buns,shopping bags
-bottled beer,newspapers,pip fruit,whole milk,yogurt,yogurt
+bottled beer,newspapers,pip fruit,whole milk,yogurt
 light bulbs,whole milk
 soft cheese,whipped/sour cream
 cream cheese ,flour,frozen fish,newspapers
@@ -5641,7 +5641,7 @@ cream cheese ,detergent,root vegetables,sausage,yogurt
 beef,domestic eggs
 napkins,sugar,tropical fruit,yogurt
 UHT-milk,pip fruit
-other vegetables,other vegetables,salt
+other vegetables,salt
 syrup,tropical fruit,whole milk
 domestic eggs,whole milk,zwieback
 cream cheese ,oil,white bread
@@ -5664,16 +5664,16 @@ bottled water,herbs,pastry,specialty bar
 fruit/vegetable juice,hard cheese
 pip fruit,rolls/buns,shopping bags
 dog food,napkins,semi-finished bread,yogurt
-margarine,soda,soda
+margarine,soda
 bottled water,curd,yogurt
 other vegetables,whole milk
 hygiene articles,rolls/buns
-chocolate,chocolate
+chocolate
 UHT-milk,white wine
 pip fruit,tea
 curd,semi-finished bread,whole milk
 domestic eggs,potato products
-beef,bottled beer,citrus fruit,citrus fruit,dishes,whipped/sour cream,whole milk
+beef,bottled beer,citrus fruit,dishes,whipped/sour cream,whole milk
 citrus fruit,frankfurter
 candy,herbs,sausage,whole milk
 other vegetables,rolls/buns
@@ -5704,12 +5704,12 @@ bottled water,hamburger meat,yogurt
 beef,long life bakery product
 brown bread,canned beer
 Instant food products,frankfurter
-bottled water,soda,soda
+bottled water,soda
 bottled water,pet care,soda
 pork,specialty cheese
 rolls/buns,sausage
 pip fruit,sweet spreads,white wine
-rolls/buns,rolls/buns
+rolls/buns
 canned beer,frozen vegetables
 frankfurter,other vegetables,root vegetables,whole milk
 cling film/bags,specialty bar,whole milk
@@ -5786,9 +5786,9 @@ chewing gum,yogurt
 canned beer,flower soil/fertilizer
 bottled water,rolls/buns
 tropical fruit,whole milk
-other vegetables,other vegetables,pip fruit,specialty bar
+other vegetables,pip fruit,specialty bar
 chicken,organic products
-brown bread,brown bread
+brown bread
 frankfurter,whipped/sour cream
 beef,mustard
 curd,root vegetables
@@ -5824,7 +5824,7 @@ bottled beer,frozen meals,other vegetables
 chicken,rolls/buns,whole milk,yogurt
 detergent,ham,pip fruit,whole milk
 coffee,domestic eggs,whole milk
-long life bakery product,rolls/buns,rolls/buns,root vegetables
+long life bakery product,rolls/buns,root vegetables
 butter,curd
 frozen dessert,pastry
 frankfurter,white wine
@@ -5884,13 +5884,13 @@ salad dressing,whipped/sour cream
 chicken,sausage
 beef,yogurt
 tropical fruit,yogurt
-newspapers,other vegetables,other vegetables,pip fruit
+newspapers,other vegetables,pip fruit
 sparkling wine,specialty bar
 bottled water,dessert
 canned beer,curd
 canned beer,citrus fruit,frozen meals,soda
 coffee,meat
-bathroom cleaner,chicken,chicken,fruit/vegetable juice,fruit/vegetable juice,grapes,other vegetables,soda
+bathroom cleaner,chicken,fruit/vegetable juice,grapes,other vegetables,soda
 cat food,meat,processed cheese,root vegetables
 chicken,salt,tropical fruit
 berries,pip fruit
@@ -5902,7 +5902,7 @@ curd,flower (seeds),soda
 bottled water,hard cheese,other vegetables
 rolls/buns,shopping bags,whole milk
 shopping bags,soap
-UHT-milk,soda,whole milk,whole milk
+UHT-milk,soda,whole milk
 frozen vegetables,rolls/buns
 other vegetables,whole milk
 butter,soda
@@ -5915,7 +5915,7 @@ canned beer,tropical fruit
 UHT-milk,frozen vegetables,pastry,soda
 coffee,whole milk
 citrus fruit,coffee,yogurt
-whole milk,whole milk
+whole milk
 cookware,spices
 bottled water,whipped/sour cream,whole milk
 artif. sweetener,grapes,shopping bags
@@ -5928,8 +5928,8 @@ dog food,packaged fruit/vegetables
 hamburger meat,whole milk
 pot plants,whipped/sour cream
 beverages,soda
-root vegetables,root vegetables
-curd,curd,grapes,shopping bags
+root vegetables
+curd,grapes,shopping bags
 chicken,rolls/buns,yogurt
 fruit/vegetable juice,margarine,sugar
 canned beer,onions
@@ -5946,7 +5946,7 @@ chewing gum,rolls/buns
 cream cheese ,curd,domestic eggs
 brown bread,tropical fruit
 herbs,rum
-curd,dessert,pastry,rolls/buns,sausage,whole milk,yogurt,yogurt
+curd,dessert,pastry,rolls/buns,sausage,whole milk,yogurt
 domestic eggs,fruit/vegetable juice
 cream cheese ,root vegetables
 sausage,whole milk
@@ -6045,7 +6045,7 @@ sausage,whole milk
 female sanitary products,root vegetables
 UHT-milk,pip fruit
 onions,pip fruit
-grapes,hard cheese,other vegetables,other vegetables,pip fruit,pip fruit,rolls/buns,sausage
+grapes,hard cheese,other vegetables,pip fruit,rolls/buns,sausage
 canned fish,other vegetables
 canned beer,chocolate,fish
 brown bread,whole milk
@@ -6059,7 +6059,7 @@ pork,specialty chocolate
 chicken,newspapers,whole milk
 baking powder,bottled beer,chicken,curd
 citrus fruit,cream cheese ,shopping bags
-citrus fruit,frozen meals,margarine,other vegetables,pork,sausage,sausage,yogurt
+citrus fruit,frozen meals,margarine,other vegetables,pork,sausage,yogurt
 chicken,rolls/buns
 long life bakery product,other vegetables,specialty bar
 chocolate,other vegetables,yogurt
@@ -6094,7 +6094,7 @@ frozen meals,frozen potato products
 brown bread,frankfurter,root vegetables,whole milk
 hard cheese,rolls/buns,white wine
 newspapers,other vegetables,waffles
-berries,newspapers,other vegetables,other vegetables,whipped/sour cream
+berries,newspapers,other vegetables,whipped/sour cream
 berries,frankfurter,rolls/buns,tropical fruit
 specialty bar,whole milk
 hamburger meat,margarine
@@ -6106,7 +6106,7 @@ mayonnaise,photo/film,turkey
 bottled beer,canned fish,fruit/vegetable juice
 other vegetables,sausage
 citrus fruit,curd,pip fruit
-other vegetables,other vegetables
+other vegetables
 brown bread,male cosmetics
 butter,soda
 frozen potato products,oil
@@ -6128,7 +6128,7 @@ dessert,yogurt
 chewing gum,oil
 bottled water,soda
 canned beer,napkins
-hygiene articles,hygiene articles,pastry
+hygiene articles,pastry
 newspapers,processed cheese,rolls/buns,syrup
 rolls/buns,soda
 napkins,pastry
@@ -6138,9 +6138,9 @@ packaged fruit/vegetables,root vegetables
 coffee,soda
 citrus fruit,root vegetables
 root vegetables,tropical fruit
-beef,fruit/vegetable juice,margarine,margarine,pork
+beef,fruit/vegetable juice,margarine,pork
 hard cheese,whole milk
-bottled water,shopping bags,shopping bags
+bottled water,shopping bags
 baking powder,liqueur
 chocolate,root vegetables
 roll products ,seasonal products,soda
@@ -6159,7 +6159,7 @@ brown bread,candy,chocolate
 spread cheese,whole milk
 bottled beer,misc. beverages
 other vegetables,soda,sweet spreads,whole milk
-cat food,citrus fruit,root vegetables,root vegetables
+cat food,citrus fruit,root vegetables
 coffee,curd,frankfurter
 frankfurter,rolls/buns,whole milk
 berries,pasta,sausage
@@ -6190,7 +6190,7 @@ pickled vegetables,sausage
 artif. sweetener,tropical fruit
 canned beer,kitchen towels,tropical fruit
 other vegetables,packaged fruit/vegetables,shopping bags
-bottled water,bottled water
+bottled water
 other vegetables,waffles
 shopping bags,tropical fruit
 canned beer,cat food,ham,whipped/sour cream
@@ -6229,14 +6229,14 @@ beverages,waffles
 frankfurter,pastry
 coffee,yogurt
 root vegetables,soda
-yogurt,yogurt
+yogurt
 canned beer,yogurt
 butter,root vegetables
 chicken,grapes
 chewing gum,soda
 UHT-milk,cling film/bags
 margarine,rolls/buns
-canned beer,rolls/buns,rolls/buns
+canned beer,rolls/buns
 candy,other vegetables
 citrus fruit,soda
 liver loaf,newspapers,white wine
@@ -6258,14 +6258,14 @@ citrus fruit,sweet spreads
 cream cheese ,pork
 pastry,soda
 beef,fruit/vegetable juice
-other vegetables,other vegetables
+other vegetables
 canned beer,whole milk
 soda,whole milk
 bottled beer,sausage
 cream cheese ,herbs,root vegetables
 beverages,candles
 berries,red/blush wine
-flower (seeds),rolls/buns,soda,soda
+flower (seeds),rolls/buns,soda
 citrus fruit,rolls/buns,salt
 citrus fruit,whole milk
 butter,fruit/vegetable juice,soda
@@ -6276,17 +6276,17 @@ soda,whole milk
 pastry,ready soups
 detergent,rolls/buns,shopping bags
 curd,frozen fish,spices
-fruit/vegetable juice,instant coffee,long life bakery product,rolls/buns,sausage,sausage,shopping bags,sweet spreads
+fruit/vegetable juice,instant coffee,long life bakery product,rolls/buns,sausage,shopping bags,sweet spreads
 mustard,root vegetables
 brown bread,roll products ,sliced cheese
 canned beer,whipped/sour cream
-pastry,whole milk,whole milk
+pastry,whole milk
 canned vegetables,sausage
 canned fish,dish cleaner,whole milk
 brown bread,long life bakery product
 canned fish,curd
 bottled beer,whole milk
-bottled water,curd,hard cheese,nuts/prunes,rolls/buns,root vegetables,root vegetables,sausage,whole milk
+bottled water,curd,hard cheese,nuts/prunes,rolls/buns,root vegetables,sausage,whole milk
 grapes,rolls/buns
 chicken,whole milk
 other vegetables,whole milk
@@ -6308,10 +6308,10 @@ frankfurter,yogurt
 beef,bottled beer,brown bread,specialty fat
 hard cheese,pip fruit
 pastry,pip fruit
-rolls/buns,rolls/buns
+rolls/buns
 bottled beer,root vegetables,sausage
 pip fruit,tropical fruit
-frozen fish,ham,hard cheese,pip fruit,pot plants,shopping bags,whole milk,whole milk
+frozen fish,ham,hard cheese,pip fruit,pot plants,shopping bags,whole milk
 UHT-milk,frozen meals
 bottled beer,whole milk
 UHT-milk,hamburger meat,pork,tropical fruit
@@ -6367,7 +6367,7 @@ chicken,whole milk
 frankfurter,yogurt
 bottled water,newspapers
 domestic eggs,pastry
-coffee,coffee
+coffee
 artif. sweetener,frozen meals,instant coffee,soda
 frozen vegetables,yogurt
 bottled water,whole milk
@@ -6402,11 +6402,11 @@ bottled water,pastry,yogurt
 beef,sausage
 rolls/buns,tropical fruit,zwieback
 ice cream,yogurt
-fruit/vegetable juice,fruit/vegetable juice
+fruit/vegetable juice
 Instant food products,root vegetables
 popcorn,root vegetables,soups,specialty chocolate
 white bread,whole milk
-margarine,margarine,packaged fruit/vegetables,specialty cheese
+margarine,packaged fruit/vegetables,specialty cheese
 chewing gum,whole milk
 butter,chewing gum
 chicken,sausage
@@ -6424,7 +6424,7 @@ citrus fruit,soda
 citrus fruit,rolls/buns
 dishes,frankfurter
 tropical fruit,white wine
-beef,meat,yogurt,yogurt
+beef,meat,yogurt
 pastry,rolls/buns,tropical fruit
 ice cream,semi-finished bread,specialty chocolate
 baking powder,whole milk
@@ -6439,7 +6439,7 @@ bottled beer,soda
 frankfurter,frozen meals
 whipped/sour cream,whole milk
 beef,butter milk,root vegetables
-whole milk,whole milk
+whole milk
 soft cheese,spices
 cleaner,whole milk
 beef,pork
@@ -6459,18 +6459,18 @@ frozen fish,soda,vinegar
 other vegetables,sausage
 red/blush wine,soda
 bottled water,whole milk
-yogurt,yogurt
+yogurt
 rolls/buns,shopping bags,whipped/sour cream
 other vegetables,yogurt
 frozen vegetables,napkins,pastry,tropical fruit
 semi-finished bread,turkey
 UHT-milk,margarine
-onions,pip fruit,processed cheese,sugar,whole milk,whole milk,whole milk
-pork,soda,soda
+onions,pip fruit,processed cheese,sugar,whole milk
+pork,soda
 beef,curd,meat
 butter milk,soda
 domestic eggs,frozen vegetables,root vegetables
-other vegetables,shopping bags,shopping bags
+other vegetables,shopping bags
 brown bread,pastry,pickled vegetables,sugar
 beef,frozen meals,pot plants
 ice cream,onions
@@ -6483,7 +6483,7 @@ pip fruit,specialty bar
 meat,whipped/sour cream
 curd,specialty bar
 UHT-milk,canned beer
-frozen dessert,other vegetables,other vegetables,soda,waffles
+frozen dessert,other vegetables,soda,waffles
 canned vegetables,root vegetables,yogurt
 bottled beer,liver loaf
 coffee,cream cheese 
@@ -6525,7 +6525,7 @@ citrus fruit,frankfurter,specialty chocolate
 sparkling wine,waffles
 domestic eggs,rolls/buns
 onions,other vegetables,pork,whole milk
-root vegetables,shopping bags,sliced cheese,sliced cheese
+root vegetables,shopping bags,sliced cheese
 female sanitary products,rolls/buns
 dental care,frozen meals
 bottled water,soda
@@ -6542,7 +6542,7 @@ napkins,other vegetables
 chocolate,salty snack
 chocolate,frozen vegetables,soda,whole milk
 fruit/vegetable juice,rolls/buns
-whole milk,whole milk
+whole milk
 canned fish,red/blush wine
 fruit/vegetable juice,rolls/buns
 misc. beverages,processed cheese,rolls/buns,sausage
@@ -6569,7 +6569,7 @@ other vegetables,soda
 newspapers,other vegetables,soda
 citrus fruit,other vegetables
 frankfurter,tropical fruit
-frozen vegetables,other vegetables,shopping bags,shopping bags
+frozen vegetables,other vegetables,shopping bags
 frozen vegetables,rice
 brown bread,margarine
 pork,semi-finished bread
@@ -6581,7 +6581,7 @@ decalcifier,whole milk
 beef,dessert
 rolls/buns,whipped/sour cream
 canned beer,shopping bags
-canned fish,pork,yogurt,yogurt
+canned fish,pork,yogurt
 rolls/buns,root vegetables
 tropical fruit,yogurt
 candy,whipped/sour cream,yogurt
@@ -6597,7 +6597,7 @@ candy,yogurt
 candles,coffee
 long life bakery product,pork
 citrus fruit,oil,whole milk
-long life bakery product,other vegetables,root vegetables,root vegetables,sausage
+long life bakery product,other vegetables,root vegetables,sausage
 baking powder,pastry
 meat,pip fruit,pot plants,salt,tropical fruit
 pork,roll products ,rolls/buns
@@ -6606,7 +6606,7 @@ bottled water,frozen dessert,root vegetables
 canned beer,sparkling wine
 flower soil/fertilizer,rolls/buns
 pip fruit,soda
-coffee,coffee,yogurt
+coffee,yogurt
 long life bakery product,napkins
 coffee,rolls/buns,vinegar
 frankfurter,sausage
@@ -6628,7 +6628,7 @@ frozen vegetables,pork,sausage,whole milk
 misc. beverages,pastry
 butter,specialty cheese
 chocolate,soda
-whole milk,whole milk
+whole milk
 Instant food products,pastry,soda,whole milk
 chocolate,herbs
 pip fruit,yogurt
@@ -6638,11 +6638,11 @@ grapes,other vegetables,soda
 abrasive cleaner,red/blush wine,specialty cheese,whipped/sour cream
 cream cheese ,ice cream
 dessert,napkins
-other vegetables,root vegetables,shopping bags,white bread,whole milk,whole milk,whole milk,yogurt
+other vegetables,root vegetables,shopping bags,white bread,whole milk,yogurt
 rolls/buns,whole milk
 cake bar,meat,root vegetables,sausage
 herbs,liver loaf
-liquor,other vegetables,other vegetables,whole milk
+liquor,other vegetables,whole milk
 sliced cheese,whole milk
 newspapers,whole milk
 chicken,whipped/sour cream
@@ -6682,7 +6682,7 @@ citrus fruit,sugar,white bread
 bottled water,flour
 curd,salty snack
 fish,other vegetables,soda,whole milk
-butter,curd,curd,pastry,whipped/sour cream
+butter,curd,pastry,whipped/sour cream
 grapes,tropical fruit
 berries,semi-finished bread
 cereals,other vegetables,sausage,tropical fruit
@@ -6701,14 +6701,14 @@ brandy,liquor
 bottled beer,margarine,photo/film,sausage,whipped/sour cream
 root vegetables,snack products
 canned beer,rolls/buns
-fruit/vegetable juice,soda,soda,whole milk
+fruit/vegetable juice,soda,whole milk
 beef,cat food
 citrus fruit,white bread
 oil,whipped/sour cream
 other vegetables,soda
 cling film/bags,rolls/buns
 curd,dessert
-other vegetables,pork,rolls/buns,rolls/buns
+other vegetables,pork,rolls/buns
 other vegetables,rolls/buns,soda
 chicken,coffee
 margarine,rolls/buns
@@ -6753,7 +6753,7 @@ canned beer,whipped/sour cream
 long life bakery product,newspapers
 bottled water,brown bread,onions,red/blush wine
 curd,onions
-herbs,newspapers,newspapers,rolls/buns
+herbs,newspapers,rolls/buns
 beverages,whole milk
 UHT-milk,bottled water
 sweet spreads,tropical fruit,whole milk
@@ -6775,11 +6775,11 @@ waffles,yogurt
 butter milk,cling film/bags,oil,pastry
 beef,chicken,jam,long life bakery product,onions,pasta,tropical fruit,whole milk
 brown bread,whipped/sour cream
-whipped/sour cream,whipped/sour cream
+whipped/sour cream
 cake bar,chocolate,tropical fruit
 other vegetables,yogurt
 coffee,tidbits
-cake bar,female sanitary products,sausage,soda,whole milk,whole milk,yogurt
+cake bar,female sanitary products,sausage,soda,whole milk,yogurt
 pip fruit,yogurt
 butter,newspapers,whole milk
 rolls/buns,root vegetables
@@ -6800,12 +6800,12 @@ bottled beer,grapes,onions
 chicken,root vegetables
 fruit/vegetable juice,rolls/buns,seasonal products,tropical fruit
 bottled beer,other vegetables,salty snack
-bottled water,bottled water
+bottled water
 baking powder,beverages,soda
 brandy,chewing gum,male cosmetics,pastry,pork
 root vegetables,tropical fruit
 bottled water,photo/film
-whole milk,whole milk
+whole milk
 soda,tropical fruit
 salty snack,shopping bags
 salty snack,shopping bags
@@ -6825,7 +6825,7 @@ beef,bottled beer,domestic eggs,newspapers,shopping bags,whipped/sour cream
 curd,meat
 pork,soda
 candles,pip fruit
-beef,chewing gum,chewing gum,detergent,frankfurter,margarine
+beef,chewing gum,detergent,frankfurter,margarine
 hamburger meat,rolls/buns
 bottled beer,sausage
 canned beer,salty snack,soda
@@ -6901,7 +6901,7 @@ bottled water,napkins
 pork,yogurt
 pip fruit,root vegetables
 UHT-milk,organic sausage
-rolls/buns,rolls/buns
+rolls/buns
 beef,finished products,whole milk
 misc. beverages,rolls/buns
 bottled beer,other vegetables
@@ -6945,7 +6945,7 @@ beef,butter
 light bulbs,sausage,shopping bags
 flower (seeds),root vegetables
 pastry,whole milk
-dessert,domestic eggs,whole milk,whole milk
+dessert,domestic eggs,whole milk
 tropical fruit,whole milk
 meat,tropical fruit
 pastry,whole milk
@@ -6984,7 +6984,7 @@ pork,yogurt
 tropical fruit,whole milk
 chicken,specialty bar,whole milk
 frozen meals,hamburger meat,pastry,white bread
-beef,beef
+beef
 newspapers,roll products 
 dessert,whole milk
 root vegetables,yogurt
@@ -7027,7 +7027,7 @@ butter milk,canned vegetables
 other vegetables,sliced cheese
 chewing gum,sausage
 berries,other vegetables
-citrus fruit,citrus fruit,dishes,domestic eggs,sausage
+citrus fruit,dishes,domestic eggs,sausage
 hamburger meat,rolls/buns
 butter,citrus fruit
 oil,yogurt
@@ -7087,7 +7087,7 @@ other vegetables,sugar,tropical fruit
 other vegetables,tropical fruit
 bottled beer,butter,citrus fruit,frankfurter,oil,sausage,soda
 pip fruit,sweet spreads
-oil,pastry,whipped/sour cream,whipped/sour cream
+oil,pastry,whipped/sour cream
 specialty chocolate,tropical fruit
 flour,root vegetables
 brown bread,waffles
@@ -7116,7 +7116,7 @@ processed cheese,sugar
 canned fish,other vegetables
 citrus fruit,yogurt
 frozen meals,root vegetables,soda,spread cheese,turkey
-canned beer,cat food,whole milk,whole milk
+canned beer,cat food,whole milk
 butter,domestic eggs
 other vegetables,soda
 beef,candles
@@ -7132,10 +7132,10 @@ UHT-milk,rolls/buns
 bottled water,meat
 beef,berries
 citrus fruit,flour
-cleaner,whole milk,whole milk
+cleaner,whole milk
 bottled beer,pickled vegetables
 frozen vegetables,pastry
-chocolate marshmallow,domestic eggs,house keeping products,other vegetables,salty snack,semi-finished bread,whole milk,whole milk
+chocolate marshmallow,domestic eggs,house keeping products,other vegetables,salty snack,semi-finished bread,whole milk
 ham,hygiene articles,processed cheese,waffles
 rolls/buns,yogurt
 rolls/buns,waffles
@@ -7205,7 +7205,7 @@ processed cheese,rolls/buns
 bottled water,pastry
 frozen vegetables,whipped/sour cream,whole milk
 canned beer,newspapers,other vegetables
-newspapers,newspapers,onions
+newspapers,onions
 domestic eggs,ham
 pastry,rolls/buns
 dishes,sausage,yogurt
@@ -7221,7 +7221,7 @@ bottled water,tropical fruit
 bottled water,grapes
 bottled water,canned vegetables,root vegetables,whole milk
 citrus fruit,sliced cheese
-butter milk,canned beer,detergent,root vegetables,root vegetables
+butter milk,canned beer,detergent,root vegetables
 frankfurter,rolls/buns
 whole milk,yogurt
 berries,rolls/buns
@@ -7240,7 +7240,7 @@ cocoa drinks,sausage
 beverages,specialty fat
 bottled beer,dog food
 frozen vegetables,newspapers
-beef,cream cheese ,long life bakery product,processed cheese,sausage,tropical fruit,yogurt,yogurt
+beef,cream cheese ,long life bakery product,processed cheese,sausage,tropical fruit,yogurt
 citrus fruit,frozen meals
 chicken,pastry,waffles
 onions,white wine
@@ -7258,7 +7258,7 @@ detergent,whole milk
 shopping bags,yogurt
 frankfurter,yogurt
 bottled water,hard cheese,organic sausage,other vegetables
-bottled water,bottled water
+bottled water
 other vegetables,pork,shopping bags
 long life bakery product,semi-finished bread,shopping bags,soda
 liquor,whole milk
@@ -7308,7 +7308,7 @@ berries,other vegetables
 dishes,misc. beverages
 finished products,pastry
 citrus fruit,salty snack
-berries,frozen vegetables,pastry,rolls/buns,rolls/buns,tropical fruit,whole milk
+berries,frozen vegetables,pastry,rolls/buns,tropical fruit,whole milk
 domestic eggs,other vegetables,tropical fruit,whole milk,yogurt
 pastry,shopping bags
 canned fruit,onions
@@ -7339,13 +7339,13 @@ frankfurter,processed cheese
 canned fish,hygiene articles
 frozen meals,other vegetables
 packaged fruit/vegetables,waffles
-canned fish,chewing gum,other vegetables,other vegetables
+canned fish,chewing gum,other vegetables
 meat,rolls/buns,turkey
 cocoa drinks,napkins,shopping bags
 fruit/vegetable juice,rolls/buns
 coffee,hamburger meat
 frankfurter,margarine
-UHT-milk,canned beer,coffee,house keeping products,other vegetables,pip fruit,whole milk,whole milk
+UHT-milk,canned beer,coffee,house keeping products,other vegetables,pip fruit,whole milk
 flour,semi-finished bread,yogurt
 napkins,waffles
 beverages,soda
@@ -7372,7 +7372,7 @@ chicken,condensed milk,ham,other vegetables,whipped/sour cream
 hygiene articles,whole milk
 chewing gum,other vegetables,pip fruit
 pip fruit,whole milk
-domestic eggs,domestic eggs
+domestic eggs
 ice cream,long life bakery product,sausage,sliced cheese
 onions,rum
 bottled beer,cleaner,other vegetables
@@ -7393,7 +7393,7 @@ canned beer,pastry
 pickled vegetables,soda,whole milk
 butter,cake bar,fruit/vegetable juice,ice cream
 citrus fruit,mustard
-chicken,soda,soda,tropical fruit
+chicken,soda,tropical fruit
 citrus fruit,whole milk
 other vegetables,pork
 soda,whole milk
@@ -7405,14 +7405,14 @@ bottled beer,yogurt
 bottled beer,whole milk
 citrus fruit,flour
 beef,pip fruit
-cat food,herbs,pet care,soda,whole milk,whole milk
+cat food,herbs,pet care,soda,whole milk
 long life bakery product,rolls/buns
 curd,sugar,turkey
 UHT-milk,cream cheese 
 kitchen towels,turkey
 long life bakery product,packaged fruit/vegetables
 brown bread,chocolate,rolls/buns,whole milk
-canned beer,frankfurter,pastry,pastry
+canned beer,frankfurter,pastry
 domestic eggs,grapes,meat spreads
 beef,specialty bar
 root vegetables,soda,waffles
@@ -7427,7 +7427,7 @@ chewing gum,misc. beverages
 domestic eggs,onions,waffles
 beef,napkins
 long life bakery product,napkins
-curd,curd,rolls/buns
+curd,rolls/buns
 long life bakery product,whole milk,yogurt
 bottled water,specialty chocolate
 dessert,flour,shopping bags
@@ -7488,7 +7488,7 @@ frozen vegetables,pickled vegetables
 salty snack,whipped/sour cream
 bottled water,sugar
 finished products,rolls/buns
-whole milk,whole milk
+whole milk
 nuts/prunes,onions
 brown bread,pork
 rice,whole milk
@@ -7536,7 +7536,7 @@ cat food,hamburger meat
 bottled beer,citrus fruit,herbs,sausage
 misc. beverages,tea
 herbs,turkey,white bread
-candy,candy,semi-finished bread,whole milk
+candy,semi-finished bread,whole milk
 chewing gum,ice cream
 butter milk,semi-finished bread
 bottled water,citrus fruit,soda,tropical fruit
@@ -7559,7 +7559,7 @@ packaged fruit/vegetables,rolls/buns
 other vegetables,whole milk
 curd,red/blush wine,whole milk
 specialty bar,whole milk
-bottled beer,bottled beer,frankfurter,other vegetables
+bottled beer,frankfurter,other vegetables
 chocolate,tropical fruit,whole milk
 beef,brown bread
 fruit/vegetable juice,pip fruit,soda,whipped/sour cream
@@ -7579,8 +7579,8 @@ citrus fruit,rolls/buns
 candles,pastry
 pastry,sausage,whole milk
 bottled beer,yogurt
-beverages,canned beer,canned beer,chewing gum,frozen fish,other vegetables,sausage,shopping bags,yogurt
-beef,other vegetables,root vegetables,whipped/sour cream,whipped/sour cream,whole milk
+beverages,canned beer,chewing gum,frozen fish,other vegetables,sausage,shopping bags,yogurt
+beef,other vegetables,root vegetables,whipped/sour cream,whole milk
 whole milk,yogurt
 other vegetables,white bread,whole milk
 cling film/bags,ham
@@ -7604,7 +7604,7 @@ oil,rolls/buns
 napkins,other vegetables
 curd cheese,frozen potato products,pork
 bottled beer,bottled water,canned beer,whole milk
-UHT-milk,frozen meals,other vegetables,other vegetables,salty snack,whole milk,whole milk
+UHT-milk,frozen meals,other vegetables,salty snack,whole milk
 root vegetables,whole milk
 beef,soda
 pasta,soda
@@ -7622,7 +7622,7 @@ onions,soda
 curd,whipped/sour cream
 citrus fruit,frozen vegetables
 sausage,whole milk
-bottled water,chewing gum,chicken,newspapers,pastry,sausage,sausage,yogurt
+bottled water,chewing gum,chicken,newspapers,pastry,sausage,yogurt
 curd,hamburger meat,instant coffee,margarine,misc. beverages,pip fruit,whole milk
 condensed milk,pip fruit,soda
 sausage,whole milk
@@ -7636,7 +7636,7 @@ pet care,sliced cheese
 beef,yogurt
 dessert,root vegetables
 butter,waffles
-dessert,dessert,grapes,pip fruit,pork,sausage,soda,whole milk,yogurt
+dessert,grapes,pip fruit,pork,sausage,soda,whole milk,yogurt
 whole milk,yogurt
 beef,chicken,semi-finished bread,white bread
 bottled water,frankfurter,pickled vegetables
@@ -7646,7 +7646,7 @@ hard cheese,other vegetables,whole milk,zwieback
 canned beer,salty snack
 onions,whole milk
 frozen meals,napkins
-frankfurter,fruit/vegetable juice,fruit/vegetable juice,ham,other vegetables,other vegetables,other vegetables,rolls/buns,rolls/buns
+frankfurter,fruit/vegetable juice,ham,other vegetables,rolls/buns
 hard cheese,ketchup,rolls/buns
 citrus fruit,rolls/buns
 other vegetables,rolls/buns
@@ -7659,7 +7659,7 @@ frankfurter,salt
 misc. beverages,white wine,whole milk
 mayonnaise,onions,spread cheese,tropical fruit
 meat,pip fruit,yogurt
-hamburger meat,other vegetables,other vegetables,other vegetables,soda,soft cheese,waffles
+hamburger meat,other vegetables,soda,soft cheese,waffles
 fruit/vegetable juice,liver loaf
 liver loaf,other vegetables
 chicken,pastry,soda
@@ -7689,14 +7689,14 @@ whipped/sour cream,whole milk
 processed cheese,root vegetables
 bottled beer,frozen vegetables
 other vegetables,pork
-yogurt,yogurt
-whole milk,whole milk
+yogurt
+whole milk
 dental care,dessert,waffles
 ice cream,other vegetables
 fruit/vegetable juice,long life bakery product
 bottled water,other vegetables
 other vegetables,specialty bar
-root vegetables,root vegetables
+root vegetables
 pastry,soda
 meat,specialty cheese
 frozen potato products,whipped/sour cream
@@ -7707,14 +7707,14 @@ beverages,pasta,whole milk
 dog food,hamburger meat
 other vegetables,yogurt
 canned beer,dishes
-mustard,tropical fruit,whole milk,whole milk
+mustard,tropical fruit,whole milk
 pastry,specialty bar,whole milk
 domestic eggs,photo/film,pip fruit,rolls/buns,salty snack
 beef,brown bread,coffee,dishes,pastry
 frozen meals,sausage
 instant coffee,newspapers
 dessert,hamburger meat
-bottled water,citrus fruit,citrus fruit,pickled vegetables,salad dressing,whole milk
+bottled water,citrus fruit,pickled vegetables,salad dressing,whole milk
 bottled water,other vegetables,specialty bar,spread cheese,yogurt
 beef,ham
 fruit/vegetable juice,pastry
@@ -7737,7 +7737,7 @@ oil,other vegetables,rolls/buns
 mustard,soda
 chicken,specialty bar
 chocolate,pet care
-frankfurter,soda,soda
+frankfurter,soda
 domestic eggs,yogurt
 dessert,shopping bags,sliced cheese
 soda,tropical fruit
@@ -7748,7 +7748,7 @@ fruit/vegetable juice,whole milk
 canned vegetables,cling film/bags,pip fruit
 canned beer,domestic eggs,whole milk
 brown bread,frankfurter
-tropical fruit,tropical fruit
+tropical fruit
 frozen dessert,pickled vegetables,soda
 canned beer,tropical fruit,whole milk,yogurt
 pip fruit,root vegetables
@@ -7774,13 +7774,13 @@ newspapers,shopping bags,whole milk
 citrus fruit,yogurt
 margarine,yogurt
 bottled water,white bread
-newspapers,newspapers
+newspapers
 canned beer,chocolate
 canned fish,frankfurter,whole milk,yogurt
 pork,rolls/buns
 house keeping products,sausage
 butter milk,hygiene articles,pickled vegetables
-citrus fruit,citrus fruit
+citrus fruit
 citrus fruit,soda
 chewing gum,other vegetables
 processed cheese,rolls/buns
@@ -7833,7 +7833,7 @@ brown bread,chicken
 pork,salt,sausage,soda
 beef,curd
 other vegetables,white bread
-shopping bags,shopping bags
+shopping bags
 meat,other vegetables
 misc. beverages,other vegetables
 frozen vegetables,whole milk
@@ -7854,7 +7854,7 @@ newspapers,yogurt
 citrus fruit,waffles
 chocolate,meat
 frozen vegetables,napkins
-bottled beer,bottled beer,domestic eggs,whole milk
+bottled beer,domestic eggs,whole milk
 brown bread,coffee,other vegetables
 sausage,specialty bar
 canned beer,tropical fruit
@@ -7875,7 +7875,7 @@ cling film/bags,hygiene articles
 margarine,soda
 cream cheese ,other vegetables
 coffee,domestic eggs
-berries,berries,brown bread,tropical fruit
+berries,brown bread,tropical fruit
 cream cheese ,other vegetables
 frozen vegetables,sugar
 bottled water,zwieback
@@ -7897,7 +7897,7 @@ citrus fruit,liver loaf
 soda,whole milk,yogurt
 brown bread,salty snack
 flour,tropical fruit
-meat,whole milk,whole milk,yogurt
+meat,whole milk,yogurt
 chicken,sausage
 chicken,liquor,newspapers,specialty bar
 candy,grapes,hamburger meat
@@ -7958,7 +7958,7 @@ sausage,specialty bar
 onions,yogurt
 flour,soda
 root vegetables,sugar
-long life bakery product,long life bakery product,soda,whipped/sour cream
+long life bakery product,soda,whipped/sour cream
 other vegetables,rolls/buns
 UHT-milk,beef
 newspapers,whole milk
@@ -7991,7 +7991,7 @@ hard cheese,salty snack,waffles
 onions,other vegetables
 tropical fruit,whole milk
 butter,rolls/buns
-other vegetables,soda,soda
+other vegetables,soda
 other vegetables,rolls/buns
 cream cheese ,pasta
 UHT-milk,candy,rolls/buns
@@ -8061,7 +8061,7 @@ citrus fruit,coffee
 pip fruit,rolls/buns,white bread
 dessert,shopping bags
 long life bakery product,meat,napkins,yogurt
-pork,pork
+pork
 brown bread,butter,citrus fruit,dessert,hygiene articles,pork,shopping bags,whole milk
 pip fruit,whole milk
 rolls/buns,tropical fruit
@@ -8094,7 +8094,7 @@ dish cleaner,pickled vegetables,whipped/sour cream
 root vegetables,whipped/sour cream
 bottled water,butter milk
 brown bread,frozen dessert
-rolls/buns,rolls/buns
+rolls/buns
 other vegetables,processed cheese
 cream cheese ,sausage
 curd,frankfurter
@@ -8117,7 +8117,7 @@ rolls/buns,sausage
 citrus fruit,domestic eggs
 onions,sugar,whole milk,yogurt
 other vegetables,rolls/buns
-flour,margarine,whole milk,whole milk
+flour,margarine,whole milk
 ham,sugar
 sugar,whole milk
 tropical fruit,zwieback
@@ -8142,10 +8142,10 @@ packaged fruit/vegetables,semi-finished bread
 root vegetables,seasonal products
 berries,whole milk
 domestic eggs,sliced cheese
-whole milk,whole milk
+whole milk
 onions,root vegetables
 citrus fruit,fruit/vegetable juice
-newspapers,newspapers
+newspapers
 long life bakery product,pork,specialty bar
 candy,misc. beverages,oil,yogurt
 pastry,sausage
@@ -8185,7 +8185,7 @@ pork,rolls/buns
 cooking chocolate,hygiene articles
 soda,whole milk
 pip fruit,shopping bags,tropical fruit
-margarine,margarine,sausage
+margarine,sausage
 citrus fruit,white bread
 dish cleaner,hamburger meat,pip fruit
 berries,citrus fruit
@@ -8230,7 +8230,7 @@ bottled beer,soda
 fruit/vegetable juice,long life bakery product
 fruit/vegetable juice,whole milk
 newspapers,root vegetables
-pastry,root vegetables,root vegetables,root vegetables
+pastry,root vegetables
 chicken,cream cheese ,dishes,rolls/buns
 meat,rolls/buns
 liquor,other vegetables
@@ -8264,21 +8264,21 @@ dishes,pastry,waffles
 cereals,sugar
 shopping bags,whole milk
 tropical fruit,waffles
-dishes,other vegetables,other vegetables
+dishes,other vegetables
 canned beer,salty snack
 other vegetables,pip fruit
 other vegetables,soda
 citrus fruit,finished products,misc. beverages,pork
-rolls/buns,rolls/buns
+rolls/buns
 bottled water,house keeping products,soda
 chocolate,salty snack
-fruit/vegetable juice,fruit/vegetable juice
+fruit/vegetable juice
 detergent,rolls/buns,soft cheese
 soda,spices
 other vegetables,soda
 bottled beer,curd,hamburger meat,sweet spreads
 beef,berries
-pastry,pastry,soda
+pastry,soda
 rolls/buns,sliced cheese
 candy,whole milk
 frozen meals,other vegetables
@@ -8304,7 +8304,7 @@ canned beer,yogurt
 bottled beer,shopping bags,soda
 chicken,soda,whole milk
 jam,pastry,pip fruit,soda
-butter milk,chicken,organic sausage,other vegetables,other vegetables,sausage,tropical fruit,whipped/sour cream
+butter milk,chicken,organic sausage,other vegetables,sausage,tropical fruit,whipped/sour cream
 coffee,rolls/buns
 UHT-milk,margarine,other vegetables,whipped/sour cream,white bread
 bottled water,cat food,curd,frozen vegetables,tea
@@ -8332,15 +8332,15 @@ other vegetables,rolls/buns,sweet spreads
 roll products ,specialty bar
 UHT-milk,butter milk,candy,frozen vegetables,fruit/vegetable juice,other vegetables
 canned beer,newspapers,specialty bar,white bread
-bottled beer,rolls/buns,rolls/buns,root vegetables
+bottled beer,rolls/buns,root vegetables
 citrus fruit,yogurt
-canned beer,canned beer
+canned beer
 citrus fruit,whole milk
 brown bread,ham,whole milk
 chicken,rolls/buns,root vegetables,whole milk
 grapes,root vegetables
 UHT-milk,brown bread
-frankfurter,frankfurter,pip fruit,yogurt
+frankfurter,pip fruit,yogurt
 bottled water,whole milk
 pot plants,whole milk
 canned fish,root vegetables
@@ -8349,22 +8349,22 @@ newspapers,sausage
 beef,pip fruit,white wine
 beverages,hamburger meat,margarine
 chocolate,soda
-citrus fruit,coffee,coffee,dish cleaner,hamburger meat,mayonnaise,newspapers,other vegetables
+citrus fruit,coffee,dish cleaner,hamburger meat,mayonnaise,newspapers,other vegetables
 curd,whole milk
 coffee,frozen vegetables,pot plants
 rolls/buns,root vegetables
-yogurt,yogurt
+yogurt
 fruit/vegetable juice,pork
 pastry,root vegetables,soda,whole milk
 dessert,napkins
 coffee,root vegetables
-beef,canned beer,canned beer,coffee,frozen meals
+beef,canned beer,coffee,frozen meals
 coffee,rice
 other vegetables,pastry,rolls/buns,root vegetables
 candy,pip fruit
 frozen vegetables,fruit/vegetable juice
 whole milk,yogurt
-UHT-milk,misc. beverages,rolls/buns,rolls/buns,root vegetables,spread cheese,sugar
+UHT-milk,misc. beverages,rolls/buns,root vegetables,spread cheese,sugar
 canned beer,cat food,dishes,sliced cheese,zwieback
 pork,whole milk
 hamburger meat,spread cheese
@@ -8421,12 +8421,12 @@ other vegetables,shopping bags
 butter,canned beer
 cream cheese ,oil,sausage
 dish cleaner,waffles
-meat,onions,whole milk,whole milk
+meat,onions,whole milk
 UHT-milk,ham
 frozen meals,pip fruit
 domestic eggs,newspapers
 pip fruit,soda,tropical fruit,whole milk
-UHT-milk,bottled beer,frankfurter,other vegetables,rolls/buns,soups,yogurt,yogurt
+UHT-milk,bottled beer,frankfurter,other vegetables,rolls/buns,soups,yogurt
 pasta,soda
 chocolate,coffee,sugar
 cling film/bags,waffles
@@ -8459,7 +8459,7 @@ sausage,tidbits,yogurt
 whipped/sour cream,whole milk
 bottled water,whole milk
 other vegetables,specialty fat,white wine
-soda,soda
+soda
 sausage,yogurt
 canned beer,whipped/sour cream
 dessert,yogurt
@@ -8516,7 +8516,7 @@ other vegetables,pip fruit
 brown bread,whole milk
 domestic eggs,other vegetables
 hard cheese,sugar
-fruit/vegetable juice,margarine,margarine,white bread
+fruit/vegetable juice,margarine,white bread
 chocolate,rolls/buns
 soft cheese,tropical fruit
 misc. beverages,rolls/buns,specialty chocolate,yogurt
@@ -8572,7 +8572,7 @@ dessert,dishes
 margarine,root vegetables
 bottled water,butter,citrus fruit,whole milk
 bottled beer,white bread
-soda,soda
+soda
 berries,hygiene articles,other vegetables,root vegetables,whipped/sour cream,white bread
 newspapers,soda
 shopping bags,whole milk
@@ -8580,7 +8580,7 @@ chocolate,shopping bags
 dog food,root vegetables
 canned beer,whole milk
 bottled beer,yogurt
-canned beer,soda,soda
+canned beer,soda
 frankfurter,sausage
 frozen vegetables,spread cheese,yogurt
 frankfurter,frozen vegetables
@@ -8628,7 +8628,7 @@ rolls/buns,seasonal products
 abrasive cleaner,whole milk,yogurt
 cleaner,cream cheese 
 dessert,shopping bags,yogurt
-soda,soda
+soda
 dessert,pork
 cat food,other vegetables
 curd,other vegetables
@@ -8645,7 +8645,7 @@ bottled beer,fruit/vegetable juice,sausage,tropical fruit
 pip fruit,soda
 beef,rolls/buns
 UHT-milk,ice cream,specialty bar
-bottled beer,bottled beer,fruit/vegetable juice,whole milk
+bottled beer,fruit/vegetable juice,whole milk
 citrus fruit,ham
 sausage,whole milk,yogurt
 brown bread,pastry
@@ -8678,11 +8678,11 @@ cream cheese ,pastry
 whole milk,yogurt
 dog food,potato products,white bread
 brown bread,frozen meals,frozen vegetables,whole milk
-rolls/buns,rolls/buns
+rolls/buns
 spread cheese,tropical fruit
 chewing gum,curd,hamburger meat
 frankfurter,ice cream,soda
-flour,shopping bags,shopping bags,waffles,whole milk
+flour,shopping bags,waffles,whole milk
 domestic eggs,pork
 frozen dessert,oil,root vegetables
 other vegetables,yogurt
@@ -8696,7 +8696,7 @@ pork,tropical fruit
 citrus fruit,whole milk
 bottled beer,yogurt
 liver loaf,whole milk
-beef,citrus fruit,waffles,waffles
+beef,citrus fruit,waffles
 chewing gum,citrus fruit,coffee,root vegetables,shopping bags,whole milk
 hamburger meat,pasta
 other vegetables,soda
@@ -8720,7 +8720,7 @@ rolls/buns,yogurt
 bottled water,canned beer
 cling film/bags,tropical fruit
 margarine,sausage
-newspapers,rolls/buns,whole milk,whole milk
+newspapers,rolls/buns,whole milk
 soda,whole milk
 beef,napkins
 frozen meals,margarine
@@ -8728,7 +8728,7 @@ ice cream,tropical fruit
 coffee,rolls/buns
 pastry,soda
 beef,ice cream,other vegetables
-margarine,pastry,pastry,whole milk
+margarine,pastry,whole milk
 canned beer,sausage,whipped/sour cream
 other vegetables,pickled vegetables,soda
 frozen vegetables,other vegetables
@@ -8742,7 +8742,7 @@ herbs,organic sausage
 baking powder,citrus fruit
 newspapers,rolls/buns
 bottled beer,citrus fruit
-margarine,other vegetables,pork,pork
+margarine,other vegetables,pork
 sausage,sugar,yogurt
 frankfurter,rolls/buns
 misc. beverages,soda
@@ -8754,7 +8754,7 @@ baking powder,sausage,yogurt
 domestic eggs,other vegetables,rolls/buns,sausage,waffles,whole milk
 female sanitary products,sparkling wine
 berries,beverages
-citrus fruit,other vegetables,pastry,pastry
+citrus fruit,other vegetables,pastry
 salty snack,sausage
 hygiene articles,yogurt
 berries,canned fish,waffles
@@ -8778,7 +8778,7 @@ butter,shopping bags
 chewing gum,misc. beverages,white wine
 candles,hamburger meat,rolls/buns
 butter milk,soda,whipped/sour cream
-beef,curd cheese,whipped/sour cream,whole milk,whole milk
+beef,curd cheese,whipped/sour cream,whole milk
 bottled beer,white wine
 soda,softener
 baking powder,cream cheese 
@@ -8802,7 +8802,7 @@ specialty bar,specialty chocolate,yogurt
 beverages,citrus fruit
 butter milk,meat
 pastry,soda
-canned beer,newspapers,root vegetables,whole milk,whole milk
+canned beer,newspapers,root vegetables,whole milk
 bottled water,other vegetables
 cat food,chicken
 canned beer,domestic eggs
@@ -8838,7 +8838,7 @@ canned beer,ham
 butter milk,roll products 
 bottled water,oil,whipped/sour cream
 frozen fish,soda,yogurt
-other vegetables,other vegetables
+other vegetables
 herbs,misc. beverages,yogurt
 flour,pork
 pasta,pip fruit,red/blush wine,root vegetables
@@ -8879,7 +8879,7 @@ berries,soda
 canned beer,coffee
 coffee,frankfurter
 canned vegetables,whole milk
-bottled water,bottled water,shopping bags
+bottled water,shopping bags
 frozen potato products,whole milk
 pip fruit,pot plants,semi-finished bread,tropical fruit,whole milk
 candy,coffee,condensed milk,onions
@@ -8998,14 +8998,14 @@ rolls/buns,tropical fruit
 pip fruit,pork
 misc. beverages,root vegetables
 hard cheese,yogurt
-yogurt,yogurt
+yogurt
 beverages,specialty chocolate
 meat,yogurt
 red/blush wine,rolls/buns,soda
 curd,other vegetables
 curd,other vegetables
 brown bread,butter milk
-beverages,cake bar,cake bar,frozen meals
+beverages,cake bar,frozen meals
 fruit/vegetable juice,root vegetables
 curd,hard cheese,shopping bags
 coffee,hard cheese,newspapers,other vegetables,soda,whipped/sour cream
@@ -9014,7 +9014,7 @@ cat food,sparkling wine
 pork,root vegetables
 other vegetables,pot plants,vinegar
 dishes,tropical fruit
-brown bread,female sanitary products,flour,packaged fruit/vegetables,rolls/buns,rolls/buns,root vegetables,sauces
+brown bread,female sanitary products,flour,packaged fruit/vegetables,rolls/buns,root vegetables,sauces
 candy,fruit/vegetable juice,hygiene articles
 brown bread,canned fish
 beverages,meat
@@ -9078,7 +9078,7 @@ bottled water,pork,salty snack
 meat,other vegetables,salty snack
 berries,tropical fruit
 butter,pip fruit,shopping bags
-soda,soda
+soda
 semi-finished bread,yogurt
 tropical fruit,whole milk
 butter milk,rolls/buns
@@ -9106,10 +9106,10 @@ butter,citrus fruit
 sausage,whole milk
 pastry,whole milk
 processed cheese,white bread
-tropical fruit,tropical fruit,whole milk
+tropical fruit,whole milk
 canned beer,sugar
 pork,salt,tropical fruit,whole milk
-canned vegetables,cream cheese ,curd,fruit/vegetable juice,nut snack,pork,root vegetables,root vegetables
+canned vegetables,cream cheese ,curd,fruit/vegetable juice,nut snack,pork,root vegetables
 dessert,other vegetables
 domestic eggs,frozen vegetables
 chocolate,soda,sugar,white bread
@@ -9121,7 +9121,7 @@ bottled water,rolls/buns
 berries,specialty cheese
 nut snack,soda
 coffee,soda
-cream cheese ,cream cheese ,shopping bags
+cream cheese ,shopping bags
 butter,citrus fruit,ham,tropical fruit
 pastry,shopping bags
 beverages,sausage
@@ -9138,7 +9138,7 @@ butter milk,white wine
 berries,coffee,pickled vegetables
 other vegetables,sausage
 bottled water,soda
-newspapers,other vegetables,rolls/buns,rolls/buns,whole milk
+newspapers,other vegetables,rolls/buns,whole milk
 misc. beverages,salt
 citrus fruit,shopping bags
 beef,candy,pastry
@@ -9151,7 +9151,7 @@ whipped/sour cream,yogurt
 pastry,salty snack,vinegar
 canned beer,canned vegetables,liver loaf,tropical fruit
 chicken,other vegetables
-whole milk,whole milk
+whole milk
 brown bread,other vegetables
 butter,curd cheese,frozen meals,hamburger meat,mustard,soda,white wine,yogurt
 hard cheese,soda
@@ -9161,16 +9161,16 @@ bottled beer,frozen meals,pasta,soda,sweet spreads
 frankfurter,hygiene articles,rolls/buns
 meat,vinegar
 liquor,pastry
-rolls/buns,rolls/buns,sliced cheese
+rolls/buns,sliced cheese
 chocolate,citrus fruit,whole milk
 citrus fruit,hamburger meat,other vegetables,specialty chocolate
 frankfurter,mayonnaise,misc. beverages,pastry,whipped/sour cream
 shopping bags,tropical fruit
-whole milk,whole milk
+whole milk
 liquor (appetizer),whole milk
 curd,rolls/buns
 fruit/vegetable juice,long life bakery product
-dish cleaner,other vegetables,other vegetables,soda
+dish cleaner,other vegetables,soda
 newspapers,roll products 
 berries,newspapers
 dishes,tropical fruit
@@ -9197,7 +9197,7 @@ baking powder,flour
 beverages,frozen potato products,white wine
 misc. beverages,other vegetables,root vegetables
 other vegetables,yogurt
-beef,bottled beer,soda,soda
+beef,bottled beer,soda
 candy,citrus fruit,curd,dishes,pork,rolls/buns,root vegetables,yogurt
 sausage,whole milk
 oil,root vegetables,soda
@@ -9207,7 +9207,7 @@ citrus fruit,sliced cheese
 chicken,frozen vegetables
 male cosmetics,sausage
 berries,dishes,hard cheese
-pip fruit,pip fruit,sausage,shopping bags
+pip fruit,sausage,shopping bags
 pasta,tropical fruit
 frozen meals,newspapers
 pickled vegetables,pip fruit
@@ -9218,7 +9218,7 @@ candy,specialty bar
 canned beer,rolls/buns
 cream cheese ,salty snack
 herbs,sausage
-brandy,semi-finished bread,whole milk,whole milk
+brandy,semi-finished bread,whole milk
 napkins,pork
 misc. beverages,rolls/buns
 rolls/buns,tropical fruit
@@ -9226,7 +9226,7 @@ whipped/sour cream,whole milk
 candy,soap
 hamburger meat,yogurt
 canned beer,citrus fruit
-pip fruit,pip fruit,root vegetables,spread cheese
+pip fruit,root vegetables,spread cheese
 rolls/buns,seasonal products
 bottled water,rolls/buns
 onions,whole milk
@@ -9249,7 +9249,7 @@ rolls/buns,whole milk
 fruit/vegetable juice,root vegetables
 ham,root vegetables
 female sanitary products,sausage
-canned beer,canned beer
+canned beer
 frozen dessert,soda
 beef,candy
 citrus fruit,pip fruit
@@ -9268,9 +9268,9 @@ Instant food products,rolls/buns,tropical fruit
 candy,misc. beverages,salt
 long life bakery product,margarine
 rolls/buns,soda
-brown bread,brown bread,cling film/bags,other vegetables,pastry,soda,whole milk,yogurt
+brown bread,cling film/bags,other vegetables,pastry,soda,whole milk,yogurt
 pork,white bread
-UHT-milk,beef,brown bread,brown bread,pickled vegetables,red/blush wine,rolls/buns
+UHT-milk,beef,brown bread,pickled vegetables,red/blush wine,rolls/buns
 other vegetables,pip fruit,whipped/sour cream,whole milk
 pet care,pork
 butter,zwieback
@@ -9288,7 +9288,7 @@ UHT-milk,white wine,whole milk
 other vegetables,specialty chocolate
 meat,tropical fruit
 brown bread,pastry
-bottled water,canned beer,domestic eggs,frozen dessert,soda,soda,specialty bar,tropical fruit,whole milk
+bottled water,canned beer,domestic eggs,frozen dessert,soda,specialty bar,tropical fruit,whole milk
 misc. beverages,pip fruit
 bottled beer,whipped/sour cream
 UHT-milk,rolls/buns
@@ -9300,7 +9300,7 @@ artif. sweetener,salty snack,soda
 canned beer,pip fruit
 dish cleaner,frozen meals,pip fruit,processed cheese
 frozen meals,hamburger meat,pip fruit,root vegetables,soda,spread cheese,sugar
-abrasive cleaner,root vegetables,root vegetables,soda,whipped/sour cream,white wine
+abrasive cleaner,root vegetables,soda,whipped/sour cream,white wine
 frankfurter,other vegetables
 ketchup,meat spreads
 brown bread,candy,cream cheese ,soda
@@ -9357,7 +9357,7 @@ brown bread,specialty bar
 hard cheese,whole milk
 brown bread,coffee,curd,frankfurter,meat,other vegetables,pip fruit,shopping bags
 finished products,other vegetables
-domestic eggs,whole milk,whole milk,whole milk
+domestic eggs,whole milk
 candy,spread cheese
 dessert,fruit/vegetable juice,pastry,sausage
 brown bread,ham
@@ -9374,12 +9374,12 @@ rolls/buns,yogurt
 soda,yogurt
 whole milk,yogurt
 liquor,tropical fruit
-beef,coffee,grapes,meat,other vegetables,whipped/sour cream,whole milk,whole milk
+beef,coffee,grapes,meat,other vegetables,whipped/sour cream,whole milk
 brown bread,pastry,whisky
 brown bread,domestic eggs
 bottled water,other vegetables
 chocolate,whole milk
-rolls/buns,rolls/buns
+rolls/buns
 newspapers,pastry,salty snack
 other vegetables,root vegetables
 citrus fruit,whipped/sour cream
@@ -9399,7 +9399,7 @@ candy,canned beer,dish cleaner,long life bakery product
 canned beer,canned vegetables,dessert,frozen vegetables,pip fruit
 liquor (appetizer),salty snack,soda
 rolls/buns,sausage
-domestic eggs,pastry,sausage,sliced cheese,soda,soda,whole milk
+domestic eggs,pastry,sausage,sliced cheese,soda,whole milk
 fruit/vegetable juice,other vegetables
 bottled water,pastry
 pastry,pot plants
@@ -9429,7 +9429,7 @@ pip fruit,rolls/buns,whole milk
 liquor (appetizer),pip fruit,soda,specialty chocolate
 oil,soups,whole milk
 bottled water,coffee
-cream cheese ,cream cheese 
+cream cheese 
 cookware,frozen vegetables
 citrus fruit,yogurt
 coffee,sausage,semi-finished bread
@@ -9465,10 +9465,10 @@ canned beer,curd
 berries,bottled water,whipped/sour cream,whole milk
 berries,butter,cereals
 frankfurter,whipped/sour cream
-bottled beer,bottled beer
+bottled beer
 frozen dessert,tropical fruit
 Instant food products,other vegetables,rolls/buns,whole milk
-butter,butter,chocolate,hard cheese,other vegetables,pastry,processed cheese,rolls/buns,whole milk
+butter,chocolate,hard cheese,other vegetables,pastry,processed cheese,rolls/buns,whole milk
 bottled beer,meat,other vegetables,roll products ,tropical fruit
 bottled water,domestic eggs,jam,soda,whole milk
 tropical fruit,yogurt
@@ -9479,7 +9479,7 @@ pastry,whole milk
 instant coffee,rolls/buns,whole milk
 pork,spread cheese
 bottled beer,yogurt
-instant coffee,whole milk,whole milk
+instant coffee,whole milk
 canned beer,other vegetables,salty snack
 berries,sugar
 newspapers,other vegetables,yogurt
@@ -9511,7 +9511,7 @@ butter milk,whipped/sour cream
 hamburger meat,root vegetables,seasonal products,shopping bags
 brown bread,yogurt
 bottled water,frankfurter,soft cheese
-cling film/bags,meat,meat,whole milk
+cling film/bags,meat,whole milk
 chocolate marshmallow,ham
 canned fish,yogurt
 citrus fruit,ham,red/blush wine,rolls/buns,specialty chocolate
@@ -9558,9 +9558,9 @@ bottled water,frankfurter
 chewing gum,spread cheese
 sausage,yogurt
 beef,butter,cake bar
-soda,soda
+soda
 oil,other vegetables
-UHT-milk,bottled water,other vegetables,other vegetables
+UHT-milk,bottled water,other vegetables
 curd,dish cleaner
 other vegetables,pastry
 hygiene articles,rolls/buns
@@ -9608,7 +9608,7 @@ fruit/vegetable juice,whole milk
 rolls/buns,whole milk
 dessert,domestic eggs,tropical fruit
 berries,cereals,napkins
-bottled water,newspapers,root vegetables,whole milk,whole milk
+bottled water,newspapers,root vegetables,whole milk
 cream cheese ,fruit/vegetable juice,shopping bags,whole milk
 ice cream,other vegetables
 pet care,root vegetables
@@ -9647,7 +9647,7 @@ whole milk,yogurt
 meat spreads,waffles,whole milk
 bottled beer,specialty bar
 citrus fruit,tropical fruit
-sausage,shopping bags,shopping bags
+sausage,shopping bags
 chicken,other vegetables
 salt,seasonal products
 butter,citrus fruit,dental care,whole milk
@@ -9702,7 +9702,7 @@ sausage,yogurt
 meat,whole milk
 coffee,ice cream
 other vegetables,rolls/buns
-butter,butter,margarine
+butter,margarine
 domestic eggs,whole milk
 UHT-milk,curd,other vegetables
 white bread,zwieback
@@ -9732,7 +9732,7 @@ cake bar,whipped/sour cream
 chicken,curd,domestic eggs,pastry,sausage
 flour,seasonal products
 margarine,shopping bags
-flour,other vegetables,other vegetables,yogurt
+flour,other vegetables,yogurt
 brown bread,canned beer
 flour,white bread
 other vegetables,sausage
@@ -9769,12 +9769,12 @@ soda,whipped/sour cream
 frankfurter,whole milk
 flour,onions,rolls/buns,sausage,soda,specialty chocolate,tropical fruit,whipped/sour cream,yogurt
 citrus fruit,cling film/bags,ham
-other vegetables,other vegetables
+other vegetables
 bottled water,pork
 other vegetables,soda
 berries,root vegetables
 bottled water,other vegetables,whipped/sour cream
-butter,butter,domestic eggs,rolls/buns
+butter,domestic eggs,rolls/buns
 cereals,pip fruit
 bottled water,margarine
 cake bar,soda
@@ -9802,7 +9802,7 @@ newspapers,tropical fruit
 chocolate,soda
 shopping bags,soda
 oil,soda
-bottled beer,brown bread,brown bread,coffee,napkins,napkins,pastry,rolls/buns
+bottled beer,brown bread,coffee,napkins,pastry,rolls/buns
 herbs,pasta
 bottled water,mayonnaise,snack products
 citrus fruit,frozen vegetables
@@ -9815,7 +9815,7 @@ brown bread,chocolate marshmallow,grapes,red/blush wine,tropical fruit,yogurt
 pastry,sliced cheese
 brown bread,rolls/buns,sliced cheese,soda
 bottled water,rolls/buns
-whole milk,whole milk
+whole milk
 butter milk,citrus fruit,dessert,salty snack,sausage,specialty chocolate,whole milk
 frankfurter,root vegetables,whole milk,yogurt
 root vegetables,soft cheese
@@ -9833,7 +9833,7 @@ bottled water,white bread
 bottled water,frozen meals
 long life bakery product,napkins,tropical fruit
 other vegetables,pork
-dish cleaner,domestic eggs,other vegetables,rolls/buns,sausage,sausage,soda
+dish cleaner,domestic eggs,other vegetables,rolls/buns,sausage,soda
 bottled beer,fruit/vegetable juice,margarine,whipped/sour cream
 root vegetables,soda
 kitchen towels,sugar
@@ -9845,7 +9845,7 @@ pastry,yogurt
 chocolate,yogurt
 candy,chicken,sugar
 citrus fruit,rolls/buns
-bottled water,citrus fruit,citrus fruit,frankfurter
+bottled water,citrus fruit,frankfurter
 coffee,dessert,rolls/buns
 newspapers,whipped/sour cream
 pip fruit,turkey
@@ -9893,7 +9893,7 @@ beef,whipped/sour cream
 UHT-milk,beef,bottled beer,pip fruit,salty snack,whole milk,yogurt
 citrus fruit,shopping bags
 canned beer,pork
-whole milk,whole milk
+whole milk
 brown bread,citrus fruit
 pip fruit,rolls/buns
 chocolate,pastry
@@ -9934,7 +9934,7 @@ citrus fruit,fruit/vegetable juice
 pip fruit,pot plants
 pip fruit,rolls/buns,whole milk
 brandy,whole milk
-root vegetables,root vegetables
+root vegetables
 candles,margarine,processed cheese,shopping bags
 bottled water,chocolate marshmallow
 margarine,pork,white wine
@@ -9943,18 +9943,18 @@ chocolate,dish cleaner,domestic eggs
 chocolate,grapes
 butter milk,rolls/buns
 detergent,rolls/buns
-whole milk,whole milk
+whole milk
 dishes,oil,onions,whole milk
 bottled beer,brown bread,pork,shopping bags
 UHT-milk,margarine,sugar
 root vegetables,whole milk
-berries,beverages,canned beer,canned beer,chicken,sausage,whole milk,zwieback
+berries,beverages,canned beer,chicken,sausage,whole milk,zwieback
 bottled water,domestic eggs
 cream cheese ,other vegetables
 butter milk,frankfurter
 packaged fruit/vegetables,specialty bar
 frozen vegetables,shopping bags
-cream cheese ,yogurt,yogurt
+cream cheese ,yogurt
 beverages,other vegetables,root vegetables
 bottled water,canned beer,yogurt
 liquor,pastry
@@ -9973,11 +9973,11 @@ curd,specialty bar
 newspapers,yogurt
 hygiene articles,pasta
 rolls/buns,salty snack
-frankfurter,other vegetables,other vegetables,rolls/buns,shopping bags
+frankfurter,other vegetables,rolls/buns,shopping bags
 citrus fruit,newspapers,pot plants
 brown bread,domestic eggs,onions
-grapes,grapes
-curd,domestic eggs,domestic eggs,domestic eggs,other vegetables,pork
+grapes
+curd,domestic eggs,other vegetables,pork
 butter milk,hamburger meat
 fruit/vegetable juice,shopping bags
 curd,rolls/buns,soda
@@ -9997,19 +9997,19 @@ bottled water,tidbits
 candy,ice cream,root vegetables,specialty bar
 frozen meals,pork
 canned beer,other vegetables
-newspapers,newspapers,rolls/buns
+newspapers,rolls/buns
 other vegetables,whole milk
 fruit/vegetable juice,napkins
 butter,root vegetables
 chocolate,ham
 citrus fruit,whole milk
 soda,tropical fruit
-dessert,sweet spreads,tropical fruit,tropical fruit
+dessert,sweet spreads,tropical fruit
 curd,female sanitary products,soda,specialty chocolate
 specialty chocolate,whole milk
-whole milk,whole milk
+whole milk
 coffee,pip fruit,soda
-other vegetables,other vegetables
+other vegetables
 other vegetables,rolls/buns
 beverages,herbs,rolls/buns,soda,whole milk
 frankfurter,white wine
@@ -10038,7 +10038,7 @@ root vegetables,whipped/sour cream
 beef,berries,bottled beer,whole milk
 root vegetables,whole milk
 dessert,dish cleaner,whole milk
-rolls/buns,rolls/buns
+rolls/buns
 citrus fruit,frozen meals
 chicken,other vegetables
 cat food,rolls/buns
@@ -10051,7 +10051,7 @@ sparkling wine,waffles
 sausage,shopping bags
 dessert,other vegetables
 brown bread,whole milk
-UHT-milk,UHT-milk,root vegetables,shopping bags,spread cheese
+UHT-milk,root vegetables,shopping bags,spread cheese
 shopping bags,yogurt
 root vegetables,whole milk
 domestic eggs,shopping bags,whole milk
@@ -10103,9 +10103,9 @@ citrus fruit,whole milk
 citrus fruit,ice cream
 domestic eggs,other vegetables
 butter,other vegetables
-bottled water,whole milk,whole milk
+bottled water,whole milk
 other vegetables,rolls/buns
-whole milk,whole milk
+whole milk
 canned fish,chewing gum,pork
 packaged fruit/vegetables,sweet spreads
 cake bar,sausage
@@ -10184,7 +10184,7 @@ rolls/buns,soda
 liquor (appetizer),semi-finished bread
 bottled water,root vegetables
 candy,other vegetables,whole milk
-beef,flour,other vegetables,soda,soda
+beef,flour,other vegetables,soda
 instant coffee,shopping bags
 pork,soda
 bottled water,brown bread,rolls/buns,white bread
@@ -10201,12 +10201,12 @@ newspapers,potato products,waffles
 other vegetables,rolls/buns
 flour,onions
 red/blush wine,salty snack
-rolls/buns,rolls/buns
+rolls/buns
 rolls/buns,soda,whole milk
 napkins,pork
 chicken,whipped/sour cream
 candles,pastry,root vegetables
-butter milk,chewing gum,chicken,domestic eggs,ham,shopping bags,shopping bags,white bread,whole milk
+butter milk,chewing gum,chicken,domestic eggs,ham,shopping bags,white bread,whole milk
 other vegetables,rolls/buns
 shopping bags,soda
 hamburger meat,sausage
@@ -10248,9 +10248,9 @@ semi-finished bread,specialty bar
 citrus fruit,dishes,frankfurter,whipped/sour cream,whole milk
 dish cleaner,shopping bags
 onions,other vegetables
-berries,pip fruit,root vegetables,root vegetables,softener,specialty chocolate,sweet spreads,whole milk,yogurt
+berries,pip fruit,root vegetables,softener,specialty chocolate,sweet spreads,whole milk,yogurt
 canned beer,root vegetables
-bottled water,flour,liquor,newspapers,sausage,soda,whole milk,whole milk
+bottled water,flour,liquor,newspapers,sausage,soda,whole milk
 bottled water,dishes,spread cheese,sugar
 bottled beer,other vegetables
 UHT-milk,bottled beer,herbs,rolls/buns
@@ -10271,13 +10271,13 @@ sugar,tropical fruit
 brown bread,whole milk
 bottled water,mustard,other vegetables,pet care,root vegetables,whole milk
 newspapers,whole milk
-domestic eggs,rolls/buns,rolls/buns
+domestic eggs,rolls/buns
 domestic eggs,whole milk
 grapes,whipped/sour cream
-coffee,whole milk,whole milk
+coffee,whole milk
 pork,yogurt
 photo/film,whole milk
-pork,whole milk,whole milk
+pork,whole milk
 newspapers,shopping bags
 chocolate,whole milk
 citrus fruit,whole milk
@@ -10342,7 +10342,7 @@ frozen fish,margarine
 ham,soda,specialty chocolate
 bottled beer,rolls/buns
 chicken,ice cream,rolls/buns,whole milk
-beef,beef,misc. beverages,salty snack
+beef,misc. beverages,salty snack
 candy,whole milk
 dessert,soda,whipped/sour cream,whole milk
 sausage,yogurt
@@ -10364,7 +10364,7 @@ rolls/buns,whole milk
 meat spreads,whole milk
 butter milk,liquor
 ham,pastry
-berries,frankfurter,frankfurter,tropical fruit
+berries,frankfurter,tropical fruit
 domestic eggs,yogurt
 ham,long life bakery product,white bread
 domestic eggs,rolls/buns
@@ -10433,7 +10433,7 @@ bottled beer,seasonal products
 waffles,whole milk
 fruit/vegetable juice,semi-finished bread,whole milk
 cream,sausage
-other vegetables,other vegetables
+other vegetables
 other vegetables,processed cheese,root vegetables,tropical fruit
 butter,whole milk
 chocolate marshmallow,soda
@@ -10475,7 +10475,7 @@ red/blush wine,whole milk
 detergent,fruit/vegetable juice
 bottled beer,dog food,oil
 ham,soda
-margarine,soft cheese,yogurt,yogurt
+margarine,soft cheese,yogurt
 grapes,other vegetables
 canned beer,other vegetables
 dessert,pastry
@@ -10488,10 +10488,10 @@ cereals,newspapers
 bottled water,whole milk
 long life bakery product,soda
 beef,berries
-sausage,sausage
+sausage
 frozen potato products,whole milk
 soda,whipped/sour cream
-domestic eggs,domestic eggs,meat,rolls/buns,white bread,whole milk
+domestic eggs,meat,rolls/buns,white bread,whole milk
 beef,rolls/buns,specialty bar
 cat food,whole milk
 bottled water,red/blush wine
@@ -10511,7 +10511,7 @@ bottled water,rolls/buns,waffles
 frozen meals,newspapers
 candles,dessert,hard cheese,pastry
 root vegetables,whole milk
-curd,soda,soda
+curd,soda
 other vegetables,tropical fruit,whole milk,yogurt
 cat food,margarine,meat,sugar
 turkey,whole milk
@@ -10522,7 +10522,7 @@ bottled beer,butter milk,soda
 condensed milk,turkey,yogurt
 ice cream,instant coffee,soups,white wine
 tropical fruit,whipped/sour cream
-chewing gum,ham,herbs,herbs,newspapers,pastry,whole milk,whole milk
+chewing gum,ham,herbs,newspapers,pastry,whole milk
 canned beer,frozen vegetables
 fruit/vegetable juice,yogurt
 bottled water,napkins,rice,root vegetables,shopping bags
@@ -10542,7 +10542,7 @@ citrus fruit,soda
 cat food,whole milk
 bottled water,whole milk
 canned fish,pasta,yogurt
-tropical fruit,tropical fruit
+tropical fruit
 chewing gum,pickled vegetables,soda,yogurt
 beef,citrus fruit,coffee
 candy,cling film/bags,curd,rolls/buns
@@ -10561,15 +10561,15 @@ UHT-milk,bottled beer,domestic eggs,rolls/buns
 shopping bags,specialty bar,whole milk
 napkins,pasta,tropical fruit
 bottled beer,bottled water,condensed milk
-rolls/buns,rolls/buns
-canned fish,frankfurter,frankfurter,whole milk
+rolls/buns
+canned fish,frankfurter,whole milk
 chocolate marshmallow,flour
-rolls/buns,salty snack,salty snack
+rolls/buns,salty snack
 dessert,dishes,soda,sugar
 seasonal products,soda
 misc. beverages,pastry
 bottled beer,fruit/vegetable juice
-salty snack,soda,tropical fruit,tropical fruit
+salty snack,soda,tropical fruit
 bottled water,whole milk
 long life bakery product,mustard,pickled vegetables,whole milk,yogurt
 butter,margarine,other vegetables,soda
@@ -10582,7 +10582,7 @@ curd,red/blush wine
 pasta,pip fruit,whole milk,yogurt
 canned fish,citrus fruit,hard cheese
 rice,soft cheese
-butter,butter
+butter
 frozen meals,soda
 bottled water,herbs
 citrus fruit,jam
@@ -10624,7 +10624,7 @@ frozen vegetables,root vegetables
 chewing gum,cling film/bags,soft cheese
 bottled beer,butter,frozen vegetables,whole milk
 hard cheese,shopping bags,tropical fruit
-whole milk,whole milk
+whole milk
 berries,dessert,female sanitary products,sugar
 baking powder,berries
 pork,shopping bags
@@ -10634,14 +10634,14 @@ cling film/bags,coffee
 frozen vegetables,misc. beverages
 coffee,curd cheese
 other vegetables,pastry
-other vegetables,other vegetables
+other vegetables
 bottled beer,chocolate
 butter,whole milk
 dishes,margarine
-other vegetables,other vegetables,rolls/buns
+other vegetables,rolls/buns
 citrus fruit,other vegetables
 dessert,domestic eggs,fruit/vegetable juice,liquor (appetizer),tropical fruit,waffles
-soda,soda,sweet spreads,whole milk
+soda,sweet spreads,whole milk
 coffee,tidbits
 citrus fruit,shopping bags
 coffee,white wine
@@ -10703,12 +10703,12 @@ beef,domestic eggs,pastry
 detergent,newspapers
 canned beer,chocolate,male cosmetics,white bread
 herbs,sausage
-yogurt,yogurt
-frozen fish,processed cheese,root vegetables,root vegetables
+yogurt
+frozen fish,processed cheese,root vegetables
 margarine,whole milk
 rolls/buns,salty snack,waffles
 bottled beer,tropical fruit
-condensed milk,yogurt,yogurt
+condensed milk,yogurt
 root vegetables,shopping bags
 salty snack,yogurt
 root vegetables,sausage
@@ -10733,7 +10733,7 @@ frozen potato products,rolls/buns
 bottled beer,butter,liquor (appetizer),photo/film,pip fruit,sweet spreads
 citrus fruit,rolls/buns
 frankfurter,pastry,pork,tropical fruit
-curd,curd
+curd
 whole milk,yogurt
 brown bread,dessert
 grapes,tropical fruit
@@ -10742,7 +10742,7 @@ canned vegetables,soda,tropical fruit
 hamburger meat,rolls/buns,tropical fruit,whipped/sour cream
 other vegetables,rice,whole milk
 beverages,specialty chocolate,waffles
-frozen vegetables,frozen vegetables
+frozen vegetables
 chicken,domestic eggs,frankfurter,other vegetables
 canned beer,meat
 beef,pastry
@@ -10784,7 +10784,7 @@ specialty vegetables,yogurt
 fruit/vegetable juice,pastry,root vegetables
 finished products,other vegetables
 UHT-milk,cream cheese ,curd,root vegetables,sausage
-dessert,fruit/vegetable juice,other vegetables,other vegetables
+dessert,fruit/vegetable juice,other vegetables
 cat food,margarine,soda,yogurt
 curd,light bulbs
 misc. beverages,pip fruit,spread cheese
@@ -10819,7 +10819,7 @@ root vegetables,seasonal products
 baking powder,fruit/vegetable juice
 bottled water,butter
 fruit/vegetable juice,rolls/buns
-dessert,fruit/vegetable juice,hygiene articles,hygiene articles,margarine,other vegetables
+dessert,fruit/vegetable juice,hygiene articles,margarine,other vegetables
 canned beer,citrus fruit,condensed milk,rolls/buns,skin care
 beef,newspapers
 citrus fruit,whipped/sour cream
@@ -10833,9 +10833,9 @@ root vegetables,soda
 berries,frozen meals,shopping bags
 citrus fruit,sauces
 pasta,pip fruit
-other vegetables,other vegetables
+other vegetables
 ham,whipped/sour cream
-frankfurter,newspapers,other vegetables,other vegetables,spread cheese
+frankfurter,newspapers,other vegetables,spread cheese
 flour,pastry
 pot plants,sausage
 rice,root vegetables
@@ -10847,7 +10847,7 @@ flour,flower soil/fertilizer,specialty bar,tropical fruit
 pet care,soda
 butter,newspapers
 photo/film,sausage
-flower (seeds),liver loaf,other vegetables,packaged fruit/vegetables,rolls/buns,rolls/buns,rolls/buns,shopping bags
+flower (seeds),liver loaf,other vegetables,packaged fruit/vegetables,rolls/buns,shopping bags
 chocolate,mayonnaise
 margarine,other vegetables
 dessert,frankfurter,pet care,soda,whipped/sour cream
@@ -10867,7 +10867,7 @@ cake bar,canned beer
 pastry,semi-finished bread
 coffee,other vegetables
 bathroom cleaner,ham
-other vegetables,other vegetables,shopping bags
+other vegetables,shopping bags
 domestic eggs,pip fruit,soda
 bottled beer,frankfurter,hard cheese
 brown bread,pip fruit,pork,tropical fruit
@@ -10895,7 +10895,7 @@ root vegetables,whipped/sour cream
 coffee,whole milk
 brandy,soda,whole milk
 brown bread,pastry
-beverages,margarine,napkins,napkins
+beverages,margarine,napkins
 coffee,hard cheese
 chicken,misc. beverages
 cream cheese ,rolls/buns
@@ -10904,18 +10904,18 @@ soda,yogurt
 chocolate,dessert
 beef,citrus fruit,rolls/buns,whole milk
 grapes,whole milk
-citrus fruit,citrus fruit,cream cheese ,hard cheese,margarine,napkins,sausage,yogurt
+citrus fruit,cream cheese ,hard cheese,margarine,napkins,sausage,yogurt
 canned vegetables,other vegetables,shopping bags
 bottled water,root vegetables
 bottled beer,butter,frankfurter
 hamburger meat,pastry
-bottled water,canned beer,cookware,oil,pork,root vegetables,whole milk,whole milk
+bottled water,canned beer,cookware,oil,pork,root vegetables,whole milk
 curd,domestic eggs,root vegetables,semi-finished bread
 bottled water,margarine
 beef,curd,margarine,root vegetables,shopping bags,turkey
 cat food,onions
 red/blush wine,salty snack
-other vegetables,sliced cheese,yogurt,yogurt
+other vegetables,sliced cheese,yogurt
 sausage,shopping bags
 rolls/buns,whipped/sour cream
 canned beer,chocolate,cooking chocolate,curd,mustard,white bread
@@ -10926,7 +10926,7 @@ citrus fruit,domestic eggs,shopping bags
 bottled beer,butter milk,detergent,ham,soda
 domestic eggs,whole milk
 dish cleaner,semi-finished bread
-frozen vegetables,root vegetables,root vegetables
+frozen vegetables,root vegetables
 specialty cheese,yogurt
 pork,spread cheese
 brown bread,curd,pastry,tropical fruit
@@ -10998,7 +10998,7 @@ cat food,white bread
 napkins,whole milk
 bottled water,chicken,detergent,flour,whole milk,yogurt
 tropical fruit,white bread
-chocolate,chocolate,herbs
+chocolate,herbs
 butter,rolls/buns
 abrasive cleaner,other vegetables
 beef,soda
@@ -11023,7 +11023,7 @@ bottled water,chicken
 newspapers,salty snack
 bottled water,rolls/buns
 frozen potato products,fruit/vegetable juice,whole milk
-beef,curd,domestic eggs,frankfurter,frankfurter,hard cheese,processed cheese,shopping bags
+beef,curd,domestic eggs,frankfurter,hard cheese,processed cheese,shopping bags
 citrus fruit,rolls/buns
 brown bread,curd
 rolls/buns,soda
@@ -11031,16 +11031,16 @@ instant coffee,rolls/buns
 hamburger meat,whipped/sour cream
 softener,sparkling wine
 popcorn,white bread
-dishes,pip fruit,pip fruit,sliced cheese
+dishes,pip fruit,sliced cheese
 domestic eggs,tropical fruit
 baking powder,frozen potato products
-rolls/buns,rolls/buns,root vegetables,whipped/sour cream
+rolls/buns,root vegetables,whipped/sour cream
 curd,margarine,whipped/sour cream
 root vegetables,tropical fruit
 frankfurter,long life bakery product
-frankfurter,specialty bar,whole milk,whole milk
+frankfurter,specialty bar,whole milk
 canned beer,pork,processed cheese,root vegetables,snack products,sugar
-bottled water,bottled water,butter
+bottled water,butter
 soda,tropical fruit
 finished products,sausage
 bottled water,processed cheese,yogurt
@@ -11052,11 +11052,11 @@ sauces,sausage
 candy,domestic eggs
 citrus fruit,whipped/sour cream
 meat spreads,sausage
-candles,liquor (appetizer),other vegetables,other vegetables,red/blush wine,specialty bar
+candles,liquor (appetizer),other vegetables,red/blush wine,specialty bar
 pork,whole milk
 pastry,root vegetables
 bottled water,root vegetables,whipped/sour cream
-rolls/buns,rolls/buns
+rolls/buns
 white bread,yogurt
 domestic eggs,sausage
 semi-finished bread,tropical fruit
@@ -11071,13 +11071,13 @@ chocolate,soda
 root vegetables,shopping bags
 butter,root vegetables
 pasta,specialty bar,yogurt
-sauces,whole milk,whole milk
+sauces,whole milk
 bottled beer,frozen vegetables
 dessert,newspapers,white bread
 dog food,waffles,whole milk
 rolls/buns,root vegetables
 berries,processed cheese
-chocolate marshmallow,whole milk,whole milk
+chocolate marshmallow,whole milk
 bottled beer,whole milk
 domestic eggs,hamburger meat,sausage,specialty cheese,tropical fruit,zwieback
 frankfurter,rolls/buns
@@ -11107,13 +11107,13 @@ onions,packaged fruit/vegetables
 bottled water,chicken
 brown bread,butter milk,frozen meals,oil
 whole milk,yogurt
-baking powder,baking powder,mustard
+baking powder,mustard
 beef,sausage
 canned fish,ice cream
 citrus fruit,ham
 pip fruit,soda
 citrus fruit,pastry,yogurt
-cake bar,canned fish,pastry,rolls/buns,root vegetables,root vegetables
+cake bar,canned fish,pastry,rolls/buns,root vegetables
 dessert,domestic eggs
 finished products,spread cheese
 canned beer,dessert
@@ -11170,7 +11170,7 @@ dessert,fruit/vegetable juice
 dessert,domestic eggs
 frozen meals,rolls/buns
 dessert,soda
-butter,candy,candy
+butter,candy
 margarine,soda,tropical fruit
 domestic eggs,flour,seasonal products
 curd,yogurt
@@ -11192,7 +11192,7 @@ butter,coffee,other vegetables,whipped/sour cream
 canned beer,ice cream,salt,yogurt
 bottled beer,specialty chocolate
 bottled water,cream cheese ,tropical fruit
-citrus fruit,white bread,white bread
+citrus fruit,white bread
 other vegetables,shopping bags
 canned fish,tropical fruit
 herbs,pip fruit
@@ -11206,7 +11206,7 @@ brown bread,pork,rolls/buns,yogurt
 oil,other vegetables
 canned beer,cream cheese 
 butter,ice cream,nuts/prunes,semi-finished bread
-frozen potato products,meat,pork,processed cheese,rolls/buns,salty snack,whole milk,whole milk
+frozen potato products,meat,pork,processed cheese,rolls/buns,salty snack,whole milk
 specialty cheese,tropical fruit
 canned beer,yogurt
 canned vegetables,popcorn
@@ -11224,17 +11224,17 @@ other vegetables,salt,soft cheese,yogurt
 brown bread,citrus fruit,other vegetables
 brown bread,coffee,sweet spreads,whole milk
 pork,yogurt
-soda,soda
-pork,pork
+soda
+pork
 sausage,yogurt
 bottled beer,butter
-newspapers,newspapers
+newspapers
 hard cheese,long life bakery product,whipped/sour cream,yogurt
 frozen vegetables,sausage
 bottled water,dental care,specialty bar
 napkins,soda
 hamburger meat,whole milk
-yogurt,yogurt
+yogurt
 bottled water,chewing gum
 beverages,yogurt
 root vegetables,rum
@@ -11257,7 +11257,7 @@ butter,other vegetables
 bottled beer,liver loaf
 dog food,yogurt
 grapes,ice cream
-margarine,other vegetables,pork,pork
+margarine,other vegetables,pork
 sausage,yogurt
 UHT-milk,other vegetables
 long life bakery product,other vegetables
@@ -11268,7 +11268,7 @@ red/blush wine,tropical fruit
 coffee,whipped/sour cream
 other vegetables,semi-finished bread
 frankfurter,napkins,other vegetables,pastry
-soda,soda
+soda
 brown bread,onions
 butter,margarine
 brown bread,cake bar,canned beer,chicken,domestic eggs,fruit/vegetable juice,sausage,tropical fruit
@@ -11286,7 +11286,7 @@ citrus fruit,specialty bar
 frankfurter,whole milk
 rolls/buns,whole milk
 butter,sugar
-canned beer,sausage,sausage,spices
+canned beer,sausage,spices
 frozen dessert,yogurt
 chicken,frozen vegetables,packaged fruit/vegetables,sausage,whole milk
 cat food,whipped/sour cream
@@ -11304,13 +11304,13 @@ beverages,bottled water,processed cheese,root vegetables,tropical fruit,white br
 beverages,whole milk
 hamburger meat,hygiene articles
 pip fruit,vinegar
-bottled water,condensed milk,misc. beverages,other vegetables,other vegetables,pastry
+bottled water,condensed milk,misc. beverages,other vegetables,pastry
 hygiene articles,yogurt
 chocolate,herbs,margarine,rolls/buns
 berries,sausage
 soft cheese,whole milk,yogurt
 canned fish,white bread
-grapes,rolls/buns,rolls/buns,rolls/buns,whole milk,yogurt
+grapes,rolls/buns,whole milk,yogurt
 frozen potato products,soda,white wine
 domestic eggs,root vegetables
 rolls/buns,tropical fruit
@@ -11333,7 +11333,7 @@ butter,meat
 root vegetables,semi-finished bread
 shopping bags,yogurt
 beverages,cream cheese 
-fruit/vegetable juice,fruit/vegetable juice,rolls/buns,specialty chocolate
+fruit/vegetable juice,rolls/buns,specialty chocolate
 ice cream,margarine
 domestic eggs,other vegetables,rolls/buns
 beverages,canned fish,frankfurter
@@ -11343,7 +11343,7 @@ UHT-milk,curd,flower (seeds)
 beef,whole milk
 butter,chicken,curd,flower (seeds)
 bottled water,waffles,white bread
-napkins,whole milk,whole milk
+napkins,whole milk
 UHT-milk,specialty vegetables
 bottled beer,shopping bags,whole milk
 canned beer,chicken,frankfurter,softener,vinegar,whole milk
@@ -11370,7 +11370,7 @@ dish cleaner,frozen potato products
 berries,instant coffee
 sugar,yogurt
 pastry,sausage,soda,spices,whole milk
-bottled water,pastry,sausage,sausage
+bottled water,pastry,sausage
 citrus fruit,coffee
 frankfurter,hamburger meat
 butter milk,citrus fruit
@@ -11383,14 +11383,14 @@ other vegetables,pastry,rolls/buns
 hamburger meat,sliced cheese
 citrus fruit,zwieback
 chewing gum,fruit/vegetable juice
-whole milk,whole milk
+whole milk
 specialty chocolate,whole milk
 condensed milk,tropical fruit
 domestic eggs,pastry
 canned beer,onions
 frankfurter,yogurt
 newspapers,tropical fruit
-bottled beer,butter,detergent,pip fruit,specialty bar,specialty bar
+bottled beer,butter,detergent,pip fruit,specialty bar
 baking powder,brown bread
 Instant food products,pickled vegetables
 newspapers,other vegetables,pastry,pork,pot plants,rolls/buns,soda
@@ -11404,7 +11404,7 @@ butter,napkins,onions
 canned beer,chicken
 UHT-milk,berries
 detergent,misc. beverages
-berries,dessert,dessert
+berries,dessert
 butter milk,whipped/sour cream
 UHT-milk,bottled beer,newspapers,rolls/buns,tropical fruit
 dog food,tropical fruit,whole milk
@@ -11416,7 +11416,7 @@ margarine,other vegetables
 brown bread,cream cheese 
 bottled water,turkey
 tropical fruit,whole milk
-dessert,other vegetables,other vegetables
+dessert,other vegetables
 other vegetables,whole milk
 bathroom cleaner,rolls/buns
 detergent,meat,roll products 
@@ -11453,13 +11453,13 @@ fruit/vegetable juice,packaged fruit/vegetables
 bottled water,cream cheese ,curd
 other vegetables,tidbits
 beef,semi-finished bread
-bottled water,bottled water,potato products
+bottled water,potato products
 butter,whipped/sour cream
 sliced cheese,yogurt
-canned beer,newspapers,newspapers
+canned beer,newspapers
 dishes,napkins,pastry,semi-finished bread
 root vegetables,seasonal products
-napkins,pastry,pastry
+napkins,pastry
 dessert,tropical fruit
 pastry,salty snack
 other vegetables,pork
@@ -11511,7 +11511,7 @@ Instant food products,root vegetables
 bottled water,fruit/vegetable juice,misc. beverages
 dental care,whole milk
 whipped/sour cream,whole milk
-pastry,sausage,whole milk,whole milk
+pastry,sausage,whole milk
 hamburger meat,margarine
 brown bread,rolls/buns
 chicken,rolls/buns
@@ -11539,7 +11539,7 @@ root vegetables,tropical fruit
 condensed milk,curd,sausage,whole milk
 bottled water,coffee
 baking powder,tropical fruit
-pastry,pastry
+pastry
 condensed milk,grapes,yogurt
 margarine,other vegetables,rolls/buns,whole milk
 soda,whipped/sour cream
@@ -11551,7 +11551,7 @@ chewing gum,whipped/sour cream
 candy,ham
 bottled water,coffee,rolls/buns,root vegetables,whole milk
 butter milk,pork,yogurt
-margarine,margarine
+margarine
 pet care,whole milk
 frozen vegetables,rolls/buns
 berries,whipped/sour cream
@@ -11598,7 +11598,7 @@ beef,whole milk
 onions,whole milk
 bottled water,yogurt
 roll products ,sausage
-rolls/buns,rolls/buns
+rolls/buns
 chicken,pip fruit
 pip fruit,softener,whole milk
 bottled water,whole milk
@@ -11676,7 +11676,7 @@ onions,pastry,shopping bags
 curd,shopping bags
 napkins,other vegetables
 oil,salty snack,soda
-fruit/vegetable juice,fruit/vegetable juice
+fruit/vegetable juice
 citrus fruit,hamburger meat,root vegetables,shopping bags,sugar,tea
 chicken,dessert
 beef,processed cheese
@@ -11723,8 +11723,8 @@ baking powder,bottled beer,red/blush wine,tropical fruit
 cream cheese ,root vegetables
 brown bread,dessert,pastry,whole milk
 pastry,tropical fruit
-whole milk,whole milk
-chewing gum,ham,rolls/buns,rolls/buns
+whole milk
+chewing gum,ham,rolls/buns
 condensed milk,hamburger meat
 fruit/vegetable juice,pip fruit,sausage,whole milk
 bottled beer,pasta,root vegetables,white bread
@@ -11775,7 +11775,7 @@ newspapers,root vegetables,sugar
 soda,tropical fruit
 liquor,specialty chocolate
 dishes,frankfurter,rolls/buns
-curd,curd
+curd
 dessert,whole milk
 dessert,pastry,whole milk
 canned fish,prosecco,soda
@@ -11807,7 +11807,7 @@ bottled water,curd,domestic eggs,newspapers,yogurt
 frozen meals,instant coffee,sausage
 chicken,onions
 fruit/vegetable juice,ice cream,red/blush wine
-whole milk,whole milk
+whole milk
 newspapers,sausage
 butter milk,chewing gum,pastry,yogurt
 Instant food products,whipped/sour cream
@@ -11817,7 +11817,7 @@ candy,whipped/sour cream
 hamburger meat,yogurt
 citrus fruit,coffee
 rolls/buns,whole milk
-dessert,frozen meals,grapes,napkins,other vegetables,other vegetables,rolls/buns
+dessert,frozen meals,grapes,napkins,other vegetables,rolls/buns
 other vegetables,rolls/buns,waffles
 shopping bags,whole milk
 flour,semi-finished bread
@@ -11847,7 +11847,7 @@ beef,specialty bar,white bread
 cleaner,other vegetables
 citrus fruit,specialty bar
 chewing gum,pastry
-other vegetables,other vegetables
+other vegetables
 dog food,frozen potato products,processed cheese
 bottled beer,ice cream,salty snack
 fruit/vegetable juice,salt,sausage
@@ -11903,7 +11903,7 @@ chewing gum,cleaner
 berries,shopping bags
 other vegetables,salty snack
 bottled beer,cream cheese ,other vegetables,rolls/buns,root vegetables,waffles
-flower (seeds),flower (seeds)
+flower (seeds)
 other vegetables,whole milk
 newspapers,rolls/buns
 other vegetables,rolls/buns
@@ -11936,10 +11936,10 @@ coffee,pip fruit
 pastry,white bread
 curd,whipped/sour cream
 shopping bags,spread cheese
-curd,rolls/buns,rolls/buns,whole milk
+curd,rolls/buns,whole milk
 citrus fruit,whipped/sour cream
 beef,herbs
-rolls/buns,rolls/buns
+rolls/buns
 rolls/buns,root vegetables
 domestic eggs,whipped/sour cream
 bottled beer,oil
@@ -11977,7 +11977,7 @@ citrus fruit,long life bakery product,rolls/buns
 liquor (appetizer),specialty fat
 long life bakery product,newspapers,yogurt
 canned beer,mustard,oil,popcorn,pork,rolls/buns,whipped/sour cream,yogurt
-misc. beverages,processed cheese,specialty bar,whole milk,whole milk
+misc. beverages,processed cheese,specialty bar,whole milk
 brown bread,other vegetables
 brown bread,light bulbs,whole milk
 butter milk,citrus fruit
@@ -11988,7 +11988,7 @@ brown bread,domestic eggs,root vegetables
 pastry,whole milk
 dishes,sweet spreads
 cling film/bags,curd
-bottled water,bottled water,sausage,yogurt
+bottled water,sausage,yogurt
 rolls/buns,salt,soda
 liquor,pork
 bottled water,whole milk
@@ -12001,10 +12001,10 @@ butter milk,long life bakery product
 citrus fruit,sliced cheese
 berries,other vegetables
 long life bakery product,rolls/buns
-rolls/buns,rolls/buns,soft cheese
+rolls/buns,soft cheese
 chocolate,sliced cheese
 bottled water,canned beer,detergent,tropical fruit
-rolls/buns,rolls/buns,yogurt
+rolls/buns,yogurt
 beef,other vegetables,pip fruit,whole milk
 dish cleaner,shopping bags
 bottled water,frozen meals
@@ -12055,7 +12055,7 @@ domestic eggs,long life bakery product,popcorn,root vegetables
 liquor,pork
 Instant food products,canned beer,pip fruit,whole milk
 chicken,packaged fruit/vegetables,soda
-roll products ,root vegetables,root vegetables,whole milk
+roll products ,root vegetables,whole milk
 cleaner,pork
 coffee,whole milk
 detergent,fruit/vegetable juice,oil,other vegetables
@@ -12122,7 +12122,7 @@ ice cream,rolls/buns,root vegetables
 ham,whole milk
 candy,domestic eggs,white wine,whole milk
 pastry,pork
-berries,shopping bags,soups,sweet spreads,sweet spreads,tropical fruit,tropical fruit,yogurt,yogurt
+berries,shopping bags,soups,sweet spreads,tropical fruit,yogurt
 root vegetables,soda
 bottled water,dog food,shopping bags
 ham,newspapers
@@ -12152,7 +12152,7 @@ candy,salty snack,soda
 canned beer,yogurt
 newspapers,yogurt
 ice cream,pastry
-domestic eggs,domestic eggs
+domestic eggs
 brown bread,butter,shopping bags,soda
 brown bread,soda
 canned beer,rolls/buns,root vegetables,sausage
@@ -12165,7 +12165,7 @@ napkins,other vegetables
 bottled water,tropical fruit
 domestic eggs,napkins
 frozen meals,red/blush wine,whipped/sour cream
-canned beer,canned beer
+canned beer
 domestic eggs,newspapers
 newspapers,other vegetables,whole milk
 pip fruit,soft cheese,whole milk
@@ -12197,20 +12197,20 @@ nuts/prunes,white bread
 dessert,rolls/buns,semi-finished bread,yogurt
 butter milk,whipped/sour cream
 curd cheese,finished products
-citrus fruit,dishes,frankfurter,frankfurter,semi-finished bread,whipped/sour cream
+citrus fruit,dishes,frankfurter,semi-finished bread,whipped/sour cream
 brown bread,napkins
 nut snack,whole milk
 bottled water,shopping bags
 pot plants,whipped/sour cream
 pasta,shopping bags,whipped/sour cream
-cat food,whole milk,whole milk
+cat food,whole milk
 domestic eggs,soda
 bottled water,margarine,meat spreads,other vegetables
 margarine,other vegetables
 pastry,pickled vegetables
 UHT-milk,domestic eggs,pastry,soda
 napkins,other vegetables,specialty chocolate
-whole milk,whole milk
+whole milk
 berries,cat food,coffee,cream cheese ,grapes
 red/blush wine,rolls/buns
 citrus fruit,whole milk
@@ -12278,15 +12278,15 @@ dessert,yogurt
 ice cream,soda
 cream cheese ,whole milk
 bottled water,root vegetables
-bottled water,bottled water,coffee,sugar
-citrus fruit,citrus fruit
+bottled water,coffee,sugar
+citrus fruit
 chocolate marshmallow,root vegetables,sausage,soda
 pip fruit,sausage
 pot plants,whipped/sour cream
 coffee,frozen potato products,salt
 bottled beer,brown bread,chewing gum,domestic eggs
 bottled water,napkins,sausage
-citrus fruit,citrus fruit,cream cheese ,specialty chocolate
+citrus fruit,cream cheese ,specialty chocolate
 frankfurter,yogurt
 frozen vegetables,red/blush wine
 ham,mayonnaise
@@ -12309,7 +12309,7 @@ chocolate,sausage
 frankfurter,fruit/vegetable juice
 chicken,tropical fruit,waffles
 oil,whole milk,yogurt
-fruit/vegetable juice,shopping bags,shopping bags,whole milk
+fruit/vegetable juice,shopping bags,whole milk
 brown bread,other vegetables,rolls/buns
 UHT-milk,shopping bags
 cat food,margarine
@@ -12319,7 +12319,7 @@ curd,other vegetables,whole milk
 butter milk,citrus fruit,specialty bar,whole milk
 dessert,margarine,whole milk
 salty snack,tropical fruit
-butter,butter,root vegetables,whole milk
+butter,root vegetables,whole milk
 dental care,other vegetables,tidbits
 cake bar,citrus fruit
 berries,cream cheese 
@@ -12328,7 +12328,7 @@ beef,citrus fruit,shopping bags,whole milk
 rolls/buns,whole milk
 hamburger meat,soft cheese
 citrus fruit,yogurt
-citrus fruit,citrus fruit,oil,root vegetables
+citrus fruit,oil,root vegetables
 herbs,other vegetables,pip fruit
 chewing gum,hamburger meat,pork,sausage,soda,soft cheese,whole milk,yogurt
 soda,whipped/sour cream
@@ -12366,7 +12366,7 @@ shopping bags,yogurt
 soda,whole milk
 specialty bar,yogurt
 sliced cheese,soda
-citrus fruit,citrus fruit,detergent,newspapers,salty snack,whole milk,yogurt
+citrus fruit,detergent,newspapers,salty snack,whole milk,yogurt
 chicken,shopping bags,soda
 other vegetables,pastry,spread cheese
 waffles,white bread
@@ -12380,7 +12380,7 @@ cocoa drinks,whole milk
 curd,margarine,pip fruit,root vegetables,whole milk
 shopping bags,tropical fruit,whole milk
 bottled water,long life bakery product,soda
-frozen fish,house keeping products,sausage,sausage
+frozen fish,house keeping products,sausage
 newspapers,white wine
 berries,bottled beer,seasonal products,sugar
 citrus fruit,soda
@@ -12396,12 +12396,12 @@ canned beer,rolls/buns
 bottled beer,bottled water,butter,citrus fruit,soda
 candy,tropical fruit
 rolls/buns,shopping bags,whole milk
-long life bakery product,soda,soda
+long life bakery product,soda
 bottled water,whole milk
 citrus fruit,pot plants
 canned beer,detergent,meat
 beef,soft cheese
-butter,other vegetables,other vegetables
+butter,other vegetables
 canned beer,ice cream
 cream cheese ,sparkling wine
 pastry,whole milk
@@ -12416,7 +12416,7 @@ bottled water,fruit/vegetable juice,sausage
 rolls/buns,whole milk
 candy,canned beer,chocolate,yogurt
 butter,other vegetables,popcorn
-canned beer,canned beer,onions,sausage
+canned beer,onions,sausage
 soda,whipped/sour cream
 soda,yogurt
 grapes,misc. beverages
@@ -12430,14 +12430,14 @@ brown bread,chocolate
 canned beer,domestic eggs,yogurt
 dishes,ice cream
 cocoa drinks,detergent
-brown bread,frankfurter,frankfurter,grapes
+brown bread,frankfurter,grapes
 beef,whole milk
 sauces,tropical fruit
 domestic eggs,pot plants
 chicken,misc. beverages
 bottled water,detergent
 butter milk,napkins
-pastry,sausage,sausage,sweet spreads,tropical fruit,white wine,whole milk,whole milk
+pastry,sausage,sweet spreads,tropical fruit,white wine,whole milk
 ice cream,specialty chocolate
 chocolate,coffee
 brown bread,oil,pip fruit
@@ -12469,7 +12469,7 @@ pork,processed cheese
 misc. beverages,soft cheese
 bottled beer,whole milk
 bottled water,domestic eggs,margarine,pickled vegetables
-candy,fruit/vegetable juice,fruit/vegetable juice
+candy,fruit/vegetable juice
 citrus fruit,condensed milk,frankfurter,other vegetables
 berries,fruit/vegetable juice
 canned beer,whole milk
@@ -12487,7 +12487,7 @@ beverages,prosecco
 pot plants,rolls/buns,sausage,snack products
 coffee,root vegetables,shopping bags,specialty bar
 cream cheese ,sausage
-napkins,tropical fruit,tropical fruit
+napkins,tropical fruit
 pudding powder,tropical fruit
 dessert,rice
 frozen dessert,salty snack,semi-finished bread,waffles
@@ -12511,7 +12511,7 @@ butter milk,candles,pot plants
 chocolate marshmallow,other vegetables
 other vegetables,rolls/buns
 coffee,shopping bags,whipped/sour cream
-whole milk,whole milk
+whole milk
 pip fruit,whipped/sour cream
 ham,whole milk
 other vegetables,whipped/sour cream
@@ -12529,14 +12529,14 @@ pork,root vegetables
 salty snack,white bread
 citrus fruit,whole milk
 rolls/buns,whipped/sour cream
-beverages,beverages
+beverages
 beverages,curd cheese,rolls/buns,tropical fruit
 hamburger meat,rolls/buns
 cream cheese ,pickled vegetables
 brown bread,soda
-citrus fruit,citrus fruit
+citrus fruit
 rolls/buns,waffles
-bottled beer,house keeping products,tropical fruit,whole milk,whole milk
+bottled beer,house keeping products,tropical fruit,whole milk
 cleaner,cooking chocolate,red/blush wine
 other vegetables,pot plants,prosecco
 coffee,frankfurter,sausage,soda,yogurt
@@ -12548,13 +12548,13 @@ rolls/buns,root vegetables
 bottled beer,newspapers
 bottled beer,hamburger meat
 canned vegetables,ham
-UHT-milk,chicken,chicken,cream cheese ,fish,hard cheese,other vegetables
+UHT-milk,chicken,cream cheese ,fish,hard cheese,other vegetables
 grapes,soda
 beverages,oil
 pip fruit,whole milk
 pet care,pip fruit
 canned beer,long life bakery product,misc. beverages
-bottled beer,bottled beer
+bottled beer
 butter milk,soda,tropical fruit
 coffee,root vegetables
 butter,napkins,tropical fruit,whole milk
@@ -12588,12 +12588,12 @@ brown bread,yogurt
 coffee,cream cheese ,frozen vegetables,sugar
 rolls/buns,whole milk
 baking powder,coffee
-dessert,dessert,flour
+dessert,flour
 butter,chicken
 pickled vegetables,sausage
 fruit/vegetable juice,mayonnaise,other vegetables
 UHT-milk,other vegetables
-whole milk,whole milk
+whole milk
 semi-finished bread,soda
 curd,domestic eggs,frozen vegetables
 rolls/buns,shopping bags
@@ -12618,7 +12618,7 @@ bottled beer,finished products
 brown bread,pastry
 domestic eggs,pasta,whole milk
 dessert,waffles,whole milk
-margarine,meat,other vegetables,other vegetables,other vegetables,pip fruit,pork,root vegetables
+margarine,meat,other vegetables,pip fruit,pork,root vegetables
 bottled water,nut snack
 house keeping products,pork
 beef,rolls/buns,seasonal products
@@ -12632,7 +12632,7 @@ domestic eggs,sausage,sugar
 other vegetables,rolls/buns
 butter,rolls/buns
 fruit/vegetable juice,hygiene articles,whipped/sour cream
-domestic eggs,yogurt,yogurt
+domestic eggs,yogurt
 cereals,pork
 brown bread,dog food,salty snack
 other vegetables,rolls/buns,soda
@@ -12674,7 +12674,7 @@ rolls/buns,whole milk
 UHT-milk,butter milk,tropical fruit
 frozen fish,rolls/buns
 citrus fruit,cream cheese ,red/blush wine,sauces
-canned beer,newspapers,newspapers,sausage,tropical fruit
+canned beer,newspapers,sausage,tropical fruit
 cake bar,chicken,fruit/vegetable juice
 brown bread,long life bakery product
 frankfurter,soda
@@ -12693,7 +12693,7 @@ hamburger meat,hygiene articles,soda,tropical fruit
 other vegetables,pork
 packaged fruit/vegetables,specialty bar,whipped/sour cream
 chewing gum,instant coffee
-margarine,other vegetables,other vegetables
+margarine,other vegetables
 ham,shopping bags,whole milk
 coffee,whole milk
 dishes,fruit/vegetable juice,herbs
@@ -12703,7 +12703,7 @@ cream cheese ,pork,yogurt
 curd,detergent
 candy,ham
 beef,misc. beverages
-ham,soda,whole milk,whole milk
+ham,soda,whole milk
 roll products ,shopping bags
 beef,salt
 root vegetables,shopping bags
@@ -12724,7 +12724,7 @@ butter,hygiene articles
 bottled water,whipped/sour cream
 coffee,cream cheese 
 cleaner,meat,newspapers
-butter,other vegetables,other vegetables,pastry
+butter,other vegetables,pastry
 dental care,tropical fruit
 other vegetables,tropical fruit
 canned beer,yogurt
@@ -12773,7 +12773,7 @@ bottled beer,tropical fruit
 pip fruit,whipped/sour cream
 bottled water,other vegetables
 coffee,other vegetables
-other vegetables,other vegetables
+other vegetables
 whipped/sour cream,whole milk
 brown bread,newspapers
 butter,candy,margarine
@@ -12783,7 +12783,7 @@ finished products,whole milk
 frozen meals,ham,sparkling wine,tropical fruit
 canned beer,detergent,frozen dessert,grapes,sugar
 chicken,fruit/vegetable juice
-pip fruit,sausage,sausage,tropical fruit
+pip fruit,sausage,tropical fruit
 long life bakery product,nuts/prunes
 long life bakery product,whole milk
 ham,processed cheese
@@ -12822,7 +12822,7 @@ bottled beer,hamburger meat,other vegetables
 curd,frozen meals,rolls/buns,tropical fruit
 salty snack,whole milk
 brown bread,processed cheese,rolls/buns
-soda,soda,whole milk
+soda,whole milk
 butter,chicken,soda,whole milk
 beverages,pastry
 butter,root vegetables
@@ -12834,7 +12834,7 @@ grapes,whole milk
 curd,hygiene articles,whole milk
 bottled water,margarine
 sausage,tea
-cream cheese ,curd,fruit/vegetable juice,other vegetables,waffles,whole milk,yogurt,yogurt
+cream cheese ,curd,fruit/vegetable juice,other vegetables,waffles,whole milk,yogurt
 brown bread,chewing gum,coffee,napkins
 beverages,butter,domestic eggs
 beef,shopping bags
@@ -12857,7 +12857,7 @@ beverages,canned beer,hamburger meat,other vegetables
 domestic eggs,frozen fish
 butter,tropical fruit
 artif. sweetener,ice cream,turkey,whole milk
-rolls/buns,rolls/buns
+rolls/buns
 newspapers,other vegetables
 butter milk,newspapers
 whipped/sour cream,yogurt
@@ -12906,13 +12906,13 @@ pastry,pork
 other vegetables,pork
 hamburger meat,rolls/buns
 napkins,pip fruit,whole milk
-whole milk,whole milk
+whole milk
 oil,rolls/buns
 brown bread,pork
 chicken,soda
 frozen vegetables,sausage,specialty vegetables
-yogurt,yogurt
-bottled water,oil,oil
+yogurt
+bottled water,oil
 canned fish,root vegetables
 root vegetables,soda
 margarine,rolls/buns
@@ -12927,7 +12927,7 @@ dishes,other vegetables,soda
 bottled water,margarine,onions,other vegetables,whole milk
 bottled water,coffee,cream cheese ,sugar
 cereals,pork
-fruit/vegetable juice,ice cream,margarine,packaged fruit/vegetables,pasta,pip fruit,rolls/buns,rolls/buns
+fruit/vegetable juice,ice cream,margarine,packaged fruit/vegetables,pasta,pip fruit,rolls/buns
 pip fruit,spread cheese
 seasonal products,soda,specialty chocolate,white bread
 other vegetables,yogurt
@@ -12944,7 +12944,7 @@ newspapers,white bread
 tropical fruit,white wine
 chewing gum,misc. beverages
 frankfurter,pickled vegetables
-bottled water,frozen dessert,newspapers,rolls/buns,rolls/buns,yogurt
+bottled water,frozen dessert,newspapers,rolls/buns,yogurt
 citrus fruit,domestic eggs
 beef,flour
 bottled beer,pip fruit
@@ -12961,7 +12961,7 @@ ice cream,sausage
 frozen potato products,specialty chocolate
 onions,soda
 soda,whole milk
-citrus fruit,frozen vegetables,ham,whole milk,whole milk,yogurt
+citrus fruit,frozen vegetables,ham,whole milk,yogurt
 citrus fruit,yogurt
 UHT-milk,white bread
 meat,soda
@@ -12969,7 +12969,7 @@ newspapers,other vegetables,pork
 berries,candy,frozen vegetables,whole milk
 bottled water,onions,sliced cheese
 bottled water,chocolate,dishes,soft cheese
-baking powder,bottled beer,brandy,canned beer,canned beer,curd,sausage,white bread
+baking powder,bottled beer,brandy,canned beer,curd,sausage,white bread
 brown bread,pork
 curd,pork
 root vegetables,tropical fruit
@@ -12987,7 +12987,7 @@ Instant food products,cake bar
 bottled beer,other vegetables
 canned beer,specialty bar
 artif. sweetener,cat food,hamburger meat,packaged fruit/vegetables,tropical fruit,whole milk
-pork,pork,rolls/buns,sparkling wine
+pork,rolls/buns,sparkling wine
 butter milk,fruit/vegetable juice
 bottled water,yogurt
 brown bread,pastry
@@ -13001,12 +13001,12 @@ UHT-milk,domestic eggs,newspapers,whole milk
 bottled water,seasonal products,soda
 rolls/buns,soda
 brown bread,waffles
-rolls/buns,rolls/buns
+rolls/buns
 butter,margarine,semi-finished bread
 frankfurter,jam,rolls/buns
 chocolate,misc. beverages
 frozen meals,fruit/vegetable juice
-brown bread,brown bread
+brown bread
 cream cheese ,jam
 dishes,hard cheese,other vegetables,shopping bags
 frozen vegetables,hamburger meat,rolls/buns,whole milk,yogurt
@@ -13031,7 +13031,7 @@ curd,oil
 spread cheese,whole milk
 bottled beer,brown bread,curd,other vegetables,tropical fruit
 sausage,tea
-onions,onions
+onions
 beverages,soda
 curd,ice cream
 other vegetables,specialty fat
@@ -13047,7 +13047,7 @@ frozen meals,sausage,soda
 canned beer,whipped/sour cream
 other vegetables,whole milk
 margarine,waffles
-frankfurter,other vegetables,other vegetables,root vegetables
+frankfurter,other vegetables,root vegetables
 liquor,root vegetables
 beef,newspapers
 chicken,sugar
@@ -13145,9 +13145,9 @@ tropical fruit,yogurt
 other vegetables,soda
 curd,frankfurter
 beef,whole milk
-other vegetables,yogurt,yogurt
+other vegetables,yogurt
 canned beer,other vegetables,soda,whole milk
-curd,pip fruit,sausage,yogurt,yogurt
+curd,pip fruit,sausage,yogurt
 candy,root vegetables
 bottled water,coffee
 other vegetables,yogurt
@@ -13179,17 +13179,17 @@ beef,waffles
 bottled beer,cat food,citrus fruit
 bottled beer,whole milk
 liqueur,whole milk
-citrus fruit,light bulbs,whole milk,whole milk
+citrus fruit,light bulbs,whole milk
 hygiene articles,other vegetables
 hamburger meat,margarine
 shopping bags,sugar
 ice cream,sliced cheese
-soda,soda
+soda
 UHT-milk,cake bar,other vegetables
 other vegetables,whipped/sour cream
 canned beer,citrus fruit
 frankfurter,yogurt
-frankfurter,rolls/buns,rolls/buns
+frankfurter,rolls/buns
 brown bread,curd
 domestic eggs,frankfurter
 brown bread,newspapers
@@ -13202,7 +13202,7 @@ newspapers,soda,tropical fruit,whole milk
 other vegetables,tropical fruit
 flower soil/fertilizer,tropical fruit
 fruit/vegetable juice,margarine
-domestic eggs,domestic eggs
+domestic eggs
 beverages,cat food,soda
 frozen dessert,pastry
 chocolate marshmallow,flour
@@ -13218,11 +13218,11 @@ candy,root vegetables
 citrus fruit,frozen fruits
 other vegetables,tropical fruit
 pastry,soda
-soda,yogurt,yogurt
-whole milk,whole milk
+soda,yogurt
+whole milk
 pastry,rolls/buns
 citrus fruit,root vegetables
-bottled beer,citrus fruit,citrus fruit,cream cheese 
+bottled beer,citrus fruit,cream cheese 
 pip fruit,tropical fruit
 dessert,hamburger meat,sliced cheese
 brown bread,ham
@@ -13263,7 +13263,7 @@ other vegetables,pickled vegetables
 beef,pip fruit
 brown bread,chicken,tropical fruit,waffles,whipped/sour cream
 napkins,newspapers
-chewing gum,dishes,white bread,whole milk,whole milk
+chewing gum,dishes,white bread,whole milk
 UHT-milk,other vegetables
 napkins,sliced cheese
 brown bread,herbs,onions
@@ -13273,7 +13273,7 @@ herbs,root vegetables
 sausage,specialty bar
 chicken,long life bakery product
 sausage,yogurt
-detergent,detergent,other vegetables
+detergent,other vegetables
 canned beer,dog food,other vegetables,rolls/buns
 canned beer,chicken,other vegetables
 newspapers,root vegetables
@@ -13304,7 +13304,7 @@ packaged fruit/vegetables,turkey
 UHT-milk,other vegetables
 dental care,pork
 tropical fruit,whipped/sour cream
-frozen vegetables,frozen vegetables,rolls/buns
+frozen vegetables,rolls/buns
 ice cream,whole milk
 hard cheese,whole milk
 canned beer,coffee,yogurt
@@ -13327,7 +13327,7 @@ bottled beer,brown bread,hamburger meat,yogurt
 cat food,pip fruit,white bread
 nuts/prunes,rolls/buns,sausage,whole milk
 curd,ice cream
-canned beer,canned beer
+canned beer
 hard cheese,white bread
 shopping bags,tropical fruit
 misc. beverages,red/blush wine
@@ -13342,7 +13342,7 @@ rolls/buns,tropical fruit
 hamburger meat,root vegetables
 cereals,hamburger meat,pastry
 abrasive cleaner,bottled beer,other vegetables
-butter milk,pip fruit,root vegetables,sausage,sausage,sliced cheese
+butter milk,pip fruit,root vegetables,sausage,sliced cheese
 canned beer,canned vegetables,other vegetables,soda
 chicken,tropical fruit
 UHT-milk,dessert
@@ -13352,7 +13352,7 @@ cat food,roll products
 other vegetables,rolls/buns
 UHT-milk,pip fruit
 beverages,butter milk,fruit/vegetable juice,whole milk
-bottled beer,chocolate,coffee,pastry,rolls/buns,rolls/buns,sausage,whole milk
+bottled beer,chocolate,coffee,pastry,rolls/buns,sausage,whole milk
 other vegetables,sliced cheese
 sliced cheese,soda,soft cheese
 pot plants,whole milk
@@ -13367,7 +13367,7 @@ frozen vegetables,pastry
 bottled beer,whole milk
 bottled beer,frankfurter,margarine,mustard,rolls/buns,sausage
 mustard,sausage
-whole milk,whole milk
+whole milk
 rolls/buns,shopping bags
 ice cream,other vegetables
 dessert,napkins
@@ -13412,7 +13412,7 @@ bottled water,newspapers,whole milk
 salt,seasonal products
 flour,ham,whipped/sour cream
 detergent,dishes,mayonnaise,other vegetables
-bottled beer,hard cheese,newspapers,soft cheese,tropical fruit,tropical fruit,white wine,whole milk
+bottled beer,hard cheese,newspapers,soft cheese,tropical fruit,white wine,whole milk
 bottled beer,rolls/buns
 bottled beer,butter,coffee,pastry
 candy,pork,yogurt
@@ -13455,7 +13455,7 @@ citrus fruit,pot plants
 pickled vegetables,root vegetables,yogurt
 beverages,curd
 brown bread,curd
-cream cheese ,dish cleaner,frankfurter,hygiene articles,mustard,other vegetables,root vegetables,whole milk,whole milk
+cream cheese ,dish cleaner,frankfurter,hygiene articles,mustard,other vegetables,root vegetables,whole milk
 frankfurter,other vegetables
 chocolate,pastry
 berries,margarine
@@ -13557,12 +13557,12 @@ meat,rolls/buns,root vegetables
 soft cheese,specialty chocolate
 canned beer,curd
 specialty chocolate,zwieback
-napkins,napkins,whole milk
+napkins,whole milk
 bottled water,coffee,curd
 butter,butter milk
 UHT-milk,ham
 berries,citrus fruit,salty snack,yogurt
-bottled beer,bottled beer,fish,soda
+bottled beer,fish,soda
 shopping bags,whipped/sour cream
 fruit/vegetable juice,pickled vegetables,sugar,yogurt
 canned vegetables,whole milk
@@ -13580,7 +13580,7 @@ bottled water,citrus fruit,pickled vegetables,rolls/buns,soda,tropical fruit
 chicken,white bread
 citrus fruit,oil,specialty chocolate
 hard cheese,pip fruit
-ham,pork,pork,soda
+ham,pork,soda
 baking powder,root vegetables
 bottled water,whole milk
 margarine,yogurt
@@ -13588,7 +13588,7 @@ butter,sugar
 citrus fruit,other vegetables,pastry,whole milk
 salt,soda
 sauces,specialty chocolate,yogurt
-frankfurter,frozen fish,ham,misc. beverages,photo/film,specialty chocolate,tropical fruit,tropical fruit
+frankfurter,frozen fish,ham,misc. beverages,photo/film,specialty chocolate,tropical fruit
 napkins,pastry
 herbs,rolls/buns
 butter milk,chicken
@@ -13599,7 +13599,7 @@ root vegetables,shopping bags
 photo/film,whipped/sour cream
 margarine,nuts/prunes
 butter milk,hygiene articles
-bottled water,bottled water,rolls/buns
+bottled water,rolls/buns
 coffee,domestic eggs,shopping bags,waffles
 pip fruit,root vegetables
 root vegetables,specialty chocolate
@@ -13644,10 +13644,10 @@ canned beer,fruit/vegetable juice
 rolls/buns,root vegetables
 pastry,roll products 
 rolls/buns,shopping bags
-rolls/buns,rolls/buns
+rolls/buns
 UHT-milk,whole milk
 curd,shopping bags,soda
-rolls/buns,rolls/buns,sugar
+rolls/buns,sugar
 white wine,whole milk
 chewing gum,citrus fruit,photo/film
 baking powder,bottled water
@@ -13661,7 +13661,7 @@ root vegetables,shopping bags
 grapes,soda,whipped/sour cream
 beef,oil
 citrus fruit,meat,other vegetables,pip fruit
-whole milk,whole milk
+whole milk
 other vegetables,rolls/buns
 frozen dessert,hamburger meat,oil,other vegetables
 other vegetables,rolls/buns
@@ -13676,8 +13676,8 @@ bottled water,chocolate,margarine,soda
 flour,oil,processed cheese,rolls/buns
 bottled beer,red/blush wine
 sausage,yogurt
-beef,bottled beer,chocolate,frozen vegetables,other vegetables,other vegetables,pork,snack products
-canned beer,canned beer
+beef,bottled beer,chocolate,frozen vegetables,other vegetables,pork,snack products
+canned beer
 frozen vegetables,other vegetables,pip fruit
 dish cleaner,pastry,sausage
 root vegetables,white wine
@@ -13697,8 +13697,8 @@ other vegetables,salty snack
 bottled water,frozen meals
 brown bread,canned beer,pip fruit,rolls/buns,shopping bags,soft cheese
 rolls/buns,sugar
-butter milk,other vegetables,other vegetables,pastry
-rolls/buns,rolls/buns
+butter milk,other vegetables,pastry
+rolls/buns
 flower (seeds),fruit/vegetable juice
 coffee,domestic eggs
 canned beer,whole milk
@@ -13740,7 +13740,7 @@ other vegetables,whole milk
 canned fish,soda
 domestic eggs,house keeping products
 hamburger meat,newspapers
-coffee,frankfurter,instant coffee,instant coffee,rolls/buns,root vegetables,sugar
+coffee,frankfurter,instant coffee,rolls/buns,root vegetables,sugar
 rolls/buns,sausage,whole milk
 chocolate,cream cheese 
 other vegetables,whole milk
@@ -13757,7 +13757,7 @@ citrus fruit,coffee,fruit/vegetable juice,other vegetables
 pastry,pip fruit
 margarine,rolls/buns
 domestic eggs,other vegetables
-frankfurter,hygiene articles,other vegetables,sausage,sausage,sausage,shopping bags,shopping bags,whole milk
+frankfurter,hygiene articles,other vegetables,sausage,shopping bags,whole milk
 butter,whole milk
 detergent,rolls/buns
 frankfurter,rolls/buns,salt
@@ -13770,19 +13770,19 @@ pip fruit,pudding powder
 salty snack,white wine
 detergent,whipped/sour cream
 frankfurter,other vegetables,pork,potato products
-bottled water,bottled water,chicken,pastry,pip fruit,shopping bags,tropical fruit,waffles
+bottled water,chicken,pastry,pip fruit,shopping bags,tropical fruit,waffles
 chocolate marshmallow,white wine
 grapes,soda,waffles
 root vegetables,yogurt
 bottled beer,pip fruit
-bottled water,bottled water
+bottled water
 napkins,shopping bags
 cookware,sausage,soda,spices
 bottled beer,brown bread,cat food,citrus fruit,white bread,whole milk
 citrus fruit,toilet cleaner
 coffee,root vegetables
 other vegetables,sausage
-cling film/bags,domestic eggs,domestic eggs
+cling film/bags,domestic eggs
 chicken,specialty chocolate
 flour,oil
 coffee,hard cheese,pot plants,rolls/buns
@@ -13821,7 +13821,7 @@ UHT-milk,cling film/bags,pastry
 canned beer,domestic eggs
 butter,chicken
 sliced cheese,softener,whole milk
-rolls/buns,rolls/buns
+rolls/buns
 condensed milk,salty snack
 specialty chocolate,whole milk
 other vegetables,rolls/buns,shopping bags,soda
@@ -13836,9 +13836,9 @@ onions,root vegetables
 female sanitary products,fruit/vegetable juice
 canned beer,whipped/sour cream
 bottled beer,whole milk
-butter,domestic eggs,frankfurter,frankfurter,margarine,other vegetables
+butter,domestic eggs,frankfurter,margarine,other vegetables
 newspapers,shopping bags
-tropical fruit,whipped/sour cream,whipped/sour cream
+tropical fruit,whipped/sour cream
 bottled beer,onions,rolls/buns,yogurt
 brown bread,citrus fruit,sausage
 canned beer,citrus fruit
@@ -13849,7 +13849,7 @@ other vegetables,soda
 beverages,frozen fish,pork
 domestic eggs,rolls/buns
 beef,butter
-oil,root vegetables,shopping bags,shopping bags,soda,yogurt
+oil,root vegetables,shopping bags,soda,yogurt
 margarine,newspapers,yogurt
 canned beer,pork
 beef,pet care
@@ -13864,7 +13864,7 @@ hamburger meat,whole milk
 bottled water,onions,pastry
 prosecco,rolls/buns,specialty chocolate,white bread
 cleaner,curd
-newspapers,newspapers
+newspapers
 abrasive cleaner,seasonal products,soda
 cat food,coffee
 misc. beverages,sauces
@@ -13877,13 +13877,13 @@ bottled water,chewing gum,ketchup,sausage,soda,whole milk
 cream cheese ,ham
 dessert,whole milk
 coffee,whole milk
-dental care,pasta,pip fruit,popcorn,soda,soda,soda,whole milk
+dental care,pasta,pip fruit,popcorn,soda,whole milk
 dessert,whole milk
 brown bread,grapes,kitchen towels,other vegetables,pot plants
 soda,yogurt
 berries,other vegetables
 candy,chewing gum,coffee,hamburger meat
-pip fruit,whole milk,whole milk
+pip fruit,whole milk
 butter,tropical fruit
 hard cheese,mayonnaise
 female sanitary products,pot plants
@@ -13923,7 +13923,7 @@ pastry,specialty chocolate
 sausage,softener
 pet care,specialty fat
 margarine,rolls/buns,root vegetables
-chewing gum,newspapers,newspapers
+chewing gum,newspapers
 snack products,soda
 grapes,napkins
 bottled beer,sausage
@@ -13933,7 +13933,7 @@ brown bread,shopping bags,tropical fruit,yogurt
 pip fruit,tropical fruit,whole milk
 canned beer,citrus fruit
 citrus fruit,hygiene articles
-curd,curd,flower soil/fertilizer,frankfurter,margarine,other vegetables,pork,pork,sausage
+curd,flower soil/fertilizer,frankfurter,margarine,other vegetables,pork,sausage
 bottled water,salty snack
 detergent,fruit/vegetable juice,whole milk,yogurt
 coffee,whole milk
@@ -13951,7 +13951,7 @@ beverages,other vegetables
 fruit/vegetable juice,tropical fruit
 cream cheese ,semi-finished bread
 other vegetables,pastry
-rolls/buns,rolls/buns
+rolls/buns
 processed cheese,specialty bar
 canned vegetables,margarine,sausage
 canned beer,rum,sausage,spices
@@ -13987,14 +13987,14 @@ fruit/vegetable juice,shopping bags
 frozen vegetables,salt
 root vegetables,whole milk
 other vegetables,sliced cheese
-candy,napkins,rolls/buns,sliced cheese,yogurt,yogurt
+candy,napkins,rolls/buns,sliced cheese,yogurt
 napkins,soda
 beef,curd cheese
 pip fruit,shopping bags
 bottled beer,nuts/prunes,pip fruit
 other vegetables,soda
 napkins,pork,sausage,yogurt
-roll products ,rolls/buns,rolls/buns,tropical fruit,whole milk
+roll products ,rolls/buns,tropical fruit,whole milk
 rolls/buns,tropical fruit
 brown bread,honey,pet care
 bottled water,rolls/buns
@@ -14019,7 +14019,7 @@ onions,waffles
 butter,ice cream
 flower (seeds),frozen vegetables
 chewing gum,fruit/vegetable juice,sausage
-chewing gum,chicken,whole milk,whole milk
+chewing gum,chicken,whole milk
 beef,finished products
 other vegetables,whole milk
 ham,meat
@@ -14058,7 +14058,7 @@ other vegetables,whole milk
 napkins,newspapers,pork
 chicken,root vegetables,yogurt
 fruit/vegetable juice,rolls/buns
-soda,soda
+soda
 dessert,root vegetables
 dessert,finished products
 mustard,tropical fruit
@@ -14086,7 +14086,7 @@ fruit/vegetable juice,pot plants
 coffee,red/blush wine,tropical fruit
 other vegetables,whipped/sour cream
 bottled water,frozen fish,tropical fruit
-canned beer,dishes,flower (seeds),herbs,mayonnaise,seasonal products,soda,soda,yogurt
+canned beer,dishes,flower (seeds),herbs,mayonnaise,seasonal products,soda,yogurt
 frozen meals,yogurt
 misc. beverages,pip fruit
 bottled beer,rolls/buns,white bread
@@ -14094,7 +14094,7 @@ butter,pip fruit
 fruit/vegetable juice,spices
 pasta,root vegetables
 chewing gum,frozen vegetables,root vegetables
-artif. sweetener,baby cosmetics,beef,domestic eggs,frankfurter,frankfurter,ham,margarine,other vegetables
+artif. sweetener,baby cosmetics,beef,domestic eggs,frankfurter,ham,margarine,other vegetables
 bottled water,curd,dessert,whole milk
 dishes,other vegetables
 canned beer,dessert,grapes,whole milk
@@ -14109,7 +14109,7 @@ abrasive cleaner,rolls/buns
 onions,pip fruit,yogurt
 newspapers,pastry
 pork,rolls/buns
-pastry,pickled vegetables,whole milk,whole milk
+pastry,pickled vegetables,whole milk
 bottled beer,other vegetables
 citrus fruit,hard cheese
 brown bread,soap
@@ -14119,7 +14119,7 @@ beef,misc. beverages,spread cheese
 curd,frankfurter
 butter milk,domestic eggs,zwieback
 bottled water,frankfurter,shopping bags
-oil,soda,soda
+oil,soda
 bottled beer,domestic eggs,margarine,newspapers,root vegetables,shopping bags
 bottled beer,canned beer,rolls/buns,specialty chocolate,whole milk
 flour,hamburger meat,pork,yogurt
@@ -14143,7 +14143,7 @@ dental care,frozen potato products,root vegetables
 jam,margarine
 abrasive cleaner,canned beer,turkey
 bottled beer,curd
-other vegetables,other vegetables,salty snack,yogurt
+other vegetables,salty snack,yogurt
 tropical fruit,whipped/sour cream
 sausage,whipped/sour cream
 pip fruit,red/blush wine
@@ -14154,7 +14154,7 @@ citrus fruit,herbs,other vegetables,pip fruit,pork,red/blush wine,soda,yogurt
 other vegetables,whole milk
 hamburger meat,meat
 frankfurter,packaged fruit/vegetables
-bottled water,frankfurter,frozen vegetables,salty snack,soda,soda,yogurt
+bottled water,frankfurter,frozen vegetables,salty snack,soda,yogurt
 oil,sausage
 citrus fruit,coffee
 pip fruit,root vegetables
@@ -14188,7 +14188,7 @@ bottled beer,curd,kitchen towels
 beef,bottled beer,chocolate,hamburger meat,whole milk
 butter,soft cheese
 coffee,napkins,root vegetables
-shopping bags,shopping bags
+shopping bags
 chocolate,hard cheese
 brown bread,soda
 cling film/bags,tropical fruit
@@ -14217,7 +14217,7 @@ bottled beer,dessert,other vegetables,pip fruit,rolls/buns,root vegetables,shopp
 newspapers,pasta
 fruit/vegetable juice,sausage
 long life bakery product,sausage
-bottled water,bottled water
+bottled water
 UHT-milk,turkey
 bottled water,ice cream
 pastry,pork
@@ -14231,7 +14231,7 @@ ham,tropical fruit
 sausage,sliced cheese
 curd,soda
 Instant food products,curd cheese,rolls/buns
-flour,frankfurter,soda,whole milk,whole milk
+flour,frankfurter,soda,whole milk
 beef,chicken
 other vegetables,white bread
 soft cheese,whole milk
@@ -14291,7 +14291,7 @@ bottled beer,newspapers
 chicken,dog food
 bottled water,newspapers
 butter milk,pet care
-canned beer,rolls/buns,rolls/buns
+canned beer,rolls/buns
 rolls/buns,tropical fruit
 baking powder,candy,other vegetables,yogurt
 canned beer,sausage
@@ -14304,9 +14304,9 @@ pickled vegetables,yogurt
 grapes,long life bakery product
 bottled beer,other vegetables,pip fruit
 coffee,root vegetables,soda
-whole milk,whole milk
+whole milk
 cat food,coffee
-other vegetables,other vegetables
+other vegetables
 UHT-milk,candles,salty snack,yogurt
 butter,instant coffee
 liquor,margarine
@@ -14330,7 +14330,7 @@ pet care,snack products
 beverages,mustard,yogurt
 domestic eggs,grapes,rolls/buns
 rolls/buns,white bread
-cream cheese ,rolls/buns,shopping bags,tropical fruit,whole milk,whole milk
+cream cheese ,rolls/buns,shopping bags,tropical fruit,whole milk
 ice cream,yogurt
 brown bread,rolls/buns
 coffee,whole milk
@@ -14362,10 +14362,10 @@ beef,margarine
 frozen vegetables,fruit/vegetable juice
 cream cheese ,frozen dessert,shopping bags,zwieback
 root vegetables,salty snack
-whole milk,whole milk
+whole milk
 dessert,salt,sparkling wine,whole milk
-canned beer,canned beer,oil,pork,rolls/buns,root vegetables,shopping bags,soda
-pip fruit,tropical fruit,yogurt,yogurt,yogurt
+canned beer,oil,pork,rolls/buns,root vegetables,shopping bags,soda
+pip fruit,tropical fruit,yogurt
 ice cream,soda
 bottled beer,oil
 citrus fruit,waffles
@@ -14376,7 +14376,7 @@ frozen vegetables,rolls/buns,white wine,yogurt
 pastry,rolls/buns
 misc. beverages,other vegetables,sausage,whole milk,yogurt
 brown bread,frozen meals,hard cheese,herbs,whole milk
-beef,coffee,domestic eggs,other vegetables,tropical fruit,tropical fruit,whole milk,whole milk
+beef,coffee,domestic eggs,other vegetables,tropical fruit,whole milk
 curd,soda
 turkey,white bread
 bottled beer,shopping bags
@@ -14390,7 +14390,7 @@ beverages,candles,root vegetables
 margarine,shopping bags
 frozen vegetables,hamburger meat
 curd,rolls/buns
-pip fruit,pip fruit
+pip fruit
 root vegetables,soda,whole milk
 cream cheese ,whipped/sour cream
 chocolate,curd,salty snack
@@ -14398,7 +14398,7 @@ newspapers,whole milk
 detergent,ham,long life bakery product,pork,specialty chocolate,whole milk
 bottled beer,other vegetables,sausage,sliced cheese,soda,zwieback
 hard cheese,other vegetables
-bottled water,bottled water,pork
+bottled water,pork
 cat food,long life bakery product,whole milk
 bottled beer,citrus fruit
 flower (seeds),honey
@@ -14423,7 +14423,7 @@ domestic eggs,hamburger meat,shopping bags
 chicken,yogurt
 waffles,yogurt
 dessert,dishes,male cosmetics,pip fruit,rice
-pork,whole milk,whole milk,whole milk
+pork,whole milk
 pork,whole milk
 butter,fruit/vegetable juice
 beef,bottled water,brown bread,chewing gum
@@ -14481,7 +14481,7 @@ other vegetables,pork
 whipped/sour cream,whole milk
 fruit/vegetable juice,pastry
 cream cheese ,sugar
-rolls/buns,rolls/buns,specialty bar
+rolls/buns,specialty bar
 bottled water,fruit/vegetable juice
 citrus fruit,soda
 newspapers,rolls/buns,shopping bags
@@ -14498,7 +14498,7 @@ curd,dessert
 sausage,specialty cheese
 brown bread,whole milk
 ice cream,meat
-bottled beer,hygiene articles,pot plants,soda,tropical fruit,whole milk,whole milk
+bottled beer,hygiene articles,pot plants,soda,tropical fruit,whole milk
 margarine,sausage
 canned beer,rolls/buns
 baking powder,whole milk
@@ -14535,20 +14535,20 @@ margarine,red/blush wine,yogurt
 baking powder,shopping bags
 newspapers,other vegetables
 hard cheese,rolls/buns
-beverages,curd,waffles,waffles
-beef,bottled water,bottled water
+beverages,curd,waffles
+beef,bottled water
 dessert,napkins
 bottled beer,misc. beverages,rolls/buns,salt
 chocolate,pip fruit
 brown bread,detergent,frankfurter,frozen potato products,roll products 
 citrus fruit,cream cheese 
 pastry,pickled vegetables,red/blush wine
-bottled beer,cat food,citrus fruit,flour,frankfurter,frozen vegetables,grapes,grapes,other vegetables
+bottled beer,cat food,citrus fruit,flour,frankfurter,frozen vegetables,grapes,other vegetables
 dessert,tropical fruit
 bottled water,whole milk
 brown bread,whipped/sour cream
 tidbits,yogurt
-beef,margarine,soda,soda
+beef,margarine,soda
 bottled beer,canned vegetables
 root vegetables,salty snack,shopping bags
 bottled water,meat
@@ -14578,10 +14578,10 @@ coffee,other vegetables
 whipped/sour cream,whole milk
 cat food,cream cheese ,pip fruit,shopping bags
 coffee,dessert
-sliced cheese,sliced cheese
+sliced cheese
 liver loaf,soda
 long life bakery product,soap
-soda,soda
+soda
 chocolate,herbs
 onions,sauces
 beverages,canned beer,dishes,finished products
@@ -14609,7 +14609,7 @@ canned beer,chocolate,liquor,onions
 specialty bar,tropical fruit
 pastry,salty snack,sugar,whole milk
 canned beer,cereals
-domestic eggs,domestic eggs,sausage
+domestic eggs,sausage
 other vegetables,root vegetables,sweet spreads,whipped/sour cream
 red/blush wine,sugar
 flour,tropical fruit
@@ -14622,7 +14622,7 @@ bottled beer,margarine
 flour,sausage
 pot plants,rolls/buns
 Instant food products,rolls/buns,root vegetables
-chicken,chicken,salt
+chicken,salt
 hamburger meat,other vegetables
 chicken,pickled vegetables
 root vegetables,whole milk
@@ -14659,7 +14659,7 @@ beverages,brown bread,other vegetables
 chocolate marshmallow,root vegetables
 pastry,pip fruit,rolls/buns,whole milk
 beef,frankfurter
-whole milk,whole milk
+whole milk
 bottled water,sliced cheese
 rolls/buns,yogurt
 onions,sausage
@@ -14754,7 +14754,7 @@ other vegetables,whole milk
 beef,whipped/sour cream
 bottled beer,fruit/vegetable juice
 brown bread,margarine
-bottled beer,canned beer,chicken,curd,hygiene articles,soda,soda,whole milk,whole milk
+bottled beer,canned beer,chicken,curd,hygiene articles,soda,whole milk
 citrus fruit,other vegetables
 dessert,soda
 coffee,cream,liquor
@@ -14781,9 +14781,9 @@ bottled beer,domestic eggs
 other vegetables,semi-finished bread
 butter,other vegetables
 frozen meals,yogurt
-bottled beer,fruit/vegetable juice,fruit/vegetable juice
+bottled beer,fruit/vegetable juice
 other vegetables,soft cheese
-chocolate,dog food,hygiene articles,sausage,sausage,yogurt
+chocolate,dog food,hygiene articles,sausage,yogurt
 coffee,hard cheese,roll products ,soft cheese,yogurt
 dessert,dishes
 frozen potato products,white wine
@@ -14839,7 +14839,7 @@ frozen vegetables,other vegetables
 dishes,root vegetables
 chewing gum,hamburger meat
 other vegetables,salty snack
-bottled water,bottled water,root vegetables
+bottled water,root vegetables
 candy,whole milk
 hygiene articles,yogurt
 cat food,napkins,pip fruit
@@ -14861,7 +14861,7 @@ chocolate,sausage
 chewing gum,soda
 pip fruit,whole milk
 frankfurter,napkins,other vegetables,pip fruit
-beef,beef,margarine
+beef,margarine
 canned vegetables,margarine
 bottled beer,herbs
 baking powder,butter milk,salty snack,soda
@@ -14899,7 +14899,7 @@ brown bread,whole milk
 coffee,rolls/buns,soda
 domestic eggs,meat
 Instant food products,specialty chocolate
-brown bread,frankfurter,frozen vegetables,margarine,margarine,margarine,soda,whole milk
+brown bread,frankfurter,frozen vegetables,margarine,soda,whole milk
 butter,canned beer,pastry
 margarine,root vegetables
 other vegetables,shopping bags
@@ -14921,7 +14921,7 @@ condensed milk,domestic eggs,waffles
 butter,curd,sugar
 frozen vegetables,misc. beverages
 beverages,canned beer,curd,make up remover,other vegetables,specialty bar,specialty chocolate
-candles,other vegetables,rolls/buns,rolls/buns
+candles,other vegetables,rolls/buns
 long life bakery product,pork
 butter,rolls/buns
 ice cream,long life bakery product,pip fruit,rolls/buns,root vegetables
@@ -14934,7 +14934,7 @@ pasta,yogurt
 root vegetables,shopping bags
 other vegetables,whole milk
 other vegetables,root vegetables
-margarine,margarine
+margarine
 frankfurter,pip fruit
 canned beer,napkins,specialty bar
 other vegetables,pip fruit,sparkling wine,whole milk
