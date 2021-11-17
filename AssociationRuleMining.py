@@ -8,6 +8,19 @@ CSV_FILENAME = 'grocery_data.csv'  # place csv in same directory as py file
 RESULT_FOLDER = 'results'  # place folder in same directory as py file
 
 
+def promptUser():
+    """ Prompts user for minimum support, minimum confidence and minimum lift
+    This will affect association rule generation
+
+    :return: Tuple with minimum support, minimum confidence, minimum lift
+    :rtype: (int, float, float)
+    """
+    min_support = int(input("Enter minimum support (int): "))
+    min_confidence = float(input('Enter minimum confidence (float): '))
+    min_lift = float(input('Enter minimum lift (float): '))
+    return min_support, min_confidence, min_lift
+
+
 def read_csv(csv_filename):
     """ Reads a csv file and returns csv data list ,csv data list elements are
     lists representing data in each row
@@ -20,38 +33,22 @@ def read_csv(csv_filename):
     """
     csv_data = []
     with open(csv_filename, mode='r', encoding='latin1') as csvfile:
-        read_csv = csv.reader(csvfile, dialect='excel', delimiter=',',
-                              quoting=csv.QUOTE_ALL)
-        for row in read_csv:
+        csv_reader = csv.reader(csvfile, dialect='excel', delimiter=',',
+                                quoting=csv.QUOTE_ALL)
+        for row in csv_reader:
             csv_data.append(row)
     return csv_data
-
-
-def write_csv(filename, csv_data):
-    """ Writes csv data contained in a list to a csv file on computer
-
-    :param filename: "outputFilename.csv"
-    :type filename: str
-    :param csv_data: Either a list or dict
-        eg [ ['1808,21-07-2015', 'tropical fruit'],
-        ['2552', '05-01-2015', 'whole milk'], ... ]
-        eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
-        ('detergent', 'pork'): {196, 14397, 4486}, ... }
-    :type csv_data: list or dict
-    """
-    if type(csv_data) == list:
-        with open(filename, 'w', newline='') as csv_file:
-            csv_writer = csv.writer(csv_file)
-            csv_writer.writerows(csv_data)
 
 
 def sort_csv_data(csv_data):
     """ Sorts csv data in priority of member id, then date, then item name
 
-    :param csv_data: eg [ ['1808,21-07-2015', 'tropical fruit'],
+    :param csv_data: A list of lists with customer number, date, and item name
+        eg [ ['1808', '21-07-2015', 'tropical fruit'],
         ['2552', '05-01-2015', 'whole milk'], ... ]
     :type csv_data: list
-    :return: A list of the same csv data, but now sorted
+    :return: A list of the same csv data, but now sorted by grocery item,
+        then date, then member number
     :rtype: list
     """
     # Sort by grocery item
@@ -61,6 +58,34 @@ def sort_csv_data(csv_data):
     # Sort by member number
     sorted_csv_data = sorted(temp2, key=operator.itemgetter(0))
     return sorted_csv_data
+
+
+def write_csv(filename, data, header=None):
+    """ Writes data in a list or dict to a csv file on computer
+
+    :param filename: eg "output_file_name.csv"
+    :type filename: str
+    :param data: List of lists, where each inner list represents a row
+        Dictionary, where keys go on column1 and values go on column2
+    :type data: list or dict
+    :param header: The first row
+    :type header: list, optional
+    :param data: Either a list or dict
+        eg [ ['1808,21-07-2015', 'tropical fruit'],
+        ['2552', '05-01-2015', 'whole milk'], ... ]
+        eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
+        ('detergent', 'pork'): {196, 14397, 4486}, ... }
+    :type data: list or dict
+    """
+    with open(filename, 'w', newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        if header is not None:
+            csv_writer.writerow(header)
+        if type(data) == list:
+            csv_writer.writerows(data)
+        if type(data) == dict:
+            for i in data.items():
+                csv_writer.writerow(i)
 
 
 def create_transactions(csv_data):
@@ -109,78 +134,129 @@ def remove_duplicates(transactions):
         eg [ ['1702','12-01-2014','3','pip fruit','yogurt','yogurt'], ... ]
     :type transactions: list
     :return: Same as input param, except duplicate grocery items removed,
-        which makes the items into an itemset (because no duplicates)
+        which makes the grocery items into an itemset (because no duplicates)
         eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
     :rtype: list
     """
     transactions_no_duplicates = []
     for t in transactions:
         item_set = list(set(t[3:]))  # remove duplicates
-        item_set = sorted(item_set)  # sort again (becomes unordered for some reason)
+        item_set = sorted(
+            item_set)  # sort again (becomes unordered for some reason)
         new_transaction = t[:3]
         new_transaction.extend(item_set)
-        new_transaction[2] = len(new_transaction) - 3  # set new numItems
+        # set num items in item_set
+        new_transaction[2] = len(new_transaction) - 3
         transactions_no_duplicates.append(new_transaction)
     return transactions_no_duplicates
 
 
 def get_itemsets(transactions):
-    """ Returns list with only grocery itemsets from transactions list
+    """ Returns list with only grocery item sets from transactions list
 
     :param transactions: List containing transactions
         eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
     :type transactions: list
-    :return: List containing itemsets
+    :return: List containing item sets
         eg [ ['pip fruit','yogurt,'yogurt'], ... ]
     :rtype: list
     """
-    itemsets = []
+    item_sets = []
     for t in transactions:
-        itemsets.append(t[3:])
-    return itemsets
+        item_sets.append(t[3:])
+    return item_sets
 
 
-def create_dictionary(item_sets, max_num_items):
-    """ Creates a dictionary with keys of a grocery product or multiple
-    grocery products, and values containing tids (transaction ids, ). A
-    transaction id is the same as the transactions list index number.
+def create_dict(item_sets, max_items_item_set):
+    """ Creates a dictionary with keys being all combinations of item sets
+    and values being transaction ids aka t-ids (equivalent to index of
+    item_sets list)
 
     :param item_sets: List of item sets (no duplicate items)
         eg [ ['pastry','salty snack','whole milk'], ... ]
     :type item_sets: list
-    :param max_num_items: The max number of items in a item set
-    :type max_num_items: int
-    :return: A dictionary mapping keys of item sets to values of tids
-        eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
-        ('detergent', 'pork'): {196, 14397, 4486}, ... }
-        So you can expect to find rubbing alcohol in transactions list index
-        of 5348, 13062, ... and both detergent and pork in transactions list
-        index 196, 14397, ...
-    :rtype: list
+    :param max_items_item_set: The max number of items in a item set
+    :type max_items_item_set: int
+    :return: A dict mapping keys of all combinations of possible item
+        sets to values of t-ids where you can find said value
+        eg item set at index 94 has
+        [fish,other vegetables,root vegetables,tropical fruit]
+        dict has
+        {..., ('fish','other vegetables'): {12296, 6883, 94, 12550},
+        ('fish', 'root vegetables): {4363, 94, 12975}, ...}
+    :rtype: dict
     """
-    itemsets_dictionary = dict()
+    item_sets_dict = dict()
     # 1-itemset
     for tid in range(0, len(item_sets)):
-        an_itemset = item_sets[tid]  # eg ['pastry','salty snack','whole milk']
-        for i in range(0, len(an_itemset)):
-            item = an_itemset[i]
-            if item not in itemsets_dictionary:
-                itemsets_dictionary[item] = {tid}
+        an_item_set = item_sets[
+            tid]  # eg ['pastry','salty snack','whole milk']
+        for i in range(0, len(an_item_set)):
+            item = an_item_set[i]
+            if item not in item_sets_dict:
+                item_sets_dict[item] = {tid}
             else:  # add onto existing key
-                itemsets_dictionary[item].add(tid)
+                item_sets_dict[item].add(tid)
     # k-itemset, k>1
-    for k in range(2, max_num_items + 1):
+    for k in range(2, max_items_item_set + 1):
         for tid in range(0, len(item_sets)):
             # combination puts values in lexigraphic order
             # thus indexes may not be in numeric order
             comb = combinations(item_sets[tid], k)
             comb_list = list(comb)
-            for k_itemset in comb_list:
-                if k_itemset not in itemsets_dictionary:
-                    itemsets_dictionary[k_itemset] = {tid}
+            for k_item_set in comb_list:
+                if k_item_set not in item_sets_dict:
+                    item_sets_dict[k_item_set] = {tid}
                 else:  # add onto existing key
-                    itemsets_dictionary[k_itemset].add(tid)
-    return itemsets_dictionary
+                    item_sets_dict[k_item_set].add(tid)
+    return item_sets_dict
+
+
+def create_k_items(item_sets_dict):
+    """ Returns a list containing lists with k, k-item set, and number of
+    occurrences of k-item set
+
+    :param item_sets_dict: Item set to tid dictionary
+        eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
+        ('detergent', 'pork'): {196, 14397, 4486}, ... }
+    :type item_sets_dict: dict
+    :return: A list of lists
+        eg [ [1, 'whole milk', 2363], ..., [2, ('oil', 'yogurt'), 16], ...]
+    :rtype: list
+    """
+    k_items = []
+    for key, value in item_sets_dict.items():
+        temp_list = []
+        if type(key) is tuple:
+            temp_list.append(len(key))  # k
+        else:
+            temp_list.append(1)
+        temp_list.append(key)  # k-item set
+        temp_list.append(len(value))  # number of occurrences
+        k_items.append(temp_list)
+    # Sort by number of occurrences
+    k_items = sorted(k_items, key=operator.itemgetter(2), reverse=True)
+    # Sort by k
+    k_items = sorted(k_items, key=operator.itemgetter(0), reverse=False)
+    return k_items
+
+
+def prune_dict(item_sets_dict, min_support):
+    """ Removes all k-item sets with k equal to 1 and with number of
+    occurrences of item set less than or equal to minimum support
+
+    :param item_sets_dict:
+    :type item_sets_dict: dict
+    :param min_support:
+    :type min_support: int
+    :return:
+    :rtype: dict
+    """
+    pruned_item_sets_dict = dict()
+    for key, value in item_sets_dict.items():
+        if (type(key) is tuple) & (len(value) >= min_support):
+            pruned_item_sets_dict[key] = value
+    return pruned_item_sets_dict
 
 
 # =====================================
@@ -188,7 +264,7 @@ def create_dictionary(item_sets, max_num_items):
 #     key = itemset tuple
 #     value = list of tuples, each tuple being association rule of form (A,C)
 # =====================================
-def generateItemsetAssocDict(kitemset_assoc_dict, itemset_tid_dict):
+def generateItemsetAssocDict(kitemset_assoc_dict, item_set_tid_dict):
     assoc_rule_lst = []
     for key, value in itemset_tid_dict.items():
         itemset = key
@@ -259,31 +335,6 @@ def generateAssocStatDict(itemset_tid_dict, kitemset_assoc_dict):
     return assoc_stat_dict
 
 
-# Write results to CSV
-def create_k_items(items_dictionary):
-    """
-
-    :param items_dictionary:
-    :return:
-    :rtype: list
-    """
-    k_items = []
-    for key, value in items_dictionary.items():
-        temp_list = []
-        if type(key) is tuple:
-            temp_list.append(len(key))  # k
-        else:
-            temp_list.append(1)
-        temp_list.append(key)  # k-itemset
-        temp_list.append(len(value))  # number of occurrences
-        k_items.append(temp_list)
-    # Sort by number of occurrences
-    k_items = sorted(k_items, key=operator.itemgetter(2), reverse=True)
-    # Sort by k
-    k_items = sorted(k_items, key=operator.itemgetter(0), reverse=False)
-    return k_items
-
-
 def writeAssocStatDictToCsv(output_fname, assoc_stat_dict):
     first_row = ['Itemset Size', 'Antecedent', 'Consequent',
                  'support(A->C)', 'confidence(A->C)', 'lift(A->C)']
@@ -308,11 +359,7 @@ def writeAssocStatDictToCsv(output_fname, assoc_stat_dict):
             csvwriter.writerow(row)
 
 
-def promptUser():
-    min_support = int(input("Enter minimum support (integer): "))
-    min_confidence = float(input('Enter minimum confidence (double): '))
-    min_lift = float(input('Enter minimum lift (double): '))
-    return min_support, min_confidence, min_lift
+
 
 
 def main():
@@ -329,20 +376,17 @@ def main():
     eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
     """
     transactions_items = create_transactions(sorted_csv_data)
-    transactions_items.insert(0, ['member number', 'date', 'number of items'])
-    write_csv("results/transactions_items.csv", transactions_items)
-    transactions_items.pop(0)
+    write_csv("results/transactions_items.csv", transactions_items,
+              ['Member number', 'Date', 'Number of items'])
 
     """ transactions_no_duplicates is same as transactions, but instead of 
     items it now has item sets because we remove any duplicate items
     eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
     """
     transactions_item_sets = remove_duplicates(transactions_items)
-    transactions_item_sets.insert(0, ['member number', 'date',
-                                          'number of items'])
     write_csv(RESULT_FOLDER + "/transactions_item_sets.csv",
-              transactions_item_sets)
-    transactions_item_sets.pop(0)
+              transactions_item_sets, ['Member number', 'Date',
+                                       'Number of items'])
 
     """ item_sets is a stripped version of transactions_no_duplicates list, it 
     contains only grocery item data
@@ -351,33 +395,33 @@ def main():
     item_sets = get_itemsets(transactions_item_sets)
     write_csv(RESULT_FOLDER + "/item_sets.csv", item_sets)
 
-    """ itemsets_dictionary maps item_sets to transaction ids (tids), tids 
+    """ item_sets_dict maps item_sets to transaction ids (t-ids), t-ids 
     being equivalent to index numbers of item_sets list
     eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
     """
-    itemsets_dictionary = create_dictionary(item_sets, 10)
-    #  write_csv(result_folder + "/itemsets_support.csv", itemsets_dictionary)
+    item_sets_dict = create_dict(item_sets, 10)
+    write_csv(RESULT_FOLDER + "/item_sets_dict.csv", item_sets_dict)
 
     """ k_item_sets contains data on number of occurrences of each k-itemset
+    combination
     eg [ [1, 'whole milk', 2363], ... , 
     [2, ('rice', 'rolls/buns'), 5], ... ]
     """
-    k_item_sets = create_k_items(itemsets_dictionary)
-    k_item_sets.insert(0, ['k', 'k-itemset', 'number of occurrences'])
-    write_csv(RESULT_FOLDER + "/k_itemsets.csv", k_item_sets)
+    k_item_sets = create_k_items(item_sets_dict)
+    write_csv(RESULT_FOLDER + "/k_item_sets.csv", k_item_sets,
+              ['k', 'k-item set', 'Number of occurrences'])
 
-
-    #  writeItemsetSupportToCsv(items_dictionary, 10)
+    """ item_sets_dict_pruned removes dict entries that have 1-item set
+    or have item set occurrences below the minimum support value, this should
+    significantly reduce the size of the dictionary
     """
-    # Process into 2-itemset tid dict, over MIN_SUPP
-    pruned_itemset_tid_dict = dict()
-    prunedDictSize = 0
-    for key, value in items_dictionary.items():
-        if (type(key) is tuple) & (len(value) >= min_support):
-            pruned_itemset_tid_dict[key] = value
-            prunedDictSize += 1
-    print('prunedDictSize=', prunedDictSize)
+    item_sets_dict_pruned = prune_dict(item_sets_dict, min_support)
+    write_csv(RESULT_FOLDER + "/item_sets_dict_pruned.csv", item_sets_dict_pruned,
+              ['k', 'k-item set', 'Number of occurrences'])
+
+
+    """
     kitemset_assoc_dict = generateItemsetAssocDict(dict(),
                                                    pruned_itemset_tid_dict)
 
@@ -393,6 +437,7 @@ def main():
 
     print("End of program.")
     """
+
 
 if __name__ == "__main__":
     main()
