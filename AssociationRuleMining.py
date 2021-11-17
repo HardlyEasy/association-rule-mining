@@ -1,11 +1,14 @@
 import csv
 import operator
+import os
 from datetime import datetime
 from itertools import combinations
 from itertools import permutations
 
 CSV_FILENAME = 'grocery_data.csv'  # place csv in same directory as py file
 RESULT_FOLDER = 'results'  # place folder in same directory as py file
+DEV_FOLDER = 'dev'
+DEV_MODE = True  # toggle writing of csv data at each step of eclat
 
 
 def promptUser():
@@ -15,7 +18,7 @@ def promptUser():
     :return: Tuple with minimum support, minimum confidence, minimum lift
     :rtype: (int, float, float)
     """
-    min_support = int(input("Enter minimum support (int): "))
+    min_support = int(input('Enter minimum support (int): '))
     min_confidence = float(input('Enter minimum confidence (float): '))
     min_lift = float(input('Enter minimum lift (float): '))
     return min_support, min_confidence, min_lift
@@ -60,10 +63,12 @@ def sort_csv_data(csv_data):
     return sorted_csv_data
 
 
-def write_csv(filename, data, header=None):
+def write_csv(folder_path, filename, data, header=None):
     """ Writes data in a list or dict to a csv file on computer
 
-    :param filename: eg "output_file_name.csv"
+    :param folder_path: Full path to where you want csv file written
+    :type folder_path: str
+    :param filename: Filename of csv file you want written
     :type filename: str
     :param data: List of lists, where each inner list represents a row
         Dictionary, where keys go on column1 and values go on column2
@@ -77,7 +82,10 @@ def write_csv(filename, data, header=None):
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
     :type data: list or dict
     """
-    with open(filename, 'w', newline='') as csv_file:
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path, exist_ok=True)
+    write_path = os.path.join(folder_path, filename)
+    with open(write_path, 'w', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
         if header is not None:
             csv_writer.writerow(header)
@@ -140,12 +148,12 @@ def remove_duplicates(transactions):
     """
     transactions_no_duplicates = []
     for t in transactions:
-        item_set = list(set(t[3:]))  # remove duplicates
-        item_set = sorted(
-            item_set)  # sort again (becomes unordered for some reason)
+        itemset = list(set(t[3:]))  # remove duplicates
+        # sort again (becomes unordered for some reason)
+        itemset = sorted(itemset)
         new_transaction = t[:3]
-        new_transaction.extend(item_set)
-        # set num items in item_set
+        new_transaction.extend(itemset)
+        # set num items in itemset
         new_transaction[2] = len(new_transaction) - 3
         transactions_no_duplicates.append(new_transaction)
     return transactions_no_duplicates
@@ -161,22 +169,24 @@ def get_itemsets(transactions):
         eg [ ['pip fruit','yogurt,'yogurt'], ... ]
     :rtype: list
     """
-    item_sets = []
+    itemsets = []
     for t in transactions:
-        item_sets.append(t[3:])
-    return item_sets
+        itemsets.append(t[3:])
+    return itemsets
 
 
-def create_dict(item_sets, max_items_item_set):
+def create_itemset_tid_dict(itemsets, max_items):
+    # TODO: I think I can prune with minimum support while creating dict
+    # Right now I'm pruning after dict is completely created
     """ Creates a dictionary with keys being all combinations of item sets
     and values being transaction ids aka t-ids (equivalent to index of
-    item_sets list)
+    itemsets list)
 
-    :param item_sets: List of item sets (no duplicate items)
+    :param itemsets: List of itemsets (no duplicate items)
         eg [ ['pastry','salty snack','whole milk'], ... ]
-    :type item_sets: list
-    :param max_items_item_set: The max number of items in a item set
-    :type max_items_item_set: int
+    :type itemsets: list
+    :param max_items: The max number of items in a itemset
+    :type max_items: int
     :return: A dict mapping keys of all combinations of possible item
         sets to values of t-ids where you can find said value
         eg item set at index 94 has
@@ -186,46 +196,45 @@ def create_dict(item_sets, max_items_item_set):
         ('fish', 'root vegetables): {4363, 94, 12975}, ...}
     :rtype: dict
     """
-    item_sets_dict = dict()
+    itemset_tid_dict = dict()
     # 1-itemset
-    for tid in range(0, len(item_sets)):
-        an_item_set = item_sets[
-            tid]  # eg ['pastry','salty snack','whole milk']
-        for i in range(0, len(an_item_set)):
-            item = an_item_set[i]
-            if item not in item_sets_dict:
-                item_sets_dict[item] = {tid}
+    for tid in range(0, len(itemsets)):
+        an_itemset = itemsets[tid]  # eg ['pastry','salty snack','whole milk']
+        for i in range(0, len(an_itemset)):
+            item = an_itemset[i]
+            if item not in itemset_tid_dict:
+                itemset_tid_dict[item] = {tid}
             else:  # add onto existing key
-                item_sets_dict[item].add(tid)
+                itemset_tid_dict[item].add(tid)
     # k-itemset, k>1
-    for k in range(2, max_items_item_set + 1):
-        for tid in range(0, len(item_sets)):
+    for k in range(2, max_items + 1):
+        for tid in range(0, len(itemsets)):
             # combination puts values in lexigraphic order
             # thus indexes may not be in numeric order
-            comb = combinations(item_sets[tid], k)
+            comb = combinations(itemsets[tid], k)
             comb_list = list(comb)
-            for k_item_set in comb_list:
-                if k_item_set not in item_sets_dict:
-                    item_sets_dict[k_item_set] = {tid}
+            for k_itemset in comb_list:
+                if k_itemset not in itemset_tid_dict:
+                    itemset_tid_dict[k_itemset] = {tid}
                 else:  # add onto existing key
-                    item_sets_dict[k_item_set].add(tid)
-    return item_sets_dict
+                    itemset_tid_dict[k_itemset].add(tid)
+    return itemset_tid_dict
 
 
-def create_k_items(item_sets_dict):
+def create_k_itemsets(itemset_tid_dict):
     """ Returns a list containing lists with k, k-item set, and number of
     occurrences of k-item set
 
-    :param item_sets_dict: Item set to tid dictionary
+    :param itemset_tid_dict: Item set to tid dictionary
         eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
-    :type item_sets_dict: dict
+    :type itemset_tid_dict: dict
     :return: A list of lists
         eg [ [1, 'whole milk', 2363], ..., [2, ('oil', 'yogurt'), 16], ...]
     :rtype: list
     """
-    k_items = []
-    for key, value in item_sets_dict.items():
+    k_itemsets = []
+    for key, value in itemset_tid_dict.items():
         temp_list = []
         if type(key) is tuple:
             temp_list.append(len(key))  # k
@@ -233,40 +242,44 @@ def create_k_items(item_sets_dict):
             temp_list.append(1)
         temp_list.append(key)  # k-item set
         temp_list.append(len(value))  # number of occurrences
-        k_items.append(temp_list)
+        k_itemsets.append(temp_list)
     # Sort by number of occurrences
-    k_items = sorted(k_items, key=operator.itemgetter(2), reverse=True)
+    k_itemsets = sorted(k_itemsets, key=operator.itemgetter(2), reverse=True)
     # Sort by k
-    k_items = sorted(k_items, key=operator.itemgetter(0), reverse=False)
-    return k_items
+    k_itemsets = sorted(k_itemsets, key=operator.itemgetter(0), reverse=False)
+    return k_itemsets
 
 
-def prune_dict(item_sets_dict, min_support):
+def prune_dict(itemset_tid_dict, min_support):
     """ Removes all k-item sets with k equal to 1 and with number of
     occurrences of item set less than or equal to minimum support
 
-    :param item_sets_dict:
-    :type item_sets_dict: dict
+    :param itemset_tid_dict: Maps combinations of itemsets to tids
+    :type itemset_tid_dict: dict
     :param min_support:
     :type min_support: int
-    :return:
+    :return: Same as input dictionary, but with pruned elements
     :rtype: dict
     """
-    pruned_item_sets_dict = dict()
-    for key, value in item_sets_dict.items():
+    itemsets_tid_dict_pruned = dict()
+    for key, value in itemset_tid_dict.items():
         if (type(key) is tuple) & (len(value) >= min_support):
-            pruned_item_sets_dict[key] = value
-    return pruned_item_sets_dict
+            itemsets_tid_dict_pruned[key] = value
+    return itemsets_tid_dict_pruned
 
 
-# =====================================
 # Generate itemset to association rules dict
 #     key = itemset tuple
 #     value = list of tuples, each tuple being association rule of form (A,C)
-# =====================================
-def generateItemsetAssocDict(kitemset_assoc_dict, item_set_tid_dict):
-    assoc_rule_lst = []
-    for key, value in itemset_tid_dict.items():
+def create_itemset_rule_dict(itemset_tid_dict_pruned):
+    """
+
+    :param itemset_tid_dict_pruned:
+    :return:
+    """
+    association_rules = []
+    itemset_rule_dict = dict()
+    for key, value in itemset_tid_dict_pruned.items():
         itemset = key
         for i in range(1, len(itemset)):
             comb = combinations(itemset, i)
@@ -276,17 +289,15 @@ def generateItemsetAssocDict(kitemset_assoc_dict, item_set_tid_dict):
                 consequent = set(itemset) - set(list_combo[j])
                 consequent = tuple(consequent)
                 temp_tuple = (antecedent, consequent)
-                assoc_rule_lst.append(temp_tuple)
-        kitemset_assoc_dict[itemset] = assoc_rule_lst
-        assoc_rule_lst = []
-    return kitemset_assoc_dict
+                association_rules.append(temp_tuple)
+        itemset_rule_dict[itemset] = association_rules
+        association_rules = []
+    return itemset_rule_dict
 
 
-# =====================================
 # Generate association rule to statistics dictionary
 #   key = tuple of form (A,C)
 #   value = tuple of form (support(A->C),confidence(A->C),lift(A->C))
-# =====================================
 def generateAssocStatDict(itemset_tid_dict, kitemset_assoc_dict):
     assoc_stat_dict = dict()
     for key, value in kitemset_assoc_dict.items():
@@ -359,85 +370,78 @@ def writeAssocStatDictToCsv(output_fname, assoc_stat_dict):
             csvwriter.writerow(row)
 
 
-
-
-
 def main():
     min_support, min_confidence, min_lift = (15, .10, 1.05)
 
-    # Read CSV file data into a list and sort that list
+    """ Read CSV file data into a list and sort that list
+    a csv row should look like: 1808,21-07-2015,tropical fruit
+    There will be only one item per row
+    """
     csv_data = read_csv(CSV_FILENAME)
     csv_data = csv_data[1:]  # remove field name row
     sorted_csv_data = sort_csv_data(csv_data)
 
-    """ transactions contains transaction data, each transaction having
-    member number, date, number of items purchased, and item names, there can
-    be duplicate item names
+    """ Store transaction data gathered from csv file
     eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
+    where each transaction is [member_number, date, num_items, item_name1, ...]
     """
     transactions_items = create_transactions(sorted_csv_data)
-    write_csv("results/transactions_items.csv", transactions_items,
-              ['Member number', 'Date', 'Number of items'])
 
-    """ transactions_no_duplicates is same as transactions, but instead of 
-    items it now has item sets because we remove any duplicate items
+    """ Remove all duplicate items so items in each transaction can now be
+    considered an item set
     eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
     """
-    transactions_item_sets = remove_duplicates(transactions_items)
-    write_csv(RESULT_FOLDER + "/transactions_item_sets.csv",
-              transactions_item_sets, ['Member number', 'Date',
-                                       'Number of items'])
+    transactions_itemsets = remove_duplicates(transactions_items)
 
-    """ item_sets is a stripped version of transactions_no_duplicates list, it 
-    contains only grocery item data
+    """ Get only item set data from transactions
     eg [ ['pip fruit','yogurt,'yogurt'], ... ]
     """
-    item_sets = get_itemsets(transactions_item_sets)
-    write_csv(RESULT_FOLDER + "/item_sets.csv", item_sets)
+    itemsets = get_itemsets(transactions_itemsets)
 
-    """ item_sets_dict maps item_sets to transaction ids (t-ids), t-ids 
-    being equivalent to index numbers of item_sets list
+    """ Map all combinations of item sets to transaction id (tid) sets
+    tids match the indexes where you can find item set in itemsets list
     eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
     """
-    item_sets_dict = create_dict(item_sets, 10)
-    write_csv(RESULT_FOLDER + "/item_sets_dict.csv", item_sets_dict)
+    itemset_tid_dict = create_itemset_tid_dict(itemsets, 10)
 
-    """ k_item_sets contains data on number of occurrences of each k-itemset
-    combination
+    """ Make list with k, k-item set, and support
     eg [ [1, 'whole milk', 2363], ... , 
     [2, ('rice', 'rolls/buns'), 5], ... ]
     """
-    k_item_sets = create_k_items(item_sets_dict)
-    write_csv(RESULT_FOLDER + "/k_item_sets.csv", k_item_sets,
-              ['k', 'k-item set', 'Number of occurrences'])
+    k_itemsets = create_k_itemsets(itemset_tid_dict)
 
-    """ item_sets_dict_pruned removes dict entries that have 1-item set
-    or have item set occurrences below the minimum support value, this should
-    significantly reduce the size of the dictionary
+    """ Filter out item sets that do not reach minimum support
     """
-    item_sets_dict_pruned = prune_dict(item_sets_dict, min_support)
-    write_csv(RESULT_FOLDER + "/item_sets_dict_pruned.csv", item_sets_dict_pruned,
-              ['k', 'k-item set', 'Number of occurrences'])
+    itemset_tid_dict_pruned = prune_dict(itemset_tid_dict, min_support)
 
+    itemset_rule_dict = create_itemset_rule_dict(itemset_tid_dict_pruned)
+
+    if DEV_MODE:
+        folder_path = os.path.join(os.getcwd(), DEV_FOLDER)
+        write_csv(folder_path, 'transactions_items.csv', transactions_items,
+                  ['Member number', 'Date', 'Number of items'])
+        write_csv(folder_path, 'transactions_itemsets.csv',
+                  transactions_itemsets, ['Member number', 'Date',
+                                          'Number of items'])
+        write_csv(folder_path, 'itemsets.csv', itemsets)
+        write_csv(folder_path, 'itemset_tid_dict.csv', itemset_tid_dict)
+        write_csv(folder_path, 'k_itemsets.csv', k_itemsets,
+                  ['k', 'k-item set', 'Number of occurrences'])
+        write_csv(folder_path, 'itemset_tid_dict_pruned.csv',
+                  itemset_tid_dict_pruned)
+        write_csv(folder_path, 'itemset_rule_dict.csv', itemset_rule_dict)
 
     """
-    kitemset_assoc_dict = generateItemsetAssocDict(dict(),
-                                                   pruned_itemset_tid_dict)
-
-    print(kitemset_assoc_dict)
-
-    
-    # =====================================================
     # Generate association rules and store as CSV
-    # =====================================================
     assoc_stat_dict = generateAssocStatDict(itemset_tid_dict,
                                             kitemset_assoc_dict)
+    
     writeAssocStatDictToCsv('Association_Rules.csv', assoc_stat_dict)
 
-    print("End of program.")
+    print('End of program.')
     """
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
