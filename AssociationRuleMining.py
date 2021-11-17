@@ -209,7 +209,7 @@ def create_itemset_tid_dict(itemsets, max_items):
     # k-itemset, k>1
     for k in range(2, max_items + 1):
         for tid in range(0, len(itemsets)):
-            # combination puts values in lexigraphic order
+            # combination puts values in lexicographic order
             # thus indexes may not be in numeric order
             comb = combinations(itemsets[tid], k)
             comb_list = list(comb)
@@ -271,86 +271,82 @@ def prune_dict(itemset_tid_dict, min_support):
 # Generate itemset to association rules dict
 #     key = itemset tuple
 #     value = list of tuples, each tuple being association rule of form (A,C)
-def create_itemset_rule_dict(itemset_tid_dict_pruned):
-    """
-
-    :param itemset_tid_dict_pruned:
-    :return:
-    """
-    association_rules = []
-    itemset_rule_dict = dict()
-    for key, value in itemset_tid_dict_pruned.items():
+def create_itemset_rule_dict(itemset_rule_dict, itemset_tid_dict):
+    assoc_rule_lst = []
+    for key,value in itemset_tid_dict.items():
         itemset = key
-        for i in range(1, len(itemset)):
-            comb = combinations(itemset, i)
+        for i in range (1, len(itemset)):
+            comb = combinations(itemset,i)
             list_combo = list(comb)
             for j in range(0, len(list_combo)):
-                antecedent = list_combo[j]  # tuple
+                antecedent = list_combo[j] # tuple
                 consequent = set(itemset) - set(list_combo[j])
                 consequent = tuple(consequent)
-                temp_tuple = (antecedent, consequent)
-                association_rules.append(temp_tuple)
-        itemset_rule_dict[itemset] = association_rules
-        association_rules = []
+                temp_tuple = (antecedent,consequent)
+                assoc_rule_lst.append(temp_tuple)
+        itemset_rule_dict[itemset] =  assoc_rule_lst
+        assoc_rule_lst = []
     return itemset_rule_dict
 
 
 # Generate association rule to statistics dictionary
 #   key = tuple of form (A,C)
 #   value = tuple of form (support(A->C),confidence(A->C),lift(A->C))
-def generateAssocStatDict(itemset_tid_dict, kitemset_assoc_dict):
-    assoc_stat_dict = dict()
-    for key, value in kitemset_assoc_dict.items():
-        support_a_c = len(itemset_tid_dict[key]) / num_transactions
+def create_rule_stat_dict(itemset_tid_dict, itemset_rule_dict, constraints,
+                          num_transactions):
+    min_support = constraints[0]
+    min_confidence = constraints[1]
+    min_lift = constraints[2]
+    rule_stat_dict = dict()
+    for key,value in itemset_rule_dict.items():
+        support_a_c = len(itemset_tid_dict[key])/num_transactions
         for i in range(0, len(value)):
             assoc_rule = value[i]
             antecedent = assoc_rule[0]
             consequent = assoc_rule[1]
             if (len(antecedent) == 1):
-                antecedent = antecedent[0]  # turn single tuple into just item
+                antecedent = antecedent[0] # turn single tuple into just item
             if (len(consequent) == 1):
-                consequent = consequent[0]  # turn single tuple into just item
+                consequent = consequent[0] # turn single tuple into just item
             # rearrange antecedent until it gets a match in itemset_tid_dict
-            if (antecedent not in itemset_tid_dict):
-                perm = permutations(antecedent, len(antecedent))
+            if(antecedent not in itemset_tid_dict):
+                perm = permutations(antecedent,len(antecedent))
                 list_perm = list(perm)
                 for p in list_perm:
-                    if (p in itemset_tid_dict):
+                    if(p in itemset_tid_dict):
                         support_a = len(itemset_tid_dict[p]) / num_transactions
                         break
             else:
-                support_a = len(
-                    itemset_tid_dict[antecedent]) / num_transactions
+                support_a = len(itemset_tid_dict[antecedent]) / num_transactions
             # rearrange consequent until it gets a match in itemset_tid_dict
-            if (consequent not in itemset_tid_dict):
-                perm = permutations(consequent, len(consequent))
+            if(consequent not in itemset_tid_dict):
+                perm = permutations(consequent,len(consequent))
                 list_perm = list(perm)
                 for p in list_perm:
-                    if (p in itemset_tid_dict):
+                    if(p in itemset_tid_dict):
                         support_c = len(itemset_tid_dict[p]) / num_transactions
                         break
             else:
-                support_c = len(
-                    itemset_tid_dict[consequent]) / num_transactions
-            confidence_a_c = support_a_c / support_a
-            lift_a_c = confidence_a_c / support_c
+                support_c = len(itemset_tid_dict[consequent]) / num_transactions
+            confidence_a_c = support_a_c/support_a
+            lift_a_c = confidence_a_c/support_c
             # prune out rules below mins
-            if ((confidence_a_c < min_confidence) | (lift_a_c < min_lift)):
+            if ( (confidence_a_c < min_confidence ) | (lift_a_c < min_lift)):
                 continue
             # round off
-            support_a_c = round(support_a_c, 4)
-            confidence_a_c = round(confidence_a_c, 4)
+            support_a_c = round(support_a_c,4)
+            confidence_a_c = round(confidence_a_c,4)
             lift_a_c = round(lift_a_c, 4)
-            assoc_stat_dict[assoc_rule] = [support_a_c, confidence_a_c,
-                                           lift_a_c]
-    return assoc_stat_dict
+            rule_stat_dict[assoc_rule] = [support_a_c,confidence_a_c,lift_a_c]
+    return rule_stat_dict
 
 
-def writeAssocStatDictToCsv(output_fname, assoc_stat_dict):
+
+def write_rule_stat_dict(filename, rule_stat_dict):
     first_row = ['Itemset Size', 'Antecedent', 'Consequent',
                  'support(A->C)', 'confidence(A->C)', 'lift(A->C)']
     csv_lst = []
-    for key, value in assoc_stat_dict.items():
+    for key, value in rule_stat_dict.items():
         temp_lst = []
         temp_lst.append(len(key[0]) + len(key[1]))
         temp_lst.append(key[0])  # antecedent
@@ -363,15 +359,16 @@ def writeAssocStatDictToCsv(output_fname, assoc_stat_dict):
     csv_lst = sorted(csv_lst, key=operator.itemgetter(4), reverse=True)
     # Sort itemset size
     csv_lst = sorted(csv_lst, key=operator.itemgetter(0), reverse=True)
-    with open(output_fname, 'w') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(first_row)
+    with open(filename, 'w',  newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        csv_writer.writerow(first_row)
         for row in csv_lst:
-            csvwriter.writerow(row)
+            csv_writer.writerow(row)
 
 
 def main():
     min_support, min_confidence, min_lift = (15, .10, 1.05)
+    constraints = (min_support, min_confidence, min_lift)
 
     """ Read CSV file data into a list and sort that list
     a csv row should look like: 1808,21-07-2015,tropical fruit
@@ -415,7 +412,18 @@ def main():
     """
     itemset_tid_dict_pruned = prune_dict(itemset_tid_dict, min_support)
 
-    itemset_rule_dict = create_itemset_rule_dict(itemset_tid_dict_pruned)
+    """
+    
+    """
+    itemset_rule_dict = create_itemset_rule_dict(dict(),
+                                                 itemset_tid_dict_pruned)
+
+    """
+    
+    """
+    rule_stat_dict = create_rule_stat_dict(
+        itemset_tid_dict, itemset_rule_dict, constraints,
+        len(transactions_itemsets))
 
     if DEV_MODE:
         folder_path = os.path.join(os.getcwd(), DEV_FOLDER)
@@ -431,16 +439,10 @@ def main():
         write_csv(folder_path, 'itemset_tid_dict_pruned.csv',
                   itemset_tid_dict_pruned)
         write_csv(folder_path, 'itemset_rule_dict.csv', itemset_rule_dict)
-
-    """
-    # Generate association rules and store as CSV
-    assoc_stat_dict = generateAssocStatDict(itemset_tid_dict,
-                                            kitemset_assoc_dict)
-    
-    writeAssocStatDictToCsv('Association_Rules.csv', assoc_stat_dict)
+        # write_csv(folder_path, 'rule_stat_dict.csv', rule_stat_dict)
+        write_rule_stat_dict('rule_stat_dict.csv', rule_stat_dict)
 
     print('End of program.')
-    """
 
 
 if __name__ == '__main__':
