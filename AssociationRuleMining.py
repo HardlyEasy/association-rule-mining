@@ -5,6 +5,9 @@ from datetime import datetime
 from itertools import combinations
 from itertools import permutations
 
+import pandas as pd
+from pyECLAT import ECLAT
+
 CSV_FILENAME = 'grocery_data.csv'  # place csv in same directory as py file
 RESULT_FOLDER = 'results'  # place folder in same directory as py file
 DEV_FOLDER = 'dev'
@@ -175,9 +178,22 @@ def get_itemsets(transactions):
     return itemsets
 
 
-def create_itemset_tid_dict(itemsets, max_items):
-    # TODO: I think I can prune with minimum support while creating dict
-    # Right now I'm pruning after dict is completely created
+def find_max_itemset(itemsets):
+    """ Find max number of items in an itemset
+
+    :param itemsets: List of itemsets
+    :type itemsets: list
+    :return: Max number of items in an itemset
+    :rtype: int
+    """
+    max_itemset = 0
+    for an_itemset in itemsets:
+        if len(an_itemset) > max_itemset:
+            max_itemset = len(an_itemset)
+    return max_itemset
+
+
+def create_itemset_tid_dict(itemsets, max_items, min_support):
     """ Creates a dictionary with keys being all combinations of item sets
     and values being transaction ids aka t-ids (equivalent to index of
     itemsets list)
@@ -196,29 +212,57 @@ def create_itemset_tid_dict(itemsets, max_items):
         ('fish', 'root vegetables): {4363, 94, 12975}, ...}
     :rtype: dict
     """
-    itemset_tid_dict = dict()
-    # 1-itemset
+    # The return dictionary
+    full_itemset_tid_dict = dict()
+    # Make dictionary of key of single item to value of set of tids
+    item_tid_dict = dict()
     for tid in range(0, len(itemsets)):
         an_itemset = itemsets[tid]  # eg ['pastry','salty snack','whole milk']
         for i in range(0, len(an_itemset)):
             item = an_itemset[i]
-            if item not in itemset_tid_dict:
-                itemset_tid_dict[item] = {tid}
+            if item not in item_tid_dict:
+                item_tid_dict[item] = {tid}
             else:  # add onto existing key
-                itemset_tid_dict[item].add(tid)
-    # k-itemset, k>1
-    for k in range(2, max_items + 1):
-        for tid in range(0, len(itemsets)):
-            # combination puts values in lexicographic order
-            # thus indexes may not be in numeric order
-            comb = combinations(itemsets[tid], k)
-            comb_list = list(comb)
-            for k_itemset in comb_list:
-                if k_itemset not in itemset_tid_dict:
-                    itemset_tid_dict[k_itemset] = {tid}
-                else:  # add onto existing key
-                    itemset_tid_dict[k_itemset].add(tid)
-    return itemset_tid_dict
+                item_tid_dict[item].add(tid)
+
+    # Filter out results that are below minimum support
+    item_tid_dict = dict(
+        filter(
+            lambda entry: len(entry[1]) >= min_support, item_tid_dict.items()
+        )
+    )
+
+    # Combine filtered 1-item dict to our full dict we will return at end
+    full_itemset_tid_dict.update(item_tid_dict)
+
+    folder_path = os.path.join(os.getcwd(), DEV_FOLDER)
+
+    k = 2
+    curr_dict = item_tid_dict.copy()
+    while True:
+        # Find all possible k-itemset product pairs
+        keys = list(curr_dict.keys())
+        combs = list(combinations(keys, k))
+
+        # Do an intersection of tid sets
+        temp_combs = combs.copy()
+        next_dict = dict()
+        for a_comb in temp_combs:
+            item1 = a_comb[0]  # first item in itemset
+            my_intersection = curr_dict[item1]
+            for i in range(1, len(a_comb)):
+                next_item = a_comb[i]
+                tid_set = curr_dict[next_item]
+                my_intersection = my_intersection.intersection(tid_set)
+            if len(my_intersection) >= min_support:
+                next_dict[a_comb] = my_intersection
+        curr_dict = next_dict.copy()
+        if len(next_dict) == 0:
+            break
+        k += 1
+        full_itemset_tid_dict.update(next_dict)
+
+    return full_itemset_tid_dict
 
 
 def create_k_itemsets(itemset_tid_dict):
@@ -250,7 +294,7 @@ def create_k_itemsets(itemset_tid_dict):
     return k_itemsets
 
 
-def prune_dict(itemset_tid_dict, min_support):
+def prune_itemset_tid_dict(itemset_tid_dict, min_support):
     """ Removes all k-item sets with k equal to 1 and with number of
     occurrences of item set less than or equal to minimum support
 
@@ -263,8 +307,10 @@ def prune_dict(itemset_tid_dict, min_support):
     """
     itemsets_tid_dict_pruned = dict()
     for key, value in itemset_tid_dict.items():
-        if (type(key) is tuple) & (len(value) >= min_support):
+        #  if (type(key) is tuple) & (len(value) >= min_support):
+        if len(value) >= min_support:
             itemsets_tid_dict_pruned[key] = value
+
     return itemsets_tid_dict_pruned
 
 
@@ -366,9 +412,34 @@ def write_rule_stat_dict(filename, rule_stat_dict):
             csv_writer.writerow(row)
 
 
+def py_eclat(itemsets):
+    data = pd.DataFrame(itemsets)
+    print(data)
+    # we are looking for itemSETS
+    # we do not want to have any individual products returned
+    min_n_products = 2
+
+    # we want to set min support to 7
+    # but we have to express it as a percentage
+    min_support = 15/len(itemsets)
+
+    # we have no limit on the size of association rules
+    # so we set it to the longest transaction
+    max_length = max([len(x) for x in itemsets])
+
+    my_eclat = ECLAT(data=data, verbose=True)
+
+    # fit the algorithm
+    rule_indices, rule_supports = my_eclat.fit(min_support=min_support,
+                                               min_combination=min_n_products,
+                                               max_combination=max_length)
+    print(rule_supports)
+
+
 def main():
     min_support, min_confidence, min_lift = (15, .10, 1.05)
     constraints = (min_support, min_confidence, min_lift)
+    folder_path = os.path.join(os.getcwd(), DEV_FOLDER)
 
     """ Read CSV file data into a list and sort that list
     a csv row should look like: 1808,21-07-2015,tropical fruit
@@ -383,64 +454,74 @@ def main():
     where each transaction is [member_number, date, num_items, item_name1, ...]
     """
     transactions_items = create_transactions(sorted_csv_data)
+    write_csv(folder_path, 'transactions_items.csv', transactions_items,
+              ['Member number', 'Date', 'Number of items'])
+
 
     """ Remove all duplicate items so items in each transaction can now be
     considered an item set
     eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
     """
     transactions_itemsets = remove_duplicates(transactions_items)
+    write_csv(folder_path, 'transactions_itemsets.csv',
+              transactions_itemsets, ['Member number', 'Date',
+                                      'Number of items'])
 
     """ Get only item set data from transactions
     eg [ ['pip fruit','yogurt,'yogurt'], ... ]
     """
     itemsets = get_itemsets(transactions_itemsets)
+    write_csv(folder_path, 'itemsets.csv', itemsets)
 
     """ Map all combinations of item sets to transaction id (tid) sets
     tids match the indexes where you can find item set in itemsets list
     eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
     """
-    itemset_tid_dict = create_itemset_tid_dict(itemsets, 10)
+    max_itemset = find_max_itemset(itemsets)
+    itemset_tid_dict = create_itemset_tid_dict(itemsets, max_itemset,
+                                               min_support)
+    write_csv(folder_path, 'itemset_tid_dict.csv', itemset_tid_dict)
 
     """ Make list with k, k-item set, and support
     eg [ [1, 'whole milk', 2363], ... , 
     [2, ('rice', 'rolls/buns'), 5], ... ]
     """
     k_itemsets = create_k_itemsets(itemset_tid_dict)
+    write_csv(folder_path, 'k_itemsets.csv', k_itemsets,
+              ['k', 'k-item set', 'Number of occurrences'])
 
     """ Filter out item sets that do not reach minimum support
     """
-    itemset_tid_dict_pruned = prune_dict(itemset_tid_dict, min_support)
+    # itemset_tid_dict_pruned = prune_itemset_tid_dict(itemset_tid_dict,
+    #                                                 min_support)
+    """
+    
+    """
+    # itemset_rule_dict = create_itemset_rule_dict(dict(),
+    #                                             itemset_tid_dict)
 
     """
     
     """
-    itemset_rule_dict = create_itemset_rule_dict(dict(),
-                                                 itemset_tid_dict_pruned)
+    #rule_stat_dict = create_rule_stat_dict(
+    #    itemset_tid_dict, itemset_rule_dict, constraints,
+    #    len(transactions_itemsets))
 
-    """
-    
-    """
-    rule_stat_dict = create_rule_stat_dict(
-        itemset_tid_dict, itemset_rule_dict, constraints,
-        len(transactions_itemsets))
 
-    if DEV_MODE:
-        folder_path = os.path.join(os.getcwd(), DEV_FOLDER)
-        write_csv(folder_path, 'transactions_items.csv', transactions_items,
-                  ['Member number', 'Date', 'Number of items'])
-        write_csv(folder_path, 'transactions_itemsets.csv',
-                  transactions_itemsets, ['Member number', 'Date',
-                                          'Number of items'])
-        write_csv(folder_path, 'itemsets.csv', itemsets)
-        write_csv(folder_path, 'itemset_tid_dict.csv', itemset_tid_dict)
-        write_csv(folder_path, 'k_itemsets.csv', k_itemsets,
-                  ['k', 'k-item set', 'Number of occurrences'])
-        write_csv(folder_path, 'itemset_tid_dict_pruned.csv',
-                  itemset_tid_dict_pruned)
-        write_csv(folder_path, 'itemset_rule_dict.csv', itemset_rule_dict)
-        # write_csv(folder_path, 'rule_stat_dict.csv', rule_stat_dict)
-        write_rule_stat_dict('rule_stat_dict.csv', rule_stat_dict)
+
+
+
+
+
+    #write_csv(folder_path, 'itemset_tid_dict_pruned.csv',
+    #          itemset_tid_dict_pruned)
+    #write_csv(folder_path, 'itemset_rule_dict.csv', itemset_rule_dict)
+    #write_csv(folder_path, 'rule_stat_dict.csv', rule_stat_dict)
+    #write_rule_stat_dict('rule_stat_dict.csv', rule_stat_dict)
+
+        # eclat using package
+        # py_eclat(itemsets)
 
     print('End of program.')
 
