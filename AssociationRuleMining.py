@@ -181,10 +181,134 @@ def filter_verbose_trans_list(verbose_trans_list):
     return verbose_trans_no_duplicates
 
 
+def create_itemset_tid_dict(trans, min_support):
+    """ dependent on create_item_tid_dict(), create_combs(),
+    create_next_k_itemset_tid_dict()
+    Creates dictionary with keys of frequent itemsets and vals of tidsets
+    associated with frequent itemsets
+
+    :param trans: List containing list of transactions
+    :type trans: list
+    :param min_support:
+    :type min_support: int
+    :return: Frequent itemset to tidset dictionary
+    :rtype: dict
+    """
+    # Make single item to tidset dictionary
+    # This will continually be referenced
+    # eg { 'pastry': {0, 4096, ... }, 'whole milk': {0, 1, ...}, ... }
+    item_tidset_dict = create_item_tid_dict(trans)
+    # This holds k-itemset tidset dict that will be joined with return dict
+    # once we properly generate and filter it
+    k_itemset_tidset_dict = item_tidset_dict.copy()
+    k = 1
+    full_itemset_tid_dict = dict()  # return dictionary
+
+    while True:  # Loop until no more itemset-tidset pairs can be combined
+        # 1) Filter out entries below minimum support
+        k_itemset_tidset_dict = dict(
+            filter(
+                lambda entry: len(entry[1]) >= min_support,
+                k_itemset_tidset_dict.items()
+            )
+        )
+        # 2) Create all itemset combinations
+        combs = create_combs(k, k_itemset_tidset_dict)
+        # 3) Generate next k itemset dictionary
+        next_k_itemset_tid_dict = create_next_k_itemset_tid_dict(
+            combs, item_tidset_dict, min_support)
+
+        # No combinations above minimum support were generated
+        if len(next_k_itemset_tid_dict) == 0:
+            break
+        full_itemset_tid_dict.update(next_k_itemset_tid_dict)
+        k_itemset_tidset_dict = next_k_itemset_tid_dict.copy()
+        k += 1
+    return full_itemset_tid_dict
+
+
+def create_item_tid_dict(trans):
+    """ helper for create_itemset_tid_dict()
+    Creates and returns a item to tidset dict
+
+    :param trans: List containing lists of transaction
+        eg [ ['soda', 'whole milk'], ... ]
+    :type trans: list
+    :return: Key of single item, val of tidset
+        eg { 'soda': {2, 6, ...}, ... }
+    :rtype: dict
+    """
+    item_tid_dict = dict()
+    for tid in range(0, len(trans)):
+        an_itemset = trans[tid]  # eg ['pastry','salty snack','whole milk']
+        for i in range(0, len(an_itemset)):
+            item = an_itemset[i]
+            if item not in item_tid_dict:
+                item_tid_dict[item] = {tid}
+            else:  # add onto existing key
+                item_tid_dict[item].add(tid)
+    return item_tid_dict
+
+
+def create_combs(k, k_itemset_tidset_dict):
+    """ helper for create_itemset_tid_dict()
+    Create all possible combinations of k length from keys of itemsets
+    in k_itemset_tidset_dict
+
+    :param k: Number of items in itemset
+    :type k: int
+    :param k_itemset_tidset_dict:
+        eg k=1 { 'soda': {2, 6, ...}, ... }
+        eg k>2 { ('beverages', 'soda'): {12038, 10125, ...}, ... }
+    :type k_itemset_tidset_dict: dict
+    :return: List of all possible combinations of items that can be made from
+        itemset keys
+    :rtype: list
+    """
+    if k == 1:
+        items_list = list(k_itemset_tidset_dict.keys())
+    else:
+        items_list = set()  # set ensures no repeat items
+        for itemset in k_itemset_tidset_dict.keys():
+            for item in itemset:
+                items_list.add(item)
+        items_list = list(items_list)
+    combs = list(combinations(items_list, k))
+    return combs
+
+
+def create_next_k_itemset_tid_dict(combs, item_tidset_dict, min_support):
+    """ helper for create_itemset_tid_dict()
+    Uses combinations generated from current k itemset tidset dict to
+    create next k itemset tidset dict
+
+    :param combs: List of all possible combinations of itemsets possible from
+        current k_itemset_tid_dict
+    :type combs: list
+    :param item_tidset_dict:
+    :type item_tidset_dict: dict
+    :param min_support: If tidset length below min support, filter it out
+    :type min_support: int
+    :return:
+    :rtype: dict
+    """
+    next_k_itemset_tid_dict = dict()
+    for a_comb in combs:
+        item0 = a_comb[0]  # first combination
+        # initialize tidset with first tidset
+        tidsets_intersect = item_tidset_dict[item0]
+        for i in range(1, len(a_comb)):
+            next_item = a_comb[i]
+            next_tidset = item_tidset_dict[next_item]
+            tidsets_intersect = tidsets_intersect.intersection(next_tidset)
+        if len(tidsets_intersect) >= min_support:
+            next_k_itemset_tid_dict[a_comb] = tidsets_intersect
+    return next_k_itemset_tid_dict
+
+# Backup
+"""
 # TODO: Fix single items being present in return dict
 def create_itemset_tid_dict(itemsets, min_support):
-    """
-    """
     # Make dictionary of key of single item to value of set of tids
     item_tid_dict = dict()
     for tid in range(0, len(itemsets)):
@@ -239,7 +363,7 @@ def create_itemset_tid_dict(itemsets, min_support):
         k_itemset_tid_dict = next_k_itemset_tid_dict.copy()
         k += 1
     return full_itemset_tid_dict
-
+"""
 
 # TODO: helpful possibly but not needed for eclat
 def create_k_itemsets(itemset_tid_dict):
