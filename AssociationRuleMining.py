@@ -10,14 +10,15 @@ from itertools import permutations
 CSV_FILENAME = 'grocery_data.csv'  # place csv in same directory as py file
 RESULT_FOLDER = 'results'  # place folder in same directory as py file
 DEV_FOLDER = 'dev'
-DEV_MODE = True  # toggle writing of csv data at each step of eclat
 
 
-def promptUser():
-    """ Prompts user for minimum support, minimum confidence and minimum lift
-    This will affect association rule generation
+def prompt_constraints():
+    """ Prompts user for constraints of min support, min confidence and min
+    lift, min support will affect association rule generation and min
+    confidence/min lift will affect filtering of association rules that were
+    generated
 
-    :return: Tuple with minimum support, minimum confidence, minimum lift
+    :return: Tuple with min support, min confidence, min lift
     :rtype: (int, float, float)
     """
     min_support = int(input('Enter minimum support (int): '))
@@ -67,30 +68,25 @@ def sort_csv_data(csv_data):
 
 def write_csv(folder_path, filename, data, header=None):
     """ Writes data in a list or dict to a csv file on computer
+    In case of list, each inner list represents a row
+    In case of dict, keys go on col1 and vals go on col2
 
     :param folder_path: Full path to where you want csv file written
     :type folder_path: str
     :param filename: Filename of csv file you want written
     :type filename: str
-    :param data: List of lists, where each inner list represents a row
-        Dictionary, where keys go on column1 and values go on column2
+    :param data:
     :type data: list or dict
     :param header: The first row
     :type header: list, optional
-    :param data: Either a list or dict
-        eg [ ['1808,21-07-2015', 'tropical fruit'],
-        ['2552', '05-01-2015', 'whole milk'], ... ]
-        eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
-        ('detergent', 'pork'): {196, 14397, 4486}, ... }
-    :type data: list or dict
     """
     if not os.path.exists(folder_path):
-        os.makedirs(folder_path, exist_ok=True)
+        os.makedirs(folder_path, exist_ok=True)  # create folder is not exists
     write_path = os.path.join(folder_path, filename)
     with open(write_path, 'w', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
         if header is not None:
-            csv_writer.writerow(header)
+            csv_writer.writerow(header)  # write header
         if type(data) == list:
             csv_writer.writerows(data)
         if type(data) == dict:
@@ -99,103 +95,95 @@ def write_csv(folder_path, filename, data, header=None):
 
 
 def create_transactions(csv_data):
-    """ Creates and returns a transaction list, which contains transactions
-    A transaction is [memberNumber,date,numItems,item1,item2,...] it is all
-    the items a member has bought on a specific date. Transactions can contain
-    duplicate items, for example ['1698','17-01-2014','2','yogurt','yogurt']
+    """ Dependent on create_verbose_trans_list(), filter_verbose_trans_list()
+    1) Creates verbose transactions list
+    2) Removes all duplicate items
+    3) Strips all data besides item names
+    a verbose transactions list looks like:
+    [ [member_number, date, num_items, item1, item1, item2, ... ], ... ]
+    a transactions list looks like :
+    [ [item1, item2, ...], ...]
 
-    :param csv_data:
+    :param csv_data: List containing csv data, 1 item per row
+        eg [ ['1808,21-07-2015', 'tropical fruit'],
+        ['2552', '05-01-2015', 'whole milk'], ... ]
     :type csv_data: list
-    :return: List containing transaction data
-        eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
-        where format is [ [memberNumber,date,numItems,item1,item2,...], ... ]
+    :return: List containing lists of transaction
+        eg [ ['pip fruit','yogurt'], ... ]
     :rtype: list
     """
-    transaction_list = []
-    transaction = csv_data[0]  # first transaction to add csv items to
+    # eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
+    verbose_trans_list = create_verbose_trans_list(csv_data)
+    # eg [ ['1702','12-01-2014','2','pip fruit','yogurt], ... ]
+    verbose_trans_list = filter_verbose_trans_list(verbose_trans_list)
+    # eg [ ['pip fruit','yogurt'], ... ]
+    transactions = []
+    for tran in verbose_trans_list:
+        transactions.append(tran[3:])
+    return transactions
+
+
+def create_verbose_trans_list(csv_data):
+    """ Helper for create_transactions()
+
+    :param csv_data: List containing data of each row of csv file that is read
+        There should be a member number, date, and single item in each row
+    :return: List containing member number, date, number of items, and item
+        names
+    :rtype: list
+    """
+    verbose_trans_list = []
+    trans = csv_data[0]  # first transaction to add csv items to
     for i in range(1, len(csv_data)):
         csv_number = csv_data[i][0]  # member number
         csv_date = csv_data[i][1]
         csv_item = csv_data[i][2]
-        trans_number = transaction[0]
-        trans_date = transaction[1]
+        trans_number = trans[0]
+        trans_date = trans[1]
         # member id or date are different, so we add our built up transaction
         # to transaction_list and create a new transaction that we can
         # add csv_items onto
         if (trans_number != csv_number) or (trans_date != csv_date):
-            num_items = len(transaction) - 2
-            transaction.insert(2, str(num_items))
-            transaction_list.append(transaction)
-            transaction = [csv_number, csv_date, csv_item]
+            num_items = len(trans) - 2
+            trans.insert(2, str(num_items))
+            verbose_trans_list.append(trans)
+            trans = [csv_number, csv_date, csv_item]
         # member id and date are same, so add csv_item onto transaction
         else:
-            transaction.append(csv_item)
-    num_items = len(transaction) - 2
-    transaction.insert(2, str(num_items))
-    transaction_list.append(transaction)
-    return transaction_list
+            trans.append(csv_item)
+    num_items = len(trans) - 2
+    trans.insert(2, str(num_items))
+    verbose_trans_list.append(trans)
+    return verbose_trans_list
 
 
-def remove_duplicates(transactions):
-    """ Takes a transactions list and removes all duplicate grocery items in
-    all transaction elements
+def filter_verbose_trans_list(verbose_trans_list):
+    """ Helper for create_transactions()
+    Removes all duplicate grocery items in a verbose transactions list
 
-    :param transactions: List containing transaction data, with duplicates
+    :param verbose_trans_list: List with transaction data, with duplicates
         eg [ ['1702','12-01-2014','3','pip fruit','yogurt','yogurt'], ... ]
-    :type transactions: list
-    :return: Same as input param, except duplicate grocery items removed,
-        which makes the grocery items into an itemset (because no duplicates)
+    :type verbose_trans_list: list
+    :return: Same as input list, except duplicate items are now gone
         eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
     :rtype: list
     """
-    transactions_no_duplicates = []
-    for t in transactions:
-        itemset = list(set(t[3:]))  # remove duplicates
+    verbose_trans_no_duplicates = []
+    for tran in verbose_trans_list:
+        itemset = list(set(tran[3:]))  # remove duplicates
         # sort again (becomes unordered for some reason)
         itemset = sorted(itemset)
-        new_transaction = t[:3]
+        new_transaction = tran[:3]
         new_transaction.extend(itemset)
         # set num items in itemset
         new_transaction[2] = len(new_transaction) - 3
-        transactions_no_duplicates.append(new_transaction)
-    return transactions_no_duplicates
-
-
-def get_itemsets(transactions):
-    """ Returns list with only grocery item sets from transactions list
-
-    :param transactions: List containing transactions
-        eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
-    :type transactions: list
-    :return: List containing item sets
-        eg [ ['pip fruit','yogurt,'yogurt'], ... ]
-    :rtype: list
-    """
-    itemsets = []
-    for t in transactions:
-        itemsets.append(t[3:])
-    return itemsets
-
-
-def find_max_itemset(itemsets):
-    """ Find max number of items in an itemset
-
-    :param itemsets: List of itemsets
-    :type itemsets: list
-    :return: Max number of items in an itemset
-    :rtype: int
-    """
-    max_itemset = 0
-    for an_itemset in itemsets:
-        if len(an_itemset) > max_itemset:
-            max_itemset = len(an_itemset)
-    return max_itemset
+        verbose_trans_no_duplicates.append(new_transaction)
+    return verbose_trans_no_duplicates
 
 
 # TODO: Fix single items being present in return dict
-def create_itemset_tid_dict(itemsets, max_items, min_support):
+def create_itemset_tid_dict(itemsets, min_support):
     """
-
     """
     # Make dictionary of key of single item to value of set of tids
     item_tid_dict = dict()
@@ -207,16 +195,11 @@ def create_itemset_tid_dict(itemsets, max_items, min_support):
                 item_tid_dict[item] = {tid}
             else:  # add onto existing key
                 item_tid_dict[item].add(tid)
-    # Filter out results that are below minimum support
-
-
-    full_itemset_tid_dict = dict()  # The return dictionary
-
     k = 1
     k_itemset_tid_dict = item_tid_dict.copy()  # aka kitemset dict
     full_itemset_tid_dict = dict()
     # TODO: this is related to why single items are repeated in dict
-    full_itemset_tid_dict.update(k_itemset_tid_dict)
+    # full_itemset_tid_dict.update(k_itemset_tid_dict)
     while True:  # Loop until no more itemset-tidset pairs can be combined
         # 1) Filter
         k_itemset_tid_dict = dict(
@@ -235,12 +218,7 @@ def create_itemset_tid_dict(itemsets, max_items, min_support):
                 for item in itemset:
                     items_list.add(item)
             items_list = list(items_list)
-
-        comb_start_time = time.time()
         combs = list(combinations(items_list, k))
-        #print(combs[0])
-        comb_end_time = time.time()
-        print('comb_time=', round(comb_end_time-comb_start_time,2), 'seconds')
         next_k_itemset_tid_dict = dict()
         # 3)
         for a_comb in combs:
@@ -261,6 +239,7 @@ def create_itemset_tid_dict(itemsets, max_items, min_support):
         k_itemset_tid_dict = next_k_itemset_tid_dict.copy()
         k += 1
     return full_itemset_tid_dict
+
 
 # TODO: helpful possibly but not needed for eclat
 def create_k_itemsets(itemset_tid_dict):
@@ -290,27 +269,6 @@ def create_k_itemsets(itemset_tid_dict):
     # Sort by k
     k_itemsets = sorted(k_itemsets, key=operator.itemgetter(0), reverse=False)
     return k_itemsets
-
-
-# TODO: this is redundant now
-def prune_itemset_tid_dict(itemset_tid_dict, min_support):
-    """ Removes all k-item sets with k equal to 1 and with number of
-    occurrences of item set less than or equal to minimum support
-
-    :param itemset_tid_dict: Maps combinations of itemsets to tids
-    :type itemset_tid_dict: dict
-    :param min_support:
-    :type min_support: int
-    :return: Same as input dictionary, but with pruned elements
-    :rtype: dict
-    """
-    itemsets_tid_dict_pruned = dict()
-    for key, value in itemset_tid_dict.items():
-        #  if (type(key) is tuple) & (len(value) >= min_support):
-        if len(value) >= min_support:
-            itemsets_tid_dict_pruned[key] = value
-
-    return itemsets_tid_dict_pruned
 
 
 # Generate itemset to association rules dict
@@ -429,34 +387,15 @@ def main():
     eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
     where each transaction is [member_number, date, num_items, item_name1, ...]
     """
-    transactions_items = create_transactions(sorted_csv_data)
-    write_csv(folder_path, 'transactions_items.csv', transactions_items,
-              ['Member number', 'Date', 'Number of items'])
-
-
-    """ Remove all duplicate items so items in each transaction can now be
-    considered an item set
-    eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
-    """
-    transactions_itemsets = remove_duplicates(transactions_items)
-    write_csv(folder_path, 'transactions_itemsets.csv',
-              transactions_itemsets, ['Member number', 'Date',
-                                      'Number of items'])
-
-    """ Get only item set data from transactions
-    eg [ ['pip fruit','yogurt,'yogurt'], ... ]
-    """
-    itemsets = get_itemsets(transactions_itemsets)
-    write_csv(folder_path, 'itemsets.csv', itemsets)
+    trans = create_transactions(sorted_csv_data)
+    write_csv(folder_path, 'trans.csv', trans)
 
     """ Map all combinations of item sets to transaction id (tid) sets
     tids match the indexes where you can find item set in itemsets list
     eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
     """
-    max_itemset = find_max_itemset(itemsets)
-    itemset_tid_dict = create_itemset_tid_dict(itemsets, max_itemset,
-                                               min_support)
+    itemset_tid_dict = create_itemset_tid_dict(trans, min_support)
     write_csv(folder_path, 'itemset_tid_dict.csv', itemset_tid_dict)
 
     """ Make list with k, k-item set, and support
@@ -466,11 +405,6 @@ def main():
     k_itemsets = create_k_itemsets(itemset_tid_dict)
     write_csv(folder_path, 'k_itemsets.csv', k_itemsets,
               ['k', 'k-item set', 'Number of occurrences'])
-
-    """ Filter out item sets that do not reach minimum support
-    """
-    # itemset_tid_dict_pruned = prune_itemset_tid_dict(itemset_tid_dict,
-    #                                                 min_support)
     """
     
     """
@@ -485,7 +419,7 @@ def main():
     #    len(transactions_itemsets))
 
     end_time = time.time()
-    print(round(end_time - start_time, 2), " seconds elasped")
+    print(round(end_time - start_time, 2), ' seconds total runtime')
     print('End of program.')
 
 
