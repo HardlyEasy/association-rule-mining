@@ -1,12 +1,11 @@
 import csv
 import operator
 import os
+import time
 from datetime import datetime
 from itertools import combinations
 from itertools import permutations
 
-import pandas as pd
-from pyECLAT import ECLAT
 
 CSV_FILENAME = 'grocery_data.csv'  # place csv in same directory as py file
 RESULT_FOLDER = 'results'  # place folder in same directory as py file
@@ -193,27 +192,11 @@ def find_max_itemset(itemsets):
     return max_itemset
 
 
+# TODO: Fix single items being present in return dict
 def create_itemset_tid_dict(itemsets, max_items, min_support):
-    """ Creates a dictionary with keys being all combinations of item sets
-    and values being transaction ids aka t-ids (equivalent to index of
-    itemsets list)
-
-    :param itemsets: List of itemsets (no duplicate items)
-        eg [ ['pastry','salty snack','whole milk'], ... ]
-    :type itemsets: list
-    :param max_items: The max number of items in a itemset
-    :type max_items: int
-    :return: A dict mapping keys of all combinations of possible item
-        sets to values of t-ids where you can find said value
-        eg item set at index 94 has
-        [fish,other vegetables,root vegetables,tropical fruit]
-        dict has
-        {..., ('fish','other vegetables'): {12296, 6883, 94, 12550},
-        ('fish', 'root vegetables): {4363, 94, 12975}, ...}
-    :rtype: dict
     """
-    # The return dictionary
-    full_itemset_tid_dict = dict()
+
+    """
     # Make dictionary of key of single item to value of set of tids
     item_tid_dict = dict()
     for tid in range(0, len(itemsets)):
@@ -224,47 +207,62 @@ def create_itemset_tid_dict(itemsets, max_items, min_support):
                 item_tid_dict[item] = {tid}
             else:  # add onto existing key
                 item_tid_dict[item].add(tid)
-
     # Filter out results that are below minimum support
-    item_tid_dict = dict(
-        filter(
-            lambda entry: len(entry[1]) >= min_support, item_tid_dict.items()
+
+
+    full_itemset_tid_dict = dict()  # The return dictionary
+
+    k = 1
+    k_itemset_tid_dict = item_tid_dict.copy()  # aka kitemset dict
+    full_itemset_tid_dict = dict()
+    # TODO: this is related to why single items are repeated in dict
+    full_itemset_tid_dict.update(k_itemset_tid_dict)
+    while True:  # Loop until no more itemset-tidset pairs can be combined
+        # 1) Filter
+        k_itemset_tid_dict = dict(
+            filter(
+                lambda entry: len(entry[1]) >= min_support,
+                k_itemset_tid_dict.items()
+            )
         )
-    )
+        print(k,'filtered_dict_len=',len(k_itemset_tid_dict))
+        # 2) Create all itemset combinations
+        if k == 1:
+            items_list = list(k_itemset_tid_dict.keys())
+        else:
+            items_list = set()
+            for itemset in k_itemset_tid_dict.keys():
+                for item in itemset:
+                    items_list.add(item)
+            items_list = list(items_list)
 
-    # Combine filtered 1-item dict to our full dict we will return at end
-    full_itemset_tid_dict.update(item_tid_dict)
-
-    folder_path = os.path.join(os.getcwd(), DEV_FOLDER)
-
-    k = 2
-    curr_dict = item_tid_dict.copy()
-    while True:
-        # Find all possible k-itemset product pairs
-        keys = list(curr_dict.keys())
-        combs = list(combinations(keys, k))
-
-        # Do an intersection of tid sets
-        temp_combs = combs.copy()
-        next_dict = dict()
-        for a_comb in temp_combs:
-            item1 = a_comb[0]  # first item in itemset
-            my_intersection = curr_dict[item1]
+        comb_start_time = time.time()
+        combs = list(combinations(items_list, k))
+        #print(combs[0])
+        comb_end_time = time.time()
+        print('comb_time=', round(comb_end_time-comb_start_time,2), 'seconds')
+        next_k_itemset_tid_dict = dict()
+        # 3)
+        for a_comb in combs:
+            item0 = a_comb[0]  # first combination
+            # initialize tidset with first tidset
+            tidsets_intersect = item_tid_dict[item0]
             for i in range(1, len(a_comb)):
                 next_item = a_comb[i]
-                tid_set = curr_dict[next_item]
-                my_intersection = my_intersection.intersection(tid_set)
-            if len(my_intersection) >= min_support:
-                next_dict[a_comb] = my_intersection
-        curr_dict = next_dict.copy()
-        if len(next_dict) == 0:
-            break
-        k += 1
-        full_itemset_tid_dict.update(next_dict)
+                next_tidset = item_tid_dict[next_item]
+                tidsets_intersect = tidsets_intersect.intersection(next_tidset)
+            if len(tidsets_intersect) >= min_support:
+                next_k_itemset_tid_dict[a_comb] = tidsets_intersect
 
+        # No combinations above minimum support were generated
+        if len(next_k_itemset_tid_dict) == 0:
+            break
+        full_itemset_tid_dict.update(next_k_itemset_tid_dict)
+        k_itemset_tid_dict = next_k_itemset_tid_dict.copy()
+        k += 1
     return full_itemset_tid_dict
 
-
+# TODO: helpful possibly but not needed for eclat
 def create_k_itemsets(itemset_tid_dict):
     """ Returns a list containing lists with k, k-item set, and number of
     occurrences of k-item set
@@ -294,6 +292,7 @@ def create_k_itemsets(itemset_tid_dict):
     return k_itemsets
 
 
+# TODO: this is redundant now
 def prune_itemset_tid_dict(itemset_tid_dict, min_support):
     """ Removes all k-item sets with k equal to 1 and with number of
     occurrences of item set less than or equal to minimum support
@@ -412,31 +411,8 @@ def write_rule_stat_dict(filename, rule_stat_dict):
             csv_writer.writerow(row)
 
 
-def py_eclat(itemsets):
-    data = pd.DataFrame(itemsets)
-    print(data)
-    # we are looking for itemSETS
-    # we do not want to have any individual products returned
-    min_n_products = 2
-
-    # we want to set min support to 7
-    # but we have to express it as a percentage
-    min_support = 15/len(itemsets)
-
-    # we have no limit on the size of association rules
-    # so we set it to the longest transaction
-    max_length = max([len(x) for x in itemsets])
-
-    my_eclat = ECLAT(data=data, verbose=True)
-
-    # fit the algorithm
-    rule_indices, rule_supports = my_eclat.fit(min_support=min_support,
-                                               min_combination=min_n_products,
-                                               max_combination=max_length)
-    print(rule_supports)
-
-
 def main():
+    start_time = time.time()
     min_support, min_confidence, min_lift = (15, .10, 1.05)
     constraints = (min_support, min_confidence, min_lift)
     folder_path = os.path.join(os.getcwd(), DEV_FOLDER)
@@ -508,21 +484,8 @@ def main():
     #    itemset_tid_dict, itemset_rule_dict, constraints,
     #    len(transactions_itemsets))
 
-
-
-
-
-
-
-    #write_csv(folder_path, 'itemset_tid_dict_pruned.csv',
-    #          itemset_tid_dict_pruned)
-    #write_csv(folder_path, 'itemset_rule_dict.csv', itemset_rule_dict)
-    #write_csv(folder_path, 'rule_stat_dict.csv', rule_stat_dict)
-    #write_rule_stat_dict('rule_stat_dict.csv', rule_stat_dict)
-
-        # eclat using package
-        # py_eclat(itemsets)
-
+    end_time = time.time()
+    print(round(end_time - start_time, 2), " seconds elasped")
     print('End of program.')
 
 
