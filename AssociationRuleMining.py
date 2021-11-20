@@ -6,7 +6,6 @@ from datetime import datetime
 from itertools import combinations
 from itertools import permutations
 
-
 CSV_FILENAME = 'grocery_data.csv'  # place csv in same directory as py file
 RESULT_FOLDER = 'results'  # place folder in same directory as py file
 DEV_FOLDER = 'dev'
@@ -14,11 +13,10 @@ DEV_FOLDER = 'dev'
 
 def prompt_constraints():
     """ Prompts user for constraints of min support, min confidence and min
-    lift, min support will affect association rule generation and min
-    confidence/min lift will affect filtering of association rules that were
-    generated
+    lift. Min support is used for frequent itemset generation by ECLAT.
+    Min confidence and min lift is used for association rule filtering.
 
-    :return: Tuple with min support, min confidence, min lift
+    :return: tuple (min_support, min_confidence, min_lift)
     :rtype: (int, float, float)
     """
     min_support = int(input('Enter minimum support (int): '))
@@ -97,8 +95,8 @@ def write_csv(folder_path, filename, data, header=None):
 def create_transactions(csv_data):
     """ Dependent on create_verbose_trans_list(), filter_verbose_trans_list()
     1) Creates verbose transactions list
-    2) Removes all duplicate items
-    3) Strips all data besides item names
+    2) Removes all duplicate items from verbose transactions list
+    3) Strips all data besides item names, so now we have transactions list
     a verbose transactions list looks like:
     [ [member_number, date, num_items, item1, item1, item2, ... ], ... ]
     a transactions list looks like :
@@ -126,10 +124,9 @@ def create_transactions(csv_data):
 def create_verbose_trans_list(csv_data):
     """ Helper for create_transactions()
 
-    :param csv_data: List containing data of each row of csv file that is read
-        There should be a member number, date, and single item in each row
-    :return: List containing member number, date, number of items, and item
-        names
+    :param csv_data: create_transactions() passes param
+    :return:
+        eg [ [member_number, date, num_items, item1, item1, item2, ... ], ... ]
     :rtype: list
     """
     verbose_trans_list = []
@@ -189,7 +186,7 @@ def create_itemset_tid_dict(trans, min_support):
 
     :param trans: List containing list of transactions
     :type trans: list
-    :param min_support:
+    :param min_support: If below minimum support, filter away
     :type min_support: int
     :return: Frequent itemset to tidset dictionary
     :rtype: dict
@@ -199,7 +196,8 @@ def create_itemset_tid_dict(trans, min_support):
     # eg { 'pastry': {0, 4096, ... }, 'whole milk': {0, 1, ...}, ... }
     item_tidset_dict = create_item_tid_dict(trans)
     # This holds k-itemset tidset dict that will be joined with return dict
-    # once we properly generate and filter it
+    # once we properly generate and filter it, filtering will be done by
+    # set intersection
     k_itemset_tidset_dict = item_tidset_dict.copy()
     k = 1
     full_itemset_tid_dict = dict()  # return dictionary
@@ -305,65 +303,6 @@ def create_next_k_itemset_tid_dict(combs, item_tidset_dict, min_support):
             next_k_itemset_tid_dict[a_comb] = tidsets_intersect
     return next_k_itemset_tid_dict
 
-# Backup
-"""
-# TODO: Fix single items being present in return dict
-def create_itemset_tid_dict(itemsets, min_support):
-    # Make dictionary of key of single item to value of set of tids
-    item_tid_dict = dict()
-    for tid in range(0, len(itemsets)):
-        an_itemset = itemsets[tid]  # eg ['pastry','salty snack','whole milk']
-        for i in range(0, len(an_itemset)):
-            item = an_itemset[i]
-            if item not in item_tid_dict:
-                item_tid_dict[item] = {tid}
-            else:  # add onto existing key
-                item_tid_dict[item].add(tid)
-    k = 1
-    k_itemset_tid_dict = item_tid_dict.copy()  # aka kitemset dict
-    full_itemset_tid_dict = dict()
-    # TODO: this is related to why single items are repeated in dict
-    # full_itemset_tid_dict.update(k_itemset_tid_dict)
-    while True:  # Loop until no more itemset-tidset pairs can be combined
-        # 1) Filter
-        k_itemset_tid_dict = dict(
-            filter(
-                lambda entry: len(entry[1]) >= min_support,
-                k_itemset_tid_dict.items()
-            )
-        )
-        print(k,'filtered_dict_len=',len(k_itemset_tid_dict))
-        # 2) Create all itemset combinations
-        if k == 1:
-            items_list = list(k_itemset_tid_dict.keys())
-        else:
-            items_list = set()
-            for itemset in k_itemset_tid_dict.keys():
-                for item in itemset:
-                    items_list.add(item)
-            items_list = list(items_list)
-        combs = list(combinations(items_list, k))
-        next_k_itemset_tid_dict = dict()
-        # 3)
-        for a_comb in combs:
-            item0 = a_comb[0]  # first combination
-            # initialize tidset with first tidset
-            tidsets_intersect = item_tid_dict[item0]
-            for i in range(1, len(a_comb)):
-                next_item = a_comb[i]
-                next_tidset = item_tid_dict[next_item]
-                tidsets_intersect = tidsets_intersect.intersection(next_tidset)
-            if len(tidsets_intersect) >= min_support:
-                next_k_itemset_tid_dict[a_comb] = tidsets_intersect
-
-        # No combinations above minimum support were generated
-        if len(next_k_itemset_tid_dict) == 0:
-            break
-        full_itemset_tid_dict.update(next_k_itemset_tid_dict)
-        k_itemset_tid_dict = next_k_itemset_tid_dict.copy()
-        k += 1
-    return full_itemset_tid_dict
-"""
 
 # TODO: helpful possibly but not needed for eclat
 def create_k_itemsets(itemset_tid_dict):
@@ -395,24 +334,39 @@ def create_k_itemsets(itemset_tid_dict):
     return k_itemsets
 
 
-# Generate itemset to association rules dict
-#     key = itemset tuple
-#     value = list of tuples, each tuple being association rule of form (A,C)
-def create_itemset_rule_dict(itemset_rule_dict, itemset_tid_dict):
-    assoc_rule_lst = []
-    for key,value in itemset_tid_dict.items():
-        itemset = key
-        for i in range (1, len(itemset)):
-            comb = combinations(itemset,i)
-            list_combo = list(comb)
-            for j in range(0, len(list_combo)):
-                antecedent = list_combo[j] # tuple
-                consequent = set(itemset) - set(list_combo[j])
-                consequent = tuple(consequent)
-                temp_tuple = (antecedent,consequent)
-                assoc_rule_lst.append(temp_tuple)
-        itemset_rule_dict[itemset] =  assoc_rule_lst
-        assoc_rule_lst = []
+def create_itemset_rule_dict(itemset_tid_dict):
+    """ Create association rules from frequent itemsets
+
+    :param itemset_tid_dict: Key of itemset, val of tidset
+    :type itemset_tid_dict: dict
+    :return: Key of itemset tuple, val of list of rules, rule being of form
+        tuple (antecedent, consequent)
+        eg {('ham', 'whole milk'):
+            [({'ham'}, {'whole milk'}), ({'whole milk'}, {'ham'})], ... ,
+        ('soda', 'rolls/buns', 'whole milk'):
+            [({'soda'}, {'whole milk', 'rolls/buns'}),
+            ({'rolls/buns'}, {'soda', 'whole milk'}),
+            ({'whole milk'}, {'soda', 'rolls/buns'}),
+            ({'soda', 'rolls/buns'}, {'whole milk'}),
+            ({'soda', 'whole milk'}, {'rolls/buns'}),
+            ({'whole milk', 'rolls/buns'}, {'soda'})], ... }
+    :rtype: dict
+    """
+    itemset_rule_dict = dict()
+    for itemset, tidset in itemset_tid_dict.items():
+        if len(itemset) > 1:  # 1-itemset can't form a rule
+            rule_list = []
+            for i in range(1, len(itemset)):
+                # Find possible combinations
+                combs_list = list(combinations(itemset, i))
+                for j in range(0, len(combs_list)):
+                    antecedent = set(combs_list[j])
+                    # Itemset can be thought of set(A) + set(C)
+                    # So we can use some set math to isolate consequent
+                    consequent = set(itemset) - set(combs_list[j])
+                    rule = (antecedent, consequent)
+                    rule_list.append(rule)
+            itemset_rule_dict[itemset] = rule_list
     return itemset_rule_dict
 
 
@@ -425,48 +379,50 @@ def create_rule_stat_dict(itemset_tid_dict, itemset_rule_dict, constraints,
     min_confidence = constraints[1]
     min_lift = constraints[2]
     rule_stat_dict = dict()
-    for key,value in itemset_rule_dict.items():
-        support_a_c = len(itemset_tid_dict[key])/num_transactions
+    for key, value in itemset_rule_dict.items():
+        support_a_c = len(itemset_tid_dict[key]) / num_transactions
         for i in range(0, len(value)):
             assoc_rule = value[i]
             antecedent = assoc_rule[0]
             consequent = assoc_rule[1]
             if (len(antecedent) == 1):
-                antecedent = antecedent[0] # turn single tuple into just item
+                antecedent = antecedent[0]  # turn single tuple into just item
             if (len(consequent) == 1):
-                consequent = consequent[0] # turn single tuple into just item
+                consequent = consequent[0]  # turn single tuple into just item
             # rearrange antecedent until it gets a match in itemset_tid_dict
-            if(antecedent not in itemset_tid_dict):
-                perm = permutations(antecedent,len(antecedent))
+            if (antecedent not in itemset_tid_dict):
+                perm = permutations(antecedent, len(antecedent))
                 list_perm = list(perm)
                 for p in list_perm:
-                    if(p in itemset_tid_dict):
+                    if (p in itemset_tid_dict):
                         support_a = len(itemset_tid_dict[p]) / num_transactions
                         break
             else:
-                support_a = len(itemset_tid_dict[antecedent]) / num_transactions
+                support_a = len(
+                    itemset_tid_dict[antecedent]) / num_transactions
             # rearrange consequent until it gets a match in itemset_tid_dict
-            if(consequent not in itemset_tid_dict):
-                perm = permutations(consequent,len(consequent))
+            if (consequent not in itemset_tid_dict):
+                perm = permutations(consequent, len(consequent))
                 list_perm = list(perm)
                 for p in list_perm:
-                    if(p in itemset_tid_dict):
+                    if (p in itemset_tid_dict):
                         support_c = len(itemset_tid_dict[p]) / num_transactions
                         break
             else:
-                support_c = len(itemset_tid_dict[consequent]) / num_transactions
-            confidence_a_c = support_a_c/support_a
-            lift_a_c = confidence_a_c/support_c
+                support_c = len(
+                    itemset_tid_dict[consequent]) / num_transactions
+            confidence_a_c = support_a_c / support_a
+            lift_a_c = confidence_a_c / support_c
             # prune out rules below mins
-            if ( (confidence_a_c < min_confidence ) | (lift_a_c < min_lift)):
+            if ((confidence_a_c < min_confidence) | (lift_a_c < min_lift)):
                 continue
             # round off
-            support_a_c = round(support_a_c,4)
-            confidence_a_c = round(confidence_a_c,4)
+            support_a_c = round(support_a_c, 4)
+            confidence_a_c = round(confidence_a_c, 4)
             lift_a_c = round(lift_a_c, 4)
-            rule_stat_dict[assoc_rule] = [support_a_c,confidence_a_c,lift_a_c]
+            rule_stat_dict[assoc_rule] = [support_a_c, confidence_a_c,
+                                          lift_a_c]
     return rule_stat_dict
-
 
 
 def write_rule_stat_dict(filename, rule_stat_dict):
@@ -486,7 +442,7 @@ def write_rule_stat_dict(filename, rule_stat_dict):
     csv_lst = sorted(csv_lst, key=operator.itemgetter(4), reverse=True)
     # Sort itemset size
     csv_lst = sorted(csv_lst, key=operator.itemgetter(0), reverse=True)
-    with open(filename, 'w',  newline='') as csvfile:
+    with open(filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(first_row)
         for row in csv_lst:
@@ -532,13 +488,13 @@ def main():
     """
     
     """
-    # itemset_rule_dict = create_itemset_rule_dict(dict(),
-    #                                             itemset_tid_dict)
+    itemset_rule_dict = create_itemset_rule_dict(itemset_tid_dict)
+    write_csv(folder_path, 'itemset_rule_dict.csv', itemset_rule_dict)
 
     """
     
     """
-    #rule_stat_dict = create_rule_stat_dict(
+    # rule_stat_dict = create_rule_stat_dict(
     #    itemset_tid_dict, itemset_rule_dict, constraints,
     #    len(transactions_itemsets))
 
