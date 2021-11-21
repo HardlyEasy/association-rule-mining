@@ -5,22 +5,21 @@ import time
 from datetime import datetime
 from itertools import combinations
 
-CSV_FILENAME = 'grocery_data.csv'  # place csv in same directory as py file
-RESULT_FOLDER = 'results'  # place folder in same directory as py file
-DEV_FOLDER = 'dev'
+CSV_FILENAME = 'grocery_data.csv'  # needs csv in same directory as py file
+RESULT_FOLDER = 'results'  # will create folder in same directory as py file
+DEV_FOLDER = 'dev'  # will create folder in same directory as py file
 
 
 def prompt_constraints():
     """ Prompts user for constraints of min support, min confidence and min
-    lift. Min support is used for frequent itemset generation by ECLAT.
-    Min confidence and min lift is used for association rule filtering.
+    lift
 
     :return: tuple (min_support, min_confidence, min_lift)
     :rtype: (int, float, float)
     """
     min_support = int(input('Enter minimum support (int): '))
-    min_confidence = float(input('Enter minimum confidence (float): '))
-    min_lift = float(input('Enter minimum lift (float): '))
+    min_confidence = float(input('Enter minimum confidence(A->C) (float): '))
+    min_lift = float(input('Enter minimum lift(A->C) (float): '))
     return min_support, min_confidence, min_lift
 
 
@@ -46,12 +45,11 @@ def read_csv(csv_filename):
 def sort_csv_data(csv_data):
     """ Sorts csv data in priority of member id, then date, then item name
 
-    :param csv_data: A list of lists with customer number, date, and item name
-        eg [ ['1808', '21-07-2015', 'tropical fruit'],
+    :param csv_data: eg [ ['1808', '21-07-2015', 'tropical fruit'],
         ['2552', '05-01-2015', 'whole milk'], ... ]
     :type csv_data: list
-    :return: A list of the same csv data, but now sorted by grocery item,
-        then date, then member number
+    :return: Same as input param except sorted by grocery item, then date,
+        then member number
     :rtype: list
     """
     # Sort by grocery item
@@ -105,7 +103,8 @@ def create_transactions(csv_data):
         eg [ ['1808,21-07-2015', 'tropical fruit'],
         ['2552', '05-01-2015', 'whole milk'], ... ]
     :type csv_data: list
-    :return: List containing lists of transaction
+    :return: List of transactions
+        A transaction being all items with matching customer number and date
         eg [ ['pip fruit','yogurt'], ... ]
     :rtype: list
     """
@@ -124,8 +123,8 @@ def create_verbose_trans_list(csv_data):
     """ Helper for create_transactions()
 
     :param csv_data: create_transactions() passes param
-    :return:
-        eg [ [member_number, date, num_items, item1, item1, item2, ... ], ... ]
+    :return: eg [ [member_number, date, num_items, item1, item1, item2, ... ]
+        , ... ]
     :rtype: list
     """
     verbose_trans_list = []
@@ -177,7 +176,7 @@ def filter_verbose_trans_list(verbose_trans_list):
     return verbose_trans_no_duplicates
 
 
-def create_item_tid_dict(trans):
+def create_item_tidset_dict(trans):
     """ Creates and returns a item to tidset dict
 
     :param trans: List containing lists of transaction
@@ -187,21 +186,20 @@ def create_item_tid_dict(trans):
         eg { 'soda': {2, 6, ...}, ... }
     :rtype: dict
     """
-    item_tid_dict = dict()
+    item_tidset_dict = dict()
     for tid in range(0, len(trans)):
         an_itemset = trans[tid]  # eg ['pastry','salty snack','whole milk']
         for i in range(0, len(an_itemset)):
             item = an_itemset[i]
-            if item not in item_tid_dict:
-                item_tid_dict[item] = {tid}
+            if item not in item_tidset_dict:
+                item_tidset_dict[item] = {tid}
             else:  # add onto existing key
-                item_tid_dict[item].add(tid)
-    return item_tid_dict
+                item_tidset_dict[item].add(tid)
+    return item_tidset_dict
 
 
-def create_itemset_tid_dict(item_tidset_dict, min_support):
-    """ dependent on create_combs(),
-    create_next_k_itemset_tid_dict()
+def create_itemset_tidset_dict(item_tidset_dict, min_support):
+    """ dependent on create_combs(), create_next_k_itemset_tid_dict()
     Creates dictionary with keys of frequent itemsets and vals of tidsets
     associated with frequent itemsets
 
@@ -336,7 +334,7 @@ def create_itemset_rule_dict(itemset_tid_dict):
     :return: Key of itemset tuple, val of list of rules, rule being of form
         tuple (antecedent, consequent)
         eg {('ham', 'whole milk'):
-            [({'ham'}, {'whole milk'}), ({'whole milk'}, {'ham'})], ... ,
+            [({'ham'}, {'whole milk'}), ({'whole milk'}, {'ham'}), ...] }
         ('soda', 'rolls/buns', 'whole milk'):
             [({'soda'}, {'whole milk', 'rolls/buns'}),
             ({'rolls/buns'}, {'soda', 'whole milk'}),
@@ -364,11 +362,24 @@ def create_itemset_rule_dict(itemset_tid_dict):
     return itemset_rule_dict
 
 
-# Generate association rule to statistics dictionary
-#   key = tuple of form (A,C)
-#   value = tuple of form (support(A->C),confidence(A->C),lift(A->C))
 def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
                           constraints, num_trans):
+    """ Dependent on find_intersection()
+
+    :param item_tidset_dict:
+    :type item_tidset_dict: dict
+    :param itemset_rule_dict:
+    :type itemset_rule_dict: dict
+    :param constraints: Tuple (min_support, min_confidence, min_lift)
+    :type constraints: tuple
+    :param num_trans: Length of transactions list
+    :type num_trans: int
+    :return: format `{(antecedent_tuple, consequent_tuple):
+        (support, confidence, lift), ...}`
+        eg {(('frankfurter',), ('other vegetables',)):
+        (0.0051, 0.1363, 1.1163), ...}
+    :rtype: dict
+    """
     min_supp = constraints[0] / num_trans
     min_conf = constraints[1]
     min_lift = constraints[2]
@@ -385,10 +396,10 @@ def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
             num_cons = len(cons_tidset)
             num_joined = len(joined_tidset)
             supp = num_joined / num_trans
-            supp = round(supp, 4)
             conf = num_joined / num_ante
-            conf = round(conf, 4)
             lift = conf / (num_cons / num_trans)
+            supp = round(supp, 4)
+            conf = round(conf, 4)
             lift = round(lift, 4)
             if supp >= min_supp and conf >= min_conf and lift >= min_lift:
                 rule_stat_dict[(tuple(ante), tuple(cons))] = (supp, conf, lift)
@@ -396,6 +407,15 @@ def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
 
 
 def find_intersection(itemset, item_tidset_dict):
+    """ Helper for create_rule_stat_dict()
+
+    :param itemset:
+    :type itemset: set
+    :param item_tidset_dict:
+    :type item_tidset_dict: dict
+    :return: tidset containing all tids where itemset can be found
+    :rtype: set
+    """
     inter_tidset = set()
     for item in itemset:
         tidset = item_tidset_dict[item]
@@ -407,6 +427,13 @@ def find_intersection(itemset, item_tidset_dict):
 
 
 def create_rule_stat_list(rule_stat_dict):
+    """ Creates a pretty list to be written on csv file our final results
+
+    :param rule_stat_dict:
+    :type rule_stat_dict: dict
+    :return:
+    :rtype: list
+    """
     rule_stat_list = []
     for rule, stat in rule_stat_dict.items():
         ante, cons = rule[0], rule[1]
@@ -414,13 +441,20 @@ def create_rule_stat_list(rule_stat_dict):
         k = len(ante) + len(cons)
         rule_stat_list.append([k, len(ante), ante, len(cons), cons,
                                supp, conf, lift])
+    # Sort by lift
+    rule_stat_list = sorted(rule_stat_list, key=operator.itemgetter(7))
+    # Sort by k size
+    rule_stat_list = sorted(rule_stat_list, key=operator.itemgetter(0))
     return rule_stat_list
 
 
 def main():
+    # min_support, min_confidence, min_lift = (15, .10, 1.00)
+    # constraints = (min_support, min_confidence, min_lift)
+    constraints = prompt_constraints()
     start_time = time.time()
-    min_support, min_confidence, min_lift = (15, .10, 1.05)
-    constraints = (min_support, min_confidence, min_lift)
+    min_support, min_confidence, min_lift = \
+        constraints[0], constraints[1], constraints[2]
     dev_path = os.path.join(os.getcwd(), DEV_FOLDER)
     result_path = os.path.join(os.getcwd(), RESULT_FOLDER)
 
@@ -437,41 +471,43 @@ def main():
     where each transaction is [member_number, date, num_items, item_name1, ...]
     """
     trans = create_transactions(sorted_csv_data)
-    write_csv(dev_path, 'trans.csv', trans)
+    write_csv(dev_path, '1_trans.csv', trans)
 
     """ Make single item to tidset dictionary, we will reference this a lot
     # eg { 'pastry': {0, 4096, ... }, 'whole milk': {0, 1, ...}, ... }
     """
-    item_tidset_dict = create_item_tid_dict(trans)
-    write_csv(dev_path, 'item_tidset_dict.csv', item_tidset_dict)
+    item_tidset_dict = create_item_tidset_dict(trans)
+    write_csv(dev_path, '2_item_tidset_dict.csv', item_tidset_dict)
 
     """ Map all combinations of item sets to transaction id (tid) sets
     tids match the indexes where you can find item set in itemsets list
     eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
     """
-    itemset_tid_dict = create_itemset_tid_dict(item_tidset_dict, min_support)
-    write_csv(dev_path, 'itemset_tid_dict.csv', itemset_tid_dict)
+    itemset_tidset_dict = create_itemset_tidset_dict(item_tidset_dict,
+                                                     min_support)
+    write_csv(dev_path, '3_itemset_tidset_dict.csv', itemset_tidset_dict)
 
     """ Make list with k, k-item set, and support
     eg [ [1, 'whole milk', 2363], ... , 
     [2, ('rice', 'rolls/buns'), 5], ... ]
     """
-    k_itemsets = create_k_itemsets(itemset_tid_dict)
-    write_csv(dev_path, 'k_itemsets.csv', k_itemsets,
+    k_itemsets = create_k_itemsets(itemset_tidset_dict)
+    write_csv(dev_path, '4_k_itemsets.csv', k_itemsets,
               ['k', 'k-item set', 'Number of occurrences'])
+
     """
     
     """
-    itemset_rule_dict = create_itemset_rule_dict(itemset_tid_dict)
-    write_csv(dev_path, 'itemset_rule_dict.csv', itemset_rule_dict)
+    itemset_rule_dict = create_itemset_rule_dict(itemset_tidset_dict)
+    write_csv(dev_path, '5_itemset_rule_dict.csv', itemset_rule_dict)
 
     """
     
     """
     rule_stat_dict = create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
                                            constraints, len(trans))
-    write_csv(dev_path, 'rule_stat_dict.csv', rule_stat_dict)
+    write_csv(dev_path, '6_rule_stat_dict.csv', rule_stat_dict)
 
     rule_stat_list = create_rule_stat_list(rule_stat_dict)
     write_csv(result_path, 'rule_stat_list.csv', rule_stat_list,
