@@ -1,0 +1,27 @@
+Size(A+C),Size(A),Antecedent,Size(C),Consequent,Support(A->C),Confidence(A->C),Lift(A->C)
+2,1,"('flour',)",1,"('tropical fruit',)",0.0011,0.1096,1.6173
+2,1,"('chewing gum',)",1,"('yogurt',)",0.0014,0.1167,1.3589
+2,1,"('processed cheese',)",1,"('root vegetables',)",0.0011,0.1053,1.5135
+2,1,"('semi-finished bread',)",1,"('whole milk',)",0.0017,0.1761,1.1151
+2,1,"('packaged fruit/vegetables',)",1,"('rolls/buns',)",0.0012,0.1417,1.2881
+2,1,"('chocolate',)",1,"('rolls/buns',)",0.0028,0.119,1.0818
+2,1,"('soft cheese',)",1,"('yogurt',)",0.0013,0.1267,1.4753
+2,1,"('detergent',)",1,"('yogurt',)",0.0011,0.124,1.4439
+2,1,"('processed cheese',)",1,"('rolls/buns',)",0.0015,0.1447,1.3154
+2,1,"('oil',)",1,"('soda',)",0.0018,0.1211,1.2471
+2,1,"('beverages',)",1,"('soda',)",0.0019,0.1129,1.1626
+2,1,"('red/blush wine',)",1,"('rolls/buns',)",0.0013,0.1274,1.1581
+2,1,"('frankfurter',)",1,"('other vegetables',)",0.0051,0.1363,1.1163
+2,1,"('herbs',)",1,"('yogurt',)",0.0011,0.1076,1.2529
+3,2,"('soda', 'other vegetables')",1,"('rolls/buns',)",0.0011,0.1172,1.0654
+3,2,"('rolls/buns', 'other vegetables')",1,"('soda',)",0.0011,0.1076,1.1081
+3,2,"('rolls/buns', 'soda')",1,"('other vegetables',)",0.0011,0.1405,1.1507
+3,2,"('sausage', 'whole milk')",1,"('soda',)",0.0011,0.1194,1.2296
+3,2,"('sausage', 'soda')",1,"('whole milk',)",0.0011,0.1798,1.1385
+3,2,"('sausage', 'whole milk')",1,"('rolls/buns',)",0.0011,0.1269,1.1536
+3,2,"('sausage', 'rolls/buns')",1,"('whole milk',)",0.0011,0.2125,1.3456
+3,2,"('sausage', 'whole milk')",1,"('yogurt',)",0.0015,0.1642,1.912
+3,2,"('yogurt', 'whole milk')",1,"('sausage',)",0.0015,0.1317,2.1823
+3,2,"('sausage', 'yogurt')",1,"('whole milk',)",0.0015,0.2558,1.6198
+3,2,"('yogurt', 'whole milk')",1,"('rolls/buns',)",0.0013,0.1198,1.089
+3,2,"('rolls/buns', 'yogurt')",1,"('whole milk',)",0.0013,0.1709,1.0822
