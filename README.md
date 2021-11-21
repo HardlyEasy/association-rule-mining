@@ -4,18 +4,6 @@ Association rule mining is divided into two steps:
 1) Itemset generation (there are various algorithms for this)
 2) Rule generation
 
-Support measures how frequent an itemset is in all transactions.
-Association rules with low support should be ignored, since there
-it does not occur frequently enough to draw any conclusions from.
-
-Confidence measures likelihood of occurrence of consequent being on shopping
-cart given that customer already has antecedent on shopping cart.
-
-Lift is greater than 1 in cases where antecedent leads to consequent.
-The higher the value of lift above 1, the greater chances that customer
-will buy consequent if they have already bought antecedent.
-Lift is the most important for product placement.
-
 # Program Guide
 This Python program contains an implementation of the ECLAT
 (Equivalence Class Clustering and Bottom-Up Lattice Traversal) algorithm for
@@ -27,6 +15,22 @@ itemsets.
 
 `results` folder contains association rules, filtered by minimum confidence
 and minimum lift
+
+## Support, confidence, lift
+Keep the information below in mind when prompted for min support,
+min confidence(A->C), and min lift(A->C).
+
+Support measures how frequent an itemset is in all transactions.
+Association rules with low support should be ignored, since there
+it does not occur frequently enough to draw any conclusions from.
+
+Confidence measures likelihood of occurrence of consequent being on shopping
+cart given that customer already has antecedent on shopping cart.
+
+Lift is greater than 1 in cases where antecedent leads to consequent.
+The higher the value of lift above 1, the greater chances that customer
+will buy consequent if they have already bought antecedent.
+Lift is the most important for product placement.
 
 ## Example
 `dev` and `results` folder have output when running program with minimum
@@ -42,7 +46,7 @@ End of program.
 ```
 Below is portion of association rule data in csv file in `results` folder:
 
-|Antecedent|Consequent|Support(A->C|Confidence(A->C)|Lift(A->C) |
+|Antecedent|Consequent|Support(A->C)|Confidence(A->C)|Lift(A->C) |
 |:----:|----|----|----|----|
 |('flour',)|('tropical fruit',)|0.0011|0.1096|1.6171|
 |('whole milk', 'yogurt')|('sausage',)|0.0015|0.1317|2.1829
