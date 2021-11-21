@@ -4,6 +4,14 @@ Association rule mining is divided into two steps:
 1) Itemset generation (there are various algorithms for this)
 2) Rule generation
 
+Association rules can be used to determine how likely a customer is 
+to have a consequent item in a cart given that the antecedent is in the cart.
+So, in simpler terms, if a customer has milk in their cart, then an
+association rule could tell us how likely a customer will put eggs in their
+shopping cart. For this reason, association rule mining is often done on 
+shopping data so that store managers can create better product 
+placement and deals.
+
 # Program Guide
 This Python program contains an implementation of the ECLAT
 (Equivalence Class Clustering and Bottom-Up Lattice Traversal) algorithm for
