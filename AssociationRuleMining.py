@@ -24,13 +24,11 @@ def prompt_constraints():
 
 
 def read_csv(csv_filename):
-    """ Reads a csv file and returns csv data list ,csv data list elements are
-    lists representing data in each row
+    """ Reads CSV file, returns list with row data in lists
 
     :param csv_filename: eg 'filename.csv'
     :type csv_filename: str
-    :return: A list with each element being another list with row data in it
-        eg [ [row1col1, row1col2, ...], [row2col1, row2col2, ...], ... ]
+    :return: eg [ ['1808', '21-07-2015', 'tropical fruit'], ... ]
     :rtype: list
     """
     csv_data = []
@@ -43,13 +41,11 @@ def read_csv(csv_filename):
 
 
 def sort_csv_data(csv_data):
-    """ Sorts csv data in priority of member id, then date, then item name
+    """ Sorts csv data in priority of item name, date, member number
 
-    :param csv_data: eg [ ['1808', '21-07-2015', 'tropical fruit'],
-        ['2552', '05-01-2015', 'whole milk'], ... ]
+    :param csv_data: eg [ ['1808', '21-07-2015', 'tropical fruit'], ... ]
     :type csv_data: list
-    :return: Same as input param except sorted by grocery item, then date,
-        then member number
+    :return: Identical to input param, but now sorted
     :rtype: list
     """
     # Sort by grocery item
@@ -62,7 +58,7 @@ def sort_csv_data(csv_data):
 
 
 def write_csv(folder_path, filename, data, header=None):
-    """ Writes data in a list or dict to a csv file on computer
+    """ Writes contents of a list or dict to a csv file on computer
     In case of list, each inner list represents a row
     In case of dict, keys go on col1 and vals go on col2
 
@@ -70,7 +66,7 @@ def write_csv(folder_path, filename, data, header=None):
     :type folder_path: str
     :param filename: Filename of csv file you want written
     :type filename: str
-    :param data:
+    :param data: Either a list or dict
     :type data: list or dict
     :param header: The first row
     :type header: list, optional
@@ -100,8 +96,7 @@ def create_transactions(csv_data):
     [ [item1, item2, ...], ...]
 
     :param csv_data: List containing csv data, 1 item per row
-        eg [ ['1808,21-07-2015', 'tropical fruit'],
-        ['2552', '05-01-2015', 'whole milk'], ... ]
+        eg [ ['1808,21-07-2015', 'tropical fruit'], ... ]
     :type csv_data: list
     :return: List of transactions
         A transaction being all items with matching customer number and date
@@ -123,8 +118,8 @@ def create_verbose_trans_list(csv_data):
     """ Helper for create_transactions()
 
     :param csv_data: create_transactions() passes param
-    :return: eg [ [member_number, date, num_items, item1, item1, item2, ... ]
-        , ... ]
+    :type csv_data: list
+    :return: eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
     :rtype: list
     """
     verbose_trans_list = []
@@ -179,7 +174,7 @@ def filter_verbose_trans_list(verbose_trans_list):
 def create_item_tidset_dict(trans):
     """ Creates and returns a item to tidset dict
 
-    :param trans: List containing lists of transaction
+    :param trans: List of transactions
         eg [ ['soda', 'whole milk'], ... ]
     :type trans: list
     :return: Key of single item, val of tidset
@@ -296,12 +291,12 @@ def create_next_k_itemset_tid_dict(combs, item_tidset_dict, min_support):
     return next_k_itemset_tid_dict
 
 
-# TODO: helpful possibly but not needed for eclat
+# TODO: Not needed for ECLAT nor association rule generation, useful for graphs
 def create_k_itemsets(itemset_tid_dict):
     """ Returns a list containing lists with k, k-item set, and number of
     occurrences of k-item set
 
-    :param itemset_tid_dict: Item set to tid dictionary
+    :param itemset_tid_dict: Itemset to tidset dictionary
         eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
         ('detergent', 'pork'): {196, 14397, 4486}, ... }
     :type itemset_tid_dict: dict
@@ -326,13 +321,12 @@ def create_k_itemsets(itemset_tid_dict):
     return k_itemsets
 
 
-def create_itemset_rule_dict(itemset_tid_dict):
+def create_itemset_rule_dict(itemset_tidset_dict):
     """ Create association rules from frequent itemsets
 
-    :param itemset_tid_dict: Key of itemset, val of tidset
-    :type itemset_tid_dict: dict
-    :return: Key of itemset tuple, val of list of rules, rule being of form
-        tuple (antecedent, consequent)
+    :param itemset_tidset_dict: Key of itemset, val of tidset
+    :type itemset_tidset_dict: dict
+    :return: Key of itemset tuple, val of list of rules
         eg {('ham', 'whole milk'):
             [({'ham'}, {'whole milk'}), ({'whole milk'}, {'ham'}), ...] }
         ('soda', 'rolls/buns', 'whole milk'):
@@ -345,7 +339,7 @@ def create_itemset_rule_dict(itemset_tid_dict):
     :rtype: dict
     """
     itemset_rule_dict = dict()
-    for itemset, tidset in itemset_tid_dict.items():
+    for itemset, tidset in itemset_tidset_dict.items():
         if len(itemset) > 1:  # 1-itemset can't form a rule
             rule_list = []
             for i in range(1, len(itemset)):
@@ -366,16 +360,16 @@ def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
                           constraints, num_trans):
     """ Dependent on find_intersection()
 
-    :param item_tidset_dict:
+    :param item_tidset_dict: Single item to tidset dictionary
     :type item_tidset_dict: dict
-    :param itemset_rule_dict:
+    :param itemset_rule_dict: Frequent itemset to association rules dictionary
     :type itemset_rule_dict: dict
     :param constraints: Tuple (min_support, min_confidence, min_lift)
     :type constraints: tuple
     :param num_trans: Length of transactions list
     :type num_trans: int
-    :return: format `{(antecedent_tuple, consequent_tuple):
-        (support, confidence, lift), ...}`
+    :return: format {(antecedent_tuple, consequent_tuple):
+        (support, confidence, lift), ...}
         eg {(('frankfurter',), ('other vegetables',)):
         (0.0051, 0.1363, 1.1163), ...}
     :rtype: dict
@@ -411,7 +405,7 @@ def find_intersection(itemset, item_tidset_dict):
 
     :param itemset:
     :type itemset: set
-    :param item_tidset_dict:
+    :param item_tidset_dict: Single item to tidset dictionary
     :type item_tidset_dict: dict
     :return: tidset containing all tids where itemset can be found
     :rtype: set
@@ -429,9 +423,10 @@ def find_intersection(itemset, item_tidset_dict):
 def create_rule_stat_list(rule_stat_dict):
     """ Creates a pretty list to be written on csv file our final results
 
-    :param rule_stat_dict:
+    :param rule_stat_dict: Association rule to statistics dictionary
     :type rule_stat_dict: dict
-    :return:
+    :return: List with antecedent, consequent, and various rule statistics
+        to be written in a csv rule later, sorted by lift then k-size
     :rtype: list
     """
     rule_stat_list = []
@@ -458,57 +453,64 @@ def main():
     dev_path = os.path.join(os.getcwd(), DEV_FOLDER)
     result_path = os.path.join(os.getcwd(), RESULT_FOLDER)
 
-    """ Read CSV file data into a list and sort that list
-    a csv row should look like: 1808,21-07-2015,tropical fruit
-    There will be only one item per row
+    """ Read and sort CSV data in a list
+    eg [ ['1808', '21-07-2015', 'tropical fruit'], ... ]
     """
     csv_data = read_csv(CSV_FILENAME)
     csv_data = csv_data[1:]  # remove field name row
     sorted_csv_data = sort_csv_data(csv_data)
 
-    """ Store transaction data gathered from csv file
-    eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
-    where each transaction is [member_number, date, num_items, item_name1, ...]
+    """ Create transactions list 
+    Filters sorted_csv_data so items bought by same member number and
+    date are all grouped
+    eg [ ['pip fruit','yogurt'], ... ]
     """
     trans = create_transactions(sorted_csv_data)
     write_csv(dev_path, '1_trans.csv', trans)
 
-    """ Make single item to tidset dictionary, we will reference this a lot
-    # eg { 'pastry': {0, 4096, ... }, 'whole milk': {0, 1, ...}, ... }
+    """ Make single item to tidset dictionary
+    eg { 'pastry': {0, 4096, ... }, ... }
     """
     item_tidset_dict = create_item_tidset_dict(trans)
     write_csv(dev_path, '2_item_tidset_dict.csv', item_tidset_dict)
 
-    """ Map all combinations of item sets to transaction id (tid) sets
-    tids match the indexes where you can find item set in itemsets list
-    eg { 'rubbing alcohol': {5348, 13062, 14833, 7443, 6739},
-        ('detergent', 'pork'): {196, 14397, 4486}, ... }
+    """ From frequent itemsets, map all k-combinations to tidsets
+    eg { ('pastry',): {0, 4096, ...}, 
+    ('pastry', 'pork'): {11395, 5131, ...}, ... }
     """
     itemset_tidset_dict = create_itemset_tidset_dict(item_tidset_dict,
                                                      min_support)
     write_csv(dev_path, '3_itemset_tidset_dict.csv', itemset_tidset_dict)
 
-    """ Make list with k, k-item set, and support
-    eg [ [1, 'whole milk', 2363], ... , 
-    [2, ('rice', 'rolls/buns'), 5], ... ]
+    """ Make list with k, k-itemset combo, and number of occurrences
+    eg [ [1, ('whole milk',), 2363], ..., [2, ('rice', 'rolls/buns'), 5], ... ]
     """
     k_itemsets = create_k_itemsets(itemset_tidset_dict)
     write_csv(dev_path, '4_k_itemsets.csv', k_itemsets,
               ['k', 'k-item set', 'Number of occurrences'])
 
-    """
-    
+    """ Make dictionary with k-itemset combo to list of association rules
+    eg ('soda', 'whole milk', 'rolls/buns'): 
+    [ ({'soda'}, {'rolls/buns', 'whole milk'}), ... 
+    ({'soda', 'whole milk'}, {'rolls/buns'}), ... ]
     """
     itemset_rule_dict = create_itemset_rule_dict(itemset_tidset_dict)
     write_csv(dev_path, '5_itemset_rule_dict.csv', itemset_rule_dict)
 
-    """
-    
+    """ Make dictionary with rule to list containing statistics on rule
+    eg { (('frankfurter',), ('other vegetables',)): 
+    (0.0051, 0.1363, 1.1163), ... }
     """
     rule_stat_dict = create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
                                            constraints, len(trans))
     write_csv(dev_path, '6_rule_stat_dict.csv', rule_stat_dict)
 
+    """ Make a list containing rule information and statistics
+    format [ [itemset_size, ante_size, ante, cons_size, cons, support(A-C),
+    confidence(A->C), lift(A->C)], ... ]
+    eg [ [2, 1, ('citrus fruit',), 1, ('sausage',), 
+    0.001203, 0.0226, 0.3752], ...]
+    """
     rule_stat_list = create_rule_stat_list(rule_stat_dict)
     write_csv(result_path, 'rule_stat_list.csv', rule_stat_list,
               ['Size(A+C)', 'Size(A)', 'Antecedent',
