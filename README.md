@@ -56,8 +56,8 @@ Below is portion of association rule data in csv file in `results` folder:
 
 |Antecedent|Consequent|Support(A->C)|Confidence(A->C)|Lift(A->C) |
 |:----:|----|----|----|----|
-|('flour',)|('tropical fruit',)|0.0011|0.1096|1.6171|
-|('whole milk', 'yogurt')|('sausage',)|0.0015|0.1317|2.1829
+|('flour',)|('tropical fruit',)|0.001069|0.1096|1.6171|
+|('whole milk', 'yogurt')|('sausage',)|0.00147|0.1317|2.1829
 
 # Developer section
 

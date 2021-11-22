@@ -380,7 +380,6 @@ def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
         (0.0051, 0.1363, 1.1163), ...}
     :rtype: dict
     """
-    min_supp = constraints[0] / num_trans
     min_conf = constraints[1]
     min_lift = constraints[2]
     rule_stat_dict = dict()
@@ -398,11 +397,12 @@ def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
             supp = num_joined / num_trans
             conf = num_joined / num_ante
             lift = conf / (num_cons / num_trans)
-            supp = round(supp, 4)
-            conf = round(conf, 4)
-            lift = round(lift, 4)
-            if supp >= min_supp and conf >= min_conf and lift >= min_lift:
+            if conf >= min_conf and lift >= min_lift:
+                supp = round(supp, 6)
+                conf = round(conf, 4)
+                lift = round(lift, 4)
                 rule_stat_dict[(tuple(ante), tuple(cons))] = (supp, conf, lift)
+
     return rule_stat_dict
 
 
