@@ -4,173 +4,181 @@ import os
 import time
 from datetime import datetime
 from itertools import combinations
-
-CSV_FILENAME = 'grocery_data.csv'  # needs csv in same directory as py file
-RESULT_FOLDER = 'results'  # will create folder in same directory as py file
-DEV_FOLDER = 'dev'  # will create folder in same directory as py file
+from typing import *
 
 
-def prompt_constraints():
-    """ Prompts user for constraints of min support, min confidence and min
-    lift
-
-    :return: tuple (min_support, min_confidence, min_lift)
-    :rtype: (int, float, float)
-    """
-    min_support = int(input('Enter minimum support (int): '))
-    min_confidence = float(input('Enter minimum confidence(A->C) (float): '))
-    min_lift = float(input('Enter minimum lift(A->C) (float): '))
-    return min_support, min_confidence, min_lift
+# creates folders in same directory as py file
+DEV_FOLDER, RESULT_FOLDER = 'dev', 'results'
 
 
-def read_csv(csv_filename):
-    """ Reads CSV file, returns list with row data in lists
+class Model:
+    # must place csv file in same directory as py file
+    CSV_FILENAME = 'grocery_data.csv'
+    DEFAULT_CONSTRAINTS = [15, .10, 1.00]
 
-    :param csv_filename: eg 'filename.csv'
-    :type csv_filename: str
-    :return: eg [ ['1808', '21-07-2015', 'tropical fruit'], ... ]
-    :rtype: list
-    """
-    csv_data = []
-    with open(csv_filename, mode='r', encoding='latin1') as csvfile:
-        csv_reader = csv.reader(csvfile, dialect='excel', delimiter=',',
-                                quoting=csv.QUOTE_ALL)
-        for row in csv_reader:
-            csv_data.append(row)
-    return csv_data
-
-
-def sort_csv_data(csv_data):
-    """ Sorts csv data in priority of item name, date, member number
-
-    :param csv_data: eg [ ['1808', '21-07-2015', 'tropical fruit'], ... ]
-    :type csv_data: list
-    :return: Identical to input param, but now sorted
-    :rtype: list
-    """
-    # Sort by grocery item
-    temp1 = sorted(csv_data, key=operator.itemgetter(2))
-    # Sort by date
-    temp2 = sorted(temp1, key=lambda d: datetime.strptime(d[1], "%d-%m-%Y"))
-    # Sort by member number
-    sorted_csv_data = sorted(temp2, key=operator.itemgetter(0))
-    return sorted_csv_data
-
-
-def write_csv(folder_path, filename, data, header=None):
-    """ Writes contents of a list or dict to a csv file on computer
-    In case of list, each inner list represents a row
-    In case of dict, keys go on col1 and vals go on col2
-
-    :param folder_path: Full path to where you want csv file written
-    :type folder_path: str
-    :param filename: Filename of csv file you want written
-    :type filename: str
-    :param data: Either a list or dict
-    :type data: list or dict
-    :param header: The first row
-    :type header: list, optional
-    """
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path, exist_ok=True)  # create folder is not exists
-    write_path = os.path.join(folder_path, filename)
-    with open(write_path, 'w', newline='') as csv_file:
-        csv_writer = csv.writer(csv_file)
-        if header is not None:
-            csv_writer.writerow(header)  # write header
-        if type(data) == list:
-            csv_writer.writerows(data)
-        if type(data) == dict:
-            for i in data.items():
-                csv_writer.writerow(i)
-
-
-def create_transactions(csv_data):
-    """ Dependent on create_verbose_trans_list(), filter_verbose_trans_list()
-    1) Creates verbose transactions list
-    2) Removes all duplicate items from verbose transactions list
-    3) Strips all data besides item names, so now we have transactions list
-    a verbose transactions list looks like:
-    [ [member_number, date, num_items, item1, item1, item2, ... ], ... ]
-    a transactions list looks like :
-    [ [item1, item2, ...], ...]
-
-    :param csv_data: List containing csv data, 1 item per row
-        eg [ ['1808,21-07-2015', 'tropical fruit'], ... ]
-    :type csv_data: list
-    :return: List of transactions
-        A transaction being all items with matching customer number and date
-        eg [ ['pip fruit','yogurt'], ... ]
-    :rtype: list
-    """
-    # eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
-    verbose_trans_list = create_verbose_trans_list(csv_data)
-    # eg [ ['1702','12-01-2014','2','pip fruit','yogurt], ... ]
-    verbose_trans_list = filter_verbose_trans_list(verbose_trans_list)
-    # eg [ ['pip fruit','yogurt'], ... ]
-    transactions = []
-    for tran in verbose_trans_list:
-        transactions.append(tran[3:])
-    return transactions
-
-
-def create_verbose_trans_list(csv_data):
-    """ Helper for create_transactions()
-
-    :param csv_data: create_transactions() passes param
-    :type csv_data: list
-    :return: eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
-    :rtype: list
-    """
-    verbose_trans_list = []
-    trans = csv_data[0]  # first transaction to add csv items to
-    for i in range(1, len(csv_data)):
-        csv_number = csv_data[i][0]  # member number
-        csv_date = csv_data[i][1]
-        csv_item = csv_data[i][2]
-        trans_number = trans[0]
-        trans_date = trans[1]
-        # member id or date are different, so we add our built up transaction
-        # to transaction_list and create a new transaction that we can
-        # add csv_items onto
-        if (trans_number != csv_number) or (trans_date != csv_date):
-            num_items = len(trans) - 2
-            trans.insert(2, str(num_items))
-            verbose_trans_list.append(trans)
-            trans = [csv_number, csv_date, csv_item]
-        # member id and date are same, so add csv_item onto transaction
+    def __init__(self, *constraints: Tuple[int, float, float]):
+        # Blank constructor, resort to default
+        if len(constraints) == 0:
+            self.min_supp, self.min_conf, self.min_lift = \
+                self.DEFAULT_CONSTRAINTS
         else:
-            trans.append(csv_item)
-    num_items = len(trans) - 2
-    trans.insert(2, str(num_items))
-    verbose_trans_list.append(trans)
-    return verbose_trans_list
+            self.min_supp, self.min_conf, self.min_lift = constraints
+        self.csv_data = []
+
+    def set_constraints(self, constraints: Tuple[int, float, float]):
+        self.min_supp, self.min_conf, self.min_lift = constraints
+
+    def set_csv_data(self, csv_data: List[List[str]]):
+        self.csv_data = csv_data
+
+class View:
+    @staticmethod
+    def write_csv(folder_path, filename, data, header=None):
+        """ Writes contents of a list or dict to a csv file on computer
+        In case of list, each inner list represents a row
+        In case of dict, keys go on col1 and vals go on col2
+
+        :param folder_path: Full path to where you want csv file written
+        :type folder_path: str
+        :param filename: Filename of csv file you want written
+        :type filename: str
+        :param data: Either a list or dict
+        :type data: list or dict
+        :param header: The first row
+        :type header: list, optional
+        """
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path,
+                        exist_ok=True)  # create folder is not exists
+        write_path = os.path.join(folder_path, filename)
+        with open(write_path, 'w', newline='') as csv_file:
+            csv_writer = csv.writer(csv_file)
+            if header is not None:
+                csv_writer.writerow(header)  # write header
+            if type(data) == list:
+                csv_writer.writerows(data)
+            if type(data) == dict:
+                for i in data.items():
+                    csv_writer.writerow(i)
 
 
-def filter_verbose_trans_list(verbose_trans_list):
-    """ Helper for create_transactions()
-    Removes all duplicate grocery items in a verbose transactions list
+class PreController:
+    def __init__(self, model):
+        self.model = model
 
-    :param verbose_trans_list: List with transaction data, with duplicates
-        eg [ ['1702','12-01-2014','3','pip fruit','yogurt','yogurt'], ... ]
-    :type verbose_trans_list: list
-    :return: Same as input list, except duplicate items are now gone
-        eg [ ['1702','12-01-2014','2','pip fruit','yogurt'], ... ]
-    :rtype: list
-    """
-    verbose_trans_no_duplicates = []
-    for tran in verbose_trans_list:
-        itemset = list(set(tran[3:]))  # remove duplicates
-        # sort again (becomes unordered for some reason)
-        itemset = sorted(itemset)
-        new_transaction = tran[:3]
-        new_transaction.extend(itemset)
-        # set num items in itemset
-        new_transaction[2] = len(new_transaction) - 3
-        verbose_trans_no_duplicates.append(new_transaction)
-    return verbose_trans_no_duplicates
+    def run(self) -> List[List[str]]:
+        self.input_constraints()
+        self.read_csv_file()
+        self.sort_csv_data()
+        return self.create_trans()
+
+    def input_constraints(self):
+        """ Asks for and returns minimum support, confidence, lift
+        """
+        min_supp = int(input('Enter min support (int): '))
+        min_conf = float(input('Enter min confidence(A->C) (float): '))
+        min_lift = float(input('Enter min lift(A->C) (float): '))
+        constraints = (min_supp, min_conf, min_lift)
+        self.model.set_constraints(constraints)
+
+    def read_csv_file(self, csv_filename: str):
+        """Reads CSV file and returns list of lists, inner lists are rows
+        """
+        csv_data = []
+        with open(csv_filename, mode='r', encoding='latin1') as csvfile:
+            csv_reader = csv.reader(csvfile, dialect='excel', delimiter=',',
+                                    quoting=csv.QUOTE_ALL)
+            for row in csv_reader:
+                csv_data.append(row)
+        csv_data = csv_data[1:]  # remove field name row
+        self.model.set_csv_data(csv_data)
+
+    @staticmethod
+    def sort_csv_data(csv_data: List[List[str]]) -> List[List[str]]:
+        """Sorts CSV data
+        """
+        # Sort by grocery item
+        temp1 = sorted(csv_data, key=operator.itemgetter(2))
+        # Sort by date
+        temp2 = sorted(temp1,
+                       key=lambda d: datetime.strptime(d[1], "%d-%m-%Y"))
+        # Sort by member number
+        sorted_csv_data = sorted(temp2, key=operator.itemgetter(0))
+        return sorted_csv_data
+
+    @staticmethod
+    def create_trans(csv_data: List[List[str]]) -> List[List[str]]:
+        """
+        Dependent on create_verbose_trans_list(),
+        filter_verbose_trans_list()
+        1) Creates verbose transactions list
+        2) Removes all duplicate items from verbose transactions list
+        3) Strips all data besides item names, so now we have transactions list
+        a verbose transactions list looks like:
+        [ [member_number, date, num_items, item1, item1, item2, ... ], ... ]
+        a transactions list looks like :
+        [ [item1, item2, ...], ...]
+        """
+        # eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
+        verb_trans_list = PreController.create_verb_trans(csv_data)
+        # eg [ ['1702','12-01-2014','2','pip fruit','yogurt], ... ]
+        verb_trans_list = PreController.filter_verb_trans(verb_trans_list)
+        # eg [ ['pip fruit','yogurt'], ... ]
+        transactions = []
+        for trans in verb_trans_list:
+            transactions.append(trans[3:])
+        return transactions
+
+    @staticmethod
+    def create_verb_trans(csv_data: List[List[str]]) -> List[List[str]]:
+        """Iterates through csv_data and creates verbose transactions list
+        input eg [['1808','21-07-2015','tropical fruit'],...]
+        return eg [['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'],...]
+        """
+        verb_trans_list = []
+        trans = csv_data[0]  # first transaction to add csv items to
+        for i in range(0, len(csv_data)):
+            csv_number = csv_data[i][0]  # member number
+            csv_date = csv_data[i][1]
+            csv_item = csv_data[i][2]
+            trans_number = trans[0]
+            trans_date = trans[1]
+            # member id or date are different
+            # so we add our built up transaction to transaction_list
+            # and create a new transaction that we can add csv_items onto
+            if (trans_number != csv_number) or (trans_date != csv_date):
+                num_items = len(trans) - 2
+                trans.insert(2, str(num_items))
+                verb_trans_list.append(trans)
+                trans = [csv_number, csv_date, csv_item]
+            # member id and date are same, so add csv_item onto transaction
+            else:
+                trans.append(csv_item)
+        num_items = len(trans) - 2
+        trans.insert(2, str(num_items))
+        verb_trans_list.append(trans)
+        return verb_trans_list
+
+    @staticmethod
+    def filter_verb_trans(verb_trans_list: List[List[str]]) -> List[List[str]]:
+        """Removes duplicate grocery items from verbose transactions
+        input eg [['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'],...]
+        return eg [['1702','12-01-2014','2','pip fruit','yogurt],...]
+        """
+        filtered = []
+        for trans in verb_trans_list:
+            itemset = list(set(trans[3:]))  # remove duplicates
+            # sort again (becomes unordered for some reason)
+            itemset = sorted(itemset)
+            new_trans = trans[:3]
+            new_trans.extend(itemset)
+            # set num items in itemset
+            new_trans[2] = len(new_trans) - 3
+            filtered.append(new_trans)
+        return filtered
 
 
+# ECLAT
 def create_item_tidset_dict(trans):
     """ Creates and returns a item to tidset dict
 
@@ -193,6 +201,7 @@ def create_item_tidset_dict(trans):
     return item_tidset_dict
 
 
+# ECLAT
 def create_itemset_tidset_dict(item_tidset_dict, min_support):
     """ dependent on create_combs(), create_next_k_itemset_tid_dict()
     Creates dictionary with keys of frequent itemsets and vals of tidsets
@@ -235,6 +244,7 @@ def create_itemset_tidset_dict(item_tidset_dict, min_support):
     return full_itemset_tid_dict
 
 
+# ECLAT
 def create_combs(k, k_itemset_tidset_dict):
     """ helper for create_itemset_tid_dict()
     Create all possible combinations of k length from keys of itemsets
@@ -262,6 +272,7 @@ def create_combs(k, k_itemset_tidset_dict):
     return combs
 
 
+# ECLAT
 def create_next_k_itemset_tid_dict(combs, item_tidset_dict, min_support):
     """ helper for create_itemset_tid_dict()
     Uses combinations generated from current k itemset tidset dict to
@@ -291,6 +302,7 @@ def create_next_k_itemset_tid_dict(combs, item_tidset_dict, min_support):
     return next_k_itemset_tid_dict
 
 
+# ???
 # TODO: Not needed for ECLAT nor association rule generation, useful for graphs
 def create_k_itemsets(itemset_tid_dict):
     """ Returns a list containing lists with k, k-item set, and number of
@@ -321,6 +333,7 @@ def create_k_itemsets(itemset_tid_dict):
     return k_itemsets
 
 
+# Rule
 def create_itemset_rule_dict(itemset_tidset_dict):
     """ Create association rules from frequent itemsets
 
@@ -356,6 +369,7 @@ def create_itemset_rule_dict(itemset_tidset_dict):
     return itemset_rule_dict
 
 
+# Rule
 def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
                           constraints, num_trans):
     """ Dependent on find_intersection()
@@ -400,6 +414,7 @@ def create_rule_stat_dict(item_tidset_dict, itemset_rule_dict,
     return rule_stat_dict
 
 
+# Rule
 def find_intersection(itemset, item_tidset_dict):
     """ Helper for create_rule_stat_dict()
 
@@ -420,6 +435,7 @@ def find_intersection(itemset, item_tidset_dict):
     return inter_tidset
 
 
+# Rule
 def create_rule_stat_list(rule_stat_dict):
     """ Creates a pretty list to be written on csv file our final results
 
@@ -443,31 +459,16 @@ def create_rule_stat_list(rule_stat_dict):
     return rule_stat_list
 
 
-def main():
-    # min_support, min_confidence, min_lift = (15, .10, 1.00)
-    # constraints = (min_support, min_confidence, min_lift)
-    constraints = prompt_constraints()
-    start_time = time.time()
-    min_support, min_confidence, min_lift = \
-        constraints[0], constraints[1], constraints[2]
+def default():
+    default_model = Model()
+    pre_controller = PreController(default_model)
+
     dev_path = os.path.join(os.getcwd(), DEV_FOLDER)
     result_path = os.path.join(os.getcwd(), RESULT_FOLDER)
 
-    """ Read and sort CSV data in a list
-    eg [ ['1808', '21-07-2015', 'tropical fruit'], ... ]
-    """
-    csv_data = read_csv(CSV_FILENAME)
-    csv_data = csv_data[1:]  # remove field name row
-    sorted_csv_data = sort_csv_data(csv_data)
+    pre_controller.run()
 
-    """ Create transactions list 
-    Filters sorted_csv_data so items bought by same member number and
-    date are all grouped
-    eg [ ['pip fruit','yogurt'], ... ]
-    """
-    trans = create_transactions(sorted_csv_data)
-    write_csv(dev_path, '1_trans.csv', trans)
-
+    '''
     """ Make single item to tidset dictionary
     eg { 'pastry': {0, 4096, ... }, ... }
     """
@@ -520,6 +521,11 @@ def main():
     end_time = time.time()
     print(round(end_time - start_time, 2), ' seconds total runtime')
     print('End of program.')
+    '''
+
+
+def main():
+    default()
 
 
 if __name__ == '__main__':
