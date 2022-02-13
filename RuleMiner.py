@@ -1,14 +1,9 @@
 import csv
 import operator
 import os
-import time
 from datetime import datetime
 from itertools import combinations
 from typing import *
-
-
-# creates folders in same directory as py file
-DEV_FOLDER, RESULT_FOLDER = 'dev', 'results'
 
 
 class Model:
@@ -24,6 +19,9 @@ class Model:
         else:
             self.min_supp, self.min_conf, self.min_lift = constraints
         self.csv_data = []
+        self.trans = []  # transactions list
+        self.item_tidset_dict = dict()
+        self.itemset_tidset_dict = dict()
 
     def set_constraints(self, constraints: Tuple[int, float, float]):
         self.min_supp, self.min_conf, self.min_lift = constraints
@@ -31,26 +29,28 @@ class Model:
     def set_csv_data(self, csv_data: List[List[str]]):
         self.csv_data = csv_data
 
-class View:
-    @staticmethod
-    def write_csv(folder_path, filename, data, header=None):
-        """ Writes contents of a list or dict to a csv file on computer
-        In case of list, each inner list represents a row
-        In case of dict, keys go on col1 and vals go on col2
+    def set_trans(self, trans: List[List[str]]):
+        self.trans = trans
 
-        :param folder_path: Full path to where you want csv file written
-        :type folder_path: str
-        :param filename: Filename of csv file you want written
-        :type filename: str
-        :param data: Either a list or dict
-        :type data: list or dict
-        :param header: The first row
-        :type header: list, optional
+    def set_item_tidset_dict(self, item_tidset_dict: Dict):
+        self.item_tidset_dict = item_tidset_dict
+
+    def set_itemset_tidset_dict(self, itemset_tidset_dict: Dict):
+        self.itemset_tidset_dict = itemset_tidset_dict
+
+
+class View:
+    # creates folders in same directory as py file
+    RESULT_PATH = os.path.join(os.getcwd(), 'results')
+
+    def write_csv(self, out_filename: str, data: Union[List, Dict],
+                  header=None):
+        """Data from List or Dict gets written to CSV file
+        Folder created if not existing
         """
-        if not os.path.exists(folder_path):
-            os.makedirs(folder_path,
-                        exist_ok=True)  # create folder is not exists
-        write_path = os.path.join(folder_path, filename)
+        if not os.path.exists(self.RESULT_PATH):
+            os.makedirs(self.RESULT_PATH, exist_ok=True)
+        write_path = os.path.join(self.RESULT_PATH, out_filename)
         with open(write_path, 'w', newline='') as csv_file:
             csv_writer = csv.writer(csv_file)
             if header is not None:
@@ -63,14 +63,17 @@ class View:
 
 
 class PreController:
-    def __init__(self, model):
+    def __init__(self, model, view):
         self.model = model
+        self.view = view
 
     def run(self) -> List[List[str]]:
-        self.input_constraints()
+        # self.input_constraints()
         self.read_csv_file()
         self.sort_csv_data()
-        return self.create_trans()
+        self.create_trans()
+        self.view.write_csv('trans.csv', self.model.trans)
+        self.create_trans()
 
     def input_constraints(self):
         """ Asks for and returns minimum support, confidence, lift
@@ -81,92 +84,61 @@ class PreController:
         constraints = (min_supp, min_conf, min_lift)
         self.model.set_constraints(constraints)
 
-    def read_csv_file(self, csv_filename: str):
+    def read_csv_file(self):
         """Reads CSV file and returns list of lists, inner lists are rows
         """
         csv_data = []
-        with open(csv_filename, mode='r', encoding='latin1') as csvfile:
-            csv_reader = csv.reader(csvfile, dialect='excel', delimiter=',',
+        with open(self.model.CSV_FILENAME,
+                  mode='r', encoding='latin1') as csv_file:
+            csv_reader = csv.reader(csv_file, dialect='excel', delimiter=',',
                                     quoting=csv.QUOTE_ALL)
             for row in csv_reader:
                 csv_data.append(row)
         csv_data = csv_data[1:]  # remove field name row
         self.model.set_csv_data(csv_data)
 
-    @staticmethod
-    def sort_csv_data(csv_data: List[List[str]]) -> List[List[str]]:
+    def sort_csv_data(self) -> List[List[str]]:
         """Sorts CSV data
         """
         # Sort by grocery item
-        temp1 = sorted(csv_data, key=operator.itemgetter(2))
+        temp1 = sorted(self.model.csv_data, key=operator.itemgetter(2))
         # Sort by date
         temp2 = sorted(temp1,
                        key=lambda d: datetime.strptime(d[1], "%d-%m-%Y"))
         # Sort by member number
         sorted_csv_data = sorted(temp2, key=operator.itemgetter(0))
-        return sorted_csv_data
+        self.model.set_csv_data(sorted_csv_data)
 
-    @staticmethod
-    def create_trans(csv_data: List[List[str]]) -> List[List[str]]:
+    def create_trans(self):
+        """Creates and returns trimmed transactions list, 3 steps
+        1) Takes CSV data and squishes it into a unfiltered transactions list
+        2) Takes unfiltered transactions and removes duplicate items
+        3) Filters unnecessary fields and returns transactions list
         """
-        Dependent on create_verbose_trans_list(),
-        filter_verbose_trans_list()
-        1) Creates verbose transactions list
-        2) Removes all duplicate items from verbose transactions list
-        3) Strips all data besides item names, so now we have transactions list
-        a verbose transactions list looks like:
-        [ [member_number, date, num_items, item1, item1, item2, ... ], ... ]
-        a transactions list looks like :
-        [ [item1, item2, ...], ...]
-        """
-        # eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
-        verb_trans_list = PreController.create_verb_trans(csv_data)
-        # eg [ ['1702','12-01-2014','2','pip fruit','yogurt], ... ]
-        verb_trans_list = PreController.filter_verb_trans(verb_trans_list)
-        # eg [ ['pip fruit','yogurt'], ... ]
-        transactions = []
-        for trans in verb_trans_list:
-            transactions.append(trans[3:])
-        return transactions
-
-    @staticmethod
-    def create_verb_trans(csv_data: List[List[str]]) -> List[List[str]]:
-        """Iterates through csv_data and creates verbose transactions list
-        input eg [['1808','21-07-2015','tropical fruit'],...]
-        return eg [['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'],...]
-        """
-        verb_trans_list = []
-        trans = csv_data[0]  # first transaction to add csv items to
-        for i in range(0, len(csv_data)):
-            csv_number = csv_data[i][0]  # member number
-            csv_date = csv_data[i][1]
-            csv_item = csv_data[i][2]
-            trans_number = trans[0]
-            trans_date = trans[1]
+        unfiltered_trans = []
+        curr_trans = self.model.csv_data[0]
+        for i in range(0, len(self.model.csv_data)):
+            csv_number = self.model.csv_data[i][0]  # member number
+            csv_date = self.model.csv_data[i][1]
+            csv_item = self.model.csv_data[i][2]
+            trans_number = curr_trans[0]
+            trans_date = curr_trans[1]
             # member id or date are different
-            # so we add our built up transaction to transaction_list
-            # and create a new transaction that we can add csv_items onto
             if (trans_number != csv_number) or (trans_date != csv_date):
-                num_items = len(trans) - 2
-                trans.insert(2, str(num_items))
-                verb_trans_list.append(trans)
-                trans = [csv_number, csv_date, csv_item]
-            # member id and date are same, so add csv_item onto transaction
+                num_items = len(curr_trans) - 2
+                curr_trans.insert(2, str(num_items))
+                unfiltered_trans.append(curr_trans)
+                curr_trans = [csv_number, csv_date, csv_item]
+            # member id and date are same
             else:
-                trans.append(csv_item)
-        num_items = len(trans) - 2
-        trans.insert(2, str(num_items))
-        verb_trans_list.append(trans)
-        return verb_trans_list
+                curr_trans.append(csv_item)
+        num_items = len(curr_trans) - 2
+        curr_trans.insert(2, str(num_items))
+        unfiltered_trans.append(curr_trans)
+        # eg [ ['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'], ... ]
 
-    @staticmethod
-    def filter_verb_trans(verb_trans_list: List[List[str]]) -> List[List[str]]:
-        """Removes duplicate grocery items from verbose transactions
-        input eg [['1702','12-01-2014','3','pip fruit','yogurt,'yogurt'],...]
-        return eg [['1702','12-01-2014','2','pip fruit','yogurt],...]
-        """
-        filtered = []
-        for trans in verb_trans_list:
+        filtered_trans = []
+        for trans in unfiltered_trans:
             itemset = list(set(trans[3:]))  # remove duplicates
             # sort again (becomes unordered for some reason)
             itemset = sorted(itemset)
@@ -174,132 +146,131 @@ class PreController:
             new_trans.extend(itemset)
             # set num items in itemset
             new_trans[2] = len(new_trans) - 3
-            filtered.append(new_trans)
-        return filtered
+            filtered_trans.append(new_trans)
+        # eg [ ['1702','12-01-2014','2','pip fruit','yogurt], ... ]
+
+        trimmed_trans = []
+        for a_trans in filtered_trans:
+            trimmed_trans.append(a_trans[3:])
+        # eg [ ['pip fruit','yogurt'], ... ]
+        self.model.set_trans(trimmed_trans)
 
 
-# ECLAT
-def create_item_tidset_dict(trans):
-    """ Creates and returns a item to tidset dict
+class EclatController:
+    def __init__(self, model, view):
+        self.model = model
+        self.view = view
 
-    :param trans: List of transactions
-        eg [ ['soda', 'whole milk'], ... ]
-    :type trans: list
-    :return: Key of single item, val of tidset
-        eg { 'soda': {2, 6, ...}, ... }
-    :rtype: dict
-    """
-    item_tidset_dict = dict()
-    for tid in range(0, len(trans)):
-        an_itemset = trans[tid]  # eg ['pastry','salty snack','whole milk']
-        for i in range(0, len(an_itemset)):
-            item = an_itemset[i]
-            if item not in item_tidset_dict:
-                item_tidset_dict[item] = {tid}
-            else:  # add onto existing key
-                item_tidset_dict[item].add(tid)
-    return item_tidset_dict
+    def run(self):
+        pass
 
+    def create_item_tidset_dict(self):
+        """ Creates item to tidset dict
+        return eg, { 'soda': {2, 6, ...}, ... }
+        """
+        item_tidset_dict = dict()
+        for tid in range(0, len(self.model.trans)):
+            an_itemset = self.model.trans[tid]
+            for i in range(0, len(an_itemset)):
+                item = an_itemset[i]
+                if item not in item_tidset_dict:
+                    item_tidset_dict[item] = {tid}
+                else:  # add onto existing key
+                    item_tidset_dict[item].add(tid)
+        self.model.set_item_tidset_dict(item_tidset_dict)
 
-# ECLAT
-def create_itemset_tidset_dict(item_tidset_dict, min_support):
-    """ dependent on create_combs(), create_next_k_itemset_tid_dict()
-    Creates dictionary with keys of frequent itemsets and vals of tidsets
-    associated with frequent itemsets
+    def create_itemset_tidset_dict(self):
+        """ dependent on create_combs(), create_next_k_itemset_tid_dict()
+        Creates dictionary with keys of frequent itemsets and vals of tidsets
+        associated with frequent itemsets
 
-    :param item_tidset_dict:
-    :type item_tidset_dict: dict
-    :param min_support: If below minimum support, filter away
-    :type min_support: int
-    :return: Frequent itemset to tidset dictionary
-    :rtype: dict
-    """
-    # This holds k-itemset tidset dict that will be joined with return dict
-    # once we properly generate and filter it, filtering will be done by
-    # set intersection
-    k_itemset_tidset_dict = item_tidset_dict.copy()
-    k = 1
-    full_itemset_tid_dict = dict()  # return dictionary
+        :return: Frequent itemset to tidset dictionary
+        :rtype: dict
+        """
+        # This holds k-itemset tidset dict that will be joined with return dict
+        # once we properly generate and filter it, filtering will be done by
+        # set intersection
+        k_itemset_tidset_dict = self.model.item_tidset.copy()
+        k = 1
+        full_itemset_tid_dict = dict()  # return dictionary
 
-    while True:  # Loop until no more itemset-tidset pairs can be combined
-        # 1) Filter out entries below minimum support
-        k_itemset_tidset_dict = dict(
-            filter(
-                lambda entry: len(entry[1]) >= min_support,
-                k_itemset_tidset_dict.items()
+        while True:  # Loop until no more itemset-tidset pairs can be combined
+            # 1) Filter out entries below minimum support
+            k_itemset_tidset_dict = dict(
+                filter(
+                    lambda entry: len(entry[1]) >= self.model.min_support,
+                    k_itemset_tidset_dict.items()
+                )
             )
-        )
-        # 2) Create all itemset combinations
-        combs = create_combs(k, k_itemset_tidset_dict)
-        # 3) Generate next k itemset dictionary
-        next_k_itemset_tid_dict = create_next_k_itemset_tid_dict(
-            combs, item_tidset_dict, min_support)
+            # 2) Create all itemset combinations
+            combs = create_combs(k, k_itemset_tidset_dict)
+            # 3) Generate next k itemset dictionary
+            next_k_itemset_tid_dict = create_next_k_itemset_tid_dict(
+                combs, item_tidset_dict, min_support)
 
-        # No combinations above minimum support were generated
-        if len(next_k_itemset_tid_dict) == 0:
-            break
-        full_itemset_tid_dict.update(next_k_itemset_tid_dict)
-        k_itemset_tidset_dict = next_k_itemset_tid_dict.copy()
-        k += 1
-    return full_itemset_tid_dict
-
-
-# ECLAT
-def create_combs(k, k_itemset_tidset_dict):
-    """ helper for create_itemset_tid_dict()
-    Create all possible combinations of k length from keys of itemsets
-    in k_itemset_tidset_dict
-
-    :param k: Number of items in itemset
-    :type k: int
-    :param k_itemset_tidset_dict:
-        eg k=1 { 'soda': {2, 6, ...}, ... }
-        eg k>2 { ('beverages', 'soda'): {12038, 10125, ...}, ... }
-    :type k_itemset_tidset_dict: dict
-    :return: List of all possible combinations of items that can be made from
-        itemset keys
-    :rtype: list
-    """
-    if k == 1:
-        items_list = list(k_itemset_tidset_dict.keys())
-    else:
-        items_list = set()  # set ensures no repeat items
-        for itemset in k_itemset_tidset_dict.keys():
-            for item in itemset:
-                items_list.add(item)
-        items_list = list(items_list)
-    combs = list(combinations(items_list, k))
-    return combs
+            # No combinations above minimum support were generated
+            if len(next_k_itemset_tid_dict) == 0:
+                break
+            full_itemset_tid_dict.update(next_k_itemset_tid_dict)
+            k_itemset_tidset_dict = next_k_itemset_tid_dict.copy()
+            k += 1
+        return full_itemset_tid_dict
 
 
-# ECLAT
-def create_next_k_itemset_tid_dict(combs, item_tidset_dict, min_support):
-    """ helper for create_itemset_tid_dict()
-    Uses combinations generated from current k itemset tidset dict to
-    create next k itemset tidset dict
+    def create_combs(self, k, k_itemset_tidset_dict):
+        """ helper for create_itemset_tid_dict()
+        Create all possible combinations of k length from keys of itemsets
+        in k_itemset_tidset_dict
 
-    :param combs: List of all possible combinations of itemsets possible from
-        current k_itemset_tid_dict
-    :type combs: list
-    :param item_tidset_dict:
-    :type item_tidset_dict: dict
-    :param min_support: If tidset length below min support, filter it out
-    :type min_support: int
-    :return:
-    :rtype: dict
-    """
-    next_k_itemset_tid_dict = dict()
-    for a_comb in combs:
-        item0 = a_comb[0]  # first combination
-        # initialize tidset with first tidset
-        tidsets_intersect = item_tidset_dict[item0]
-        for i in range(1, len(a_comb)):
-            next_item = a_comb[i]
-            next_tidset = item_tidset_dict[next_item]
-            tidsets_intersect = tidsets_intersect.intersection(next_tidset)
-        if len(tidsets_intersect) >= min_support:
-            next_k_itemset_tid_dict[a_comb] = tidsets_intersect
-    return next_k_itemset_tid_dict
+        :param k: Number of items in itemset
+        :type k: int
+        :param k_itemset_tidset_dict:
+            eg k=1 { 'soda': {2, 6, ...}, ... }
+            eg k>2 { ('beverages', 'soda'): {12038, 10125, ...}, ... }
+        :type k_itemset_tidset_dict: dict
+        :return: List of all possible combinations of items that can be made from
+            itemset keys
+        :rtype: list
+        """
+        if k == 1:
+            items_list = list(k_itemset_tidset_dict.keys())
+        else:
+            items_list = set()  # set ensures no repeat items
+            for itemset in k_itemset_tidset_dict.keys():
+                for item in itemset:
+                    items_list.add(item)
+            items_list = list(items_list)
+        combs = list(combinations(items_list, k))
+        return combs
+
+
+    def create_next_k_itemset_tid_dict(combs, item_tidset_dict, min_support):
+        """ helper for create_itemset_tid_dict()
+        Uses combinations generated from current k itemset tidset dict to
+        create next k itemset tidset dict
+
+        :param combs: List of all possible combinations of itemsets possible from
+            current k_itemset_tid_dict
+        :type combs: list
+        :param item_tidset_dict:
+        :type item_tidset_dict: dict
+        :param min_support: If tidset length below min support, filter it out
+        :type min_support: int
+        :return:
+        :rtype: dict
+        """
+        next_k_itemset_tid_dict = dict()
+        for a_comb in combs:
+            item0 = a_comb[0]  # first combination
+            # initialize tidset with first tidset
+            tidsets_intersect = item_tidset_dict[item0]
+            for i in range(1, len(a_comb)):
+                next_item = a_comb[i]
+                next_tidset = item_tidset_dict[next_item]
+                tidsets_intersect = tidsets_intersect.intersection(next_tidset)
+            if len(tidsets_intersect) >= min_support:
+                next_k_itemset_tid_dict[a_comb] = tidsets_intersect
+        return next_k_itemset_tid_dict
 
 
 # ???
@@ -461,12 +432,12 @@ def create_rule_stat_list(rule_stat_dict):
 
 def default():
     default_model = Model()
-    pre_controller = PreController(default_model)
-
-    dev_path = os.path.join(os.getcwd(), DEV_FOLDER)
-    result_path = os.path.join(os.getcwd(), RESULT_FOLDER)
+    view = View()
+    pre_controller = PreController(default_model, view)
+    eclat_controller = EclatController(default_model, view)
 
     pre_controller.run()
+    eclat_controller.run()
 
     '''
     """ Make single item to tidset dictionary
