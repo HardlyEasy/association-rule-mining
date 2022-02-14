@@ -87,7 +87,7 @@ class PreController:
         self.model.set_constraints(constraints)
 
     def read_csv_file(self):
-        """Reads CSV file and returns list of lists, inner lists are rows
+        """Reads CSV file
         """
         csv_data = []
         with open(self.model.CSV_FILENAME,
@@ -172,8 +172,8 @@ class EclatController:
                             self.model.itemset_tidset_dict)
 
     def create_item_tidset_dict(self):
-        """ Creates item to tidset dict
-        return eg { 'soda': {2, 6, ...}, ... }
+        """Creates item to tidset dict
+        eg { 'soda': {2, 6, ...}, ... }
         """
         item_tidset_dict = dict()
         for tid in range(0, len(self.model.trans)):
@@ -187,66 +187,53 @@ class EclatController:
         self.model.set_item_tidset_dict(item_tidset_dict)
 
     def create_itemset_tidset_dict(self):
-        """ dependent on create_combs(), create_next_k_itemset_tid_dict()
-        Creates dictionary with keys of frequent itemsets and vals of tidsets
-        associated with frequent itemsets
-
-        :return: Frequent itemset to tidset dictionary
-        :rtype: dict
+        """Creates itemset to tidset dict
+        eg { 'pastry': {0, 4096, ...} ... ,
+            ('pastry', 'whole milk'): {0, 4096 ...} }
         """
-        itemset_tidset_dict = self.model.item_tidset_dict.copy()
-        k = 1
-        full_itemset_tid_dict = dict()  # return dictionary
+        # Hold only one k-length itemset, temporarily
+        k_itemset_tidset = self.model.item_tidset_dict.copy()
+        # Will hold all k-length itemsets
+        full_itemset_tidset = dict()
+        k = 2
 
-        while True:  # Loop until no more itemset-tidset pairs can be combined
-            # Filter out entries below minimum support
-            itemset_tidset_dict = dict(
+        while len(k_itemset_tidset) != 0:
+            # Filter entries below minimum support
+            k_itemset_tidset = dict(
                 filter(
                     lambda entry: len(entry[1]) >= self.model.min_supp,
-                    itemset_tidset_dict.items()
+                    k_itemset_tidset.items()
                 )
             )
-            # Create all itemset combinations
-            combs = self.find_combs(k, itemset_tidset_dict)
-            # 3) Generate next k itemset dictionary
-            next_itemset_tid_dict = self.create_next_k_itemset_tid_dict(
-                combs)
-
-            # No combinations above minimum support were generated
-            if len(next_itemset_tid_dict) == 0:
-                break
-            full_itemset_tid_dict.update(next_itemset_tid_dict)
-            itemset_tidset_dict = next_itemset_tid_dict.copy()
+            # Add k_itemset_tidset to return list
+            full_itemset_tidset.update(k_itemset_tidset)
+            # Create all poss k itemset combinations
+            combs = self.find_combs(k, k_itemset_tidset)
+            # Generate next k_itemset_tidset from combinations
+            k_itemset_tidset = self.find_k_itemset_tidset_dict(combs)
             k += 1
-        self.model.set_itemset_tidset_dict(full_itemset_tid_dict)
+        self.model.set_itemset_tidset_dict(full_itemset_tidset)
 
-    def find_combs(self, k, k_itemset_tidset_dict):
-        """ helper for create_itemset_tid_dict()
-        Finds all possible combinations of k length from keys of itemsets
-        in k_itemset_tidset_dict
-
-        :return: List of all possible combinations of items that can be made from
-            itemset keys
-        :rtype: list
+    def find_combs(self, k, k_itemset_tidset):
+        """Finds k-length combinations from k-length itemsets
+        eg [ ('item1', 'item2'), ...]
         """
-        if k == 1:
-            items_list = list(k_itemset_tidset_dict.keys())
+        if k == 2:
+            items_list = list(k_itemset_tidset.keys())
         else:
             items_list = set()  # set ensures no repeat items
-            for itemset in k_itemset_tidset_dict.keys():
+            for itemset in k_itemset_tidset.keys():
                 for item in itemset:
                     items_list.add(item)
             items_list = list(items_list)
         combs = list(combinations(items_list, k))
         return combs
 
-
-    def create_next_k_itemset_tid_dict(self, combs):
-        """ helper for create_itemset_tid_dict()
-        Uses combinations generated from current k itemset tidset dict to
-        create next k itemset tidset dict
+    def find_k_itemset_tidset_dict(self, combs):
+        """Creates k-length itemset tidset dictionary from k-length
+        combinations list
         """
-        k_itemset_tid_dict = dict()
+        k_itemset_tidset_dict = dict()
         for a_comb in combs:
             item0 = a_comb[0]  # first combination
             # initialize tidset with first tidset
@@ -256,12 +243,10 @@ class EclatController:
                 next_tidset = self.model.item_tidset_dict[next_item]
                 tidset_intersect = tidset_intersect.intersection(next_tidset)
             if len(tidset_intersect) >= self.model.min_supp:
-                k_itemset_tid_dict[a_comb] = tidset_intersect
-        return k_itemset_tid_dict
+                k_itemset_tidset_dict[a_comb] = tidset_intersect
+        return k_itemset_tidset_dict
 
 
-# ???
-# TODO: Not needed for ECLAT nor association rule generation, useful for graphs
 def create_k_itemsets(itemset_tid_dict):
     """ Returns a list containing lists with k, k-item set, and number of
     occurrences of k-item set
