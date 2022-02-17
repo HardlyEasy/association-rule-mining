@@ -24,6 +24,13 @@ Controller divided into:
 `results` folder already contains program output when running with 
 `DEFAULT_CONSTRAINTS` of `min_supp=15`, `min_conf=.10`, `min_lift=1.00`
 
+The program reads a single CSV file in `data` folder named `grocery_data.csv`.
+Format of CSV file is as `MemberNumber,Date,item`.
+
+Program will output data from model to `results` folder throughout course of
+program. `3b_rule_stat` is final output.
+
+
 # Verbose Details
 Keep the information below in mind when prompted for min support,
 min confidence(A->C), and min lift(A->C).
