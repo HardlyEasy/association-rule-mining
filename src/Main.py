@@ -1,3 +1,4 @@
+import os
 import time
 
 from src.Controller import PreController, EclatController, RuleController
@@ -10,18 +11,20 @@ def main():
     2) EclatController: find frequent itemsets from transactions
     3) RuleController: find association rules using frequent itemsets
     """
-    model = Model()
     view = View()
-    pre_controller = PreController(model, view)
-    eclat_controller = EclatController(model, view)
-    rule_controller = RuleController(model, view)
 
-    pre_controller.run()
-    start = time.time()
-    eclat_controller.run()
-    end = time.time()
-    print(round(end - start, 2), 'seconds for eclat')
-    rule_controller.run()
+    for filename in os.listdir(Model.GROCERY_PATH):
+        model = Model(filename)
+        pre_controller = PreController(model, view)
+        eclat_controller = EclatController(model, view)
+        rule_controller = RuleController(model, view)
+
+        pre_controller.run()
+        start = time.time()
+        eclat_controller.run()
+        end = time.time()
+        rule_controller.run()
+        print(filename, ':', round(end - start, 2), 'seconds for eclat')
     print('End of program.')
 
 

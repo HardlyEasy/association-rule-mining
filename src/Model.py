@@ -3,30 +3,28 @@ from datetime import datetime
 import operator
 import os
 import csv
+import json
 
 
 class Model:
     """Each instance stores data related to a CSV file being mined
     """
-    GROCERY_PATH = os.path.join(os.getcwd(), 'data', 'grocery_data.csv')
-    DEFAULT_CONSTRAINTS = [15, .10, 1.00]
+    GROCERY_PATH = os.path.join(os.getcwd(), '..', 'input')
+    SETTINGS = json.load(open(os.path.join(os.getcwd(), '..',
+                                           'settings.json')))
 
-    def __init__(self, *constraints: Tuple[int, float, float]):
-        # Blank constructor, resort to default
-        if len(constraints) == 0:
-            self.min_supp, self.min_conf, self.min_lift = \
-                self.DEFAULT_CONSTRAINTS
-        else:
-            self.min_supp, self.min_conf, self.min_lift = constraints
+    def __init__(self, filename: str):
+        self.filename = filename
+        self.min_supp = self.SETTINGS['constraints']['min_supp']
+        self.min_conf = self.SETTINGS['constraints']['min_conf']
+        self.min_lift = self.SETTINGS['constraints']['min_lift']
+        # Blanks
         self.csv_data = []
         self.trans = []  # transactions list
         self.item_tidset_dict = dict()
         self.itemset_tidset_dict = dict()
         self.itemset_rule_dict = dict()
         self.rule_stat_dict = dict()
-
-    def set_constraints(self, constraints: Tuple[int, float, float]):
-        self.min_supp, self.min_conf, self.min_lift = constraints
 
     def set_csv_data(self, csv_data: List[List[str]]):
         self.csv_data = csv_data
@@ -50,7 +48,7 @@ class Model:
         """Reads CSV file
         """
         csv_data = []
-        with open(self.GROCERY_PATH,
+        with open(os.path.join(self.GROCERY_PATH, self.filename),
                   mode='r', encoding='latin1') as csv_file:
             csv_reader = csv.reader(csv_file, dialect='excel', delimiter=',',
                                     quoting=csv.QUOTE_ALL)

@@ -9,7 +9,6 @@ class PreController:
         self.view = view
 
     def run(self):
-        self.model.set_constraints(self.view.prompt_constraints())
         self.model.read_csv_file()
         self.model.sort_csv_data()
         self.create_trans()

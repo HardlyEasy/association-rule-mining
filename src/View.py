@@ -6,7 +6,7 @@ import csv
 
 class View:
     # creates folder path if not already exists
-    RESULT_PATH = os.path.join(os.getcwd(), 'results')
+    RESULT_PATH = os.path.join(os.getcwd(), '..', 'output')
 
     def prompt_constraints(self):
         """ Asks for and returns minimum support, confidence, lift
