@@ -12,7 +12,9 @@ class PreController:
         self.model.read_csv_file()
         self.model.sort_csv_data()
         self.create_trans()
-        self.view.write_csv('1_trans.csv', self.model.trans)
+        folder_name = str(self.model.filename.split('.')[0])
+        self.view.write_csv(folder_name, '1_trans.csv',
+                            self.model.trans)
 
     def create_trans(self):
         """Creates and returns trimmed transactions list, 3 steps
@@ -70,11 +72,13 @@ class EclatController:
 
     def run(self):
         self.create_item_tidset_dict()
-        self.view.write_csv('2a_item_tidset.csv', self.model.item_tidset_dict)
+        folder_name = str(self.model.filename.split('.')[0])
+        self.view.write_csv(folder_name, '2a_item_tidset.csv',
+                            self.model.item_tidset_dict)
         self.create_itemset_tidset_dict()
-        self.view.write_csv('2b_itemset_tidset.csv',
+        self.view.write_csv(folder_name, '2b_itemset_tidset.csv',
                             self.model.itemset_tidset_dict)
-        self.view.write_frequency('2c_frequency.csv',
+        self.view.write_frequency(folder_name, '2c_frequency.csv',
                                   self.model.itemset_tidset_dict)
 
     def create_item_tidset_dict(self):
@@ -161,11 +165,12 @@ class RuleController:
         self.view = view
 
     def run(self):
+        folder_name = str(self.model.filename.split('.')[0])
         self.create_itemset_rule_dict()
-        self.view.write_csv('3a_itemset_rule.csv',
+        self.view.write_csv(folder_name, '3a_itemset_rule.csv',
                             self.model.itemset_rule_dict)
         self.create_rule_stat_dict()
-        self.view.write_rule_stat('3b_rule_stat.csv',
+        self.view.write_rule_stat(folder_name, '3b_rule_stat.csv',
                                   self.model.rule_stat_dict)
 
     def create_itemset_rule_dict(self):

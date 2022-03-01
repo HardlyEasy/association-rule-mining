@@ -17,14 +17,17 @@ class View:
         constraints = (min_supp, min_conf, min_lift)
         return constraints
 
-    def write_csv(self, out_filename: str, data: Union[List, Dict],
-                  header=None):
+    def write_csv(self, out_folder: str, out_filename: str,
+                  data: Union[List, Dict], header=None):
         """Data from List or Dict gets written to CSV file
         header is first line to be written to CSV file
         """
         if not os.path.exists(self.RESULT_PATH):
-            os.makedirs(self.RESULT_PATH, exist_ok=True)
-        write_path = os.path.join(self.RESULT_PATH, out_filename)
+            os.makedirs(self.RESULT_PATH, exist_ok=False)
+        folder_path = os.path.join(self.RESULT_PATH, out_folder)
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path, exist_ok=False)
+        write_path = os.path.join(folder_path, out_filename)
         with open(write_path, 'w', newline='') as csv_file:
             csv_writer = csv.writer(csv_file)
             if header is not None:
@@ -35,7 +38,8 @@ class View:
                 for i in data.items():
                     csv_writer.writerow(i)
 
-    def write_frequency(self, csv_filename, itemset_tidset_dict):
+    def write_frequency(self, out_folder: str, out_filename: str,
+                        itemset_tidset_dict):
         """Finds number of occurrences of k-itemsets and writes them
         """
         itemset_frequency = []
@@ -54,9 +58,10 @@ class View:
         # Sort by k
         itemset_frequency = sorted(itemset_frequency,
                                    key=operator.itemgetter(0), reverse=False)
-        self.write_csv(csv_filename, itemset_frequency)
+        self.write_csv(out_folder, out_filename, itemset_frequency)
 
-    def write_rule_stat(self, csv_filename, rule_stat_dict):
+    def write_rule_stat(self, out_folder: str, out_filename: str,
+                        rule_stat_dict):
         """Writes rule stat dict data nicely
         """
         rule_stat_list = []
@@ -72,6 +77,6 @@ class View:
         # Sort by size(A+C)
         rule_stat_list = sorted(rule_stat_list, key=operator.itemgetter(0),
                                 reverse=True)
-        self.write_csv(csv_filename, rule_stat_list,
+        self.write_csv(out_folder, out_filename, rule_stat_list,
                        ['Size(A+C)', 'Size(A)', 'Size(C)', 'A', 'C',
                         'Supp(A->C)', 'Conf(A->C)', 'Lift(A->C)'])

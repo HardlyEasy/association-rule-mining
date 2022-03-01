@@ -1,7 +1,7 @@
 {
   "constraints": {
     "min_supp": 15,
-    "min_conf": 0.10,
+    "min_conf": 0.05,
     "min_lift": 1.00
   }
 }

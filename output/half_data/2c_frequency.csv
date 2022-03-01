@@ -1,0 +1,183 @@
+1,whole milk,1519
+1,other vegetables,1140
+1,sausage,903
+1,tropical fruit,870
+1,rolls/buns,814
+1,root vegetables,723
+1,citrus fruit,713
+1,soda,644
+1,frankfurter,565
+1,yogurt,559
+1,pip fruit,558
+1,pork,519
+1,beef,469
+1,canned beer,448
+1,chicken,401
+1,bottled water,374
+1,bottled beer,339
+1,pastry,302
+1,hamburger meat,291
+1,ham,251
+1,meat,247
+1,berries,229
+1,whipped/sour cream,223
+1,curd,222
+1,butter,219
+1,brown bread,197
+1,onions,181
+1,coffee,178
+1,dessert,176
+1,newspapers,162
+1,UHT-milk,160
+1,beverages,145
+1,grapes,144
+1,domestic eggs,140
+1,fruit/vegetable juice,132
+1,frozen vegetables,131
+1,ice cream,131
+1,shopping bags,125
+1,butter milk,119
+1,frozen meals,118
+1,misc. beverages,111
+1,margarine,111
+1,cream cheese,108
+1,white bread,106
+1,chocolate,102
+1,specialty chocolate,90
+1,herbs,89
+1,specialty bar,86
+1,salty snack,84
+1,packaged fruit/vegetables,74
+1,turkey,74
+1,sugar,74
+1,white wine,73
+1,waffles,71
+1,long life bakery product,69
+1,oil,69
+1,hard cheese,67
+1,sliced cheese,62
+1,finished products,62
+1,napkins,61
+1,candy,55
+1,chewing gum,54
+1,red/blush wine,53
+1,liquor,52
+1,photo/film,50
+1,soft cheese,49
+1,semi-finished bread,49
+1,cat food,48
+1,condensed milk,47
+1,hygiene articles,47
+1,liver loaf,47
+1,processed cheese,46
+1,spread cheese,44
+1,pot plants,40
+1,pet care,40
+1,pasta,38
+1,frozen fish,37
+1,seasonal products,34
+1,dishes,31
+1,zwieback,31
+1,canned fish,31
+1,detergent,30
+1,frozen dessert,30
+1,frozen potato products,29
+1,liquor (appetizer),28
+1,nuts/prunes,27
+1,fish,26
+1,salt,26
+1,baking powder,24
+1,pickled vegetables,23
+1,instant coffee,23
+1,mayonnaise,23
+1,flour,22
+1,dog food,21
+1,specialty cheese,21
+1,roll products,21
+1,dish cleaner,20
+1,organic sausage,20
+1,cake bar,20
+1,chocolate marshmallow,19
+1,sweet spreads,18
+1,sparkling wine,18
+1,mustard,17
+1,brandy,17
+1,curd cheese,15
+1,Instant food products,15
+1,canned vegetables,15
+2,"('whole milk', 'sausage')",74
+2,"('whole milk', 'other vegetables')",58
+2,"('whole milk', 'rolls/buns')",52
+2,"('whole milk', 'tropical fruit')",47
+2,"('whole milk', 'frankfurter')",41
+2,"('sausage', 'other vegetables')",41
+2,"('whole milk', 'citrus fruit')",40
+2,"('whole milk', 'yogurt')",36
+2,"('whole milk', 'root vegetables')",33
+2,"('whole milk', 'pork')",33
+2,"('frankfurter', 'other vegetables')",33
+2,"('rolls/buns', 'other vegetables')",32
+2,"('tropical fruit', 'other vegetables')",31
+2,"('other vegetables', 'citrus fruit')",30
+2,"('sausage', 'root vegetables')",29
+2,"('sausage', 'tropical fruit')",28
+2,"('whole milk', 'soda')",27
+2,"('whole milk', 'bottled beer')",27
+2,"('tropical fruit', 'citrus fruit')",27
+2,"('whole milk', 'beef')",26
+2,"('whole milk', 'chicken')",25
+2,"('whole milk', 'hamburger meat')",25
+2,"('whole milk', 'pastry')",25
+2,"('sausage', 'yogurt')",25
+2,"('whole milk', 'canned beer')",24
+2,"('whole milk', 'pip fruit')",24
+2,"('sausage', 'soda')",24
+2,"('sausage', 'rolls/buns')",24
+2,"('soda', 'other vegetables')",24
+2,"('frankfurter', 'citrus fruit')",24
+2,"('pip fruit', 'other vegetables')",24
+2,"('tropical fruit', 'rolls/buns')",23
+2,"('root vegetables', 'rolls/buns')",23
+2,"('sausage', 'frankfurter')",22
+2,"('canned beer', 'rolls/buns')",22
+2,"('soda', 'rolls/buns')",21
+2,"('yogurt', 'citrus fruit')",21
+2,"('whole milk', 'meat')",20
+2,"('whole milk', 'ham')",20
+2,"('soda', 'tropical fruit')",20
+2,"('frankfurter', 'rolls/buns')",20
+2,"('rolls/buns', 'pork')",20
+2,"('other vegetables', 'yogurt')",20
+2,"('other vegetables', 'pork')",20
+2,"('sausage', 'pip fruit')",19
+2,"('sausage', 'bottled beer')",19
+2,"('tropical fruit', 'root vegetables')",19
+2,"('root vegetables', 'other vegetables')",19
+2,"('rolls/buns', 'citrus fruit')",19
+2,"('rolls/buns', 'bottled beer')",19
+2,"('other vegetables', 'meat')",19
+2,"('sausage', 'pork')",18
+2,"('soda', 'frankfurter')",18
+2,"('frankfurter', 'root vegetables')",18
+2,"('tropical fruit', 'yogurt')",18
+2,"('tropical fruit', 'pork')",18
+2,"('sausage', 'bottled water')",17
+2,"('beef', 'other vegetables')",17
+2,"('tropical fruit', 'pip fruit')",17
+2,"('rolls/buns', 'yogurt')",17
+2,"('other vegetables', 'bottled water')",17
+2,"('whole milk', 'bottled water')",16
+2,"('whole milk', 'grapes')",16
+2,"('sausage', 'chicken')",16
+2,"('frankfurter', 'tropical fruit')",16
+2,"('beef', 'citrus fruit')",16
+2,"('pip fruit', 'rolls/buns')",16
+2,"('rolls/buns', 'pastry')",16
+2,"('citrus fruit', 'pork')",16
+2,"('sausage', 'pastry')",15
+2,"('sausage', 'curd')",15
+2,"('soda', 'root vegetables')",15
+2,"('frankfurter', 'bottled water')",15
+2,"('tropical fruit', 'bottled beer')",15
+2,"('other vegetables', 'chicken')",15
+2,"('chicken', 'citrus fruit')",15

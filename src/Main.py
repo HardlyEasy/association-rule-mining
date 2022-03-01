@@ -24,7 +24,8 @@ def main():
         eclat_controller.run()
         end = time.time()
         rule_controller.run()
-        print(filename, ':', round(end - start, 2), 'seconds for eclat')
+        print(filename, ' : ', round(end - start, 2), 's eclat',
+              ', ', len(model.trans), ' transactions', sep='')
     print('End of program.')
 
 

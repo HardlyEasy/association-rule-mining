@@ -1,0 +1,95 @@
+Size(A+C),Size(A),Size(C),A,C,Supp(A->C),Conf(A->C),Lift(A->C)
+3,2,1,"('whole milk', 'yogurt')","('sausage',)",0.00147,0.1317,2.1829
+3,2,1,"('whole milk', 'sausage')","('yogurt',)",0.00147,0.1642,1.9118
+3,2,1,"('sausage', 'yogurt')","('whole milk',)",0.00147,0.2558,1.6199
+3,2,1,"('whole milk', 'soda')","('sausage',)",0.001069,0.092,1.5237
+3,2,1,"('whole milk', 'rolls/buns')","('sausage',)",0.001136,0.0813,1.3478
+3,2,1,"('rolls/buns', 'sausage')","('whole milk',)",0.001136,0.2125,1.3456
+3,2,1,"('whole milk', 'sausage')","('soda',)",0.001069,0.1194,1.2296
+3,2,1,"('whole milk', 'sausage')","('rolls/buns',)",0.001136,0.1269,1.1533
+3,2,1,"('rolls/buns', 'soda')","('other vegetables',)",0.001136,0.1405,1.1507
+3,2,1,"('sausage', 'soda')","('whole milk',)",0.001069,0.1798,1.1384
+3,2,1,"('whole milk', 'rolls/buns')","('yogurt',)",0.001337,0.0957,1.1143
+3,2,1,"('rolls/buns', 'other vegetables')","('soda',)",0.001136,0.1076,1.108
+3,2,1,"('whole milk', 'yogurt')","('rolls/buns',)",0.001337,0.1198,1.0887
+3,2,1,"('rolls/buns', 'yogurt')","('whole milk',)",0.001337,0.1709,1.0824
+3,2,1,"('other vegetables', 'soda')","('rolls/buns',)",0.001136,0.1172,1.0658
+2,1,1,"('specialty chocolate',)","('citrus fruit',)",0.001403,0.0879,1.6538
+2,1,1,"('flour',)","('tropical fruit',)",0.001069,0.1096,1.6171
+2,1,1,"('beverages',)","('sausage',)",0.001537,0.0927,1.5368
+2,1,1,"('napkins',)","('pastry',)",0.001738,0.0785,1.5185
+2,1,1,"('processed cheese',)","('root vegetables',)",0.001069,0.1053,1.513
+2,1,1,"('hard cheese',)","('pip fruit',)",0.001069,0.0727,1.4826
+2,1,1,"('soft cheese',)","('yogurt',)",0.00127,0.1267,1.475
+2,1,1,"('curd',)","('sausage',)",0.002941,0.0873,1.4466
+2,1,1,"('detergent',)","('yogurt',)",0.001069,0.124,1.4443
+2,1,1,"('sugar',)","('bottled water',)",0.00147,0.083,1.3681
+2,1,1,"('white bread',)","('canned beer',)",0.001537,0.0641,1.3656
+2,1,1,"('canned beer',)","('brown bread',)",0.002406,0.0513,1.3629
+2,1,1,"('brown bread',)","('canned beer',)",0.002406,0.0639,1.3629
+2,1,1,"('chewing gum',)","('yogurt',)",0.001403,0.1167,1.3585
+2,1,1,"('sliced cheese',)","('sausage',)",0.001136,0.081,1.3414
+2,1,1,"('processed cheese',)","('rolls/buns',)",0.00147,0.1447,1.3157
+2,1,1,"('candy',)","('citrus fruit',)",0.001002,0.0698,1.3131
+2,1,1,"('packaged fruit/vegetables',)","('rolls/buns',)",0.001203,0.1417,1.2884
+2,1,1,"('seasonal products',)","('rolls/buns',)",0.001002,0.1415,1.2864
+2,1,1,"('frozen meals',)","('sausage',)",0.00127,0.0757,1.2543
+2,1,1,"('herbs',)","('yogurt',)",0.001136,0.1076,1.2529
+2,1,1,"('cat food',)","('tropical fruit',)",0.001002,0.0847,1.2505
+2,1,1,"('oil',)","('soda',)",0.001804,0.1211,1.2468
+2,1,1,"('specialty chocolate',)","('tropical fruit',)",0.001337,0.0837,1.2348
+2,1,1,"('sliced cheese',)","('root vegetables',)",0.001203,0.0857,1.232
+2,1,1,"('grapes',)","('sausage',)",0.001069,0.0741,1.2274
+2,1,1,"('frozen vegetables',)","('sausage',)",0.002072,0.074,1.226
+2,1,1,"('sausage',)","('bottled beer',)",0.003342,0.0554,1.222
+2,1,1,"('bottled beer',)","('sausage',)",0.003342,0.0737,1.222
+2,1,1,"('onions',)","('whipped/sour cream',)",0.001069,0.0528,1.2081
+2,1,1,"('butter milk',)","('shopping bags',)",0.001002,0.057,1.1986
+2,1,1,"('napkins',)","('citrus fruit',)",0.001403,0.0634,1.1941
+2,1,1,"('beverages',)","('soda',)",0.001871,0.1129,1.1627
+2,1,1,"('red/blush wine',)","('rolls/buns',)",0.001337,0.1274,1.158
+2,1,1,"('chocolate',)","('pip fruit',)",0.001337,0.0567,1.155
+2,1,1,"('meat',)","('root vegetables',)",0.001337,0.0794,1.1408
+2,1,1,"('salty snack',)","('canned beer',)",0.001002,0.0534,1.1378
+2,1,1,"('misc. beverages',)","('sausage',)",0.001069,0.0678,1.1234
+2,1,1,"('frankfurter',)","('other vegetables',)",0.005146,0.1363,1.1161
+2,1,1,"('semi-finished bread',)","('whole milk',)",0.001671,0.1761,1.1148
+2,1,1,"('sausage',)","('yogurt',)",0.005748,0.0952,1.109
+2,1,1,"('yogurt',)","('sausage',)",0.005748,0.0669,1.109
+2,1,1,"('frozen vegetables',)","('bottled beer',)",0.001403,0.0501,1.1061
+2,1,1,"('frozen vegetables',)","('root vegetables',)",0.002139,0.0764,1.0978
+2,1,1,"('chocolate',)","('rolls/buns',)",0.002807,0.119,1.0816
+2,1,1,"('frozen vegetables',)","('citrus fruit',)",0.001604,0.0573,1.0781
+2,1,1,"('dessert',)","('shopping bags',)",0.001203,0.051,1.0716
+2,1,1,"('cream cheese ',)","('shopping bags',)",0.001203,0.0508,1.0686
+2,1,1,"('grapes',)","('root vegetables',)",0.001069,0.0741,1.0647
+2,1,1,"('beverages',)","('bottled water',)",0.001069,0.0645,1.0632
+2,1,1,"('berries',)","('pip fruit',)",0.001136,0.0521,1.0631
+2,1,1,"('UHT-milk',)","('tropical fruit',)",0.001537,0.0719,1.0606
+2,1,1,"('detergent',)","('rolls/buns',)",0.001002,0.1163,1.057
+2,1,1,"('hygiene articles',)","('root vegetables',)",0.001002,0.0732,1.0517
+2,1,1,"('pot plants',)","('other vegetables',)",0.001002,0.1282,1.05
+2,1,1,"('frozen meals',)","('other vegetables',)",0.002139,0.1275,1.0441
+2,1,1,"('ice cream',)","('rolls/buns',)",0.001738,0.1145,1.0412
+2,1,1,"('meat',)","('other vegetables',)",0.002139,0.127,1.04
+2,1,1,"('waffles',)","('root vegetables',)",0.001337,0.0722,1.0378
+2,1,1,"('butter',)","('citrus fruit',)",0.001938,0.055,1.0357
+2,1,1,"('hard cheese',)","('rolls/buns',)",0.001671,0.1136,1.033
+2,1,1,"('dessert',)","('sausage',)",0.00147,0.0623,1.0327
+2,1,1,"('detergent',)","('whole milk',)",0.001403,0.1628,1.0308
+2,1,1,"('brown bread',)","('pastry',)",0.002005,0.0533,1.0301
+2,1,1,"('pastry',)","('sausage',)",0.003208,0.062,1.0276
+2,1,1,"('sausage',)","('pastry',)",0.003208,0.0532,1.0276
+2,1,1,"('sausage',)","('soda',)",0.005948,0.0986,1.015
+2,1,1,"('soda',)","('sausage',)",0.005948,0.0613,1.015
+2,1,1,"('ham',)","('whole milk',)",0.00274,0.1602,1.0141
+2,1,1,"('yogurt',)","('citrus fruit',)",0.004611,0.0537,1.0106
+2,1,1,"('citrus fruit',)","('yogurt',)",0.004611,0.0868,1.0106
+2,1,1,"('shopping bags',)","('root vegetables',)",0.003342,0.0702,1.0094
+2,1,1,"('hard cheese',)","('yogurt',)",0.00127,0.0864,1.0056
+2,1,1,"('berries',)","('other vegetables',)",0.002673,0.1227,1.0049
+2,1,1,"('specialty bar',)","('yogurt',)",0.001203,0.0861,1.0029
+2,1,1,"('salty snack',)","('sausage',)",0.001136,0.0605,1.0025
+2,1,1,"('grapes',)","('soda',)",0.001403,0.0972,1.0012
+2,1,1,"('beef',)","('citrus fruit',)",0.001804,0.0531,1.0003
+2,1,1,"('fruit/vegetable juice',)","('rolls/buns',)",0.003743,0.11,1.0001
