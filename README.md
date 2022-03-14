@@ -9,10 +9,11 @@ Input sample data (actual input is 30,000+ entries long):
 Output sample association rules:
 
 
-| Size(A+C) | Size(A) | Size(C) | Antecedent | Consequent | Support | Conf. | Lift |
-|-----------|---------|---------|------------|------------|---------|-------|------|
-|      3    |    2    |    1    | ('yogurt', 'whole milk') | ('sausage',) | 0.00147 | 0.1317 |  2.1829 |
-|      2    |    1    |    1    | ('specialty chocolate',) | ('citrus fruit',) | 0.001403 | 0.0879 | 1.6538 |
+| Size(A+C) | Antecedent | Consequent | Support | Conf. | Lift |
+|---------- |------------|------------|---------|-------|------|
+|      3    | ('yogurt', 'whole milk') | ('sausage',) | 0.00147 | 0.1317 |2.1829 |
+|      2    | ('specialty chocolate',) | ('citrus fruit',) | 0.001403 | 0. 0879 | 1.6538 |
+
 Go to constraints explained section for explanation on support, confidence, lift.
 
 Manager could place 'speciality chocolate' and 'citrus fruit' next to each 
