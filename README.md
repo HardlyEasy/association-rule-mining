@@ -1,3 +1,23 @@
+# Demo
+Input sample data (actual input is 30,000+ entries long):
+
+| Member Number|    Date   |      Item      |
+|--------------|-----------|----------------|
+| 1808         | 21-07-2015| tropical fruit |
+| 2552         | 05-01-2015| whole milk     |
+
+Output sample association rules:
+
+
+| Size(A+C) | Size(A) | Size(C) | Antecedent | Consequent | Support | Conf. | Lift |
+|-----------|---------|---------|------------|------------|---------|-------|------|
+|      3    |    2    |    1    | ('yogurt', 'whole milk') | ('sausage',) | 0.00147 | 0.1317 |  2.1829 |
+|      2    |    1    |    1    | ('specialty chocolate',) | ('citrus fruit',) | 0.001403 | 0.0879 | 1.6538 |
+Go to constraints explained section for explanation on support, confidence, lift.
+
+Manager could place 'speciality chocolate' and 'citrus fruit' next to each 
+other in store to encourage sales or create % off combo deals.
+
 # Purpose
 Association rules can aid in product placement/sales.
 
@@ -15,26 +35,27 @@ placing of products. Eg: Manager creates combo deal, buy antecedent item,
 get % off consequent item.
 
 
-# Usage
-The program reads all CSV files in `input` folder.
+# Program Guide
+The program reads all CSV files in `input` folder. 
 Format of all input CSV files should be `MemberNumber,Date,Item`.
 
 Program will output data from model to `output` folder throughout course of
 program. `3b_rule_stat.csv` is final output containing filtered association
 rules. Repo already contains output results from default constraints.
 
+## Usage
 Edit the `settings.json` to adjust constraints of `min_supp`, `min_conf`, 
 `min_lift`. Go to [Verbose Details](#Verbose Details) section for 
 explanation on support, confidence, lift.
 
-# Structure
+## Structure
 MVC pattern used.
 Controller divided into:
 1) PreController handling creation of transactions list from csv data
 2) EclatController handling finding frequent itemsets from transactions
 3) RuleController handling finding association rules from frequent itemsets
 
-# Verbose Details
+# Constraints Explained
 Support measures how frequent an itemset is in all transactions.
 Association rules with low support should be ignored, since
 it does not occur frequently enough to draw any conclusions from.
