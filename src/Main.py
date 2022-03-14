@@ -12,12 +12,15 @@ def main():
     3) RuleController: find association rules using frequent itemsets
     """
     view = View()
+    pre_controller = PreController(None, view)
+    eclat_controller = EclatController(None, view)
+    rule_controller = RuleController(None, view)
 
     for filename in os.listdir(Model.GROCERY_PATH):
         model = Model(filename)
-        pre_controller = PreController(model, view)
-        eclat_controller = EclatController(model, view)
-        rule_controller = RuleController(model, view)
+        pre_controller.model = model
+        eclat_controller.model = model
+        rule_controller.model = model
 
         pre_controller.run()
         start = time.time()

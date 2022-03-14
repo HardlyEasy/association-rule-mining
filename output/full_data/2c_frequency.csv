@@ -739,12 +739,12 @@
 2,"('chicken', 'domestic eggs')",15
 2,"('candy', 'citrus fruit')",15
 2,"('citrus fruit', 'cream cheese ')",15
-3,"('sausage', 'yogurt', 'whole milk')",22
-3,"('rolls/buns', 'yogurt', 'whole milk')",20
+3,"('sausage', 'whole milk', 'yogurt')",22
+3,"('rolls/buns', 'whole milk', 'yogurt')",20
 3,"('rolls/buns', 'whole milk', 'other vegetables')",18
+3,"('sausage', 'rolls/buns', 'whole milk')",17
 3,"('soda', 'rolls/buns', 'other vegetables')",17
 3,"('soda', 'whole milk', 'other vegetables')",17
-3,"('rolls/buns', 'sausage', 'whole milk')",17
-3,"('yogurt', 'whole milk', 'other vegetables')",17
-3,"('soda', 'sausage', 'whole milk')",16
+3,"('whole milk', 'other vegetables', 'yogurt')",17
+3,"('sausage', 'soda', 'whole milk')",16
 3,"('soda', 'rolls/buns', 'whole milk')",15

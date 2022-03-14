@@ -1,19 +1,19 @@
 Size(A+C),Size(A),Size(C),A,C,Supp(A->C),Conf(A->C),Lift(A->C)
-3,2,1,"('whole milk', 'yogurt')","('sausage',)",0.00147,0.1317,2.1829
-3,2,1,"('whole milk', 'sausage')","('yogurt',)",0.00147,0.1642,1.9118
-3,2,1,"('sausage', 'yogurt')","('whole milk',)",0.00147,0.2558,1.6199
-3,2,1,"('whole milk', 'soda')","('sausage',)",0.001069,0.092,1.5237
+3,2,1,"('yogurt', 'whole milk')","('sausage',)",0.00147,0.1317,2.1829
+3,2,1,"('sausage', 'whole milk')","('yogurt',)",0.00147,0.1642,1.9118
+3,2,1,"('yogurt', 'sausage')","('whole milk',)",0.00147,0.2558,1.6199
+3,2,1,"('soda', 'whole milk')","('sausage',)",0.001069,0.092,1.5237
 3,2,1,"('whole milk', 'rolls/buns')","('sausage',)",0.001136,0.0813,1.3478
-3,2,1,"('rolls/buns', 'sausage')","('whole milk',)",0.001136,0.2125,1.3456
-3,2,1,"('whole milk', 'sausage')","('soda',)",0.001069,0.1194,1.2296
-3,2,1,"('whole milk', 'sausage')","('rolls/buns',)",0.001136,0.1269,1.1533
-3,2,1,"('rolls/buns', 'soda')","('other vegetables',)",0.001136,0.1405,1.1507
-3,2,1,"('sausage', 'soda')","('whole milk',)",0.001069,0.1798,1.1384
+3,2,1,"('sausage', 'rolls/buns')","('whole milk',)",0.001136,0.2125,1.3456
+3,2,1,"('sausage', 'whole milk')","('soda',)",0.001069,0.1194,1.2296
+3,2,1,"('sausage', 'whole milk')","('rolls/buns',)",0.001136,0.1269,1.1533
+3,2,1,"('soda', 'rolls/buns')","('other vegetables',)",0.001136,0.1405,1.1507
+3,2,1,"('soda', 'sausage')","('whole milk',)",0.001069,0.1798,1.1384
 3,2,1,"('whole milk', 'rolls/buns')","('yogurt',)",0.001337,0.0957,1.1143
-3,2,1,"('rolls/buns', 'other vegetables')","('soda',)",0.001136,0.1076,1.108
-3,2,1,"('whole milk', 'yogurt')","('rolls/buns',)",0.001337,0.1198,1.0887
-3,2,1,"('rolls/buns', 'yogurt')","('whole milk',)",0.001337,0.1709,1.0824
-3,2,1,"('other vegetables', 'soda')","('rolls/buns',)",0.001136,0.1172,1.0658
+3,2,1,"('other vegetables', 'rolls/buns')","('soda',)",0.001136,0.1076,1.108
+3,2,1,"('yogurt', 'whole milk')","('rolls/buns',)",0.001337,0.1198,1.0887
+3,2,1,"('yogurt', 'rolls/buns')","('whole milk',)",0.001337,0.1709,1.0824
+3,2,1,"('soda', 'other vegetables')","('rolls/buns',)",0.001136,0.1172,1.0658
 2,1,1,"('specialty chocolate',)","('citrus fruit',)",0.001403,0.0879,1.6538
 2,1,1,"('flour',)","('tropical fruit',)",0.001069,0.1096,1.6171
 2,1,1,"('beverages',)","('sausage',)",0.001537,0.0927,1.5368
