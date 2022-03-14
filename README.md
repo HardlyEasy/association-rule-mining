@@ -1,5 +1,5 @@
 # Demo
-Input sample data (actual input is 30,000+ entries long):
+Input sample data:
 
 | Member Number|    Date   |      Item      |
 |--------------|-----------|----------------|
@@ -8,24 +8,21 @@ Input sample data (actual input is 30,000+ entries long):
 
 Output sample association rules:
 
-
 | Size(A+C) | Antecedent | Consequent | Support | Conf. | Lift |
 |---------- |------------|------------|---------|-------|------|
 |      3    | ('yogurt', 'whole milk') | ('sausage',) | 0.00147 | 0.1317 |2.1829 |
-|      2    | ('specialty chocolate',) | ('citrus fruit',) | 0.001403 | 0. 0879 | 1.6538 |
+|      2    | ('specialty chocolate',) | ('citrus fruit',) | 0.001403 | 0.0879 | 1.6538 |
 
-Go to constraints explained section for explanation on support, confidence, lift.
-
-Manager could place 'speciality chocolate' and 'citrus fruit' next to each 
-other in store to encourage sales or create % off combo deals.
+Go to constraints explained section for explanation on support, confidence, 
+lift and explanation on how to interpret this data.
 
 # Purpose
 Association rules can aid in product placement/sales.
 
 Association rules determine how likely a customer is to have a consequent
-item in a cart given the antecedent is in the cart. In other words, if a
-customer has milk in their cart, association rule can tell how likely
-customer will put eggs in cart.
+itemset in a cart given the antecedent itemset is already the cart. For 
+example, if a customer has milk and eggs in their cart (antecedent itemset), 
+association rule can tell how likely customer will put yogurt (consequent itemset) in cart.
 
 Lift values above 1 indicate increased chance of purchasing consequent item,
 given antecedent purchased. The higher the value above 1, the higher the
@@ -53,6 +50,8 @@ explanation on support, confidence, lift.
 MVC pattern used.
 Controller divided into:
 1) PreController handling creation of transactions list from csv data
+   1) A transaction is a list of items purchased on same date by the same 
+      grocery shopper ID
 2) EclatController handling finding frequent itemsets from transactions
 3) RuleController handling finding association rules from frequent itemsets
 
